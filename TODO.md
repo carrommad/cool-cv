@@ -1,3 +1,2 @@
-make public copies of git repositories so that they can be added for reference. also, document them with pictures.
-
-i am short on AI for this job requirements? what can we do?
+- [x] include a button half black half white (vertically) to change between night and day mode. It should also change the ambient audio (the audio playing) to match the mode.
+- [x] incorporate modernist geometric vector glyphs inspired by https://bookofshapes.com/ (embedded in Chapters 01 to 04).

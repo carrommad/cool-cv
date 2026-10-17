@@ -4,9 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Carlos Romero Madrid — Portfolio & Trajectory</title>
+  
+  <!-- Curated High-Character Typefaces from Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;600;700;800&family=JetBrains+Mono:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Favicon: Yellow ball matching webpage aesthetic -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -18,47 +20,68 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
   <style>
+    /* =========================================================
+       HIGH-CONTRAST BLACK & WHITE EDITORIAL DESIGN SYSTEM
+       Strictly monochrome for maximum impact & compositional oxygen
+       ========================================================= */
     :root {
-      --bg-cream: #fafaf9;
-      --card-white: #ffffff;
-      --text-dark: #090d16;
-      --text-body: #243042;
-      --text-muted: #526071;
+      /* Dark Mode Palette (Default) */
+      --bw-bg: #000000;
+      --bw-surface: #0a0a0a;
+      --bw-surface-hover: #141414;
+      --bw-surface-sunken: #050505;
       
-      /* Matching Pastel Design Palette from CV & Cover Letter */
-      --header-bg: #fff9ea;
-      --header-border: #fee8b0;
-      --header-text: #78350f;
-      --header-sub: #b45309;
+      --bw-border: #ffffff;
+      --bw-border-medium: #4a4a4a;
+      --bw-border-subtle: #242424;
+      
+      --bw-text: #ffffff;
+      --bw-text-muted: #a1a1aa;
+      --bw-text-dim: #71717a;
+      
+      --bw-btn-bg: #ffffff;
+      --bw-btn-text: #000000;
+      --bw-btn-border: #ffffff;
+      --bw-btn-hover-bg: #e4e4e7;
+      
+      --bw-pill-bg: #121212;
+      --bw-pill-text: #ffffff;
+      --bw-pill-border: #2a2a2a;
 
-      --coral-bg: #ffebe9;
-      --coral-border: #ffd2cc;
-      --coral-text: #8a1d14;
-      --coral-accent: #c83226;
+      /* Typography Family Design Tokens */
+      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      
+      /* Card-Specific Experimental Fonts */
+      --font-c1: 'Syne', sans-serif;                /* Card 01: Modern, wide, architectural */
+      --font-c2: 'Space Grotesk', sans-serif;        /* Card 02: Brutalist tech grotesque */
+      --font-c3: 'Bricolage Grotesque', sans-serif;  /* Card 03: Quirky, expressive, dynamic */
+      --font-c4: 'Playfair Display', serif;          /* Card 04: Editorial high-contrast serif */
+    }
 
-      --mint-bg: #eaf6ee;
-      --mint-border: #cdecd5;
-      --mint-text: #14532d;
-      --mint-accent: #15803d;
-
-      --lavender-bg: #f1edfb;
-      --lavender-border: #ded6f7;
-      --lavender-text: #4c1d95;
-      --lavender-accent: #6d28d9;
-
-      --sky-bg: #e8f4fc;
-      --sky-border: #cbe6fa;
-      --sky-text: #0369a1;
-      --sky-accent: #0284c7;
-
-      /* Strictly Monochromatic Blue Gradient for Career Cards & Map Trajectory */
-      /* Single Blue Hue: 210° (BSC Royal Blue), 100% Saturation, Varying ONLY Lightness/Intensity */
-      --color-stage-bonn: #7bbbff;        /* Stage 1 (L=74%): Fraunhofer FHR 2018 */
-      --color-stage-marseille: #3d9eff;   /* Stage 2 (L=62%): MSc Plasma 2019 */
-      --color-stage-seville: #007fff;     /* Stage 3 (L=50%): Univ. Seville 2020 */
-      --color-stage-pamplona: #006bd6;    /* Stage 4 (L=42%): CENER 2022 */
-      --color-stage-bsc-past: #004c97;    /* Stage 5a: BSC Fusion (2023–2025) - Official BSC Logo Blue */
-      --color-stage-bsc-current: #004c97; /* Stage 5b (L=30%): Official BSC Logo Royal Blue (Performance Current ★) */
+    /* Light Mode Palette (100% Black & White) */
+    body.theme-light {
+      --bw-bg: #ffffff;
+      --bw-surface: #ffffff;
+      --bw-surface-hover: #f5f5f5;
+      --bw-surface-sunken: #f8f8f8;
+      
+      --bw-border: #000000;
+      --bw-border-medium: #b0b0b0;
+      --bw-border-subtle: #e4e4e7;
+      
+      --bw-text: #000000;
+      --bw-text-muted: #52525b;
+      --bw-text-dim: #888888;
+      
+      --bw-btn-bg: #000000;
+      --bw-btn-text: #ffffff;
+      --bw-btn-border: #000000;
+      --bw-btn-hover-bg: #27272a;
+      
+      --bw-pill-bg: #f4f4f5;
+      --bw-pill-text: #000000;
+      --bw-pill-border: #d4d4d8;
     }
 
     * {
@@ -68,29 +91,28 @@
     }
 
     html, body {
-      height: 100vh;
-      height: 100dvh;
       margin: 0;
       padding: 0;
-      overflow: hidden;
       box-sizing: border-box;
+      min-height: 100vh;
+      overflow-y: auto; /* Vertical scroll explicitly enabled */
+      overflow-x: hidden;
+      background-color: var(--bw-bg);
+      color: var(--bw-text);
+      transition: background-color 0.25s ease, color 0.25s ease;
     }
 
     body {
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      background-color: var(--bg-cream);
-      color: var(--text-dark);
-      font-size: 14px;
-      line-height: 1.45;
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.6;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
       position: relative;
-      padding: 20px;
     }
 
-    /* Ambient Relaxing Particle Canvas Background */
+    /* Subtle Ambient Canvas Background */
     #ambient-particles-canvas {
       position: fixed;
       top: 0;
@@ -99,292 +121,511 @@
       height: 100vh;
       pointer-events: none;
       z-index: 0;
+      opacity: 0.65;
     }
 
+    /* MAIN CONTAINER — Expanded for oxygen & focus */
     .container {
       max-width: 980px;
       width: 100%;
-      margin: auto;
+      margin: 0 auto;
+      padding: 40px 24px 100px;
       display: flex;
       flex-direction: column;
-      gap: 11px;
       position: relative;
       z-index: 1;
       box-sizing: border-box;
     }
 
-    /* TOP HEADER (Vanilla Pastel) */
-    header.header-card {
-      background: var(--header-bg);
-      border: 1.5px solid var(--header-border);
-      border-radius: 14px;
-      padding: 10px 18px;
+    /* =========================================================
+       HERO HEADER — Large, Attractive, Typographic Statement
+       ========================================================= */
+    .hero-header {
+      padding: 30px 0 45px;
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+      border-bottom: 2px solid var(--bw-border);
+      margin-bottom: 40px;
+    }
+
+    .hero-top-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: nowrap;
-      gap: 12px;
-      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.03);
+      flex-wrap: wrap;
+      gap: 14px;
     }
 
-    .header-info h1 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 21px;
-      font-weight: 800;
-      color: var(--header-text);
-      letter-spacing: -0.025em;
-      line-height: 1.15;
-      white-space: nowrap;
-    }
-
-    .header-info p {
-      font-size: 12.5px;
-      font-weight: 600;
-      color: var(--header-sub);
-      margin-top: 2px;
-      white-space: nowrap;
-    }
-
-    .header-links {
-      display: flex;
-      flex-wrap: nowrap;
-      gap: 7px;
-      flex-shrink: 0;
-    }
-
-    .btn-link {
+    .status-badge {
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-      background: #ffffff;
-      color: var(--header-text);
-      border: 1.5px solid var(--header-border);
-      padding: 5px 12px;
+      gap: 9px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--bw-text-muted);
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--bw-text);
+      box-shadow: 0 0 8px var(--bw-text);
+      animation: status-pulse 2s infinite ease-in-out;
+    }
+    @keyframes status-pulse {
+      0% { opacity: 0.4; transform: scale(0.85); }
+      50% { opacity: 1; transform: scale(1.2); }
+      100% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    .hero-controls {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .btn-ctrl {
+      background: var(--bw-surface);
+      color: var(--bw-text);
+      border: 1.5px solid var(--bw-border-medium);
       border-radius: 9999px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11.5px;
+      padding: 6px 14px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-ctrl:hover {
+      border-color: var(--bw-border);
+      background: var(--bw-surface-hover);
+      transform: translateY(-1px);
+    }
+    .btn-ctrl.playing {
+      background: var(--bw-btn-bg);
+      color: var(--bw-btn-text);
+      border-color: var(--bw-btn-border);
+    }
+
+    /* Vertical Half-Black Half-White Split Disc Icon */
+    .split-disc {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 1.5px solid currentColor;
+      background: linear-gradient(to right, #000000 50%, #ffffff 50%);
+      display: inline-block;
+      flex-shrink: 0;
+      box-shadow: 0 0 5px rgba(255, 255, 255, 0.25);
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .btn-ctrl:hover .split-disc {
+      transform: rotate(180deg);
+    }
+
+    /* Modernist Vector Emblems (Book of Shapes) */
+    .shape-emblem {
+      width: 28px;
+      height: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--bw-text);
+      opacity: 0.75;
+      margin-top: 6px;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .editorial-card:hover .shape-emblem {
+      opacity: 1;
+      transform: scale(1.15) rotate(45deg);
+    }
+
+    .hero-name-block {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    h1.hero-name {
+      font-family: var(--font-c1); /* Syne 800 display */
+      font-size: clamp(38px, 6.8vw, 82px);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 0.98;
+      color: var(--bw-text);
+      margin: 0;
+      text-transform: uppercase;
+    }
+
+    .hero-discipline {
+      font-family: var(--font-mono);
+      font-size: clamp(12px, 1.5vw, 14.5px);
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--bw-text);
+      opacity: 0.92;
+    }
+
+    .hero-bio {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--bw-text-muted);
+      max-width: 760px;
+      margin: 0;
+    }
+
+    .hero-actions-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-top: 6px;
+    }
+
+    .btn-hero {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 18px;
+      border-radius: 9999px;
+      font-family: var(--font-mono);
+      font-size: 12px;
       font-weight: 700;
       text-decoration: none;
-      white-space: nowrap;
-      transition: all 0.2s ease;
-    }
-    .btn-link:hover {
-      background: #fdf5df;
-      transform: translateY(-2px);
-      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-    }
-    .btn-primary {
-      background: #0f172a;
-      color: #ffffff;
-      border: 1.5px solid #0f172a;
-    }
-    .btn-primary:hover {
-      background: #334155;
-      color: #ffffff;
-    }
-    .btn-audio {
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
       cursor: pointer;
-      background: #ffffff;
-      color: #6d28d9;
-      border-color: #ded6f7;
+      white-space: nowrap;
     }
-    .btn-audio:hover {
-      background: #f1edfb;
-      border-color: #c4b5fd;
+    .btn-hero-primary {
+      background: var(--bw-btn-bg);
+      color: var(--bw-btn-text);
+      border: 2px solid var(--bw-btn-border);
     }
-    .btn-audio.playing {
-      background: #f1edfb;
-      border-color: #8b5cf6;
-      color: #5b21b6;
-      box-shadow: 0 0 14px rgba(139, 92, 246, 0.25);
-    }
-    /* Floating Top-Right Ambient Audio Button */
-    .btn-floating-audio {
-      position: fixed;
-      top: 18px;
-      right: 22px;
-      z-index: 100;
-      box-shadow: 0 4px 16px rgba(109, 40, 217, 0.12), 0 2px 6px rgba(0, 0, 0, 0.04);
-      background: rgba(255, 255, 255, 0.94);
-      backdrop-filter: blur(8px);
-      border: 1.5px solid #ded6f7;
-      padding: 7px 15px;
-      font-size: 12px;
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .btn-floating-audio:hover {
-      background: #f8f5ff;
-      border-color: #a78bfa;
+    .btn-hero-primary:hover {
+      background: var(--bw-btn-hover-bg);
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(109, 40, 217, 0.2);
+      box-shadow: 0 6px 18px rgba(255, 255, 255, 0.2);
     }
-    .btn-floating-audio.playing {
-      background: #f5f0ff;
-      border-color: #8b5cf6;
-      color: #5b21b6;
-      box-shadow: 0 0 18px rgba(139, 92, 246, 0.35);
+    body.theme-light .btn-hero-primary:hover {
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
     }
-    .audio-wave-icon {
-      display: inline-flex;
-      align-items: flex-end;
-      gap: 2.5px;
-      height: 14px;
-      width: 14px;
+    .btn-hero-secondary {
+      background: transparent;
+      color: var(--bw-text);
+      border: 2px solid var(--bw-border-medium);
     }
-    .audio-wave-icon .bar {
-      width: 2.5px;
-      background: currentColor;
-      border-radius: 2px;
-      height: 4px;
-      transition: height 0.2s ease;
-    }
-    .btn-audio.playing .bar1 {
-      animation: soundWave 0.8s ease-in-out infinite alternate;
-    }
-    .btn-audio.playing .bar2 {
-      animation: soundWave 0.6s ease-in-out 0.2s infinite alternate;
-    }
-    .btn-audio.playing .bar3 {
-      animation: soundWave 1.0s ease-in-out 0.4s infinite alternate;
-    }
-    @keyframes soundWave {
-      0% { height: 3px; }
-      100% { height: 14px; }
+    .btn-hero-secondary:hover {
+      border-color: var(--bw-border);
+      background: var(--bw-surface-hover);
+      transform: translateY(-2px);
     }
 
     /* =========================================================
-       4-CARD COMPACT DASHBOARD MENU
+       TYPOGRAPHY COMPARISON LAB BAR
+       Allows comparing cards in 4 fonts or previewing all in 1
        ========================================================= */
-    .menu-instruction {
+    .typo-lab-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 12px 18px;
+      background: var(--bw-surface-sunken);
+      border: 1px solid var(--bw-border-subtle);
+      border-radius: 12px;
+      margin-bottom: 34px;
+    }
+
+    .typo-lab-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--bw-text-muted);
+    }
+
+    .typo-lab-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .btn-typo {
+      background: transparent;
+      color: var(--bw-text-muted);
+      border: 1px solid var(--bw-border-subtle);
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-typo:hover {
+      color: var(--bw-text);
+      border-color: var(--bw-border-medium);
+    }
+    .btn-typo.active {
+      background: var(--bw-btn-bg);
+      color: var(--bw-btn-text);
+      border-color: var(--bw-btn-border);
+    }
+
+    /* =========================================================
+       VERTICAL 1-COLUMN LIST WITH BIG NUMBERS ON THE LEFT
+       Oxygen-rich composition with generous whitespace & hierarchy
+       ========================================================= */
+    .section-intro-row {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: baseline;
       padding: 0 4px;
-      margin-bottom: -3px;
+      margin-bottom: 20px;
     }
-    .instruction-text {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--text-muted);
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
+      color: var(--bw-text-muted);
     }
-    .instruction-hint {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10.5px;
-      color: #2563eb;
+    .section-hint {
+      font-family: var(--font-mono);
+      font-size: 11px;
       font-weight: 600;
+      color: var(--bw-text-dim);
     }
 
-    .four-cards-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 11px;
-    }
-
-    .menu-card {
-      border-radius: 14px;
-      padding: 13px 18px;
-      cursor: pointer;
-      position: relative;
-      border: 1.5px solid rgba(0, 0, 0, 0.08);
-      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.03);
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    .vertical-cards-list {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      gap: 36px;
+      margin-bottom: 60px;
+    }
+
+    .editorial-card {
+      background: var(--bw-surface);
+      border: 1.5px solid var(--bw-border-subtle);
+      border-radius: 18px;
+      padding: 42px 46px;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
       overflow: hidden;
     }
-    .menu-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+    .editorial-card:hover {
+      border-color: var(--bw-border);
+      background: var(--bw-surface-hover);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+    }
+    body.theme-light .editorial-card {
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+    }
+    body.theme-light .editorial-card:hover {
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.1);
     }
 
-    .card-watermark-num {
-      position: absolute;
-      top: 8px;
-      right: 14px;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 30px;
-      font-weight: 800;
-      opacity: 0.16;
-      line-height: 1;
-      pointer-events: none;
+    .card-grid-inner {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 36px;
+      align-items: start;
     }
 
-    .mc-tag {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 9.5px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin-bottom: 2px;
-      display: block;
-    }
-
-    .mc-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 16px;
-      font-weight: 800;
-      line-height: 1.2;
-      margin-bottom: 3px;
-      letter-spacing: -0.015em;
-    }
-
-    .mc-desc {
-      font-size: 11.5px;
-      line-height: 1.35;
-      color: var(--text-body);
-      margin-bottom: 6px;
-    }
-
-    .mc-footer-action {
+    /* LEFT COLUMN: THE BIG NUMBER */
+    .card-num-col {
       display: flex;
-      align-items: center;
-      gap: 5px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10px;
-      font-weight: 800;
-      margin-top: auto;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
       padding-top: 2px;
     }
 
-    /* Card Themes */
-    .mc-coral {
-      background: var(--coral-bg);
-      border-color: var(--coral-border);
+    .card-big-num {
+      font-size: clamp(64px, 8vw, 94px);
+      font-weight: 900;
+      line-height: 0.85;
+      letter-spacing: -0.05em;
+      color: var(--bw-text);
+      display: block;
+      transition: transform 0.25s ease;
     }
-    .mc-coral .mc-tag { color: var(--coral-accent); }
-    .mc-coral .mc-title { color: var(--coral-text); }
-    .mc-coral .mc-footer-action { color: var(--coral-accent); }
+    .editorial-card:hover .card-big-num {
+      transform: scale(1.05);
+    }
 
-    .mc-mint {
-      background: var(--mint-bg);
-      border-color: var(--mint-border);
+    .card-font-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 7px;
+      border-radius: 4px;
+      background: var(--bw-pill-bg);
+      color: var(--bw-text-muted);
+      border: 1px solid var(--bw-border-subtle);
     }
-    .mc-mint .mc-tag { color: var(--mint-accent); }
-    .mc-mint .mc-title { color: var(--mint-text); }
-    .mc-mint .mc-footer-action { color: var(--mint-accent); }
 
-    .mc-lavender {
-      background: var(--lavender-bg);
-      border-color: var(--lavender-border);
+    /* RIGHT COLUMN: CARD CONTENT */
+    .card-content-col {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
     }
-    .mc-lavender .mc-tag { color: var(--lavender-accent); }
-    .mc-lavender .mc-title { color: var(--lavender-text); }
-    .mc-lavender .mc-footer-action { color: var(--lavender-accent); }
 
-    .mc-sky {
-      background: var(--sky-bg);
-      border-color: var(--sky-border);
+    .card-meta-line {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
     }
-    .mc-sky .mc-tag { color: var(--sky-accent); }
-    .mc-sky .mc-title { color: var(--sky-text); }
-    .mc-sky .mc-footer-action { color: var(--sky-accent); }
+
+    .meta-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--bw-text-muted);
+    }
+
+    .meta-bullet {
+      color: var(--bw-border-medium);
+      font-size: 12px;
+    }
+
+    .meta-period {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--bw-text-dim);
+    }
+
+    .card-title {
+      font-size: clamp(24px, 3.2vw, 32px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      color: var(--bw-text);
+      margin: 0;
+    }
+
+    .card-desc {
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--bw-text-muted);
+      margin: 0;
+      max-width: 680px;
+    }
+
+    .card-highlights-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .hl-pill {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      background: var(--bw-pill-bg);
+      color: var(--bw-text);
+      border: 1px solid var(--bw-border-subtle);
+      transition: all 0.2s ease;
+    }
+    .editorial-card:hover .hl-pill {
+      border-color: var(--bw-border-medium);
+    }
+
+    .card-action-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 10px;
+      padding-top: 16px;
+      border-top: 1px solid var(--bw-border-subtle);
+    }
+
+    .action-prompt {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--bw-text);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s ease;
+    }
+    .editorial-card:hover .action-prompt {
+      gap: 10px;
+    }
+
+    /* CARD-SPECIFIC TYPOGRAPHIES */
+    .card-syne .card-big-num,
+    .card-syne .card-title {
+      font-family: var(--font-c1);
+    }
+    .card-space .card-big-num,
+    .card-space .card-title {
+      font-family: var(--font-c2);
+    }
+    .card-bricolage .card-big-num,
+    .card-bricolage .card-title {
+      font-family: var(--font-c3);
+    }
+    .card-playfair .card-big-num,
+    .card-playfair .card-title {
+      font-family: var(--font-c4);
+    }
+
+    /* GLOBAL TYPOGRAPHY OVERRIDE PREVIEWS */
+    body.font-override-syne .card-big-num,
+    body.font-override-syne .card-title,
+    body.font-override-syne h1.hero-name {
+      font-family: var(--font-c1) !important;
+    }
+    body.font-override-space .card-big-num,
+    body.font-override-space .card-title,
+    body.font-override-space h1.hero-name {
+      font-family: var(--font-c2) !important;
+    }
+    body.font-override-bricolage .card-big-num,
+    body.font-override-bricolage .card-title,
+    body.font-override-bricolage h1.hero-name {
+      font-family: var(--font-c3) !important;
+    }
+    body.font-override-playfair .card-big-num,
+    body.font-override-playfair .card-title,
+    body.font-override-playfair h1.hero-name {
+      font-family: var(--font-c4) !important;
+    }
 
     /* =========================================================
-       EXPANDED MODAL OVERLAY (Grows bigger, scrollable, click-out)
+       EXPANDED MODAL OVERLAY (B&W High-Contrast Architecture)
        ========================================================= */
     .modal-overlay {
       position: fixed;
@@ -392,13 +633,13 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(15, 23, 42, 0.65);
-      backdrop-filter: blur(8px);
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(10px);
       z-index: 9999;
       display: none;
       align-items: center;
       justify-content: center;
-      padding: 24px 16px;
+      padding: 30px 20px;
       opacity: 0;
       transition: opacity 0.25s ease;
     }
@@ -406,18 +647,22 @@
       display: flex;
       opacity: 1;
     }
+    body.theme-light .modal-overlay {
+      background: rgba(0, 0, 0, 0.72);
+    }
 
     .modal-panel {
       width: 100%;
-      max-width: 1060px;
+      max-width: 1080px;
       max-height: 90vh;
       border-radius: 20px;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
-      border: 1.5px solid rgba(255, 255, 255, 0.6);
+      background: var(--bw-surface);
+      border: 2px solid var(--bw-border);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      transform: scale(0.96);
+      transform: scale(0.97);
       transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .modal-overlay.active .modal-panel {
@@ -425,84 +670,64 @@
     }
 
     .modal-header {
-      padding: 22px 28px;
+      padding: 24px 32px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1.5px solid rgba(0, 0, 0, 0.08);
-      background: rgba(255, 255, 255, 0.65);
-      backdrop-filter: blur(10px);
+      border-bottom: 2px solid var(--bw-border-subtle);
+      background: var(--bw-surface);
     }
     .modal-header-titles h2 {
-      font-family: 'Space Grotesk', sans-serif;
       font-size: 24px;
       font-weight: 800;
-      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--bw-text);
+      margin: 0;
     }
     .modal-header-titles span {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      font-weight: 800;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
+      color: var(--bw-text-muted);
     }
 
     .btn-close-modal {
-      background: #ffffff;
-      color: #0f172a;
-      border: 1.5px solid rgba(0, 0, 0, 0.12);
-      width: 40px;
-      height: 40px;
+      background: transparent;
+      color: var(--bw-text);
+      border: 1.5px solid var(--bw-border);
+      width: 42px;
+      height: 42px;
       border-radius: 50%;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 700;
       transition: all 0.2s ease;
     }
     .btn-close-modal:hover {
-      background: #0f172a;
-      color: #ffffff;
+      background: var(--bw-btn-bg);
+      color: var(--bw-btn-text);
       transform: scale(1.08);
     }
 
     .modal-scroll-body {
-      padding: 30px;
+      padding: 36px 32px;
       overflow-y: auto;
       flex: 1;
+      color: var(--bw-text);
     }
 
-    /* Modal Themes */
-    .panel-coral { background: var(--coral-bg); }
-    .panel-coral .modal-header-titles h2 { color: var(--coral-text); }
-    .panel-coral .modal-header-titles span { color: var(--coral-accent); }
-
-    .panel-mint { background: var(--mint-bg); }
-    .panel-mint .modal-header-titles h2 { color: var(--mint-text); }
-    .panel-mint .modal-header-titles span { color: var(--mint-accent); }
-
-    .panel-lavender { background: var(--lavender-bg); }
-    .panel-lavender .modal-header-titles h2 { color: var(--lavender-text); }
-    .panel-lavender .modal-header-titles span { color: var(--lavender-accent); }
-
-    .panel-sky { background: var(--sky-bg); }
-    .panel-sky .modal-header-titles h2 { color: var(--sky-text); }
-    .panel-sky .modal-header-titles span { color: var(--sky-accent); }
-
-    /* =========================================================
-       INTERNAL COMPONENT STYLING INSIDE EXPANDED MODALS
-       ========================================================= */
-
-    /* Section 01: Map & Timeline */
+    /* Modal Internal Sections */
     .map-container {
-      background: #ffffff;
+      background: var(--bw-surface-sunken);
       border-radius: 16px;
-      border: 1.5px solid var(--coral-border);
-      padding: 20px 22px;
-      margin-bottom: 26px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+      border: 1.5px solid var(--bw-border-subtle);
+      padding: 24px;
+      margin-bottom: 28px;
     }
     .map-header {
       display: flex;
@@ -513,63 +738,62 @@
       gap: 10px;
     }
     .map-header h3 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 19px;
-      color: var(--coral-text);
+      font-size: 18px;
       font-weight: 800;
+      color: var(--bw-text);
     }
     .map-hint {
-      font-size: 13px;
-      color: var(--coral-accent);
-      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-family: var(--font-mono);
+      color: var(--bw-text-muted);
       font-weight: 700;
     }
     #europe-leaflet-map {
       width: 100%;
       height: 520px;
       border-radius: 12px;
-      border: 1.5px solid #e2e8f0;
-      background: #e5eef7;
-      z-index: 1;
+      border: 1.5px solid var(--bw-border-medium);
+      filter: grayscale(100%) contrast(120%);
     }
+
     .custom-map-marker {
-      border: 3.5px solid #ffffff;
+      border: 3px solid var(--bw-bg);
+      background: var(--bw-text);
       border-radius: 50%;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.35);
+      box-shadow: 0 0 12px var(--bw-text);
       cursor: pointer;
       transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     .custom-map-marker:hover, .custom-map-marker.active {
       transform: scale(1.4);
-      box-shadow: 0 0 18px rgba(0,0,0,0.45);
-      border-color: #fef08a;
+      background: var(--bw-text);
+      box-shadow: 0 0 20px var(--bw-text);
     }
+
     .country-tooltip {
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: var(--font-body);
       font-size: 13px;
       line-height: 1.45;
-      color: #0f172a;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(0, 76, 151, 0.25);
+      color: var(--bw-text);
+      background: var(--bw-surface);
+      border: 1.5px solid var(--bw-border);
       border-radius: 8px;
       padding: 8px 12px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
     }
     .popup-city {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 17px;
+      font-size: 16px;
       font-weight: 800;
-      margin-bottom: 3px;
+      margin-bottom: 2px;
     }
     .popup-org {
-      font-size: 13.5px;
+      font-size: 13px;
       font-weight: 600;
-      color: #334155;
+      color: var(--bw-text-muted);
     }
     .popup-role {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12.5px;
+      font-family: var(--font-mono);
+      font-size: 12px;
       margin-top: 4px;
       font-weight: 700;
     }
@@ -580,145 +804,90 @@
       gap: 18px;
     }
     .timeline-card {
-      background: rgba(255, 255, 255, 0.94);
-      border: 1.5px solid rgba(200, 50, 38, 0.16);
+      background: var(--bw-surface-sunken);
+      border: 1.5px solid var(--bw-border-subtle);
+      border-left: 6px solid var(--bw-border) !important;
       border-radius: 14px;
-      padding: 20px 22px;
+      padding: 22px 24px;
       transition: all 0.25s ease;
       cursor: pointer;
-      border-left-width: 7px;
       display: flex;
       flex-direction: column;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
     }
     .timeline-card:hover, .timeline-card.highlight {
-      background: #ffffff;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-      transform: translateY(-3px);
+      border-color: var(--bw-border);
+      background: var(--bw-surface-hover);
+      transform: translateY(-2px);
     }
-    /* Chronological Blue Gradient Left Borders */
-    .card-bonn { border-left-color: var(--color-stage-bonn); }
-    .card-marseille { border-left-color: var(--color-stage-marseille); }
-    .card-seville { border-left-color: var(--color-stage-seville); }
-    .card-pamplona { border-left-color: var(--color-stage-pamplona); }
-    .card-bsc-fusion { 
-      border-left-color: var(--color-stage-bsc-current) !important;
-      border-left-width: 8px !important;
-    }
-    .card-bsc-perf { 
-      position: relative;
-      border-left-color: var(--color-stage-bsc-current) !important;
-      border-left-width: 8px !important;
-      background: #f0f7ff;
-      border-color: #004c97;
-      box-shadow: 0 6px 24px rgba(0, 76, 151, 0.16);
-    }
-
     .t-location-badge {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12.5px;
-      font-weight: 800;
-      padding: 4px 9px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
       border-radius: 6px;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       align-self: flex-start;
-    }
-    /* Elegant Chronological Blue Location Badges (Harmonized single-hue blue) */
-    .badge-bonn { color: #0060c2; background: #f0f7ff; border: 1px solid #c2e0ff; }
-    .badge-marseille { color: #0056ad; background: #e6f2ff; border: 1px solid #99ccff; }
-    .badge-seville { color: #004c97; background: #dcebff; border: 1px solid #7bbbff; }
-    .badge-pamplona { color: #003e7d; background: #d0e4ff; border: 1px solid #3d9eff; }
-    .badge-bsc-past { color: #004c97; background: #e6f2ff; border: 1.5px solid #0060c2; }
-    .badge-bsc-current {
-      color: #ffffff;
-      background: #004c97; /* Official BSC Logo Royal Blue */
-      box-shadow: 0 3px 10px rgba(0, 76, 151, 0.35);
-    }
-    .live-dot-top-right {
-      position: absolute;
-      top: 18px;
-      right: 18px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: rgba(74, 222, 128, 0.18);
-      border: 1px solid rgba(74, 222, 128, 0.45);
-      z-index: 2;
-    }
-    .live-dot {
-      width: 9px;
-      height: 9px;
-      background: #22c55e;
-      border-radius: 50%;
-      display: inline-block;
-      box-shadow: 0 0 10px #22c55e;
-      animation: pulse-live 1.8s infinite;
-    }
-    @keyframes pulse-live {
-      0% { transform: scale(0.9); opacity: 0.8; box-shadow: 0 0 4px #22c55e; }
-      50% { transform: scale(1.35); opacity: 1; box-shadow: 0 0 12px #22c55e; }
-      100% { transform: scale(0.9); opacity: 0.8; box-shadow: 0 0 4px #22c55e; }
+      background: var(--bw-pill-bg);
+      color: var(--bw-text);
+      border: 1px solid var(--bw-border-subtle);
     }
     .t-card-role {
-      font-family: 'Space Grotesk', sans-serif;
       font-weight: 800;
-      font-size: 17.5px;
-      color: #0f172a;
+      font-size: 17px;
+      color: var(--bw-text);
       margin-bottom: 2px;
       line-height: 1.3;
     }
     .t-card-org {
-      font-size: 15px;
+      font-size: 14.5px;
       font-weight: 700;
-      color: #334155;
+      color: var(--bw-text-muted);
     }
     .t-card-dates {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 13px;
-      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      color: var(--bw-text-dim);
       margin-top: 2px;
       margin-bottom: 8px;
       font-weight: 600;
     }
     .t-card-desc {
-      font-size: 14.5px;
-      line-height: 1.55;
-      color: var(--text-body);
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--bw-text-muted);
       margin-top: auto;
     }
 
-    /* Section 02: Foundations */
+    /* Modal 02: Academic Foundations & Tech Stack */
     .foundations-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 22px;
+      gap: 24px;
     }
     @media (max-width: 768px) {
       .foundations-grid { grid-template-columns: 1fr; }
     }
     .sub-card {
-      background: rgba(255, 255, 255, 0.94);
-      border: 1.5px solid rgba(21, 128, 61, 0.2);
+      background: var(--bw-surface-sunken);
+      border: 1.5px solid var(--bw-border-subtle);
       border-radius: 16px;
-      padding: 24px 26px;
+      padding: 26px;
     }
     .sub-card h4 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 19px;
+      font-size: 18px;
       font-weight: 800;
-      color: var(--mint-text);
-      margin-bottom: 14px;
+      color: var(--bw-text);
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--bw-border-subtle);
     }
     .edu-item {
       margin-bottom: 14px;
       padding-bottom: 12px;
-      border-bottom: 1px dashed rgba(21, 128, 61, 0.25);
+      border-bottom: 1px dashed var(--bw-border-subtle);
     }
     .edu-item:last-child {
       margin-bottom: 0;
@@ -727,22 +896,22 @@
     }
     .edu-title {
       font-weight: 800;
-      font-size: 16px;
-      color: var(--mint-text);
+      font-size: 15.5px;
+      color: var(--bw-text);
       line-height: 1.35;
     }
     .edu-meta {
-      font-size: 14px;
-      color: #334155;
+      font-size: 13.5px;
+      color: var(--bw-text-muted);
       margin-top: 3px;
     }
     .edu-rank {
       display: inline-block;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12.5px;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
       font-weight: 800;
-      color: var(--mint-accent);
-      background: #dcfce7;
+      color: var(--bw-btn-text);
+      background: var(--bw-btn-bg);
       padding: 2px 8px;
       border-radius: 4px;
       margin-top: 5px;
@@ -754,17 +923,17 @@
       margin-top: 8px;
     }
     .pill {
-      background: #ffffff;
-      color: var(--mint-text);
-      border: 1.5px solid rgba(21, 128, 61, 0.3);
-      padding: 4px 11px;
+      background: var(--bw-pill-bg);
+      color: var(--bw-text);
+      border: 1px solid var(--bw-border-medium);
+      padding: 5px 12px;
       border-radius: 8px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 13px;
+      font-family: var(--font-mono);
+      font-size: 12.5px;
       font-weight: 700;
     }
 
-    /* Section 03: Creative Computing (2x2) */
+    /* Modal 03: Creative Computing & Installations */
     .creative-2x2-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -774,61 +943,86 @@
       .creative-2x2-grid { grid-template-columns: 1fr; }
     }
     .project-box {
-      background: rgba(255, 255, 255, 0.94);
-      border: 1.5px solid rgba(109, 40, 217, 0.2);
+      background: var(--bw-surface-sunken);
+      border: 1.5px solid var(--bw-border-subtle);
       border-radius: 16px;
-      padding: 24px;
+      padding: 26px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       transition: all 0.25s ease;
-      box-shadow: 0 4px 14px rgba(109, 40, 217, 0.04);
+      gap: 16px;
     }
     .project-box:hover {
-      background: #ffffff;
-      border-color: var(--lavender-accent);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(109, 40, 217, 0.12);
+      border-color: var(--bw-border);
+      background: var(--bw-surface-hover);
+      transform: translateY(-2px);
+    }
+    .proj-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--bw-text-muted);
+      background: var(--bw-pill-bg);
+      border: 1px solid var(--bw-border-subtle);
+      padding: 3px 9px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .proj-name {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--bw-text);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .proj-desc {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--bw-text-muted);
+      margin-bottom: 12px;
     }
     .proj-preview-gallery {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
-      margin: 12px 0 10px;
+      margin: 6px 0;
     }
     .proj-img-wrap {
       position: relative;
       border-radius: 10px;
       overflow: hidden;
       display: block;
-      border: 1.5px solid rgba(109, 40, 217, 0.15);
+      border: 1.5px solid var(--bw-border-subtle);
       background: #000;
       transition: all 0.2s ease;
       aspect-ratio: 16/9;
     }
     .proj-img-wrap:hover {
       transform: scale(1.02);
-      border-color: var(--lavender-accent);
-      box-shadow: 0 4px 14px rgba(109, 40, 217, 0.18);
+      border-color: var(--bw-border);
     }
     .proj-img-wrap img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
+      filter: grayscale(15%) contrast(105%);
     }
     .proj-img-cap {
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
-      background: rgba(15, 23, 42, 0.78);
+      background: rgba(0, 0, 0, 0.85);
       color: #fff;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10px;
+      font-family: var(--font-mono);
+      font-size: 9.5px;
       font-weight: 700;
       padding: 3px 6px;
-      backdrop-filter: blur(4px);
       text-align: center;
     }
     .proj-links-row {
@@ -840,121 +1034,99 @@
       display: inline-flex;
       align-items: center;
       gap: 5px;
-      font-family: 'JetBrains Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 11.5px;
       font-weight: 700;
-      color: #6d28d9;
-      background: #f5f0ff;
-      border: 1px solid #ded6f7;
+      color: var(--bw-text);
+      background: var(--bw-pill-bg);
+      border: 1px solid var(--bw-border-medium);
       padding: 5px 12px;
       border-radius: 9999px;
       text-decoration: none;
       transition: all 0.2s ease;
     }
     .btn-proj-link:hover {
-      background: #ede4ff;
-      border-color: #8b5cf6;
-      transform: translateY(-1px);
-    }
-    .proj-badge {
-      display: inline-block;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12.5px;
-      font-weight: 800;
-      color: var(--lavender-accent);
-      background: #ede9fe;
-      padding: 3px 9px;
-      border-radius: 6px;
-      margin-bottom: 10px;
-    }
-    .proj-name {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 20px;
-      font-weight: 800;
-      color: var(--lavender-text);
-      margin-bottom: 8px;
-      line-height: 1.3;
-    }
-    .proj-desc {
-      font-size: 15px;
-      line-height: 1.6;
-      color: #334155;
-      margin-bottom: 16px;
+      border-color: var(--bw-border);
+      background: var(--bw-btn-bg);
+      color: var(--bw-btn-text);
     }
     .media-dropzone-notice {
-      background: #f8fafc;
-      border: 2px dashed rgba(109, 40, 217, 0.35);
+      background: var(--bw-surface);
+      border: 1.5px dashed var(--bw-border-medium);
       border-radius: 12px;
       padding: 12px 14px;
       text-align: center;
-      font-size: 13px;
-      color: #64748b;
-      font-family: 'JetBrains Mono', monospace;
+      font-size: 12.5px;
+      color: var(--bw-text-muted);
+      font-family: var(--font-mono);
       margin-top: auto;
     }
     .media-dropzone-notice strong {
-      color: var(--lavender-accent);
+      color: var(--bw-text);
       display: block;
-      margin-bottom: 3px;
-      font-size: 13.5px;
+      margin-bottom: 2px;
+      font-size: 13px;
     }
 
-    /* Section 04: Cover Letter Article */
+    /* Modal 04: Cover Letter Article */
     .letter-container {
-      background: #ffffff;
+      background: var(--bw-surface-sunken);
       border-radius: 16px;
-      border: 1.5px solid var(--sky-border);
-      padding: 34px 38px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
+      border: 1.5px solid var(--bw-border-subtle);
+      padding: 40px 44px;
       font-size: 16px;
-      line-height: 1.7;
+      line-height: 1.8;
+      max-width: 880px;
+      margin: 0 auto;
     }
     .letter-header-row {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
-      border-bottom: 2px solid var(--sky-border);
-      padding-bottom: 16px;
-      margin-bottom: 24px;
+      border-bottom: 2px solid var(--bw-border-subtle);
+      padding-bottom: 18px;
+      margin-bottom: 26px;
       flex-wrap: wrap;
       gap: 14px;
     }
     .letter-recipient {
-      background: #f0f9ff;
-      border-left: 4px solid #0284c7;
-      padding: 12px 16px;
+      background: var(--bw-surface);
+      border-left: 4px solid var(--bw-border);
+      padding: 14px 18px;
       border-radius: 6px;
-      margin-bottom: 22px;
+      margin-bottom: 24px;
       font-size: 15px;
-      color: #0369a1;
+      color: var(--bw-text);
     }
     .letter-subject {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 18px;
+      font-size: 19px;
       font-weight: 800;
-      color: #0c4a6e;
-      margin-bottom: 18px;
+      color: var(--bw-text);
+      margin-bottom: 20px;
+      letter-spacing: -0.015em;
     }
     .letter-body p {
-      margin-bottom: 16px;
+      margin-bottom: 18px;
       text-align: justify;
-      color: #334155;
+      color: var(--bw-text);
     }
     .letter-pillars-list {
-      margin: 18px 0 22px 20px;
+      margin: 20px 0 24px 20px;
       padding-left: 10px;
     }
     .letter-pillars-list li {
-      margin-bottom: 12px;
-      color: #334155;
+      margin-bottom: 14px;
+      color: var(--bw-text);
     }
     .letter-pillars-list strong {
-      color: #0369a1;
+      color: var(--bw-text);
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
     .letter-signoff {
-      border-top: 1.5px solid #e2e8f0;
-      padding-top: 20px;
-      margin-top: 28px;
+      border-top: 1.5px solid var(--bw-border-subtle);
+      padding-top: 22px;
+      margin-top: 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -964,235 +1136,331 @@
 
     /* FOOTER */
     footer.footer-card {
-      background: var(--header-bg);
-      border: 1.5px solid var(--header-border);
-      border-radius: 12px;
-      padding: 7px 18px;
+      border-top: 2px solid var(--bw-border-subtle);
+      padding-top: 30px;
+      margin-top: 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: nowrap;
-      gap: 12px;
-      font-size: 11.5px;
-      color: var(--header-sub);
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 12px;
+      color: var(--bw-text-muted);
+      font-family: var(--font-mono);
     }
     .footer-left, .footer-right {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
+      flex-wrap: wrap;
     }
-    .footer-link {
+    .footer-link, footer a {
+      color: var(--bw-text);
+      font-weight: 700;
+      text-decoration: none;
+      transition: opacity 0.2s ease;
       display: inline-flex;
       align-items: center;
-      gap: 4.5px;
-      color: var(--header-text);
-      font-weight: 800;
-      text-decoration: none;
-      transition: color 0.15s ease;
+      gap: 4px;
     }
-    .footer-link:hover {
-      color: #004c97;
+    .footer-link:hover, footer a:hover {
       text-decoration: underline;
-    }
-    .footer-link svg {
-      opacity: 0.85;
+      opacity: 0.8;
     }
     .footer-sep {
-      opacity: 0.45;
-    }
-    .footer-label {
-      font-weight: 600;
-      color: var(--header-sub);
-      margin-right: 2px;
-    }
-    footer a {
-      color: var(--header-text);
-      font-weight: 800;
-      text-decoration: none;
-      transition: color 0.15s ease;
-    }
-    footer a:hover {
-      color: #004c97;
-      text-decoration: underline;
+      opacity: 0.35;
     }
 
-    @media (max-width: 768px) {
-      html, body {
-        height: auto;
-        overflow-y: auto;
-      }
-      body {
-        padding: 12px;
-      }
-      .btn-floating-audio {
-        top: 10px;
-        right: 12px;
-        padding: 5px 11px;
-        font-size: 11px;
-      }
-      .container {
-        height: auto;
-        min-height: auto;
-        gap: 12px;
-        padding: 0;
-      }
-      header.header-card {
-        flex-wrap: wrap;
-      }
-      .header-info h1, .header-info p {
-        white-space: normal;
-      }
-      .header-links {
-        flex-wrap: wrap;
-      }
-      .four-cards-grid {
+    /* RESPONSIVE LAYOUT */
+    @media (max-width: 820px) {
+      .card-grid-inner {
         grid-template-columns: 1fr;
+        gap: 16px;
       }
-      footer.footer-card {
-        flex-wrap: wrap;
+      .card-num-col {
+        flex-direction: row;
+        align-items: baseline;
+        gap: 14px;
       }
-    }
-
-    @media (max-height: 480px) and (min-width: 769px) {
-      html, body {
-        height: auto;
-        overflow-y: auto;
+      .editorial-card {
+        padding: 28px 22px;
       }
-      body {
-        padding: 10px;
+      .hero-header {
+        padding: 20px 0 35px;
+      }
+      .modal-scroll-body {
+        padding: 24px 18px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Ambient Relaxing 5-Color Particle Canvas -->
+  <!-- Ambient Monochrome Particles Background -->
   <canvas id="ambient-particles-canvas"></canvas>
-
-  <!-- Top-Right Floating Ambient Audio Button -->
-  <button id="btn-mnusic-audio" class="btn-link btn-audio btn-floating-audio" onclick="toggleMNusicAudio()" title="Play generative ambient telemetry audio">
-    <span class="audio-wave-icon">
-      <span class="bar bar1"></span>
-      <span class="bar bar2"></span>
-      <span class="bar bar3"></span>
-    </span>
-    <span id="audio-btn-label">Ambient Audio</span>
-  </button>
 
   <div class="container">
     
-    <!-- HEADER -->
-    <header class="header-card">
-      <div class="header-info">
-        <h1>Carlos Romero Madrid</h1>
-        <p>Computational Physicist & Scientific Software Engineer · BSC-CNS</p>
+    <!-- =========================================================
+         HERO HEADER — Prominent, Typographic, Architectural
+         ========================================================= -->
+    <header class="hero-header">
+      
+      <div class="hero-top-bar">
+        <div class="status-badge">
+          <span class="status-dot"></span>
+          <span>Available for Research & Engineering · Barcelona, Spain</span>
+        </div>
+        
+        <div class="hero-controls">
+          <!-- Vertical Half-Black Half-White Split Theme Switcher (Night / Day) -->
+          <button class="btn-ctrl" onclick="toggleThemeBW()" id="btn-theme-toggle" title="Switch between Night and Day mode (also modulates ambient audio)">
+            <span class="split-disc"></span>
+            <span id="theme-btn-label">Night Mode</span>
+          </button>
+          
+          <!-- Ambient Audio Synthesizer -->
+          <button class="btn-ctrl" onclick="toggleMNusicAudio()" id="btn-mnusic-audio" title="Toggle real-time generative MNusic ambient synthesizer">
+            <span class="audio-icon">♫</span>
+            <span id="audio-btn-label">Ambient Audio</span>
+          </button>
+        </div>
       </div>
-      <div class="header-links">
-        <a href="Carlos_Romero_CV.pdf" target="_blank" class="btn-link btn-primary">
+
+      <div class="hero-name-block">
+        <h1 class="hero-name">Carlos Romero Madrid</h1>
+        <div class="hero-discipline">
+          Computational Physicist · Scientific Software Engineer · Creative Computing
+        </div>
+        <p class="hero-bio">
+          Double Degree in Physics & Mathematics. Optimizing petascale solvers across MareNostrum 5 (MN5) and LUMI at the Barcelona Supercomputing Center (BSC-CNS), while prototyping kinetic instruments, sound installations, and tangible data physicalization.
+        </p>
+      </div>
+
+      <!-- Action Navigation Buttons -->
+      <div class="hero-actions-row">
+        <a href="Carlos_Romero_CV.pdf" target="_blank" class="btn-hero btn-hero-primary">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
           Download CV PDF
         </a>
-        <a href="Carlos_Romero_Cover_Letter.pdf" target="_blank" class="btn-link">
+        <a href="Carlos_Romero_Cover_Letter.pdf" target="_blank" class="btn-hero btn-hero-secondary">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
           Cover Letter PDF
         </a>
-        <a href="mailto:carrommad@gmail.com?subject=Aww%2C%20so%20you%20like%20me%3F&body=I%20also%20like%20you%20%E2%AD%90%20Let%27s%20talk%21" class="btn-link">
+        <a href="mailto:carrommad@gmail.com?subject=Aww%2C%20so%20you%20like%20me%3F&body=I%20also%20like%20you%20%E2%AD%90%20Let%27s%20talk%21" class="btn-hero btn-hero-secondary">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
           Email
         </a>
+        <a href="https://linkedin.com/in/carrommad" target="_blank" rel="noopener noreferrer" class="btn-hero btn-hero-secondary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/carrommad" target="_blank" rel="noopener noreferrer" class="btn-hero btn-hero-secondary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          GitHub
+        </a>
       </div>
+
     </header>
 
-    <!-- SECTION TITLE INSTRUCTION -->
-    <div class="menu-instruction">
-      <span class="instruction-text">Portfolio Dashboard Menu</span>
-      <span class="instruction-hint">Click any section card to expand & read in full ↗</span>
+    <!-- =========================================================
+         TYPOGRAPHY COMPARISON LAB (Compare Fonts or Preview Single)
+         ========================================================= -->
+    <div class="typo-lab-bar">
+      <div class="typo-lab-title">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg>
+        <span>Typography Lab:</span>
+      </div>
+      <div class="typo-lab-buttons">
+        <button class="btn-typo active" onclick="setFontPreview('mixed')" id="btn-typo-mixed">Mixed Showcase (4 Distinct Fonts)</button>
+        <button class="btn-typo" onclick="setFontPreview('syne')" id="btn-typo-syne">All Syne 800</button>
+        <button class="btn-typo" onclick="setFontPreview('space')" id="btn-typo-space">All Space Grotesk</button>
+        <button class="btn-typo" onclick="setFontPreview('bricolage')" id="btn-typo-bricolage">All Bricolage</button>
+        <button class="btn-typo" onclick="setFontPreview('playfair')" id="btn-typo-playfair">All Playfair Serif</button>
+      </div>
     </div>
 
-    <!-- 4 COMPACT DASHBOARD CARDS MENU (2x2 GRID) -->
-    <main class="four-cards-grid">
+    <!-- Section Intro Indicator -->
+    <div class="section-intro-row">
+      <span class="section-label">Curated Dossier · 4 Chapters</span>
+      <span class="section-hint">Click any chapter to expand full documentation ↗</span>
+    </div>
+
+    <!-- =========================================================
+         1-COLUMN VERTICAL LIST OF CARDS WITH BIG NUMBERS ON LEFT
+         ========================================================= -->
+    <main class="vertical-cards-list">
       
-      <!-- CARD 01: TRAJECTORY & RESEARCH JOURNEY (Sky Blue) -->
-      <article class="menu-card mc-sky" onclick="openSectionModal('modal-trajectory')">
-        <div class="card-watermark-num">01</div>
-        <div>
-          <span class="mc-tag">01 · Geographic & Research Journey</span>
-          <h2 class="mc-title">Trajectory & Continuous Learning</h2>
-          <p class="mc-desc">
-            European mobility across Seville, Bonn/Cologne, Marseille, Pamplona, and BSC Barcelona. Interactive journey map and verified research positions.
-          </p>
-        </div>
-        <div class="mc-footer-action">
-          <span>Click to explore map & timeline</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-        </div>
-      </article>
-
-      <!-- CARD 02: ACADEMIC FOUNDATIONS & HPC TECH STACK -->
-      <article class="menu-card mc-mint" onclick="openSectionModal('modal-foundations')">
-        <div class="card-watermark-num">02</div>
-        <div>
-          <span class="mc-tag">02 · Rigor & Compute Toolkit</span>
-          <h2 class="mc-title">Academic & Technical Stack</h2>
-          <p class="mc-desc">
-            Double Degree in Physics & Math (3rd of Class), MSc Plasma Physics (1st of Class), parallel HPC runtime stack, Slurm, MPI/OpenMP, and supercomputers operated.
-          </p>
-        </div>
-        <div class="mc-footer-action">
-          <span>Click to view degrees & stack</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-        </div>
-      </article>
-
-      <!-- CARD 03: CREATIVE COMPUTING & INSTALLATIONS -->
-      <article class="menu-card mc-lavender" onclick="openSectionModal('modal-creative')">
-        <div class="card-watermark-num">03</div>
-        <div>
-          <span class="mc-tag">03 · Physicalization, Sound & Visual Media</span>
-          <h2 class="mc-title">Creative Computing & Installations</h2>
-          <p class="mc-desc">
-            Personal software & hardware prototypes: MNusic telemetry sonification, Pipa-Music-Ball bio-kinetic instrument, Expo-Curator studio, and After Effects motion lab.
-          </p>
-        </div>
-        <div class="mc-footer-action">
-          <span>Click to view projects & dropzones</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      <!-- CHAPTER 01: TRAJECTORY & RESEARCH JOURNEY (Font: Syne 800) -->
+      <article class="editorial-card card-syne" onclick="openSectionModal('modal-trajectory')">
+        <div class="card-grid-inner">
+          <div class="card-num-col">
+            <span class="card-big-num">01</span>
+            <span class="card-font-badge">Syne 800</span>
+            <!-- Book of Shapes Modernist Starburst Glyph -->
+            <svg class="shape-emblem" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.2" title="Geometric Starburst (Book of Shapes)">
+              <line x1="20" y1="3" x2="20" y2="37"/>
+              <line x1="3" y1="20" x2="37" y2="20"/>
+              <line x1="8" y1="8" x2="32" y2="32"/>
+              <line x1="8" y1="32" x2="32" y2="8"/>
+              <circle cx="20" cy="20" r="4.5" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="card-content-col">
+            <div class="card-meta-line">
+              <span class="meta-tag">European Mobility & Research</span>
+              <span class="meta-bullet">/</span>
+              <span class="meta-period">2013 — Present</span>
+            </div>
+            <h2 class="card-title">Trajectory & Research Journey</h2>
+            <p class="card-desc">
+              Cross-European scientific trajectory spanning Seville, Bonn/Cologne (Fraunhofer FHR cognitive radar), Marseille (MSc Plasma & Fusion Physics, 1st of Class), Pamplona (CENER wind plant data pipelines), and BSC Barcelona (HPC Fusion & Performance).
+            </p>
+            <div class="card-highlights-row">
+              <span class="hl-pill">Interactive European Map</span>
+              <span class="hl-pill">Fraunhofer FHR</span>
+              <span class="hl-pill">Aix-Marseille</span>
+              <span class="hl-pill">CENER</span>
+              <span class="hl-pill">BSC Fusion & Performance</span>
+            </div>
+            <div class="card-action-row">
+              <span class="action-prompt">Explore Interactive Map & Verified Timeline →</span>
+            </div>
+          </div>
         </div>
       </article>
 
-      <!-- CARD 04: COVER LETTER (Coral) -->
-      <article class="menu-card mc-coral" onclick="openSectionModal('modal-cover-letter')">
-        <div class="card-watermark-num">04</div>
-        <div>
-          <span class="mc-tag">04 · Vision & Statement</span>
-          <h2 class="mc-title">Cover Letter to DAV Group</h2>
-          <p class="mc-desc">
-            Direct application statement addressed to Fernando Cucchietti & team: bridging petascale supercomputing with Domestic Data Streamers design philosophy.
-          </p>
+      <!-- CHAPTER 02: ACADEMIC FOUNDATIONS & HPC STACK (Font: Space Grotesk 700) -->
+      <article class="editorial-card card-space" onclick="openSectionModal('modal-foundations')">
+        <div class="card-grid-inner">
+          <div class="card-num-col">
+            <span class="card-big-num">02</span>
+            <span class="card-font-badge">Space Grotesk 700</span>
+            <!-- Book of Shapes Stepped Diamond Matrix Glyph -->
+            <svg class="shape-emblem" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" title="Stepped Diamond Matrix (Book of Shapes)">
+              <rect x="20" y="5" width="21" height="21" transform="rotate(45 20 5)"/>
+              <rect x="20" y="11" width="13" height="13" transform="rotate(45 20 11)"/>
+              <rect x="20" y="17" width="5" height="5" transform="rotate(45 20 17)" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="card-content-col">
+            <div class="card-meta-line">
+              <span class="meta-tag">Rigor & Compute Toolkit</span>
+              <span class="meta-bullet">/</span>
+              <span class="meta-period">Physics · Math · Petascale</span>
+            </div>
+            <h2 class="card-title">Academic Foundations & Technical Stack</h2>
+            <p class="card-desc">
+              Double Degree in Physics & Mathematics (3rd of Class), MSc Plasma Physics (1st of Class), parallel HPC runtime stack, Slurm job orchestration, and direct deployment experience across MareNostrum 5 (MN5), Leonardo (CINECA), and LUMI (CSC Finland).
+            </p>
+            <div class="card-highlights-row">
+              <span class="hl-pill">Double Degree 8.35/10</span>
+              <span class="hl-pill">MSc 1st Class 15.43/20</span>
+              <span class="hl-pill">Fortran · C++ · Python</span>
+              <span class="hl-pill">MPI · OpenMP · CUDA</span>
+              <span class="hl-pill">MareNostrum 5</span>
+              <span class="hl-pill">5 Languages</span>
+            </div>
+            <div class="card-action-row">
+              <span class="action-prompt">Inspect Academic Rigor & Supercomputers Operated →</span>
+            </div>
+          </div>
         </div>
-        <div class="mc-footer-action">
-          <span>Click to read full letter</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </article>
+
+      <!-- CHAPTER 03: CREATIVE COMPUTING & INSTALLATIONS (Font: Bricolage Grotesque 800) -->
+      <article class="editorial-card card-bricolage" onclick="openSectionModal('modal-creative')">
+        <div class="card-grid-inner">
+          <div class="card-num-col">
+            <span class="card-big-num">03</span>
+            <span class="card-font-badge">Bricolage 800</span>
+            <!-- Book of Shapes Kinetic Orbital Spheres Glyph -->
+            <svg class="shape-emblem" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" title="Kinetic Orbital Spheres (Book of Shapes)">
+              <circle cx="15" cy="20" r="11"/>
+              <circle cx="25" cy="20" r="11"/>
+              <circle cx="20" cy="20" r="3.5" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="card-content-col">
+            <div class="card-meta-line">
+              <span class="meta-tag">Physicalization, Sound & Visual Media</span>
+              <span class="meta-bullet">/</span>
+              <span class="meta-period">Software & Hardware Prototypes</span>
+            </div>
+            <h2 class="card-title">Creative Computing & Physical Installations</h2>
+            <p class="card-desc">
+              Tangible data experiences bridging scientific computing with playful interaction: MNusic (real-time cluster telemetry sonification), Pipa-Music-Ball (cat-interactive 6-DoF kinetic sphere), Expo-Curator (open-source gallery staging engine), and Lens & Motion procedural animation.
+            </p>
+            <div class="card-highlights-row">
+              <span class="hl-pill">MNusic Web Audio</span>
+              <span class="hl-pill">Pipa-Music-Ball IMU Sphere</span>
+              <span class="hl-pill">Expo-Curator Studio</span>
+              <span class="hl-pill">After Effects Motion Lab</span>
+            </div>
+            <div class="card-action-row">
+              <span class="action-prompt">View Prototypes, Hardware Images & Live Galleries →</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- CHAPTER 04: COVER LETTER TO DAV GROUP (Font: Playfair Display 900) -->
+      <article class="editorial-card card-playfair" onclick="openSectionModal('modal-cover-letter')">
+        <div class="card-grid-inner">
+          <div class="card-num-col">
+            <span class="card-big-num">04</span>
+            <span class="card-font-badge">Playfair Serif 900</span>
+            <!-- Book of Shapes Modernist Editorial Quadrant Glyph -->
+            <svg class="shape-emblem" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" title="Editorial Quadrant (Book of Shapes)">
+              <rect x="7" y="7" width="26" height="26" rx="3"/>
+              <line x1="7" y1="20" x2="33" y2="20"/>
+              <line x1="20" y1="7" x2="20" y2="33"/>
+              <circle cx="13.5" cy="13.5" r="3" fill="currentColor"/>
+              <circle cx="26.5" cy="26.5" r="3" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="card-content-col">
+            <div class="card-meta-line">
+              <span class="meta-tag">Vision & Statement</span>
+              <span class="meta-bullet">/</span>
+              <span class="meta-period">Addressed to Fernando Cucchietti</span>
+            </div>
+            <h2 class="card-title">Cover Letter to DAV Group (BSC)</h2>
+            <p class="card-desc">
+              Strategic application statement addressed to the Data Analytics & Visualization Group at BSC-CNS: proposing to bridge petascale supercomputing with Domestic Data Streamers design philosophy to democratize science through emotional, tangible experiences.
+            </p>
+            <div class="card-highlights-row">
+              <span class="hl-pill">DAV Group BSC</span>
+              <span class="hl-pill">Domestic Data Streamers Philosophy</span>
+              <span class="hl-pill">Scientific Storytelling</span>
+              <span class="hl-pill">Data Democratization</span>
+            </div>
+            <div class="card-action-row">
+              <span class="action-prompt">Read Full Application Letter & Design Manifest →</span>
+            </div>
+          </div>
         </div>
       </article>
 
     </main>
 
-    <!-- FOOTER -->
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
     <footer class="footer-card">
       <div class="footer-left">
-        <a href="https://linkedin.com/in/carrommad" target="_blank" rel="noopener noreferrer" class="footer-link" title="LinkedIn Profile">
+        <a href="https://linkedin.com/in/carrommad" target="_blank" rel="noopener noreferrer" class="footer-link">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
           LinkedIn
         </a>
         <span class="footer-sep">·</span>
-        <a href="https://github.com/carrommad" target="_blank" rel="noopener noreferrer" class="footer-link" title="GitHub Profile">
+        <a href="https://github.com/carrommad" target="_blank" rel="noopener noreferrer" class="footer-link">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
           GitHub
         </a>
       </div>
       <div class="footer-right">
-        <span class="footer-label">Projects:</span>
+        <span>Open-Source Repositories:</span>
         <a href="https://github.com/carrommad/mnusic" target="_blank" rel="noopener noreferrer">MNusic</a>
         <span class="footer-sep">·</span>
         <a href="https://github.com/carrommad/pipa-music-ball" target="_blank" rel="noopener noreferrer">Pipa-Music-Ball</a>
@@ -1207,60 +1475,55 @@
        MODAL 01: TRAJECTORY & RESEARCH JOURNEY
        ========================================================= -->
   <div class="modal-overlay" id="modal-trajectory" onclick="handleOverlayClick(event, 'modal-trajectory')">
-    <div class="modal-panel panel-sky">
+    <div class="modal-panel">
       <div class="modal-header">
         <div class="modal-header-titles">
-          <span>01 · Geographic & Research Journey</span>
-          <h2>Trajectory & Continuous Learning</h2>
+          <span>01 · European Research Mobility</span>
+          <h2>Trajectory & Research Journey</h2>
         </div>
         <button class="btn-close-modal" onclick="closeSectionModal('modal-trajectory')" title="Close (or click outside)">✕</button>
       </div>
 
       <div class="modal-scroll-body">
-        <!-- Interactive European Mobility Map -->
+        
+        <!-- Interactive Leaflet Map -->
         <div class="map-container">
           <div class="map-header">
-            <h3>Interactive European Mobility Map</h3>
-            <span class="map-hint">Click any city pin on the map or career card below to trace the trajectory</span>
+            <h3>Geographic Trajectory Map</h3>
+            <span class="map-hint">Click any city pin or timeline card below to focus</span>
           </div>
-
           <div id="europe-leaflet-map"></div>
         </div>
 
-        <!-- Verified Professional Timeline Cards -->
+        <!-- Chronological Timeline Cards -->
         <div class="timeline-grid">
           
-          <!-- 5b. Barcelona 1: Performance Team (CURRENT ROLE - Darkest Stage: Official BSC Logo Royal Blue #004c97) -->
-          <div class="timeline-card card-bsc-perf" id="card-bsc-perf" data-city="barcelona" onclick="focusCity('barcelona', true)">
-            <span class="live-dot-top-right" title="Current Active Role">
-              <span class="live-dot"></span>
-            </span>
-            <span class="t-location-badge badge-bsc-current">
-              Barcelona, Spain · BSC Performance
-            </span>
-            <div class="t-card-role" style="color: #004c97;">HPC Scientific Software Engineer</div>
+          <!-- 5. BSC Performance (Current) -->
+          <div class="timeline-card" id="card-bsc-perf" data-city="barcelona" onclick="focusCity('barcelona', true)">
+            <span class="t-location-badge">Barcelona, Spain · BSC-CNS</span>
+            <div class="t-card-role">Research Engineer · Performance Team</div>
             <div class="t-card-org">Barcelona Supercomputing Center (BSC)</div>
-            <div class="t-card-dates" style="color: #004c97; font-weight: 700;">May 2025 – Present</div>
+            <div class="t-card-dates">May 2025 – Present</div>
             <p class="t-card-desc">
-              Contributing to ocean–atmosphere coupling in <strong>DestinationE</strong> and <strong>ClimateDT</strong> digital twins. Developing new features in the <strong>ECLand</strong> climate model. Deploying and monitoring large workflows on <strong>MareNostrum 5 (MN5)</strong>.
+              Benchmarking and performance analysis of European flagship supercomputing codes across MareNostrum 5 (MN5) and LUMI. Profiling execution bottlenecks with Extrae, Paraver, and Dimemas.
             </p>
           </div>
 
-          <!-- 5a. Barcelona 2: Fusion Team (Previous BSC Role - Deep Blue #004c97) -->
-          <div class="timeline-card card-bsc-fusion" id="card-bsc-fusion" data-city="barcelona" onclick="focusCity('barcelona', true)">
-            <span class="t-location-badge badge-bsc-past">Barcelona, Spain · BSC Fusion</span>
-            <div class="t-card-role" style="color: #004c97;">Research Engineer · Fusion Team</div>
+          <!-- 5. BSC Fusion -->
+          <div class="timeline-card" id="card-bsc-fusion" data-city="barcelona" onclick="focusCity('barcelona', true)">
+            <span class="t-location-badge">Barcelona, Spain · BSC Fusion</span>
+            <div class="t-card-role">Research Engineer · Fusion Team</div>
             <div class="t-card-org">Barcelona Supercomputing Center (BSC)</div>
             <div class="t-card-dates">May 2023 – April 2025</div>
             <p class="t-card-desc">
-              Advanced Computing Hub: parallel optimization of nuclear fusion simulation codes using OpenMP, MPI, PETSc, oneAPI, and OpenACC. Developed electromagnetic features for superconducting magnets (<strong>MAGNET</strong> module in <strong>ALYA</strong>).
+              Advanced Computing Hub: parallel optimization of nuclear fusion simulation codes using OpenMP, MPI, PETSc, oneAPI, and OpenACC. Developed electromagnetic features for superconducting magnets (MAGNET in ALYA).
             </p>
           </div>
 
-          <!-- 4. Pamplona: CENER (Stage 4 Blue #006bd6) -->
-          <div class="timeline-card card-pamplona" id="card-cener" data-city="pamplona" onclick="focusCity('pamplona', true)">
-            <span class="t-location-badge badge-pamplona">Pamplona, Spain · Renewable Energy</span>
-            <div class="t-card-role" style="color: #006bd6;">Data Scientist · Analysis & Design</div>
+          <!-- 4. Pamplona: CENER -->
+          <div class="timeline-card" id="card-cener" data-city="pamplona" onclick="focusCity('pamplona', true)">
+            <span class="t-location-badge">Pamplona, Spain · Renewable Energy</span>
+            <div class="t-card-role">Data Scientist · Analysis & Design</div>
             <div class="t-card-org">National Renewable Energy Centre (CENER)</div>
             <div class="t-card-dates">May 2022 – September 2022</div>
             <p class="t-card-desc">
@@ -1268,21 +1531,21 @@
             </p>
           </div>
 
-          <!-- 3. Seville: Plasma Research & Double Degree (Stage 3 Blue #007fff) -->
-          <div class="timeline-card card-seville" id="card-seville" data-city="seville" onclick="focusCity('seville', true)">
-            <span class="t-location-badge badge-seville">Seville, Spain · Univ. of Seville</span>
-            <div class="t-card-role" style="color: #007fff;">Research Scientist & Double Degree</div>
+          <!-- 3. Seville -->
+          <div class="timeline-card" id="card-seville" data-city="seville" onclick="focusCity('seville', true)">
+            <span class="t-location-badge">Seville, Spain · Univ. of Seville</span>
+            <div class="t-card-role">Research Scientist & Double Degree</div>
             <div class="t-card-org">University of Seville</div>
             <div class="t-card-dates">2013 – 2018 (Degree) · Sep 2020 – Apr 2022 (Research)</div>
             <p class="t-card-desc">
-              Double Degree in Physics & Mathematics (3rd of Class). Theoretical and computational plasma physics on HPC clusters using gyrokinetic theory and MHD simulations. Python particle tracking diagnostics and Fortran magnetic equilibrium codes.
+              Double Degree in Physics & Mathematics (3rd of Class). Theoretical and computational plasma physics on HPC clusters using gyrokinetic theory and MHD simulations. Python particle tracking diagnostics.
             </p>
           </div>
 
-          <!-- 2. Marseille: Masters Degree (Stage 2 Blue #3d9eff) -->
-          <div class="timeline-card card-marseille" id="card-marseille" data-city="marseille" onclick="focusCity('marseille', true)">
-            <span class="t-location-badge badge-marseille">Marseille, France · Aix-Marseille Univ</span>
-            <div class="t-card-role" style="color: #3d9eff;">MSc in Plasma & Fusion Physics</div>
+          <!-- 2. Marseille -->
+          <div class="timeline-card" id="card-marseille" data-city="marseille" onclick="focusCity('marseille', true)">
+            <span class="t-location-badge">Marseille, France · Aix-Marseille Univ</span>
+            <div class="t-card-role">MSc in Plasma & Fusion Physics</div>
             <div class="t-card-org">Aix-Marseille University</div>
             <div class="t-card-dates">2019 – 2020</div>
             <p class="t-card-desc">
@@ -1290,10 +1553,10 @@
             </p>
           </div>
 
-          <!-- 1. Bonn/Cologne: Fraunhofer (Stage 1 Light Blue #7bbbff) -->
-          <div class="timeline-card card-bonn" id="card-bonn" data-city="bonn" onclick="focusCity('bonn', true)">
-            <span class="t-location-badge badge-bonn">Bonn / Cologne, Germany · Fraunhofer FHR</span>
-            <div class="t-card-role" style="color: #7bbbff;">Research Scientist · Cognitive Radar</div>
+          <!-- 1. Bonn / Cologne -->
+          <div class="timeline-card" id="card-bonn" data-city="bonn" onclick="focusCity('bonn', true)">
+            <span class="t-location-badge">Bonn / Cologne, Germany · Fraunhofer FHR</span>
+            <div class="t-card-role">Research Scientist · Cognitive Radar</div>
             <div class="t-card-org">Fraunhofer Institute (FHR)</div>
             <div class="t-card-dates">August 2018 – April 2019</div>
             <p class="t-card-desc">
@@ -1310,7 +1573,7 @@
        MODAL 02: ACADEMIC FOUNDATIONS & HPC TECHNICAL STACK
        ========================================================= -->
   <div class="modal-overlay" id="modal-foundations" onclick="handleOverlayClick(event, 'modal-foundations')">
-    <div class="modal-panel panel-mint">
+    <div class="modal-panel">
       <div class="modal-header">
         <div class="modal-header-titles">
           <span>02 · Rigor & Compute Toolkit</span>
@@ -1346,7 +1609,7 @@
           <!-- Technical & HPC Stack -->
           <div class="sub-card">
             <h4>High-Performance Computing & Software</h4>
-            <p style="font-size:14.5px; color:#475569; margin-bottom:8px;">Languages & Parallel Runtimes:</p>
+            <p style="font-size:14px; color:var(--bw-text-muted); margin-bottom:8px;">Languages & Parallel Runtimes:</p>
             <div class="tech-pills">
               <span class="pill">Fortran</span>
               <span class="pill">C++</span>
@@ -1361,15 +1624,15 @@
               <span class="pill">Slurm</span>
             </div>
 
-            <p style="font-size:14.5px; color:#475569; margin-top:16px; margin-bottom:8px;">Supercomputers Deployed & Operated:</p>
+            <p style="font-size:14px; color:var(--bw-text-muted); margin-top:16px; margin-bottom:8px;">Supercomputers Deployed & Operated:</p>
             <div class="tech-pills">
               <span class="pill">MareNostrum 5 (MN5)</span>
               <span class="pill">Leonardo (CINECA)</span>
               <span class="pill">LUMI (CSC Finland)</span>
             </div>
 
-            <p style="font-size:14.5px; color:#475569; margin-top:16px; margin-bottom:8px;">Languages Spoken:</p>
-            <p style="font-size:15px; color:#14532d; font-weight:800;">
+            <p style="font-size:14px; color:var(--bw-text-muted); margin-top:16px; margin-bottom:8px;">Languages Spoken:</p>
+            <p style="font-size:14.5px; color:var(--bw-text); font-weight:700;">
               Spanish (Native) · English (C1/Prof.) · French (C1/Prof.) · Italian (Int.) · German (Int.)
             </p>
           </div>
@@ -1379,10 +1642,10 @@
   </div>
 
   <!-- =========================================================
-       MODAL 03: CREATIVE COMPUTING & INSTALLATIONS (2x2 GRID)
+       MODAL 03: CREATIVE COMPUTING & INSTALLATIONS
        ========================================================= -->
   <div class="modal-overlay" id="modal-creative" onclick="handleOverlayClick(event, 'modal-creative')">
-    <div class="modal-panel panel-lavender">
+    <div class="modal-panel">
       <div class="modal-header">
         <div class="modal-header-titles">
           <span>03 · Physicalization, Sound & Visual Media</span>
@@ -1404,8 +1667,8 @@
               </p>
             </div>
             <div class="media-dropzone-notice">
-              <strong>Ready for Project Demo</strong>
-              Drop audio/video clips into <code>assets/videos/</code>
+              <strong>Generative Audio Engine Active</strong>
+              Toggle via "Ambient Audio" button in header
             </div>
           </div>
 
@@ -1442,16 +1705,16 @@
               <span class="proj-badge">Exhibition Wall Studio</span>
               <h3 class="proj-name">Expo-Curator Studio</h3>
               <p class="proj-desc">
-                Open-source application (<a href="https://github.com/carrommad/expo-curator" target="_blank" style="color:var(--lavender-accent); font-weight:800;">github.com/carrommad/expo-curator</a>) for automated image sub-classification, booklet design, and 2D/3D gallery wall staging for curators and museum exhibitions.
+                Open-source application (<a href="https://github.com/carrommad/expo-curator" target="_blank" style="color:var(--bw-text); font-weight:800; text-decoration:underline;">github.com/carrommad/expo-curator</a>) for automated image sub-classification, booklet design, and 2D/3D gallery wall staging for curators and museum exhibitions.
               </p>
             </div>
             <div class="media-dropzone-notice">
-              <strong>Ready for Curatorial Plates</strong>
-              Drop booklet & wall mockups into <code>assets/curator-selection/</code>
+              <strong>Curatorial Plates Pipeline</strong>
+              Ready for exhibition booklets and spatial wall layouts
             </div>
           </div>
 
-          <!-- Project 4: Lens & Motion (Photography & After Effects) -->
+          <!-- Project 4: Lens & Motion -->
           <div class="project-box">
             <div>
               <span class="proj-badge">Photography & Motion Design</span>
@@ -1461,8 +1724,8 @@
               </p>
             </div>
             <div class="media-dropzone-notice">
-              <strong>Ready for After Effects Video</strong>
-              Drop video files into <code>assets/videos/after-effects/</code>
+              <strong>After Effects Kinetic Lab</strong>
+              Procedural motion tests and particle dynamics
             </div>
           </div>
 
@@ -1475,7 +1738,7 @@
        MODAL 04: COVER LETTER
        ========================================================= -->
   <div class="modal-overlay" id="modal-cover-letter" onclick="handleOverlayClick(event, 'modal-cover-letter')">
-    <div class="modal-panel panel-coral">
+    <div class="modal-panel">
       <div class="modal-header">
         <div class="modal-header-titles">
           <span>04 · Vision & Statement</span>
@@ -1488,10 +1751,10 @@
         <article class="letter-container">
           <div class="letter-header-row">
             <div>
-              <div style="font-family:'Space Grotesk', sans-serif; font-size:22px; font-weight:800; color:#0369a1;">Carlos Romero Madrid</div>
-              <div style="font-size:13.5px; font-weight:600; color:#0284c7; margin-top:2px;">Computational Physicist • HPC Software Engineer • Creative Technologist</div>
+              <div style="font-size:22px; font-weight:800; color:var(--bw-text);">Carlos Romero Madrid</div>
+              <div style="font-size:13px; font-weight:600; color:var(--bw-text-muted); margin-top:2px;">Computational Physicist • HPC Software Engineer • Creative Technologist</div>
             </div>
-            <div style="text-align:right; font-family:'JetBrains Mono', monospace; font-size:12px; color:#64748b;">
+            <div style="text-align:right; font-family:var(--font-mono); font-size:12px; color:var(--bw-text-muted);">
               carrommad@gmail.com • carlos.romero@bsc.es<br>
               +34 611 423 133 • Barcelona, Spain
             </div>
@@ -1534,7 +1797,7 @@
                 <strong>Pipa-Music-Ball (Bio-Kinetic Physical Computing):</strong> An embedded interactive sphere running on an ESP32 and a 6-DoF inertial sensor. When my cat pounces on it, kinetic vectors are converted into microtonal scales. Proving tangible computing can be both scientifically rigorous and playful.
               </li>
               <li>
-                <strong>Expo-Curator (<a href="https://github.com/carrommad/expo-curator" target="_blank" style="color:#0284c7; font-weight:700;">github.com/carrommad/expo-curator</a>):</strong> An open curation platform for automated sub-classification, booklet design, and exhibition wall staging—directly serving the practical spatial needs of galleries and science dissemination centers.
+                <strong>Expo-Curator (<a href="https://github.com/carrommad/expo-curator" target="_blank" style="color:var(--bw-text); font-weight:700; text-decoration:underline;">github.com/carrommad/expo-curator</a>):</strong> An open curation platform for automated sub-classification, booklet design, and exhibition wall staging—directly serving the practical spatial needs of galleries and science dissemination centers.
               </li>
               <li>
                 <strong>Lens & Motion (Photography & Adobe After Effects):</strong> Still photographic composition paired with procedural particle animation, kinetic typography, and motion design in After Effects to turn static research figures into broadcast-ready visual essays.
@@ -1548,10 +1811,10 @@
 
           <div class="letter-signoff">
             <div>
-              <div style="font-weight:700; color:#0c4a6e;">Warm regards,</div>
-              <div style="font-family:'Space Grotesk', sans-serif; font-size:18px; font-weight:800; color:#0369a1; margin-top:4px;">Carlos Romero Madrid</div>
+              <div style="font-weight:700; color:var(--bw-text-muted);">Warm regards,</div>
+              <div style="font-size:18px; font-weight:800; color:var(--bw-text); margin-top:4px;">Carlos Romero Madrid</div>
             </div>
-            <a href="Carlos_Romero_Cover_Letter.pdf" target="_blank" class="btn-link btn-primary">
+            <a href="Carlos_Romero_Cover_Letter.pdf" target="_blank" class="btn-hero btn-hero-primary">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
               Download Letter PDF
             </a>
@@ -1561,15 +1824,99 @@
     </div>
   </div>
 
-  <!-- SCRIPT FOR MODALS & LEAFLET MAP -->
-  <script>
-    // Real Cities Data with exact monochromatic blue scale (H=210°, S=100%, L from 74% to 30% ending at BSC Logo Blue #004c97)
+  <!-- =========================================================
+       JAVASCRIPT LOGIC
+       ========================================================= -->
+    // ---------------------------------------------------------
+    // B&W THEME INVERTER (Night Mode vs Day Mode)
+    // ---------------------------------------------------------
+    let currentThemeMode = 'night';
+
+    function toggleThemeBW() {
+      const body = document.body;
+      const isLight = body.classList.toggle('theme-light');
+      currentThemeMode = isLight ? 'day' : 'night';
+      const label = document.getElementById('theme-btn-label');
+      label.textContent = isLight ? 'Day Mode' : 'Night Mode';
+      
+      // Dynamically modulate ambient audio synthesizer to match mode
+      if (typeof updateAudioMood === 'function') {
+        updateAudioMood(currentThemeMode);
+      }
+    }
+
+    // ---------------------------------------------------------
+    // TYPOGRAPHY LAB PREVIEW SWITCHER
+    // ---------------------------------------------------------
+    function setFontPreview(mode) {
+      document.body.classList.remove('font-override-syne', 'font-override-space', 'font-override-bricolage', 'font-override-playfair');
+      
+      const buttons = document.querySelectorAll('.btn-typo');
+      buttons.forEach(btn => btn.classList.remove('active'));
+
+      if (mode === 'mixed') {
+        document.getElementById('btn-typo-mixed').classList.add('active');
+      } else if (mode === 'syne') {
+        document.body.classList.add('font-override-syne');
+        document.getElementById('btn-typo-syne').classList.add('active');
+      } else if (mode === 'space') {
+        document.body.classList.add('font-override-space');
+        document.getElementById('btn-typo-space').classList.add('active');
+      } else if (mode === 'bricolage') {
+        document.body.classList.add('font-override-bricolage');
+        document.getElementById('btn-typo-bricolage').classList.add('active');
+      } else if (mode === 'playfair') {
+        document.body.classList.add('font-override-playfair');
+        document.getElementById('btn-typo-playfair').classList.add('active');
+      }
+    }
+
+    // ---------------------------------------------------------
+    // MODAL HANDLERS
+    // ---------------------------------------------------------
+    function openSectionModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+
+        if (modalId === 'modal-trajectory') {
+          setTimeout(() => {
+            initMap();
+          }, 150);
+        }
+      }
+    }
+
+    function closeSectionModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    }
+
+    function handleOverlayClick(event, modalId) {
+      if (event.target && event.target.id === modalId) {
+        closeSectionModal(modalId);
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        const activeModals = document.querySelectorAll('.modal-overlay.active');
+        activeModals.forEach(m => closeSectionModal(m.id));
+      }
+    });
+
+    // ---------------------------------------------------------
+    // LEAFLET MAP (High-Contrast B&W Monochrome)
+    // ---------------------------------------------------------
     const citiesData = [
       {
         key: 'bonn',
         name: 'Bonn / Cologne (Germany)',
         coords: [50.7374, 7.0982],
-        color: '#7bbbff', // Stage 1 (L=74%): Fraunhofer FHR 2018
         org: 'Fraunhofer FHR',
         role: 'Research Scientist · Cognitive Radar Optimization',
         period: '2018–2019'
@@ -1578,7 +1925,6 @@
         key: 'marseille',
         name: 'Marseille (France)',
         coords: [43.2965, 5.3698],
-        color: '#3d9eff', // Stage 2 (L=62%): MSc Plasma 2019
         org: 'Aix-Marseille University',
         role: 'MSc Plasma & Fusion Physics (1st of Class)',
         period: '2019–2020'
@@ -1587,7 +1933,6 @@
         key: 'seville',
         name: 'Seville (Spain)',
         coords: [37.3891, -5.9845],
-        color: '#007fff', // Stage 3 (L=50%): Univ. Seville Research & Degree
         org: 'University of Seville',
         role: 'Double Degree (Physics & Math, 3rd) · Plasma Researcher',
         period: '2013–2018 · 2020–2022'
@@ -1596,7 +1941,6 @@
         key: 'pamplona',
         name: 'Pamplona (Spain)',
         coords: [42.8125, -1.6458],
-        color: '#006bd6', // Stage 4 (L=42%): CENER 2022 (Lightened for clear contrast with BSC)
         org: 'CENER (Renewable Energy)',
         role: 'Data Scientist · Wind Turbine ML & Predictive Maintenance',
         period: '2022'
@@ -1605,47 +1949,17 @@
         key: 'barcelona',
         name: 'Barcelona (Spain)',
         coords: [41.3879, 2.1699],
-        color: '#004c97', // Stage 5 (L=30%): Official BSC Logo Royal Blue
         org: 'Barcelona Supercomputing Center (BSC)',
         role: 'HPC Scientific Software Engineer (Performance & Fusion)',
         period: '2023–Present'
       }
     ];
 
-    // Trajectory curved segments: Matching Chronological Single-Hue Monochromatic Blue Scale (Light to Dark)
     const routeLegs = [
-      {
-        from: [50.7374, 7.0982],   // Bonn / Cologne
-        to: [43.2965, 5.3698],    // Marseille
-        color: '#7bbbff',        // Leg 1: L=74%
-        opacity: 0.92,
-        curveOffset: -1.0,       // Arcs East via Alps corridor
-        label: 'Leg 1: Bonn / Cologne → Marseille (2019)'
-      },
-      {
-        from: [43.2965, 5.3698],   // Marseille
-        to: [37.3891, -5.9845],   // Seville
-        color: '#3d9eff',        // Leg 2: L=62%
-        opacity: 0.92,
-        curveOffset: -1.8,       // Sweeps South over Balearic sea
-        label: 'Leg 2: Marseille → Seville (2020)'
-      },
-      {
-        from: [37.3891, -5.9845], // Seville
-        to: [42.8125, -1.6458],  // Pamplona
-        color: '#007fff',        // Leg 3: L=50%
-        opacity: 0.94,
-        curveOffset: 1.2,        // Sweeps West across western Iberia
-        label: 'Leg 3: Seville → Pamplona (2022)'
-      },
-      {
-        from: [42.8125, -1.6458], // Pamplona
-        to: [41.3879, 2.1699],   // Barcelona
-        color: '#004c97',        // Leg 4: L=30% (Official BSC Logo Royal Blue)
-        opacity: 0.98,
-        curveOffset: -0.5,       // Along Pyrenean/Ebro corridor into Barcelona
-        label: 'Leg 4: Pamplona → Barcelona (BSC Current ★)'
-      }
+      { from: [50.7374, 7.0982], to: [43.2965, 5.3698], curveOffset: -1.0, label: 'Leg 1: Bonn → Marseille' },
+      { from: [43.2965, 5.3698], to: [37.3891, -5.9845], curveOffset: -1.8, label: 'Leg 2: Marseille → Seville' },
+      { from: [37.3891, -5.9845], to: [42.8125, -1.6458], curveOffset: 1.2, label: 'Leg 3: Seville → Pamplona' },
+      { from: [42.8125, -1.6458], to: [41.3879, 2.1699], curveOffset: -0.5, label: 'Leg 4: Pamplona → Barcelona (BSC Current ★)' }
     ];
 
     function generateCurvePoints(start, end, offsetDegree = 2.0, numPoints = 35) {
@@ -1672,8 +1986,6 @@
     const markers = {};
     let mapInitialized = false;
 
-    const careerCountriesGeoJSON = {"type":"FeatureCollection","features":[{"type":"Feature","properties":{"name":"France"},"geometry":{"type":"MultiPolygon","coordinates":[[[[2.52,51.09],[2.59,50.84],[2.79,50.72],[3.13,50.78],[3.27,50.53],[3.61,50.48],[3.7,50.3],[4.2,50.26],[4.13,49.98],[4.65,49.98],[4.82,50.16],[4.85,49.79],[5.26,49.69],[5.46,49.5],[6.4,49.47],[6.71,49.16],[7.41,49.17],[8.2,48.96],[7.81,48.62],[7.59,48.13],[7.59,47.59],[7.38,47.43],[6.97,47.49],[6.87,47.35],[7.04,47.33],[6.44,46.94],[6.43,46.76],[6.12,46.58],[6.09,46.25],[5.96,46.2],[6.14,46.15],[6.27,46.38],[6.48,46.45],[6.79,46.41],[6.77,46.13],[7.02,45.92],[6.8,45.72],[7.16,45.41],[7.05,45.21],[6.6,45.1],[6.75,44.91],[7.0,44.83],[7.05,44.69],[6.84,44.53],[6.87,44.37],[7.33,44.12],[7.66,44.18],[7.69,44.07],[7.48,43.77],[6.73,43.41],[6.59,43.27],[6.68,43.2],[6.18,43.04],[5.35,43.22],[5.29,43.35],[5.03,43.34],[5.23,43.48],[5.03,43.56],[5.05,43.43],[4.86,43.34],[4.7,43.58],[4.82,43.35],[3.95,43.54],[3.11,43.11],[3.05,42.59],[3.18,42.43],[2.93,42.47],[2.66,42.34],[2.28,42.43],[2.0,42.35],[1.71,42.49],[1.72,42.61],[1.43,42.59],[0.81,42.83],[0.66,42.84],[0.64,42.68],[-0.04,42.69],[-0.32,42.84],[-0.57,42.77],[-1.29,43.11],[-1.46,43.05],[-1.4,43.24],[-1.8,43.37],[-1.48,43.58],[-1.26,44.56],[-1.04,44.67],[-1.17,44.78],[-1.26,44.63],[-1.13,45.51],[-1.06,45.57],[-0.79,45.35],[-0.55,44.9],[-0.6,45.02],[-0.49,45.0],[-0.66,45.1],[-0.8,45.48],[-1.25,45.71],[-1.16,45.81],[-0.99,45.72],[-1.15,45.87],[-1.05,46.04],[-1.21,46.17],[-1.11,46.3],[-1.79,46.49],[-2.12,46.82],[-1.99,47.03],[-2.24,47.14],[-2.15,47.28],[-1.73,47.21],[-2.54,47.3],[-2.39,47.42],[-2.5,47.49],[-2.36,47.51],[-2.83,47.5],[-2.91,47.56],[-2.71,47.64],[-2.98,47.66],[-2.94,47.56],[-3.12,47.6],[-3.13,47.48],[-3.12,47.73],[-3.36,47.7],[-3.28,47.79],[-3.45,47.7],[-4.13,47.92],[-4.37,47.81],[-4.43,47.98],[-4.73,48.04],[-4.29,48.12],[-4.38,48.23],[-4.56,48.18],[-4.55,48.35],[-4.19,48.31],[-4.45,48.34],[-4.29,48.43],[-4.77,48.34],[-4.76,48.52],[-3.97,48.73],[-3.85,48.63],[-3.81,48.73],[-3.58,48.68],[-3.52,48.84],[-3.1,48.88],[-3.12,48.76],[-3.02,48.83],[-2.68,48.51],[-2.32,48.7],[-2.21,48.58],[-2.05,48.65],[-1.98,48.51],[-1.95,48.7],[-1.36,48.64],[-1.55,48.75],[-1.55,49.23],[-1.82,49.38],[-1.94,49.72],[-1.26,49.7],[-1.31,49.56],[-1.12,49.34],[-0.22,49.28],[0.41,49.45],[0.08,49.52],[0.19,49.7],[1.67,50.19],[1.54,50.28],[1.58,50.87],[2.52,51.09]]],[[[8.57,42.21],[8.69,42.27],[8.55,42.38],[8.71,42.58],[9.12,42.73],[9.29,42.67],[9.35,43.0],[9.46,42.99],[9.56,42.15],[9.22,41.37],[8.79,41.56],[8.92,41.7],[8.65,41.75],[8.8,41.91],[8.61,41.9],[8.74,42.06],[8.57,42.21]]],[[[-1.22,45.94],[-1.23,45.82],[-1.41,46.05],[-1.22,45.94]]]]}},{"type":"Feature","properties":{"name":"Germany"},"geometry":{"type":"MultiPolygon","coordinates":[[[[13.82,48.77],[13.72,48.52],[13.46,48.57],[13.41,48.38],[12.74,48.11],[12.99,47.85],[12.89,47.72],[13.07,47.66],[13.0,47.47],[12.76,47.67],[12.24,47.73],[12.17,47.6],[11.62,47.59],[11.24,47.39],[10.43,47.58],[10.43,47.4],[10.16,47.27],[10.21,47.37],[9.95,47.54],[8.88,47.66],[8.56,47.8],[8.39,47.66],[8.57,47.59],[7.61,47.56],[7.51,47.71],[7.58,48.11],[7.81,48.62],[8.2,48.96],[7.41,49.17],[6.71,49.16],[6.51,49.42],[6.34,49.45],[6.5,49.8],[6.1,50.05],[6.15,50.21],[6.38,50.31],[6.34,50.48],[6.17,50.52],[6.25,50.61],[5.97,50.78],[6.06,50.91],[5.86,51.02],[6.15,51.15],[6.06,51.21],[6.21,51.39],[5.93,51.82],[6.74,51.91],[6.81,51.97],[6.68,52.06],[7.03,52.23],[6.97,52.45],[6.67,52.54],[7.02,52.63],[7.2,53.24],[7.37,53.3],[7.02,53.38],[7.23,53.67],[8.03,53.71],[8.17,53.55],[8.08,53.47],[8.22,53.41],[8.27,53.61],[8.55,53.54],[8.5,53.36],[8.59,53.87],[9.21,53.87],[9.83,53.54],[9.39,53.83],[8.92,53.94],[8.83,54.04],[9.02,54.1],[8.81,54.18],[8.96,54.32],[8.6,54.34],[9.01,54.51],[8.69,54.73],[8.66,54.9],[9.95,54.78],[10.03,54.56],[9.84,54.48],[10.14,54.49],[10.14,54.32],[10.32,54.44],[10.73,54.31],[11.14,54.39],[11.07,54.18],[10.75,54.05],[10.9,53.96],[11.18,54.02],[11.46,53.91],[11.69,54.16],[12.09,54.19],[12.12,54.1],[12.53,54.49],[12.92,54.43],[12.44,54.39],[12.41,54.25],[13.01,54.44],[13.46,54.1],[13.71,54.17],[13.91,53.94],[13.82,53.85],[14.26,53.75],[14.44,53.25],[14.12,52.85],[14.64,52.58],[14.54,52.38],[14.76,52.08],[14.59,51.8],[14.71,51.53],[14.96,51.44],[14.96,51.06],[14.76,50.81],[14.48,51.04],[14.29,51.04],[14.35,50.88],[13.56,50.71],[12.95,50.4],[12.51,50.39],[12.3,50.16],[12.08,50.31],[12.25,50.05],[12.52,49.91],[12.38,49.74],[12.64,49.43],[13.82,48.77]]],[[[14.21,53.94],[13.84,53.85],[14.05,54.01],[13.77,54.02],[13.75,54.15],[14.21,53.94]]],[[[13.7,54.39],[13.72,54.28],[13.5,54.34],[13.41,54.23],[13.12,54.34],[13.27,54.39],[13.14,54.54],[13.51,54.49],[13.52,54.57],[13.25,54.56],[13.23,54.65],[13.39,54.69],[13.43,54.59],[13.67,54.57],[13.57,54.47],[13.7,54.39]]],[[[8.5,54.76],[8.57,54.69],[8.39,54.72],[8.5,54.76]]],[[[8.36,54.95],[8.65,54.89],[8.34,54.88],[8.28,54.74],[8.36,54.95]]]]}},{"type":"Feature","properties":{"name":"Spain"},"geometry":{"type":"MultiPolygon","coordinates":[[[[-5.34,35.85],[-5.4,35.92],[-5.28,35.91],[-5.34,35.85]]],[[[-1.79,43.39],[-1.4,43.24],[-1.46,43.05],[-1.29,43.11],[-0.57,42.77],[-0.32,42.84],[-0.04,42.69],[0.64,42.68],[0.66,42.84],[0.81,42.83],[1.34,42.71],[1.45,42.44],[1.71,42.5],[2.01,42.35],[3.18,42.43],[3.32,42.32],[3.12,42.22],[3.19,41.89],[2.13,41.3],[1.02,41.05],[0.71,40.81],[0.86,40.69],[0.56,40.59],[-0.32,39.52],[-0.16,39.0],[0.23,38.74],[-0.51,38.34],[-0.86,37.74],[-0.7,37.62],[-1.32,37.56],[-1.67,37.36],[-2.13,36.74],[-2.36,36.84],[-2.72,36.68],[-4.4,36.72],[-4.66,36.51],[-5.19,36.41],[-5.34,36.14],[-5.61,36.01],[-6.04,36.19],[-6.31,36.53],[-6.18,36.51],[-6.39,36.64],[-6.43,36.75],[-6.2,36.93],[-6.39,36.81],[-6.89,37.17],[-6.85,37.3],[-6.93,37.17],[-7.41,37.19],[-7.53,37.57],[-7.27,37.98],[-7.02,38.02],[-6.95,38.2],[-7.1,38.17],[-7.36,38.45],[-7.27,38.74],[-6.97,39.01],[-7.26,39.21],[-7.31,39.46],[-7.56,39.68],[-7.02,39.69],[-6.88,40.01],[-7.04,40.18],[-6.79,40.36],[-6.82,40.86],[-6.94,41.02],[-6.21,41.57],[-6.54,41.66],[-6.61,41.96],[-8.18,41.81],[-8.1,42.04],[-8.22,42.15],[-8.88,41.89],[-8.89,42.12],[-8.62,42.35],[-8.87,42.26],[-8.65,42.44],[-8.94,42.47],[-8.83,42.46],[-8.73,42.69],[-9.03,42.54],[-8.89,42.83],[-9.1,42.76],[-9.13,42.92],[-9.27,42.89],[-9.28,43.05],[-9.11,43.14],[-9.22,43.16],[-8.83,43.34],[-8.33,43.41],[-8.21,43.31],[-8.18,43.42],[-8.3,43.45],[-8.17,43.49],[-8.33,43.47],[-8.31,43.57],[-7.69,43.79],[-7.04,43.48],[-5.85,43.66],[-4.48,43.38],[-3.58,43.52],[-3.01,43.32],[-2.77,43.45],[-2.13,43.29],[-1.79,43.39]]],[[[1.53,38.68],[1.38,38.64],[1.43,38.76],[1.53,38.68]]],[[[1.61,39.09],[1.4,38.83],[1.22,38.88],[1.36,39.08],[1.61,39.09]]],[[[3.35,39.78],[3.45,39.66],[3.06,39.27],[2.79,39.38],[2.68,39.56],[2.49,39.47],[2.35,39.58],[3.18,39.97],[3.14,39.79],[3.35,39.78]]],[[[4.3,39.93],[4.25,39.82],[3.8,40.02],[4.11,40.08],[4.3,39.93]]]]}}]};
-
     function initMap() {
       if (mapInitialized) {
         map.invalidateSize();
@@ -1688,214 +2000,92 @@
         scrollWheelZoom: false
       });
 
-      // 1. Base terrain canvas layer (Esri Light Gray Canvas)
+      // Esri Light Gray base layer, styled via CSS to pure monochrome
       L.tileLayer('https://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
         attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
         maxZoom: 16
       }).addTo(map);
 
-      // 2. Highlight Countries of Study & Work (Spain, France, Germany)
-      try {
-        L.geoJSON(careerCountriesGeoJSON, {
-          style: function(feature) {
-            const name = feature.properties ? feature.properties.name : '';
-            let fillColor = '#004c97';
-            if (name === 'Spain') fillColor = '#004c97';      // Spain: Degree, Research, CENER & BSC
-            else if (name === 'France') fillColor = '#007fff'; // France: Marseille MSc Plasma
-            else if (name === 'Germany') fillColor = '#3d9eff'; // Germany: Bonn Fraunhofer FHR
-            
-            return {
-              fillColor: fillColor,
-              fillOpacity: 0.16,
-              color: fillColor,
-              weight: 1.8,
-              opacity: 0.55,
-              dashArray: '4, 4'
-            };
-          },
-          onEachFeature: function(feature, layer) {
-            const name = feature.properties ? feature.properties.name : '';
-            let note = '';
-            if (name === 'Spain') note = '<strong>Spain</strong><br>• University of Seville (Double Degree & Plasma)<br>• CENER Pamplona (Renewable Data Science)<br>• BSC Barcelona (Fusion & Performance HPC)';
-            else if (name === 'France') note = '<strong>France</strong><br>• Aix-Marseille University (MSc Plasma & Fusion, 1st of Class)';
-            else if (name === 'Germany') note = '<strong>Germany</strong><br>• Fraunhofer FHR (Cognitive Radar Optimization)';
-
-            if (note) {
-              layer.bindTooltip(note, { sticky: true, className: 'country-tooltip' });
-            }
-            
-            layer.on({
-              mouseover: function(e) {
-                const l = e.target;
-                l.setStyle({ fillOpacity: 0.28, weight: 2.5, opacity: 0.85 });
-              },
-              mouseout: function(e) {
-                const l = e.target;
-                l.setStyle({ fillOpacity: 0.16, weight: 1.8, opacity: 0.55 });
-              }
-            });
-          }
-        }).addTo(map);
-      } catch (err) {
-        console.warn('Country layer initialization note:', err);
-      }
-
-      // 3. Geographic Labels Reference Layer
-      L.tileLayer('https://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}', {
-        maxZoom: 16
-      }).addTo(map);
-
-      // 4. Trajectory flight routes (Glow line + crisp dashed path)
-      routeLegs.forEach(leg => {
-        const curveCoords = generateCurvePoints(leg.from, leg.to, leg.curveOffset);
+      // Trajectory Curved Lines (High-contrast B&W)
+      routeLegs.forEach((leg) => {
+        const curvePoints = generateCurvePoints(leg.from, leg.to, leg.curveOffset);
         
-        L.polyline(curveCoords, {
-          color: leg.color,
-          weight: 7,
-          opacity: 0.18
+        // Underline shadow
+        L.polyline(curvePoints, {
+          color: '#000000',
+          weight: 5,
+          opacity: 0.6
         }).addTo(map);
 
-        L.polyline(curveCoords, {
-          color: leg.color,
-          weight: 3.2,
-          opacity: leg.opacity || 0.9,
-          dashArray: '6, 5'
-        }).addTo(map);
+        // Core line
+        L.polyline(curvePoints, {
+          color: '#ffffff',
+          weight: 2.5,
+          opacity: 0.95,
+          dashArray: '6, 6'
+        }).addTo(map).bindTooltip(leg.label, { sticky: true, className: 'country-tooltip' });
       });
 
-      // 5. City pins with exact monochromatic scale
-      const allCoords = [];
+      // City Markers
       citiesData.forEach(city => {
-        allCoords.push(city.coords);
-        const customIcon = L.divIcon({
-          className: 'custom-pin-wrapper',
-          html: '<div class="custom-map-marker ' + (city.key === 'barcelona' ? 'active' : '') + '" id="marker-' + city.key + '" style="width: 18px; height: 18px; background: ' + city.color + ';"></div>',
-          iconSize: [18, 18],
-          iconAnchor: [9, 9],
-          popupAnchor: [0, -12]
+        const markerIcon = L.divIcon({
+          className: 'custom-map-marker',
+          iconSize: [16, 16],
+          iconAnchor: [8, 8]
         });
 
-        const marker = L.marker(city.coords, { icon: customIcon }).addTo(map);
+        const marker = L.marker(city.coords, { icon: markerIcon }).addTo(map);
         
-        const popupContent = '<div class="popup-city" style="color: ' + city.color + ';">' + city.name + '</div>' +
-          '<div class="popup-org">' + city.org + '</div>' +
-          '<div class="popup-role" style="color: ' + city.color + ';">' + city.role + '</div>' +
-          '<div style="font-size:12px; color:#64748b; margin-top:4px; font-family:\'JetBrains Mono\', monospace; font-weight:600;">' + city.period + '</div>';
+        marker.bindPopup(`
+          <div style="font-family:'Plus Jakarta Sans', sans-serif; color:#000;">
+            <div style="font-size:15px; font-weight:800; margin-bottom:2px;">${city.name}</div>
+            <div style="font-size:12.5px; font-weight:600; color:#444;">${city.org}</div>
+            <div style="font-family:'JetBrains Mono', monospace; font-size:11.5px; margin-top:4px; font-weight:700;">${city.role}</div>
+            <div style="font-size:11px; color:#777; margin-top:2px;">${city.period}</div>
+          </div>
+        `);
 
-        marker.bindPopup(popupContent);
-        
         marker.on('click', () => {
-          focusCity(city.key);
+          highlightTimelineCard(city.key);
         });
 
         markers[city.key] = marker;
       });
 
-      // Fit map bounds to show all career locations cleanly
-      const bounds = L.latLngBounds(allCoords);
-      map.fitBounds(bounds, {
-        paddingTopLeft: [40, 35],
-        paddingBottomRight: [35, 35],
-        maxZoom: 6.5
-      });
-
-      setTimeout(() => {
-        if (markers['barcelona']) {
-          markers['barcelona'].openPopup();
-        }
-      }, 350);
-
       mapInitialized = true;
     }
 
-    function focusCity(cityKey, shouldScrollToMap = false) {
-      document.querySelectorAll('.custom-map-marker').forEach(el => el.classList.remove('active'));
-      const activeMarkerEl = document.getElementById('marker-' + cityKey);
-      if (activeMarkerEl) activeMarkerEl.classList.add('active');
-
+    function focusCity(cityKey, openPopup = false) {
       const city = citiesData.find(c => c.key === cityKey);
-      if (city && map) {
-        map.panTo(city.coords, { animate: true, duration: 0.8 });
-        if (markers[cityKey]) markers[cityKey].openPopup();
-      }
+      if (!city || !map) return;
 
-      // Highlight the corresponding card
-      const cards = document.querySelectorAll('.timeline-card');
-      cards.forEach(card => {
-        if (card.getAttribute('data-city') === cityKey) {
-          card.classList.add('highlight');
-        } else {
-          card.classList.remove('highlight');
-        }
+      map.flyTo(city.coords, 6.5, {
+        animate: true,
+        duration: 1.0
       });
 
-      // When clicking a card, automatically scroll smoothly back to the map
-      if (shouldScrollToMap) {
-        const mapContainer = document.querySelector('.map-container');
-        if (mapContainer) {
-          mapContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+      if (openPopup && markers[cityKey]) {
+        setTimeout(() => {
+          markers[cityKey].openPopup();
+        }, 1000);
+      }
+      highlightTimelineCard(cityKey);
+    }
+
+    function highlightTimelineCard(cityKey) {
+      document.querySelectorAll('.timeline-card').forEach(c => c.classList.remove('highlight'));
+      const activeCard = document.querySelector(`.timeline-card[data-city="${cityKey}"]`);
+      if (activeCard) {
+        activeCard.classList.add('highlight');
       }
     }
 
-    // Modal Navigation Logic: Open section, scrollable, click-out to return
-    function openSectionModal(modalId) {
-      const modal = document.getElementById(modalId);
-      if (modal) {
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-
-        // If opening trajectory map, initialize and recalculate layout smoothly
-        if (modalId === 'modal-trajectory') {
-          setTimeout(() => {
-            initMap();
-            if (map) {
-              map.invalidateSize();
-            }
-          }, 80);
-          setTimeout(() => {
-            if (map) {
-              map.invalidateSize();
-            }
-          }, 300);
-        }
-      }
-    }
-
-    function closeSectionModal(modalId) {
-      const modal = document.getElementById(modalId);
-      if (modal) {
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-    }
-
-    // Click outside modal panel to close and return to 4-card menu
-    function handleOverlayClick(event, modalId) {
-      if (event.target.id === modalId) {
-        closeSectionModal(modalId);
-      }
-    }
-
-    // ESC key closes any open modal
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        document.querySelectorAll('.modal-overlay.active').forEach(modal => {
-          modal.classList.remove('active');
-        });
-        document.body.style.overflow = '';
-      }
-    });
-
-    // =========================================================
-    // RELAXING 5-COLOR AMBIENT PARTICLE BACKGROUND
-    // 5 Colors: Warm Vanilla, Coral Blush, Sage Mint, Iris Lavender, Sky Blue
-    // =========================================================
-    (function initAmbientParticles() {
+    // ---------------------------------------------------------
+    // AMBIENT PARTICLES (High-Contrast Monochrome Stardust)
+    // ---------------------------------------------------------
+    (function initMonochromeParticles() {
       const canvas = document.getElementById('ambient-particles-canvas');
-      if (!canvas) return;
       const ctx = canvas.getContext('2d');
-
       let width = canvas.width = window.innerWidth;
       let height = canvas.height = window.innerHeight;
 
@@ -1904,17 +2094,7 @@
         height = canvas.height = window.innerHeight;
       });
 
-      // 5 Curated Theme Colors (with gentle opacity for soft, elegant drift)
-      const colorPalette = [
-        'rgba(245, 158, 11, 0.32)',  // 1. Warm Golden Vanilla
-        'rgba(239, 68, 68, 0.26)',   // 2. Coral Blush
-        'rgba(34, 197, 94, 0.28)',   // 3. Botanical Sage Mint
-        'rgba(147, 51, 234, 0.28)',  // 4. Iris Lavender
-        'rgba(14, 165, 233, 0.30)'   // 5. Sky Blue
-      ];
-
-      // Increased particle count for richer background atmosphere
-      const numParticles = Math.min(96, Math.max(55, Math.floor((width * height) / 12000)));
+      const numParticles = Math.min(75, Math.max(40, Math.floor((width * height) / 16000)));
       const particles = [];
 
       class AmbientParticle {
@@ -1924,42 +2104,31 @@
 
         reset(initial = false) {
           this.x = Math.random() * width;
-          this.y = initial ? Math.random() * height : height + 30;
-          this.radius = Math.random() * 11 + 4; // Rich variety of soft floating orbs (4px to 15px)
-          this.color = colorPalette[Math.floor(Math.random() * colorPalette.length)];
-          this.vx = (Math.random() - 0.5) * 0.4; // Very gentle drift
-          this.vy = -(Math.random() * 0.5 + 0.18); // Gentle upward float
-          this.baseAlpha = Math.random() * 0.35 + 0.25;
-          this.alpha = this.baseAlpha;
+          this.y = initial ? Math.random() * height : height + 20;
+          this.radius = Math.random() * 3 + 1; // Subtle sharp monochrome nodes
+          this.vx = (Math.random() - 0.5) * 0.35;
+          this.vy = -(Math.random() * 0.45 + 0.15);
+          this.baseAlpha = Math.random() * 0.35 + 0.15;
           this.phase = Math.random() * Math.PI * 2;
-          this.phaseSpeed = Math.random() * 0.015 + 0.008;
+          this.phaseSpeed = Math.random() * 0.015 + 0.005;
         }
 
         update() {
           this.phase += this.phaseSpeed;
-          this.x += this.vx + Math.sin(this.phase) * 0.35;
+          this.x += this.vx + Math.sin(this.phase) * 0.25;
           this.y += this.vy;
-          this.alpha = this.baseAlpha + Math.sin(this.phase) * 0.12;
-
-          // Wrap or reset if leaves screen
-          if (this.y < -30 || this.x < -30 || this.x > width + 30) {
+          if (this.y < -20 || this.x < -20 || this.x > width + 20) {
             this.reset(false);
           }
         }
 
         draw() {
-          ctx.save();
+          const isLight = document.body.classList.contains('theme-light');
+          const alpha = this.baseAlpha + Math.sin(this.phase) * 0.08;
           ctx.beginPath();
           ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-          ctx.fillStyle = this.color;
+          ctx.fillStyle = isLight ? `rgba(0, 0, 0, ${alpha})` : `rgba(255, 255, 255, ${alpha})`;
           ctx.fill();
-
-          // Soft ambient halo glow
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, this.radius * 2.2, 0, Math.PI * 2);
-          ctx.fillStyle = this.color.replace(/[\d\.]+\)$/, '0.06)');
-          ctx.fill();
-          ctx.restore();
         }
       }
 
@@ -1970,16 +2139,17 @@
       function animate() {
         ctx.clearRect(0, 0, width, height);
 
-        // Soft, calming particle connections
+        // Subtle geometric constellation connections
+        const isLight = document.body.classList.contains('theme-light');
         for (let i = 0; i < particles.length; i++) {
           for (let j = i + 1; j < particles.length; j++) {
             const dx = particles[i].x - particles[j].x;
             const dy = particles[i].y - particles[j].y;
             const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < 130) {
-              const linkAlpha = (1 - dist / 130) * 0.12;
-              ctx.strokeStyle = `rgba(148, 163, 184, ${linkAlpha})`;
-              ctx.lineWidth = 1;
+            if (dist < 110) {
+              const linkAlpha = (1 - dist / 110) * 0.08;
+              ctx.strokeStyle = isLight ? `rgba(0, 0, 0, ${linkAlpha})` : `rgba(255, 255, 255, ${linkAlpha})`;
+              ctx.lineWidth = 0.8;
               ctx.beginPath();
               ctx.moveTo(particles[i].x, particles[i].y);
               ctx.lineTo(particles[j].x, particles[j].y);
@@ -1988,7 +2158,6 @@
           }
         }
 
-        // Draw and update each orb
         particles.forEach(p => {
           p.update();
           p.draw();
@@ -2000,21 +2169,59 @@
       animate();
     })();
 
-    // =========================================================
-    // MNUSIC: GENERATIVE AMBIENT SUPERCOMPUTING TELEMETRY SYNTHESIZER
-    // Web Audio API pure generative soundscape
-    // =========================================================
+    // ---------------------------------------------------------
+    // GENERATIVE AMBIENT AUDIO SYNTHESIZER (MNusic Web Audio)
+    // Dual Mode: Night (Nocturnal Deep Drone) vs Day (Radiant Shimmer)
+    // ---------------------------------------------------------
     let audioCtx = null;
     let isPlayingAudio = false;
     let activeNodes = [];
     let sequenceTimer = null;
+    let masterCompressor = null;
+    let droneOsc = null;
+    let droneFilter = null;
+    let padOscs = [];
+
+    function updateAudioMood(mode) {
+      if (!isPlayingAudio || !audioCtx) return;
+      const now = audioCtx.currentTime;
+
+      if (mode === 'day') {
+        // DAY MODE: Luminous, radiant, uplifting
+        if (droneOsc) {
+          droneOsc.frequency.setTargetAtTime(110, now, 1.2); // A2 fundamental
+        }
+        if (droneFilter) {
+          droneFilter.frequency.setTargetAtTime(750, now, 1.2);
+        }
+        const dayHarmonics = [220, 277.18, 329.63, 440, 554.37]; // A Major / Lydian
+        padOscs.forEach((osc, idx) => {
+          if (dayHarmonics[idx]) {
+            osc.frequency.setTargetAtTime(dayHarmonics[idx], now, 1.8);
+          }
+        });
+      } else {
+        // NIGHT MODE: Deep nocturnal supercomputing drone
+        if (droneOsc) {
+          droneOsc.frequency.setTargetAtTime(55, now, 1.2); // A1 fundamental
+        }
+        if (droneFilter) {
+          droneFilter.frequency.setTargetAtTime(160, now, 1.2);
+        }
+        const nightHarmonics = [110, 164.81, 220, 329.63, 440]; // A Minor / Dorian
+        padOscs.forEach((osc, idx) => {
+          if (nightHarmonics[idx]) {
+            osc.frequency.setTargetAtTime(nightHarmonics[idx], now, 1.8);
+          }
+        });
+      }
+    }
 
     function toggleMNusicAudio() {
       const btn = document.getElementById('btn-mnusic-audio');
       const label = document.getElementById('audio-btn-label');
 
       if (isPlayingAudio) {
-        // Stop audio
         if (sequenceTimer) clearInterval(sequenceTimer);
         activeNodes.forEach(n => {
           try {
@@ -2023,13 +2230,15 @@
           } catch(e) {}
         });
         activeNodes = [];
+        padOscs = [];
+        droneOsc = null;
+        droneFilter = null;
         isPlayingAudio = false;
         btn.classList.remove('playing');
         label.textContent = 'Ambient Audio';
         return;
       }
 
-      // Start Web Audio Context
       if (!audioCtx) {
         audioCtx = new (window.AudioContext || window.webkitAudioContext)();
       }
@@ -2041,8 +2250,7 @@
       btn.classList.add('playing');
       label.textContent = 'Playing Audio';
 
-      // 1. Master Output with warm soft-limiter / compressor
-      const masterCompressor = audioCtx.createDynamicsCompressor();
+      masterCompressor = audioCtx.createDynamicsCompressor();
       masterCompressor.threshold.setValueAtTime(-20, audioCtx.currentTime);
       masterCompressor.knee.setValueAtTime(30, audioCtx.currentTime);
       masterCompressor.ratio.setValueAtTime(12, audioCtx.currentTime);
@@ -2050,23 +2258,24 @@
       masterCompressor.release.setValueAtTime(0.25, audioCtx.currentTime);
 
       const masterGain = audioCtx.createGain();
-      masterGain.gain.setValueAtTime(0.28, audioCtx.currentTime);
+      masterGain.gain.setValueAtTime(0.24, audioCtx.currentTime);
       masterCompressor.connect(masterGain);
       masterGain.connect(audioCtx.destination);
       activeNodes.push(masterGain, masterCompressor);
 
-      // 2. Deep Sub-Harmonic MareNostrum Drone (55 Hz - A1 fundamental)
-      const droneOsc = audioCtx.createOscillator();
+      // Fundamental Drone (55 Hz night vs 110 Hz day)
+      const isDay = (currentThemeMode === 'day');
+      droneOsc = audioCtx.createOscillator();
       const droneGain = audioCtx.createGain();
-      const droneFilter = audioCtx.createBiquadFilter();
+      droneFilter = audioCtx.createBiquadFilter();
 
       droneOsc.type = 'sine';
-      droneOsc.frequency.setValueAtTime(55, audioCtx.currentTime); // A1 note
+      droneOsc.frequency.setValueAtTime(isDay ? 110 : 55, audioCtx.currentTime);
       droneFilter.type = 'lowpass';
-      droneFilter.frequency.setValueAtTime(160, audioCtx.currentTime);
+      droneFilter.frequency.setValueAtTime(isDay ? 750 : 160, audioCtx.currentTime);
 
       droneGain.gain.setValueAtTime(0, audioCtx.currentTime);
-      droneGain.gain.linearRampToValueAtTime(0.4, audioCtx.currentTime + 3);
+      droneGain.gain.linearRampToValueAtTime(0.32, audioCtx.currentTime + 3);
 
       droneOsc.connect(droneFilter);
       droneFilter.connect(droneGain);
@@ -2075,61 +2284,64 @@
       droneOsc.start();
       activeNodes.push(droneOsc, droneGain, droneFilter);
 
-      // 3. Gentle Shimmer Pad (A-Minor / Pentatonic Harmonics)
-      const padNotes = [110, 164.81, 220, 329.63, 440]; // A2, E3, A3, E4, A4
-      padNotes.forEach((freq, idx) => {
+      // Harmonic Shimmer Chords (Night minor vs Day major)
+      const nightNotes = [110, 164.81, 220, 329.63, 440];
+      const dayNotes = [220, 277.18, 329.63, 440, 554.37];
+      const activeNotesArray = isDay ? dayNotes : nightNotes;
+      padOscs = [];
+
+      activeNotesArray.forEach((freq, idx) => {
         const osc = audioCtx.createOscillator();
         const g = audioCtx.createGain();
         osc.type = idx % 2 === 0 ? 'sine' : 'triangle';
         osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-
-        // subtle detune for rich lush chorus
         osc.detune.setValueAtTime((idx - 2) * 5, audioCtx.currentTime);
 
         g.gain.setValueAtTime(0, audioCtx.currentTime);
-        g.gain.linearRampToValueAtTime(0.08 / padNotes.length, audioCtx.currentTime + 4 + idx * 0.5);
+        g.gain.linearRampToValueAtTime(0.065 / activeNotesArray.length, audioCtx.currentTime + 4 + idx * 0.5);
 
         osc.connect(g);
         g.connect(masterCompressor);
         osc.start();
         activeNodes.push(osc, g);
+        padOscs.push(osc);
       });
 
-      // 4. Generative Telemetry Arpeggio / Chimes (representing MareNostrum 5 data packets)
-      const scale = [220, 261.63, 293.66, 329.63, 392.00, 440, 523.25, 659.25]; // A Minor Pentatonic / Dorian
-      
+      // Generative Telemetry Chimes (A Dorian night vs A Lydian day)
+      const nightScale = [220, 261.63, 293.66, 329.63, 392.00, 440, 523.25];
+      const dayScale = [329.63, 440, 493.88, 554.37, 659.25, 740.00, 880];
+
       function playTelemetryPing() {
         if (!isPlayingAudio) return;
+        const scale = (currentThemeMode === 'day') ? dayScale : nightScale;
         const noteFreq = scale[Math.floor(Math.random() * scale.length)];
         const pingOsc = audioCtx.createOscillator();
         const pingGain = audioCtx.createGain();
         const pingFilter = audioCtx.createBiquadFilter();
 
-        pingOsc.type = 'sine';
+        pingOsc.type = (currentThemeMode === 'day') ? 'triangle' : 'sine';
         pingOsc.frequency.setValueAtTime(noteFreq, audioCtx.currentTime);
-
         pingFilter.type = 'bandpass';
         pingFilter.frequency.setValueAtTime(noteFreq, audioCtx.currentTime);
-        pingFilter.Q.setValueAtTime(3, audioCtx.currentTime);
+        pingFilter.Q.setValueAtTime(currentThemeMode === 'day' ? 3.5 : 2.5, audioCtx.currentTime);
 
         const now = audioCtx.currentTime;
         pingGain.gain.setValueAtTime(0.001, now);
-        pingGain.gain.exponentialRampToValueAtTime(0.12, now + 0.08);
-        pingGain.gain.exponentialRampToValueAtTime(0.0001, now + 1.8);
+        pingGain.gain.exponentialRampToValueAtTime(0.10, now + 0.06);
+        pingGain.gain.exponentialRampToValueAtTime(0.0001, now + (currentThemeMode === 'day' ? 1.4 : 2.0));
 
         pingOsc.connect(pingFilter);
         pingFilter.connect(pingGain);
         pingGain.connect(masterCompressor);
 
         pingOsc.start(now);
-        pingOsc.stop(now + 2.0);
+        pingOsc.stop(now + 2.2);
       }
 
-      // Schedule periodic random algorithmic pings (300ms - 900ms interval)
       function scheduleNextPing() {
         if (!isPlayingAudio) return;
         playTelemetryPing();
-        const nextDelay = Math.random() * 650 + 350;
+        const nextDelay = Math.random() * 600 + 350;
         sequenceTimer = setTimeout(scheduleNextPing, nextDelay);
       }
       scheduleNextPing();

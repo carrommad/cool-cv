@@ -63,14 +63,51 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
 
 ---
 
-## 4. Roadmap & Pending Action Items
+## 4. Completed: Felipe's Advice & High-Contrast B&W Redesign
 
-1. **Implement Felipe's Advice**:
-   - Ready for changes on active branch `felipe-advice`.
-2. **Address Portfolio Positioning (`TODO.md`)**:
-   - Enhance visibility of AI / ML / creative AI competencies to match senior role requirements.
-   - Ensure external showcase repos (`pipa-music-ball`, `expo-curator`, `mnusic`) are public and documented with rich visuals.
-3. **Remote Push**:
-   - Push `pipa-music-ball` (`main` ahead by 1 commit with new images + README).
-   - Push `cool-cv` branch `felipe-advice` (`origin felipe-advice`) once reviewed.
+### A. Contrast & Strict Black and White System
+- **100% Monochrome Architecture**: Stripped all pastel colors (coral, mint, lavender, sky, yellow) and gradients. The site is now strictly Black and White with crisp, razor-sharp editorial contrast.
+- **Vertical Half-Black Half-White Split Button**: Pinned to the top bar with a vertically split disc (`linear-gradient(to right, #000 50%, #fff 50%)`) to toggle between **Night Mode** (default stark black) and **Day Mode** (stark white).
+- **Dual-Mode Ambient Audio Synthesizer**: Switching between Night and Day mode seamlessly modulates the live Web Audio API generator in real time:
+  - *Night Mode*: Deep nocturnal supercomputing drone (55 Hz A1 fundamental, 160 Hz lowpass filter, contemplative A-minor / Dorian pad, and spacious chimes).
+  - *Day Mode*: Luminous, radiant daytime harmonic profile (110 Hz A2 fundamental, 750 Hz open filter, shimmering A-major / Lydian pad, and sparkling crystalline chimes).
+
+### B. Grand Hero Header
+- **Massive Typographic Presence**: Transformed the header into a dramatic editorial hero statement:
+  - Name: `font-size: clamp(38px, 6.8vw, 82px); font-weight: 900;` in all-caps display typography.
+  - Subtitle: `COMPUTATIONAL PHYSICIST · SCIENTIFIC SOFTWARE ENGINEER · CREATIVE COMPUTING` in wide-spaced monospace.
+  - Live availability badge: `● AVAILABLE FOR RESEARCH & ENGINEERING · BARCELONA, SPAIN`.
+  - Tactile high-contrast action buttons: *Download CV PDF*, *Cover Letter PDF*, *Email*, *LinkedIn*, *GitHub*.
+
+### C. Distribution, 1-Column Layout & Oxygen
+- **1-Column Vertical List**: Shifted from the 2x2 viewport grid to a grand vertical single-column dossier (`max-width: 980px`). Vertical scroll is explicitly enabled.
+- **Compositional Oxygen**: Generous whitespace between cards (`gap: 36px`), spacious card padding (`42px 46px`), and expansive line heights (`1.65`).
+- **Big Numbers on the Left**: Numerals `01`, `02`, `03`, `04` positioned prominently on the left column of each card (`font-size: clamp(64px, 8vw, 94px); font-weight: 900; line-height: 0.85;`).
+- **Elimination of Redundancy**: Merged "01. Geographic & Research Journey" and "Trajectory & Continuous Learning" into a single, punchy title: **`Trajectory & Research Journey`** with clean metadata `European Mobility & Research · 2013 — Present`.
+
+### D. Typography Experimentation & Typography Lab
+- **Curated Multi-Font Showcase**:
+  - **Chapter 01**: **`Syne 800`** — Ultra-modern, geometric, wide French display.
+  - **Chapter 02**: **`Space Grotesk 700`** — Technical, brutalist grotesque with algorithmic ink-traps.
+  - **Chapter 03**: **`Bricolage Grotesque 800`** — Quirky, dynamic, "funny", high-personality British-French grotesque.
+  - **Chapter 04**: **`Playfair Display 900`** — High-contrast editorial literary serif for the Cover Letter.
+  - **System Base**: **`Plus Jakarta Sans`** for body copy and **`JetBrains Mono`** for technical pills and metadata.
+- **Interactive Typography Lab Bar**: Allows Carlos to preview all cards in a single winning font (`All Syne`, `All Space Grotesk`, `All Bricolage`, `All Playfair`) or maintain the `Mixed Showcase` with 1 click.
+
+### E. Book of Shapes Geometric Motifs
+- Integrated vector glyphs inspired by [bookofshapes.com](https://bookofshapes.com/) as modernist emblems in the number column of each card:
+  - Chapter 01: Modernist 8-ray geometric starburst / compass rose.
+  - Chapter 02: Stepped architectural diamond matrix.
+  - Chapter 03: Kinetic interlocking orbital spheres.
+  - Chapter 04: Modernist editorial quadrant / seal.
+
+### F. Monochromatic Modals & Map
+- All four interactive modals (Trajectory & European Map, Academic & Technical Stack, Creative Computing with Pipa-Music-Ball photos, and Cover Letter to DAV Group) converted to pure black-and-white.
+- The interactive Leaflet map uses a high-contrast grayscale filter and custom monochrome markers.
+
+---
+
+## 5. Next Steps
+1. Push commits to `origin/felipe-advice` when ready.
+2. Review typography selection to finalize the permanent 1-2 fonts.
 
