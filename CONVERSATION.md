@@ -131,3 +131,19 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
 ### I. Restored Script Tag & Button Interactivity
 - **Root Cause**: An opening <script> tag was omitted immediately preceding the JavaScript block at line 1826 during a layout update. The browser consequently treated the JavaScript code as HTML body text, visually dumping code at the bottom of the page and preventing all functions from executing.
 - **Resolution**: Restored <script> at line 1826. All buttons (Night/Day split mode, Typography Lab cascade, Ambient Audio synthesizer, Modals, PDFs) now work cleanly and no code appears on the page.
+
+### J. Default Day Mode, 80% Black Night Mode, and Dropdown Typography Menu
+- **Default Day Mode**: The page loads by default in **Day Mode** (#ffffff luminous white canvas, deep #000000 text and borders). The top-bar theme button starts on **Day Mode** and toggles cleanly into **Night Mode**.
+- **80% Black Canvas (#333333)**: In Night Mode, the background is now an editorial 80% black (#333333 / 80% black ink tint) instead of 100% harsh #000000, accompanied by #262626 matte card surfaces and crisp #ffffff text/borders.
+- **Dropdown Typography Selector**: Replaced the previous button row and removed the "Mixed Showcase" button. The new styled <select> menu allows testing a single global typeface across the whole page:
+  - **DM Sans** (Clean Geometric Sans — initial default)
+  - **Montserrat** (Architectural Modern Sans)
+  - **Roboto Slab** (Editorial Mechanical Slab Serif)
+  - **Akzidenz-Grotesk** (Historic 1896 Grotesque / Hanken Grotesk fallback)
+  - **Syne 800** (Bold Wide French Display)
+  - **Space Grotesk** (Brutalist Tech)
+  - **Bricolage Grotesque** (Quirky Expressive)
+  - **Playfair Display** (High-Contrast Editorial Serif)
+  - **Plus Jakarta Sans** (Contemporary Editorial)
+  - **JetBrains Mono** (Technical Monospace)
+- **Live Badge Synchronization**: Every selection dynamically cascades across the full page (hero header, titles, body descriptions, pills, action buttons, metadata, modals, and footer) and updates each chapter numeral badge (e.g. Roboto Slab · 01).
