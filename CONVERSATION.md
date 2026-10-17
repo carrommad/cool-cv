@@ -162,6 +162,6 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
 - **Subtitle (`.hero-discipline`)**: Styled strictly with **Syne 800** display font (`font-weight: 800; font-family: var(--font-display); letter-spacing: 0.05em`).
 - **The Rest of the Dossier (`JetBrains Mono`)**: The entire body, hero bio, card metadata, descriptions, highlights, numerals, buttons, modals, and Leaflet interactive map popups are rendered in **JetBrains Mono** (`var(--font-mono)` / `var(--font-body)`).
 - **Bold Titles**: All chapter titles (`.card-title`), modal headers (`.modal-header-titles h2`), map headers (`.map-header h3`), project names (`.proj-name`), sub-card titles (`.sub-card h4`), and cover letter subject (`.letter-subject`) are explicitly rendered in **Bold** (`font-weight: 800`).
-- **Removed Typography Lab**: The experimental dropdown bar and `setFontPreview` logic were cleanly excised from markup, styles, and scripts now that the typography pairing is finalized.
+- **Removed Typography Lab & "Curated Dossier" Bar**: Completely removed the experimental typography dropdown lab and the `"Curated Dossier · 4 Chapters"` indicator bar along with their associated CSS rules and JavaScript logic. The page header now transitions directly into Chapter 01 for a cleaner, more streamlined reading experience.
 - **Modern Chapter Badges**: Card badges updated to clean editorial chapter identifiers (`CH. 01`, `CH. 02`, `CH. 03`, `CH. 04`).
 
