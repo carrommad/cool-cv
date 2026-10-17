@@ -219,9 +219,33 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
   - Constellation particles default to rich Indigo stardust (`[84, 55, 134]`), dynamically transitioning to Honey amber (`[254, 183, 55]`) in dark mode.
   - Generative ambient audio tunes between Radiant Sun Lydian (Day) and Indigo Twilight Harmonic (Dark).
   - The classic high-contrast Black & White palette remains accessible in the palette selector under `Palette: Editorial Day (B&W)`.
-
-
-
+### T. Day Mode PDF Adaptations, Compact Header & Editorial Refinements
+- **Compact 2-Line Header Name**:
+  - Re-structured the primary name heading into a compact 2-line layout: `Carlos` on line 1, `Romero Madrid` on line 2, with tight line-height (`0.90`) and Syne 800 bold geometry across `index.html`, `cv_pastel_boxes.html`, and `cover_letter_quadrants.html`.
+- **Eliminated Subtitle Orphan**:
+  - Solved the orphan word wrap with `text-wrap: balance` and non-breaking space `Creative&nbsp;Computing` / `Creative&nbsp;Technologist`.
+- **Renamed Chapters (Cards & Modals)**:
+  - Standardized chapter titles across all web cards, modal overlays, CV boxes, and cover letter quadrants:
+    - `01. Career & Journey`
+    - `02. Education & Skills`
+    - `03. Creative Computing`
+    - `04. Cover Letter to DAV Group`
+- **Section 02 Distinctive Styling**:
+  - Main dashboard Card 02, Modal 02 sub-cards, and Box/Quadrant 02 in the PDFs now feature a vibrant yellow outline border (`border: 2px solid #FEB737 !important`) with pure white inner content background (`background: #ffffff !important`).
+- **Highlighted Current Experience**:
+  - In both web Modal 01 and downloadable PDFs, the BSC Performance Team position (May 2025 – Present) is distinctly highlighted with a yellow border (`#FEB737`), pure white background, and a dedicated status pill (`● Posición Actual · Current Position`).
+- **Streamlined Card Actions (Removed Hashtags)**:
+  - Stripped all pill tag clusters (`.card-highlights-row`) from the 4 editorial cards to remove clutter.
+  - Upgraded prompt links into prominent, high-contrast action buttons (`.action-prompt-btn`) with bold contrast and pill borders.
+- **Compact Europe Map with Color Highlights**:
+  - Reduced map height to 250px for a focused European view.
+  - Maintained monochrome tile layer while rendering highlighted country boundary polygons in vivid brand colors:
+    - **Spain** in Honey Amber (`#FEB737`)
+    - **France** in Sea Breeze (`#7BB8C0`)
+    - **Germany** in Deep Indigo (`#543786`)
+- **Pixel-Perfect Day Mode PDFs**:
+  - Adapted `cv_pastel_boxes.html` and `cover_letter_quadrants.html` to fully match the Day Mode design tokens: Lemon Meringue canvas (`#FFEBAD`), White surfaces, Indigo typography (`#543786`), Honey accents (`#FEB737`), Syne 800, and JetBrains Mono.
+  - Re-compiled both single-page A4 PDFs (`Carlos_Romero_CV.pdf`, `Carlos_Romero_Cover_Letter.pdf`) and synchronized with `./pdfs/`.
 
 
 

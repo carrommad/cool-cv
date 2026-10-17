@@ -611,10 +611,10 @@
 
     h1.hero-name {
       font-family: var(--font-display); /* Syne 800 display */
-      font-size: clamp(32px, 5.2vw, 54px);
+      font-size: clamp(34px, 5.4vw, 56px);
       font-weight: 800;
       letter-spacing: -0.03em;
-      line-height: 1.02;
+      line-height: 0.90;
       color: var(--bw-text);
       margin: 0;
       text-transform: uppercase;
@@ -628,6 +628,7 @@
       text-transform: uppercase;
       color: var(--bw-text);
       opacity: 0.95;
+      text-wrap: balance;
     }
 
     .hero-bio {
@@ -804,50 +805,87 @@
       max-width: 620px;
     }
 
-    .card-highlights-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
-      margin-top: 2px;
-    }
-
-    .hl-pill {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      font-weight: 600;
-      padding: 2px 7.5px;
-      border-radius: 9999px;
-      background: var(--bw-pill-bg);
-      color: var(--bw-text);
-      border: 1px solid var(--bw-border-subtle);
-      transition: all 0.2s ease;
-    }
-    .editorial-card:hover .hl-pill {
-      border-color: var(--bw-border-medium);
-    }
-
     .card-action-row {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      margin-top: 4px;
-      padding-top: 7px;
-      border-top: 1px solid var(--bw-border-subtle);
+      justify-content: flex-end;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px dashed var(--bw-border-subtle);
     }
 
-    .action-prompt {
+    .action-prompt-btn {
       font-family: var(--font-mono);
       font-size: 11px;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: 0.04em;
-      color: var(--bw-text);
+      text-transform: uppercase;
+      color: var(--bw-btn-text);
+      background: var(--bw-btn-bg);
+      border: 1.5px solid var(--bw-btn-border);
+      padding: 7px 16px;
+      border-radius: 9999px;
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-      transition: gap 0.2s ease;
+      gap: 6px;
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      cursor: pointer;
     }
-    .editorial-card:hover .action-prompt {
-      gap: 8px;
+
+    .editorial-card:hover .action-prompt-btn {
+      background: var(--bw-btn-hover-bg);
+      color: var(--bw-btn-text);
+      transform: translateX(3px);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
+    }
+
+    /* SECTION 02: Yellow Outline & White Content */
+    .card-section-02 {
+      border: 2px solid #FEB737 !important;
+      background: #ffffff !important;
+      box-shadow: 0 4px 18px rgba(254, 183, 55, 0.20) !important;
+    }
+    .card-section-02:hover {
+      background: #fffdf5 !important;
+      border-color: #FEB737 !important;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(254, 183, 55, 0.32) !important;
+    }
+    #modal-foundations .sub-card {
+      border: 2px solid #FEB737;
+      background: #ffffff;
+      box-shadow: 0 4px 16px rgba(254, 183, 55, 0.16);
+    }
+
+    /* CURRENT EXPERIENCE HIGHLIGHT */
+    .timeline-card.is-current {
+      border: 2px solid #FEB737;
+      background: #ffffff;
+      box-shadow: 0 4px 18px rgba(254, 183, 55, 0.22);
+      position: relative;
+    }
+    .current-role-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      font-weight: 800;
+      color: #1c112e;
+      background: #FEB737;
+      padding: 3px 9px;
+      border-radius: 9999px;
+      margin-bottom: 8px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .pulse-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #543786;
+      animation: status-pulse 1.8s infinite ease-in-out;
     }
 
     /* =========================================================
@@ -978,20 +1016,24 @@
     }
     #europe-leaflet-map {
       width: 100%;
-      height: 520px;
+      height: 250px;
       border-radius: 12px;
       border: 1.5px solid var(--bw-border-medium);
-      filter: grayscale(100%) contrast(120%);
+      overflow: hidden;
+      background: #e5e5e5;
     }
-    body.theme-night #europe-leaflet-map,
-    body.theme-black-silver #europe-leaflet-map,
-    body.theme-touareg #europe-leaflet-map,
-    body.theme-cyber-yellow #europe-leaflet-map,
-    body.theme-nordic-pine #europe-leaflet-map,
-    body.theme-marenostrum #europe-leaflet-map,
-    body.theme-deep-blue #europe-leaflet-map,
-    body.theme-indigo-honey #europe-leaflet-map {
-      filter: grayscale(100%) invert(92%) contrast(125%);
+    #europe-leaflet-map .leaflet-tile-pane {
+      filter: grayscale(85%) contrast(110%) brightness(102%);
+    }
+    body.theme-night #europe-leaflet-map .leaflet-tile-pane,
+    body.theme-black-silver #europe-leaflet-map .leaflet-tile-pane,
+    body.theme-touareg #europe-leaflet-map .leaflet-tile-pane,
+    body.theme-cyber-yellow #europe-leaflet-map .leaflet-tile-pane,
+    body.theme-nordic-pine #europe-leaflet-map .leaflet-tile-pane,
+    body.theme-marenostrum #europe-leaflet-map .leaflet-tile-pane,
+    body.theme-deep-blue #europe-leaflet-map .leaflet-tile-pane,
+    body.theme-indigo-honey #europe-leaflet-map .leaflet-tile-pane {
+      filter: grayscale(85%) invert(92%) contrast(125%);
     }
 
     .custom-map-marker {
@@ -1535,9 +1577,9 @@
       </div>
 
       <div class="hero-name-block">
-        <h1 class="hero-name">Carlos Romero Madrid</h1>
+        <h1 class="hero-name">Carlos<br>Romero Madrid</h1>
         <div class="hero-discipline">
-          Computational Physicist · Scientific Software Engineer · Creative Computing
+          Computational Physicist · Scientific Software Engineer · Creative&nbsp;Computing
         </div>
         <p class="hero-bio">
           Double Degree in Physics & Mathematics. Optimizing petascale solvers across MareNostrum 5 (MN5) and LUMI at the Barcelona Supercomputing Center (BSC-CNS), while prototyping kinetic instruments, sound installations, and tangible data physicalization.
@@ -1551,7 +1593,7 @@
          ========================================================= -->
     <main class="vertical-cards-list">
       
-      <!-- CHAPTER 01: TRAJECTORY & RESEARCH JOURNEY -->
+      <!-- CHAPTER 01: CAREER & JOURNEY -->
       <article class="editorial-card" onclick="openSectionModal('modal-trajectory')">
         <div class="card-grid-inner">
           <div class="card-num-col">
@@ -1571,26 +1613,19 @@
               <span class="meta-bullet">/</span>
               <span class="meta-period">2013 — Present</span>
             </div>
-            <h2 class="card-title">Trajectory & Research Journey</h2>
+            <h2 class="card-title">Career &amp; Journey</h2>
             <p class="card-desc">
               Cross-European scientific trajectory spanning Seville, Bonn/Cologne (Fraunhofer FHR cognitive radar), Marseille (MSc Plasma & Fusion Physics, 1st of Class), Pamplona (CENER wind plant data pipelines), and BSC Barcelona (HPC Fusion & Performance).
             </p>
-            <div class="card-highlights-row">
-              <span class="hl-pill">Interactive European Map</span>
-              <span class="hl-pill">Fraunhofer FHR</span>
-              <span class="hl-pill">Aix-Marseille</span>
-              <span class="hl-pill">CENER</span>
-              <span class="hl-pill">BSC Fusion & Performance</span>
-            </div>
             <div class="card-action-row">
-              <span class="action-prompt">Explore Interactive Map & Verified Timeline →</span>
+              <span class="action-prompt-btn">Explore Interactive Map &amp; Journey →</span>
             </div>
           </div>
         </div>
       </article>
 
-      <!-- CHAPTER 02: ACADEMIC FOUNDATIONS & HPC STACK -->
-      <article class="editorial-card" onclick="openSectionModal('modal-foundations')">
+      <!-- CHAPTER 02: EDUCATION & SKILLS -->
+      <article class="editorial-card card-section-02" onclick="openSectionModal('modal-foundations')">
         <div class="card-grid-inner">
           <div class="card-num-col">
             <span class="card-big-num">02</span>
@@ -1607,26 +1642,18 @@
               <span class="meta-bullet">/</span>
               <span class="meta-period">Physics · Math · Petascale</span>
             </div>
-            <h2 class="card-title">Academic Foundations & Technical Stack</h2>
+            <h2 class="card-title">Education &amp; Skills</h2>
             <p class="card-desc">
               Double Degree in Physics & Mathematics (3rd of Class), MSc Plasma Physics (1st of Class), parallel HPC runtime stack, Slurm job orchestration, and direct deployment experience across MareNostrum 5 (MN5), Leonardo (CINECA), and LUMI (CSC Finland).
             </p>
-            <div class="card-highlights-row">
-              <span class="hl-pill">Double Degree 8.35/10</span>
-              <span class="hl-pill">MSc 1st Class 15.43/20</span>
-              <span class="hl-pill">Fortran · C++ · Python</span>
-              <span class="hl-pill">MPI · OpenMP · CUDA</span>
-              <span class="hl-pill">MareNostrum 5</span>
-              <span class="hl-pill">5 Languages</span>
-            </div>
             <div class="card-action-row">
-              <span class="action-prompt">Inspect Academic Rigor & Supercomputers Operated →</span>
+              <span class="action-prompt-btn">Inspect Education &amp; Skills Stack →</span>
             </div>
           </div>
         </div>
       </article>
 
-      <!-- CHAPTER 03: CREATIVE COMPUTING & INSTALLATIONS -->
+      <!-- CHAPTER 03: CREATIVE COMPUTING -->
       <article class="editorial-card" onclick="openSectionModal('modal-creative')">
         <div class="card-grid-inner">
           <div class="card-num-col">
@@ -1644,18 +1671,12 @@
               <span class="meta-bullet">/</span>
               <span class="meta-period">Software & Hardware Prototypes</span>
             </div>
-            <h2 class="card-title">Creative Computing & Physical Installations</h2>
+            <h2 class="card-title">Creative Computing</h2>
             <p class="card-desc">
               Tangible data experiences bridging scientific computing with playful interaction: MNusic (real-time cluster telemetry sonification), Pipa-Music-Ball (cat-interactive 6-DoF kinetic sphere), Expo-Curator (open-source gallery staging engine), and Lens & Motion procedural animation.
             </p>
-            <div class="card-highlights-row">
-              <span class="hl-pill">MNusic Web Audio</span>
-              <span class="hl-pill">Pipa-Music-Ball IMU Sphere</span>
-              <span class="hl-pill">Expo-Curator Studio</span>
-              <span class="hl-pill">After Effects Motion Lab</span>
-            </div>
             <div class="card-action-row">
-              <span class="action-prompt">View Prototypes, Hardware Images & Live Galleries →</span>
+              <span class="action-prompt-btn">View Creative Computing Prototypes →</span>
             </div>
           </div>
         </div>
@@ -1681,18 +1702,12 @@
               <span class="meta-bullet">/</span>
               <span class="meta-period">Addressed to Fernando Cucchietti</span>
             </div>
-            <h2 class="card-title">Cover Letter to DAV Group (BSC)</h2>
+            <h2 class="card-title">Cover Letter to DAV Group</h2>
             <p class="card-desc">
               Strategic application statement addressed to the Data Analytics & Visualization Group at BSC-CNS: proposing to bridge petascale supercomputing with Domestic Data Streamers design philosophy to democratize science through emotional, tangible experiences.
             </p>
-            <div class="card-highlights-row">
-              <span class="hl-pill">DAV Group BSC</span>
-              <span class="hl-pill">Domestic Data Streamers Philosophy</span>
-              <span class="hl-pill">Scientific Storytelling</span>
-              <span class="hl-pill">Data Democratization</span>
-            </div>
             <div class="card-action-row">
-              <span class="action-prompt">Read Full Application Letter & Design Manifest →</span>
+              <span class="action-prompt-btn">Read Full Application Letter →</span>
             </div>
           </div>
         </div>
@@ -1777,8 +1792,8 @@
     <div class="modal-panel">
       <div class="modal-header">
         <div class="modal-header-titles">
-          <span>01 · European Research Mobility</span>
-          <h2>Trajectory & Research Journey</h2>
+          <span>01 · European Mobility & Research</span>
+          <h2>Career &amp; Journey</h2>
         </div>
         <button class="btn-close-modal" onclick="closeSectionModal('modal-trajectory')" title="Close (or click outside)">✕</button>
       </div>
@@ -1798,7 +1813,11 @@
         <div class="timeline-grid">
           
           <!-- 5. BSC Performance (Current) -->
-          <div class="timeline-card" id="card-bsc-perf" data-city="barcelona" onclick="focusCity('barcelona', true)">
+          <div class="timeline-card is-current" id="card-bsc-perf" data-city="barcelona" onclick="focusCity('barcelona', true)">
+            <div class="current-role-badge">
+              <span class="pulse-dot"></span>
+              Posición Actual · Current Position
+            </div>
             <span class="t-location-badge">Barcelona, Spain · BSC-CNS</span>
             <div class="t-card-role">Research Engineer · Performance Team</div>
             <div class="t-card-org">Barcelona Supercomputing Center (BSC)</div>
@@ -1875,8 +1894,8 @@
     <div class="modal-panel">
       <div class="modal-header">
         <div class="modal-header-titles">
-          <span>02 · Rigor & Compute Toolkit</span>
-          <h2>Academic Foundations & Technical Stack</h2>
+          <span>02 · Rigor &amp; Compute Toolkit</span>
+          <h2>Education &amp; Skills</h2>
         </div>
         <button class="btn-close-modal" onclick="closeSectionModal('modal-foundations')" title="Close (or click outside)">✕</button>
       </div>
@@ -1947,8 +1966,8 @@
     <div class="modal-panel">
       <div class="modal-header">
         <div class="modal-header-titles">
-          <span>03 · Physicalization, Sound & Visual Media</span>
-          <h2>Creative Computing & Data Installations</h2>
+          <span>03 · Physicalization, Sound &amp; Visual Media</span>
+          <h2>Creative Computing</h2>
         </div>
         <button class="btn-close-modal" onclick="closeSectionModal('modal-creative')" title="Close (or click outside)">✕</button>
       </div>
@@ -2040,8 +2059,8 @@
     <div class="modal-panel">
       <div class="modal-header">
         <div class="modal-header-titles">
-          <span>04 · Vision & Statement</span>
-          <h2>Cover Letter to DAV Group (BSC)</h2>
+          <span>04 · Vision &amp; Statement</span>
+          <h2>Cover Letter to DAV Group</h2>
         </div>
         <button class="btn-close-modal" onclick="closeSectionModal('modal-cover-letter')" title="Close (or click outside)">✕</button>
       </div>
@@ -2338,8 +2357,8 @@
       }
 
       map = L.map('europe-leaflet-map', {
-        center: [44.5, 2.5],
-        zoom: 5,
+        center: [46.0, 4.0],
+        zoom: 4,
         minZoom: 3,
         maxZoom: 10,
         scrollWheelZoom: false
@@ -2350,6 +2369,51 @@
         attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
         maxZoom: 16
       }).addTo(map);
+
+      // Highlighted Countries in Vivid Colors (Spain, France, Germany)
+      const countryHighlights = [
+        {
+          name: "Spain · España",
+          color: "#FEB737", // Honey Amber
+          coords: [
+            [43.7, -7.9], [43.6, -5.8], [43.4, -3.5], [43.3, -1.8], [42.8, 0.0],
+            [42.5, 3.1], [41.4, 2.2], [40.7, 0.6], [39.0, 0.2], [38.3, -0.5],
+            [36.7, -2.1], [36.0, -5.6], [36.5, -6.3], [37.1, -7.4], [37.2, -7.5],
+            [38.2, -7.4], [39.7, -7.0], [41.2, -6.8], [41.8, -8.8], [42.8, -9.3], [43.7, -7.9]
+          ],
+          tooltip: "<strong>Spain (España)</strong><br>Seville (BSc Double Degree) · Barcelona (BSC-CNS)"
+        },
+        {
+          name: "France",
+          color: "#7BB8C0", // Sea Breeze
+          coords: [
+            [51.1, 2.5], [49.5, 0.1], [48.6, -4.5], [47.3, -2.2], [46.0, -1.2],
+            [43.4, -1.8], [42.4, 3.1], [43.3, 5.4], [43.7, 7.5], [45.9, 7.0],
+            [46.4, 6.1], [47.6, 7.5], [49.0, 8.2], [49.4, 6.0], [50.1, 4.2], [51.1, 2.5]
+          ],
+          tooltip: "<strong>France</strong><br>Marseille (MSc Plasma & Fusion Physics, 1st of Class)"
+        },
+        {
+          name: "Germany · Deutschland",
+          color: "#543786", // Deep Indigo
+          coords: [
+            [54.9, 8.5], [54.5, 10.0], [54.3, 13.0], [53.5, 14.2], [51.0, 15.0],
+            [50.8, 14.8], [48.6, 13.6], [47.5, 10.0], [47.6, 7.6], [49.0, 8.2],
+            [50.3, 6.4], [51.8, 6.0], [53.3, 7.2], [54.0, 8.6], [54.9, 8.5]
+          ],
+          tooltip: "<strong>Germany (Deutschland)</strong><br>Bonn & Cologne (Fraunhofer FHR Cognitive Radar)"
+        }
+      ];
+
+      countryHighlights.forEach(c => {
+        L.polygon(c.coords, {
+          color: c.color,
+          weight: 2.2,
+          opacity: 0.9,
+          fillColor: c.color,
+          fillOpacity: 0.30
+        }).addTo(map).bindTooltip(c.tooltip, { sticky: true, className: 'country-tooltip' });
+      });
 
       // Trajectory Curved Lines (High-contrast B&W)
       routeLegs.forEach((leg) => {

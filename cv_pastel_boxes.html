@@ -2,10 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Curriculum Vitae — Carlos Romero Madrid (Pastel Box Style)</title>
+  <title>Curriculum Vitae — Carlos Romero Madrid</title>
+  
+  <!-- Curated Typeface Pairing: Syne 800 & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,700&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
+  
   <style>
     @page {
       size: A4 portrait;
@@ -18,323 +21,419 @@
       padding: 0;
     }
 
-    body {
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      color: #1e293b;
-      background: #fafaf9;
+    :root {
+      /* Web Day Mode Palette: Lemon Meringue & Breeze */
+      --day-bg: #FFEBAD;           /* Lemon Meringue Canvas */
+      --day-surface: #ffffff;      /* Pure White Surface */
+      --day-surface-warm: #fffdf5; /* Warm Pearl */
+      --day-indigo: #543786;       /* Deep Editorial Indigo */
+      --day-indigo-dark: #3a2260;  /* High-Contrast Body Text */
+      --day-honey: #FEB737;        /* Honey Amber Accent */
+      --day-breeze: #7BB8C0;       /* Sea Breeze Accent */
+      --day-border: #543786;       /* Clean Structural Border */
+      
+      --font-display: 'Syne', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    html, body {
       width: 210mm;
-      min-height: 297mm;
+      height: 297mm;
+      background: var(--day-bg);
+      color: var(--day-indigo-dark);
+      font-family: var(--font-mono);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
       margin: 0 auto;
-      padding: 8mm;
+      padding: 7mm 8mm;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      overflow: hidden;
     }
 
-    /* Top utility bar (screen only) */
+    /* Screen-only top action bar */
     .top-actions {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 6px;
+      margin-bottom: 5px;
+      padding: 0 2px;
     }
     .top-badge {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 8pt;
-      font-weight: 600;
-      color: #64748b;
+      font-weight: 700;
+      color: var(--day-indigo);
+      letter-spacing: 0.04em;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
     }
     .action-group {
       display: flex;
       gap: 8px;
     }
     .print-btn {
-      background: #0f172a;
-      color: #fff;
-      border: none;
-      padding: 5px 14px;
+      background: var(--day-indigo);
+      color: var(--day-bg);
+      border: 1.5px solid var(--day-honey);
+      padding: 4px 14px;
       border-radius: 9999px;
-      font-size: 8.5pt;
-      font-weight: 600;
+      font-family: var(--font-mono);
+      font-size: 8pt;
+      font-weight: 700;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 5px;
       text-decoration: none;
+      transition: all 0.2s ease;
     }
-    .print-btn:hover { background: #334155; }
+    .print-btn:hover {
+      background: #3a2260;
+      color: #ffffff;
+    }
 
-    /* MASTER PASTEL GRID (Header Banner + 4 Major Content Boxes) */
+    /* MASTER CV SHEET */
     .cv-sheet {
       width: 100%;
-      height: 279mm;
+      height: 281mm;
       display: flex;
       flex-direction: column;
-      gap: 4.5mm;
+      gap: 4mm;
     }
 
-    /* 00. HEADER BANNER (Soft Warm Cream / Vanilla) */
+    /* 00. COMPACT 2-LINE HEADER BANNER */
     .box-header {
-      background: #fff9ea;
-      border: 1px solid #fee8b0;
-      border-radius: 12px;
-      padding: 5.5mm 7mm;
+      background: var(--day-surface);
+      border: 1.5px solid var(--day-border);
+      border-radius: 10px;
+      padding: 4.5mm 6.5mm;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+      box-shadow: 0 4px 14px rgba(84, 55, 134, 0.08);
     }
-    .brand-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 16pt;
+    .header-name-block {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-name-line1 {
+      font-family: var(--font-display);
+      font-size: 21pt;
       font-weight: 800;
-      color: #78350f;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
+      color: var(--day-indigo);
+      line-height: 0.90;
+      letter-spacing: -0.025em;
+    }
+    .brand-name-line2 {
+      font-family: var(--font-display);
+      font-size: 21pt;
+      font-weight: 800;
+      color: var(--day-indigo);
+      line-height: 0.90;
+      letter-spacing: -0.025em;
+      margin-top: 1.5px;
     }
     .brand-subtitle {
-      font-size: 8.2pt;
-      font-weight: 600;
-      color: #b45309;
-      margin-top: 2px;
+      font-family: var(--font-mono);
+      font-size: 7.4pt;
+      font-weight: 700;
+      color: var(--day-indigo-dark);
+      margin-top: 4px;
+      letter-spacing: -0.01em;
+      text-wrap: balance;
     }
     .header-contacts {
       text-align: right;
-      font-family: 'JetBrains Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 7.2pt;
-      line-height: 1.45;
-      color: #92400e;
+      line-height: 1.42;
+      color: var(--day-indigo-dark);
     }
-    .header-contacts a { color: inherit; text-decoration: none; font-weight: 600; }
+    .header-contacts a {
+      color: var(--day-indigo);
+      text-decoration: none;
+      font-weight: 700;
+      border-bottom: 1px dotted var(--day-indigo);
+    }
 
     /* 4-QUADRANT CORE GRID */
     .boxes-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
-      gap: 4.5mm;
+      gap: 4mm;
       flex: 1;
     }
 
-    .pastel-box {
-      border-radius: 12px;
-      padding: 6mm 6.5mm;
+    .editorial-box {
+      background: var(--day-surface);
+      border: 1.5px solid var(--day-border);
+      border-radius: 10px;
+      padding: 5mm 5.8mm;
       display: flex;
       flex-direction: column;
       position: relative;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+      box-shadow: 0 4px 14px rgba(84, 55, 134, 0.06);
       overflow: hidden;
-      border: 1px solid rgba(0, 0, 0, 0.06);
     }
 
-    .box-number {
-      position: absolute;
-      top: 4.5mm;
-      right: 5.5mm;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 15pt;
+    /* Top Number & Tag Line */
+    .box-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 4px;
+    }
+    .box-tag {
+      font-family: var(--font-mono);
+      font-size: 6.8pt;
       font-weight: 800;
-      opacity: 0.22;
+      color: var(--day-indigo);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .box-num {
+      font-family: var(--font-display);
+      font-size: 14pt;
+      font-weight: 900;
+      color: var(--day-indigo);
+      opacity: 0.28;
       line-height: 1;
     }
-
-    .box-tag {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 6.8pt;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin-bottom: 3px;
-      display: block;
-    }
-
     .box-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 10.8pt;
-      font-weight: 700;
-      line-height: 1.25;
-      margin-bottom: 7px;
+      font-family: var(--font-display);
+      font-size: 11pt;
+      font-weight: 800;
+      color: var(--day-indigo);
+      letter-spacing: -0.015em;
+      line-height: 1.2;
+      margin-bottom: 5px;
     }
 
     .box-content {
-      font-size: 7.8pt;
-      line-height: 1.42;
-      color: #334155;
+      font-family: var(--font-mono);
+      font-size: 7.2pt;
+      line-height: 1.38;
+      color: var(--day-indigo-dark);
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 4.5px;
       flex: 1;
     }
 
-    .box-content strong { color: #0f172a; }
-
-    /* BOX 1: PASTEL CORAL / BLUSH (Trajectory & BSC Experience) */
-    .b-coral {
-      background: #ffebe9;
-      border-color: #ffd2cc;
-    }
-    .b-coral .box-tag { color: #c83226; }
-    .b-coral .box-title { color: #8a1d14; }
-
+    /* BOX 01: CAREER & JOURNEY */
     .role-item {
-      background: rgba(255, 255, 255, 0.65);
+      background: var(--day-surface-warm);
+      border: 1px solid rgba(84, 55, 134, 0.16);
       border-radius: 6px;
-      padding: 4px 6px;
-      border: 1px solid rgba(200, 50, 38, 0.12);
+      padding: 3.5px 5.5px;
     }
     .role-header {
       display: flex;
       justify-content: space-between;
-      font-size: 7.8pt;
+      font-size: 7.2pt;
       font-weight: 700;
-      color: #8a1d14;
-      margin-bottom: 1px;
+      color: var(--day-indigo);
+      margin-bottom: 1.5px;
     }
     .role-date {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 6.8pt;
-      color: #c83226;
-      font-weight: normal;
+      font-size: 6.5pt;
+      font-weight: 600;
+      color: #63439b;
     }
 
-    /* BOX 2: PASTEL MINT / SAGE (Physics Foundation & Technical Stack) */
-    .b-mint {
-      background: #eaf6ee;
-      border-color: #cdecd5;
+    /* CURRENT EXPERIENCE RESALTADA */
+    .role-item.is-current {
+      background: #ffffff !important;
+      border: 2px solid var(--day-honey) !important;
+      box-shadow: 0 2px 10px rgba(254, 183, 55, 0.25);
+      position: relative;
     }
-    .b-mint .box-tag { color: #15803d; }
-    .b-mint .box-title { color: #14532d; }
+    .current-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      background: var(--day-honey);
+      color: #1a0f30;
+      font-family: var(--font-mono);
+      font-size: 5.8pt;
+      font-weight: 800;
+      padding: 1.5px 5px;
+      border-radius: 9999px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .current-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #543786;
+    }
 
-    .edu-badge-row {
-      display: flex;
-      flex-direction: column;
-      gap: 3.5px;
-      margin-bottom: 3px;
+    /* BOX 02: EDUCATION & SKILLS (CONTORNO AMARILLO, CONTENIDO EN BLANCO) */
+    .box-section-02 {
+      border: 2px solid #FEB737 !important;
+      background: #ffffff !important;
+      box-shadow: 0 4px 16px rgba(254, 183, 55, 0.22) !important;
     }
-    .edu-item {
-      background: rgba(255, 255, 255, 0.65);
+    .box-section-02 .box-num {
+      color: #FEB737 !important;
+      opacity: 0.55 !important;
+    }
+    .box-section-02 .box-title {
+      color: var(--day-indigo);
+    }
+    .box-section-02 .edu-item {
+      background: #ffffff;
+      border: 1px solid rgba(254, 183, 55, 0.35);
       border-radius: 6px;
-      padding: 4px 6px;
-      border: 1px solid rgba(21, 128, 61, 0.15);
-      font-size: 7.5pt;
+      padding: 3.5px 5.5px;
     }
-    .edu-item strong { color: #14532d; }
+
+    .edu-rank-pill {
+      display: inline-block;
+      background: rgba(254, 183, 55, 0.18);
+      color: #8a5800;
+      font-size: 6.2pt;
+      font-weight: 800;
+      padding: 1px 4.5px;
+      border-radius: 4px;
+      margin-top: 1.5px;
+    }
 
     .tech-pill-group {
       display: flex;
       flex-wrap: wrap;
-      gap: 3.5px;
-      margin-top: 2px;
+      gap: 3px;
+      margin-top: 1px;
     }
-    .t-pill {
+    .tech-pill {
       background: #ffffff;
-      color: #15803d;
-      border: 1px solid rgba(21, 128, 61, 0.25);
-      padding: 1.5px 5.5px;
+      color: var(--day-indigo);
+      border: 1px solid var(--day-breeze);
+      padding: 1.5px 5px;
       border-radius: 9999px;
-      font-size: 6.8pt;
-      font-family: 'JetBrains Mono', monospace;
-      font-weight: 600;
+      font-size: 6.5pt;
+      font-family: var(--font-mono);
+      font-weight: 700;
     }
 
-    /* BOX 3: PASTEL LAVENDER (The 4 Creative Computing Projects) */
-    .b-lavender {
-      background: #f1edfb;
-      border-color: #ded6f7;
-    }
-    .b-lavender .box-tag { color: #6d28d9; }
-    .b-lavender .box-title { color: #4c1d95; }
-
-    .proj-item {
-      background: rgba(255, 255, 255, 0.65);
+    /* BOX 03: CREATIVE COMPUTING */
+    .proj-card {
+      background: var(--day-surface-warm);
+      border: 1px solid rgba(84, 55, 134, 0.15);
       border-radius: 6px;
-      padding: 4px 6px;
-      border: 1px solid rgba(109, 40, 217, 0.15);
-      font-size: 7.3pt;
+      padding: 3.5px 5.5px;
+      font-size: 7pt;
       line-height: 1.35;
     }
-    .proj-item strong {
-      color: #4c1d95;
-      font-size: 7.8pt;
+    .proj-card strong {
+      color: var(--day-indigo);
+      font-size: 7.4pt;
       display: block;
       margin-bottom: 1px;
     }
-
-    /* BOX 4: PASTEL SKY BLUE (DAV Group Direct Alignment & Creative Stack) */
-    .b-sky {
-      background: #e8f4fc;
-      border-color: #cbe6fa;
-      justify-content: space-between;
+    .proj-link {
+      color: var(--day-indigo);
+      text-decoration: underline;
+      font-weight: 700;
     }
-    .b-sky .box-tag { color: #0284c7; }
-    .b-sky .box-title { color: #0369a1; }
 
-    .dav-matrix-item {
-      background: rgba(255, 255, 255, 0.65);
+    /* BOX 04: COVER LETTER TO DAV GROUP */
+    .dav-item {
+      background: var(--day-surface-warm);
+      border: 1px solid rgba(123, 184, 192, 0.35);
       border-radius: 6px;
-      padding: 4px 6px;
-      border: 1px solid rgba(2, 132, 199, 0.18);
-      font-size: 7.3pt;
-      line-height: 1.35;
+      padding: 3.5px 5.5px;
+      font-size: 7pt;
+      line-height: 1.34;
     }
-    .dav-matrix-item strong {
-      color: #0369a1;
+    .dav-item strong {
+      color: var(--day-indigo);
       display: block;
-      font-size: 7.6pt;
+      font-size: 7.3pt;
+      margin-bottom: 1px;
     }
-
-    .footer-quote {
+    .box-footer-quote {
       margin-top: auto;
-      border-top: 1px solid rgba(2, 132, 199, 0.25);
-      padding-top: 4px;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 7.4pt;
-      font-weight: 600;
-      color: #0369a1;
+      border-top: 1px solid rgba(84, 55, 134, 0.20);
+      padding-top: 3.5px;
+      font-family: var(--font-display);
+      font-size: 7.2pt;
+      font-weight: 700;
+      color: var(--day-indigo);
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
+    .box-footer-cite {
+      font-family: var(--font-mono);
+      font-size: 6.4pt;
+      font-weight: 700;
+      color: var(--day-breeze);
+    }
+
+    /* HIGH-CONTRAST ACTION PROMPTS */
+    .btn-action-high-contrast {
+      background: var(--day-indigo);
+      color: var(--day-bg);
+      border: 1.5px solid var(--day-honey);
+      padding: 2.5px 9px;
+      border-radius: 9999px;
+      font-family: var(--font-mono);
+      font-size: 6.4pt;
+      font-weight: 700;
+      display: inline-block;
+      text-decoration: none;
+    }
 
     @media print {
       body {
-        padding: 5mm !important;
-        background: #fff !important;
-      }
-      .top-actions { display: none !important; }
-      .cv-sheet { height: 285mm !important; gap: 3.5mm !important; }
-      .pastel-box, .box-header {
-        box-shadow: none !important;
+        padding: 5mm 6mm !important;
+        background: #FFEBAD !important;
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
+      }
+      .top-actions {
+        display: none !important;
+      }
+      .cv-sheet {
+        height: 285mm !important;
+        gap: 3.5mm !important;
+      }
+      .editorial-box, .box-header {
+        box-shadow: none !important;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Screen Actions -->
+  <!-- Screen Actions Bar -->
   <div class="top-actions">
-    <span class="top-badge">Curriculum Vitae • Carlos Romero Madrid • Pastel Box Exhibition Edition</span>
+    <span class="top-badge">Curriculum Vitae • Carlos Romero Madrid • Day Mode Edition</span>
     <div class="action-group">
-      <a href="Carlos_Romero_CV.pdf" download class="print-btn">Download PDF</a>
+      <a href="index.html" class="print-btn">← Interactive Web Dossier</a>
       <button class="print-btn" onclick="window.print()">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
-        Print
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+        Print / PDF
       </button>
     </div>
   </div>
 
-  <!-- THE CV SHEET -->
+  <!-- MASTER CV SHEET -->
   <div class="cv-sheet">
 
-    <!-- HEADER BANNER: WARM VANILLA -->
+    <!-- 00. COMPACT 2-LINE HEADER -->
     <header class="box-header">
-      <div>
-        <h1 class="brand-title">Carlos Romero Madrid</h1>
-        <p class="brand-subtitle">Computational Physicist · HPC Scientific Software Engineer · Creative Technologist</p>
+      <div class="header-name-block">
+        <h1 class="brand-name-line1">Carlos</h1>
+        <div class="brand-name-line2">Romero Madrid</div>
+        <p class="brand-subtitle">Computational Physicist · HPC Scientific Software Engineer · Creative&nbsp;Technologist</p>
       </div>
       <div class="header-contacts">
         <a href="mailto:carrommad@gmail.com">carrommad@gmail.com</a> · <a href="mailto:carlos.romero@bsc.es">carlos.romero@bsc.es</a><br>
@@ -343,28 +442,36 @@
       </div>
     </header>
 
-    <!-- 4 PASTEL CORE BOXES -->
+    <!-- 4 CORE EDITORIAL BOXES -->
     <div class="boxes-grid">
 
-      <!-- BOX 1: PASTEL CORAL (Professional Trajectory) -->
-      <section class="pastel-box b-coral">
-        <div class="box-number">01</div>
-        <span class="box-tag">Trajectory · HPC Engineering</span>
-        <h2 class="box-title">Professional Experience</h2>
+      <!-- 01. CAREER & JOURNEY -->
+      <section class="editorial-box">
+        <div class="box-header-row">
+          <span class="box-tag">European Mobility &amp; Research</span>
+          <span class="box-num">01</span>
+        </div>
+        <h2 class="box-title">01. Career &amp; Journey</h2>
         <div class="box-content">
-          <div class="role-item">
+          
+          <!-- Current Position Highlighted -->
+          <div class="role-item is-current">
+            <div class="current-badge">
+              <span class="current-dot"></span>
+              Posición Actual · Current Position
+            </div>
             <div class="role-header">
-              <span>BSC · Performance Team (HPC Software Eng.)</span>
+              <span><strong>BSC · Performance Team</strong> (HPC Software Eng.)</span>
               <span class="role-date">05/2025 – Present</span>
             </div>
             • Ocean–atmosphere coupling in <strong>DestinationE</strong> and <strong>ClimateDT</strong> digital twins.<br>
-            • Core development in the <strong>ECLand</strong> climate model with the Climate Change team.<br>
-            • Deploying, configuring & monitoring long-running workflows on <strong>MareNostrum 5 (MN5)</strong>.
+            • Core development in <strong>ECLand</strong> climate model with Climate Change team.<br>
+            • Deployment and performance profiling across <strong>MareNostrum 5 (MN5)</strong> & LUMI.
           </div>
 
           <div class="role-item">
             <div class="role-header">
-              <span>BSC · Fusion Team (Research Engineer)</span>
+              <span><strong>BSC · Fusion Team</strong> (Research Engineer)</span>
               <span class="role-date">05/2023 – 04/2025</span>
             </div>
             • Advanced Computing Hub: optimized nuclear fusion simulation codes via OpenMP, MPI, PETSc, oneAPI, OpenACC on European Tier-0 supercomputers.<br>
@@ -373,7 +480,7 @@
 
           <div class="role-item">
             <div class="role-header">
-              <span>CENER · Data Scientist (Analysis & Design)</span>
+              <span><strong>CENER · Data Scientist</strong> (Analysis &amp; Design)</span>
               <span class="role-date">05/2022 – 09/2022</span>
             </div>
             • Python pipelines for real-time wind plant telemetry, control, and predictive maintenance.
@@ -381,126 +488,130 @@
 
           <div class="role-item">
             <div class="role-header">
-              <span>Univ. Seville & Fraunhofer FHR · Researcher</span>
+              <span><strong>Univ. Seville &amp; Fraunhofer FHR</strong> · Researcher</span>
               <span class="role-date">2018 – 2022</span>
             </div>
-            • Particle-in-cell (PIC) & MHD plasma simulations; simulated annealing radar antenna design.
+            • PIC plasma simulations (Bonn); simulated annealing radar antenna design.
           </div>
+
         </div>
       </section>
 
-      <!-- BOX 2: PASTEL MINT (Academic Core & Technical Matrix) -->
-      <section class="pastel-box b-mint">
-        <div class="box-number">02</div>
-        <span class="box-tag">Foundations · Compute Stack</span>
-        <h2 class="box-title">Academic & Technical Toolkit</h2>
+      <!-- 02. EDUCATION & SKILLS (YELLOW OUTLINE, WHITE CONTENT) -->
+      <section class="editorial-box box-section-02">
+        <div class="box-header-row">
+          <span class="box-tag" style="color:#FEB737;">Rigor &amp; Compute Toolkit</span>
+          <span class="box-num">02</span>
+        </div>
+        <h2 class="box-title">02. Education &amp; Skills</h2>
         <div class="box-content">
-          <div class="edu-badge-row">
-            <div class="edu-item">
-              <strong>BSc Physics & BSc Mathematics (Double Degree)</strong><br>
-              Univ. of Seville (2013–2018) · <em>8.35/10 · 3rd of Class</em>
-            </div>
-            <div class="edu-item">
-              <strong>MSc Plasma & Fusion Physics</strong><br>
-              Aix-Marseille Univ. (2019–2020) · <em>15.43/20 · 1st of Class</em>
-            </div>
-            <div class="edu-item">
-              <strong>MSc Advanced Mathematics</strong> — UNED (2023–Present, ABD)
-            </div>
+          
+          <div class="edu-item">
+            <strong>BSc in Physics &amp; BSc in Mathematics (Double Degree)</strong><br>
+            University of Seville (2013–2018) · <span class="edu-rank-pill">8.35/10 · 3rd of Class</span>
           </div>
 
-          <p style="font-size:7.2pt; color:#14532d; font-weight:700; margin-top:2px;">CORE HIGH-PERFORMANCE COMPUTING & ML:</p>
+          <div class="edu-item">
+            <strong>MSc in Plasma &amp; Fusion Physics</strong><br>
+            Aix-Marseille University, France (2019–2020) · <span class="edu-rank-pill">15.43/20 · 1st of Class</span>
+          </div>
+
+          <div class="edu-item">
+            <strong>MSc in Advanced Mathematics</strong> — UNED (2023–Present, ABD)
+          </div>
+
+          <p style="font-size:6.8pt; color:var(--day-indigo); font-weight:800; margin-top:1px;">HIGH-PERFORMANCE COMPUTING &amp; RUNTIME STACK:</p>
           <div class="tech-pill-group">
-            <span class="t-pill">Fortran</span>
-            <span class="t-pill">C++</span>
-            <span class="t-pill">Python</span>
-            <span class="t-pill">OpenMP</span>
-            <span class="t-pill">MPI</span>
-            <span class="t-pill">CUDA</span>
-            <span class="t-pill">OpenACC</span>
-            <span class="t-pill">oneAPI</span>
-            <span class="t-pill">PETSc</span>
-            <span class="t-pill">Slurm</span>
-            <span class="t-pill">Pandas</span>
-            <span class="t-pill">Scikit-Learn</span>
-            <span class="t-pill">MN5</span>
-            <span class="t-pill">Leonardo</span>
-            <span class="t-pill">LUMI</span>
+            <span class="tech-pill">Fortran</span>
+            <span class="tech-pill">C++</span>
+            <span class="tech-pill">Python</span>
+            <span class="tech-pill">Bash</span>
+            <span class="tech-pill">MPI</span>
+            <span class="tech-pill">OpenMP</span>
+            <span class="tech-pill">CUDA</span>
+            <span class="tech-pill">OpenACC</span>
+            <span class="tech-pill">oneAPI</span>
+            <span class="tech-pill">PETSc</span>
+            <span class="tech-pill">Slurm</span>
+            <span class="tech-pill">MN5</span>
+            <span class="tech-pill">Leonardo</span>
+            <span class="tech-pill">LUMI</span>
           </div>
 
-          <p style="font-size:7.2pt; color:#14532d; font-weight:700; margin-top:2px;">AI-ASSISTED DEVELOPMENT:</p>
-          <div class="tech-pill-group">
-            <span class="t-pill">LLM Prompt Craft</span>
-            <span class="t-pill">DeepSeek</span>
-            <span class="t-pill">Antigravity</span>
-            <span class="t-pill">Rapid Prototyping</span>
-          </div>
-
-          <p style="font-size:7.2pt; color:#14532d; font-weight:700; margin-top:2px;">SPOKEN LANGUAGES:</p>
-          <p style="font-size:7.3pt; color:#334155;">
+          <p style="font-size:6.8pt; color:var(--day-indigo); font-weight:800; margin-top:1px;">LANGUAGES SPOKEN:</p>
+          <p style="font-size:7pt; color:var(--day-indigo-dark); font-weight:600;">
             Spanish (Native) · English (C1/Prof.) · French (C1/Prof.) · Italian (Int.) · German (Int.)
           </p>
+
         </div>
       </section>
 
-      <!-- BOX 3: PASTEL LAVENDER (Featured Creative Projects) -->
-      <section class="pastel-box b-lavender">
-        <div class="box-number">03</div>
-        <span class="box-tag">Art & Physicalization</span>
-        <h2 class="box-title">Creative Computing Portfolio</h2>
+      <!-- 03. CREATIVE COMPUTING -->
+      <section class="editorial-box">
+        <div class="box-header-row">
+          <span class="box-tag">Physicalization, Sound &amp; Visual Media</span>
+          <span class="box-num">03</span>
+        </div>
+        <h2 class="box-title">03. Creative Computing</h2>
         <div class="box-content">
-          <div class="proj-item">
-            <strong>MNusic — Listening to & Visualizing MN5 & LUMI</strong>
-            Translates live supercomputing telemetry (node power, GPU load, interconnect latency, cooling thermal gradients) into harmonic ambient soundscapes (Web Audio API) and generative particle dynamics. Makes European petascale algorithms palpable and audible.
+          
+          <div class="proj-card">
+            <strong>MNusic — Real-Time Telemetry Sonification</strong>
+            Converts live supercomputing cluster telemetry (GPU bursts, power draw, interconnect traffic) into responsive harmonic ambient soundscapes (Web Audio API) and generative particle dynamic waves.
           </div>
 
-          <div class="proj-item">
-            <strong>Pipa-Music-Ball — Bio-Kinetic Interactive Artifact</strong>
-            Embedded sphere powered by ESP32 and 6-DoF inertial sensors (accelerometer/gyro). Converts feline kinetic velocity and angular acceleration into microtonal musical phrasing. Non-anthropocentric tangible physical computing.
+          <div class="proj-card">
+            <strong>Pipa-Music-Ball — Bio-Kinetic Interactive Sphere</strong>
+            Embedded sphere with ESP32 and 6-DoF inertial sensors (accelerometer &amp; gyro). Translates feline kinetic velocity into microtonal musical phrasing. Non-anthropocentric tangible interaction.
           </div>
 
-          <div class="proj-item">
-            <strong>Expo-Curator Studio (<a href="https://github.com/carrommad/expo-curator" target="_blank" style="color:#6d28d9;">github.com/carrommad/expo-curator</a>)</strong>
-            Application for automated image sub-classification, catalog booklet publishing, and 2D/3D gallery wall staging. Built for curators, art spaces, and visual science dissemination.
+          <div class="proj-card">
+            <strong>Expo-Curator Studio (<a href="https://github.com/carrommad/expo-curator" target="_blank" class="proj-link">github.com/carrommad/expo-curator</a>)</strong>
+            Open-source software for automated image sub-classification, booklet publishing, and 2D/3D gallery wall staging for exhibition curators and museum science dissemination.
           </div>
 
-          <div class="proj-item">
-            <strong>Lens & Motion — Photography & After Effects</strong>
-            Architectural and geometric still photography paired with procedural particle motion graphics and kinetic typography in Adobe After Effects for broadcast-grade visual essays.
+          <div class="proj-card">
+            <strong>Lens &amp; Motion — Photography &amp; After Effects Lab</strong>
+            Architectural light framing paired with Adobe After Effects procedural motion design, particle simulations, and kinetic typography for science dissemination.
           </div>
+
         </div>
       </section>
 
-      <!-- BOX 4: PASTEL SKY BLUE (DAV Alignment & Science Democratization) -->
-      <section class="pastel-box b-sky">
-        <div class="box-number">04</div>
-        <span class="box-tag">DAV Group · Fernando Cucchietti</span>
-        <h2 class="box-title">Synergy with DAV Research Lines</h2>
+      <!-- 04. COVER LETTER TO DAV GROUP -->
+      <section class="editorial-box">
+        <div class="box-header-row">
+          <span class="box-tag">Vision &amp; Statement</span>
+          <span class="box-num">04</span>
+        </div>
+        <h2 class="box-title">04. Cover Letter to DAV Group</h2>
         <div class="box-content">
-          <div class="dav-matrix-item">
-            <strong>1. Scientific Visualization & Storytelling</strong>
-            Democratizing science by turning complex compute logs into visceral human experiences. Directly demonstrated in <em>MNusic</em> and After Effects visual essays.
+          
+          <div class="dav-item">
+            <strong>1. Scientific Storytelling &amp; Data Democratization</strong>
+            Turning abstract petascale simulations into tangible, sensorial human experiences. Directly proven in <em>MNusic</em> and procedural motion essays.
           </div>
 
-          <div class="dav-matrix-item">
-            <strong>2. Industrial AI & Digital Twins (GDU-HPC)</strong>
-            Direct match with my BSC DestinationE & ClimateDT digital twin workflows, HPC model integration, and CENER turbine predictive maintenance pipelines.
+          <div class="dav-item">
+            <strong>2. Industrial AI &amp; Digital Twins (GDU-HPC)</strong>
+            Direct match with my BSC DestinationE &amp; ClimateDT digital twin workflows, HPC model integration, and CENER turbine predictive maintenance.
           </div>
 
-          <div class="dav-matrix-item">
-            <strong>3. Creative Intelligence & Interactive Viz</strong>
-            Bio-kinetic hardware (Pipa-music-ball), participatory spatial environments, exhibition wall curation (Expo-Curator), and agile LLM acceleration.
+          <div class="dav-item">
+            <strong>3. Creative Intelligence &amp; Physical Viz</strong>
+            Tangible interactive hardware (Pipa-music-ball), participatory spatial environments, exhibition curation (Expo-Curator), and LLM-assisted workflows.
           </div>
 
-          <div class="dav-matrix-item">
+          <div class="dav-item">
             <strong>4. Urban Data Science (AIR / REALLOCATE)</strong>
-            Physics grounding in fluid/atmospheric mechanics (MSc Plasma & Fluid) and renewable transport modeling applied to urban air resilience and sustainable active mobility.
+            Fluid and atmospheric physics grounding (MSc Plasma &amp; Fluids) applied to urban air resilience and sustainable transport networks.
           </div>
-        </div>
 
-        <div class="footer-quote">
-          <span>"Data is not just numbers; it is raw matter to be felt."</span>
-          <span style="font-family:'JetBrains Mono'; font-size:6.8pt; color:#0284c7;">BSC · Barcelona, 2026</span>
+          <div class="box-footer-quote">
+            <span>"Data is not just numbers; it is raw matter to be felt."</span>
+            <span class="box-footer-cite">DAV · BSC-CNS · 2026</span>
+          </div>
+
         </div>
       </section>
 
