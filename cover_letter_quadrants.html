@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cover Letter — Carlos Romero Madrid (DAV Group BSC)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #1e293b;
+      background: #fafaf9;
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      padding: 10mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Top utility bar (invisible on print) */
+    .top-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .top-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8pt;
+      font-weight: 600;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .print-btn {
+      background: #0f172a;
+      color: #fff;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 8.5pt;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .print-btn:hover {
+      background: #334155;
+    }
+
+    /* 4-QUADRANT PASTEL POSTER GRID */
+    .quadrant-sheet {
+      width: 100%;
+      height: 275mm;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 5mm;
+    }
+
+    .quadrant {
+      border-radius: 12px;
+      padding: 8mm 7.5mm;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+      overflow: hidden;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .q-number {
+      position: absolute;
+      top: 5mm;
+      right: 6mm;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16pt;
+      font-weight: 800;
+      opacity: 0.22;
+      line-height: 1;
+    }
+
+    .q-header-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 7.2pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    .q-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 12pt;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .q-body {
+      font-size: 8.5pt;
+      line-height: 1.48;
+      color: #334155;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
+    }
+
+    .q-body p {
+      text-align: justify;
+    }
+
+    .q-body strong {
+      color: #0f172a;
+    }
+
+    /* QUADRANT 1: PASTEL CORAL / BLUSH (The Hook & Resonance) */
+    .q-coral {
+      background: #ffebe9; /* Warm editorial pastel blush */
+      border-color: #ffd2cc;
+    }
+    .q-coral .q-header-tag { color: #c83226; }
+    .q-coral .q-title { color: #8a1d14; }
+
+    /* QUADRANT 2: PASTEL MINT / SAGE (The Dual Profile) */
+    .q-mint {
+      background: #eaf6ee; /* Soft botanical mint */
+      border-color: #cdecd5;
+    }
+    .q-mint .q-header-tag { color: #15803d; }
+    .q-mint .q-title { color: #14532d; }
+
+    /* QUADRANT 3: PASTEL LAVENDER / IRIS (The 4 Creative Projects) */
+    .q-lavender {
+      background: #f1edfb; /* Dreamy pastel lavender */
+      border-color: #ded6f7;
+    }
+    .q-lavender .q-header-tag { color: #6d28d9; }
+    .q-lavender .q-title { color: #4c1d95; }
+
+    .project-micro-list {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-top: 2px;
+    }
+    .proj-item {
+      background: rgba(255, 255, 255, 0.55);
+      border-radius: 6px;
+      padding: 4px 6px;
+      border: 1px solid rgba(109, 40, 217, 0.12);
+      font-size: 7.8pt;
+      line-height: 1.35;
+    }
+    .proj-item strong {
+      color: #4c1d95;
+      font-size: 8pt;
+      display: block;
+      margin-bottom: 1px;
+    }
+
+    /* QUADRANT 4: PASTEL SKY / BLUEPRINT (DAV Synergy & Call to Action) */
+    .q-sky {
+      background: #e8f4fc; /* Clean blueprint sky blue */
+      border-color: #cbe6fa;
+      justify-content: space-between;
+    }
+    .q-sky .q-header-tag { color: #0284c7; }
+    .q-sky .q-title { color: #0369a1; }
+
+    .synergy-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin: 4px 0 6px 0;
+    }
+    .s-pill {
+      background: #fff;
+      color: #0369a1;
+      border: 1px solid rgba(3, 105, 161, 0.2);
+      padding: 2px 7px;
+      border-radius: 9999px;
+      font-size: 7pt;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+    }
+
+    .signoff-box {
+      margin-top: auto;
+      border-top: 1px solid rgba(2, 132, 199, 0.25);
+      padding-top: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .signoff-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 10.5pt;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .signoff-sub {
+      font-size: 7.2pt;
+      color: #475569;
+      line-height: 1.3;
+    }
+    .signoff-contacts {
+      text-align: right;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 6.8pt;
+      color: #0284c7;
+    }
+
+    @media print {
+      body {
+        padding: 6mm !important;
+        background: #fff !important;
+      }
+      .top-actions {
+        display: none !important;
+      }
+      .quadrant-sheet {
+        height: 282mm !important;
+        gap: 4mm !important;
+      }
+      .quadrant {
+        box-shadow: none !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Action Bar -->
+  <div class="top-actions">
+    <span class="top-badge">Barcelona Supercomputing Center • Data Analytics & Visualization Group Application</span>
+    <button class="print-btn" onclick="window.print()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+      Print / Save 4-Quadrant PDF
+    </button>
+  </div>
+
+  <!-- THE 4-QUADRANT PASTEL SHEET -->
+  <div class="quadrant-sheet">
+
+    <!-- QUADRANT 1: PASTEL CORAL (The Genesis & Sound of Compute) -->
+    <section class="quadrant q-coral">
+      <div class="q-number">01</div>
+      <span class="q-header-tag">I. Genesis · Sensory Data</span>
+      <h2 class="q-title">A Sound Instead of a Buzzword</h2>
+      <div class="q-body">
+        <p>
+          Most letters start with a catalogue of adjectives. Let me begin with a sound: the low hum of <strong>MareNostrum 5</strong> calculating climate turbulence across thousands of GPUs, or the microtonal chime of an embedded motion sphere when my cat <strong>Pipa</strong> bats it across the living room.
+        </p>
+        <p>
+          Data is not just an analytical output to be confined to rows and columns. Following pioneers like <strong>Domestic Data Streamers</strong>, I believe data is a living physical material—something to be felt, heard, and inhabited.
+        </p>
+        <p>
+          Science is uncovering the mechanics of our universe, but when those breakthroughs remain locked behind cold cluster logs, <em>we have only completed half the mission</em>. My obsession is the <strong>democratization of science</strong>: turning invisible computational realities into unforgettable, sensorial human stories.
+        </p>
+      </div>
+    </section>
+
+    <!-- QUADRANT 2: PASTEL MINT (The Dual Profile: Physics & HPC Rigour) -->
+    <section class="quadrant q-mint">
+      <div class="q-number">02</div>
+      <span class="q-header-tag">II. Rigour · Extreme Compute</span>
+      <h2 class="q-title">From First-Principles to Tier-0 Clusters</h2>
+      <div class="q-body">
+        <p>
+          My creative practice is backed by genuine theoretical and high-performance engineering rigour:
+        </p>
+        <p>
+          • <strong>Academic Core:</strong> Double BSc in <strong>Physics & Mathematics</strong> (Univ. Seville, 3rd of Class) + MSc in <strong>Plasma & Fusion Physics</strong> (Aix-Marseille Univ., <em>1st of Class</em>).
+        </p>
+        <p>
+          • <strong>BSC Performance Team:</strong> Operating at the core of European digital twins—ocean-atmosphere coupling in <strong>DestinationE</strong> and <strong>ClimateDT</strong>, <strong>ECLand</strong> climate model development, and deploying long-running workflows on <strong>MareNostrum 5 (MN5)</strong>.
+        </p>
+        <p>
+          • <strong>Fusion Team & CENER:</strong> Parallelizing multi-physics codes (ALYA-MAGNET, PETSc, oneAPI, OpenACC) and engineering real-time predictive wind plant pipelines.
+        </p>
+        <p>
+          I pair daily with <strong>LLMs</strong> as cognitive accelerators, allowing me to move fluidly from low-level C++/Fortran kernels to browser sound design and motion graphics in record time.
+        </p>
+      </div>
+    </section>
+
+    <!-- QUADRANT 3: PASTEL LAVENDER (The Creative Laboratory) -->
+    <section class="quadrant q-lavender">
+      <div class="q-number">03</div>
+      <span class="q-header-tag">III. Studio · Physical Computing</span>
+      <h2 class="q-title">Four Personal Creative Experiments</h2>
+      <div class="q-body">
+        <div class="project-micro-list">
+          <div class="proj-item">
+            <strong>MNusic — Listening to & Visualizing MN5 & LUMI</strong>
+            Translating GPU load, memory bandwidth, and thermal gradients into real-time harmonic soundscapes (Web Audio API) and generative particles. Making Europe’s supercomputers audible.
+          </div>
+          <div class="proj-item">
+            <strong>Pipa-Music-Ball — Bio-Kinetic Interactive Artifact</strong>
+            Microcontroller sphere (ESP32, 6-DoF IMU) mapping feline kinetic vectors into microtonal scales. Proof that physical data can be playful, tactile, and non-anthropocentric.
+          </div>
+          <div class="proj-item">
+            <strong>Expo-Curator Studio (github.com/carrommad/expo-curator)</strong>
+            Open application for automated image classification, booklet publishing, and spatial exhibition wall staging. Engineered for museum curators and science disseminators.
+          </div>
+          <div class="proj-item">
+            <strong>Lens & Motion — Photography & After Effects</strong>
+            Architectural still framing paired with procedural motion graphics and kinetic typography in After Effects, elevating raw data plots into cinematic visual narratives.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUADRANT 4: PASTEL SKY BLUE (DAV Group Synergy & Call to Action) -->
+    <section class="quadrant q-sky">
+      <div class="q-number">04</div>
+      <div>
+        <span class="q-header-tag">IV. Convergence · Future Action</span>
+        <h2 class="q-title">Synergy with DAV & Fernando Cucchietti</h2>
+        <div class="q-body">
+          <p>
+            Having followed your workshops and tracked your research agenda, I see a natural symbiosis with the group’s 5 core lines:
+          </p>
+          <div class="synergy-pills">
+            <span class="s-pill">Scientific Storytelling</span>
+            <span class="s-pill">Interactive Viz</span>
+            <span class="s-pill">Industrial AI & Digital Twins</span>
+            <span class="s-pill">Creative Intelligence</span>
+            <span class="s-pill">Urban Data Science</span>
+          </div>
+          <p>
+            Whether contributing to the urban digital twin architecture of <strong>GDU-HPC</strong>, the environmental resilience narratives of <strong>AIR</strong>, or active climate mobility in <strong>REALLOCATE</strong>, I bring the rare combination of deep HPC infrastructure roots and daring sensory aesthetics.
+          </p>
+          <p>
+            I don’t just want to watch from the audience—I want to join your team to co-create the most impactful scientific installations in the world.
+          </p>
+        </div>
+      </div>
+
+      <div class="signoff-box">
+        <div>
+          <div class="signoff-name">Carlos Romero Madrid</div>
+          <div class="signoff-sub">Computational Physicist · HPC Software Engineer (BSC)</div>
+        </div>
+        <div class="signoff-contacts">
+          carrommad@gmail.com<br>
+          carlos.romero@bsc.es<br>
+          +34 611 423 133 · Barcelona
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+</body>
+</html>

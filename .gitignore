@@ -1,0 +1,21 @@
+# Operating System & IDE Artifacts
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+
+# Local task & browser scratchlogs
+scratch/
+.system_generated/
+*.log

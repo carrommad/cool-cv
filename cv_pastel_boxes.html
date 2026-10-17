@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Curriculum Vitae — Carlos Romero Madrid (Pastel Box Style)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #1e293b;
+      background: #fafaf9;
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      padding: 8mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Top utility bar (screen only) */
+    .top-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+    .top-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8pt;
+      font-weight: 600;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .action-group {
+      display: flex;
+      gap: 8px;
+    }
+    .print-btn {
+      background: #0f172a;
+      color: #fff;
+      border: none;
+      padding: 5px 14px;
+      border-radius: 9999px;
+      font-size: 8.5pt;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      text-decoration: none;
+    }
+    .print-btn:hover { background: #334155; }
+
+    /* MASTER PASTEL GRID (Header Banner + 4 Major Content Boxes) */
+    .cv-sheet {
+      width: 100%;
+      height: 279mm;
+      display: flex;
+      flex-direction: column;
+      gap: 4.5mm;
+    }
+
+    /* 00. HEADER BANNER (Soft Warm Cream / Vanilla) */
+    .box-header {
+      background: #fff9ea;
+      border: 1px solid #fee8b0;
+      border-radius: 12px;
+      padding: 5.5mm 7mm;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+    }
+    .brand-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16pt;
+      font-weight: 800;
+      color: #78350f;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .brand-subtitle {
+      font-size: 8.2pt;
+      font-weight: 600;
+      color: #b45309;
+      margin-top: 2px;
+    }
+    .header-contacts {
+      text-align: right;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 7.2pt;
+      line-height: 1.45;
+      color: #92400e;
+    }
+    .header-contacts a { color: inherit; text-decoration: none; font-weight: 600; }
+
+    /* 4-QUADRANT CORE GRID */
+    .boxes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 4.5mm;
+      flex: 1;
+    }
+
+    .pastel-box {
+      border-radius: 12px;
+      padding: 6mm 6.5mm;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+      overflow: hidden;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .box-number {
+      position: absolute;
+      top: 4.5mm;
+      right: 5.5mm;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 15pt;
+      font-weight: 800;
+      opacity: 0.22;
+      line-height: 1;
+    }
+
+    .box-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 6.8pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 3px;
+      display: block;
+    }
+
+    .box-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 10.8pt;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 7px;
+    }
+
+    .box-content {
+      font-size: 7.8pt;
+      line-height: 1.42;
+      color: #334155;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      flex: 1;
+    }
+
+    .box-content strong { color: #0f172a; }
+
+    /* BOX 1: PASTEL CORAL / BLUSH (Trajectory & BSC Experience) */
+    .b-coral {
+      background: #ffebe9;
+      border-color: #ffd2cc;
+    }
+    .b-coral .box-tag { color: #c83226; }
+    .b-coral .box-title { color: #8a1d14; }
+
+    .role-item {
+      background: rgba(255, 255, 255, 0.65);
+      border-radius: 6px;
+      padding: 4px 6px;
+      border: 1px solid rgba(200, 50, 38, 0.12);
+    }
+    .role-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 7.8pt;
+      font-weight: 700;
+      color: #8a1d14;
+      margin-bottom: 1px;
+    }
+    .role-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 6.8pt;
+      color: #c83226;
+      font-weight: normal;
+    }
+
+    /* BOX 2: PASTEL MINT / SAGE (Physics Foundation & Technical Stack) */
+    .b-mint {
+      background: #eaf6ee;
+      border-color: #cdecd5;
+    }
+    .b-mint .box-tag { color: #15803d; }
+    .b-mint .box-title { color: #14532d; }
+
+    .edu-badge-row {
+      display: flex;
+      flex-direction: column;
+      gap: 3.5px;
+      margin-bottom: 3px;
+    }
+    .edu-item {
+      background: rgba(255, 255, 255, 0.65);
+      border-radius: 6px;
+      padding: 4px 6px;
+      border: 1px solid rgba(21, 128, 61, 0.15);
+      font-size: 7.5pt;
+    }
+    .edu-item strong { color: #14532d; }
+
+    .tech-pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3.5px;
+      margin-top: 2px;
+    }
+    .t-pill {
+      background: #ffffff;
+      color: #15803d;
+      border: 1px solid rgba(21, 128, 61, 0.25);
+      padding: 1.5px 5.5px;
+      border-radius: 9999px;
+      font-size: 6.8pt;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+    }
+
+    /* BOX 3: PASTEL LAVENDER (The 4 Creative Computing Projects) */
+    .b-lavender {
+      background: #f1edfb;
+      border-color: #ded6f7;
+    }
+    .b-lavender .box-tag { color: #6d28d9; }
+    .b-lavender .box-title { color: #4c1d95; }
+
+    .proj-item {
+      background: rgba(255, 255, 255, 0.65);
+      border-radius: 6px;
+      padding: 4px 6px;
+      border: 1px solid rgba(109, 40, 217, 0.15);
+      font-size: 7.3pt;
+      line-height: 1.35;
+    }
+    .proj-item strong {
+      color: #4c1d95;
+      font-size: 7.8pt;
+      display: block;
+      margin-bottom: 1px;
+    }
+
+    /* BOX 4: PASTEL SKY BLUE (DAV Group Direct Alignment & Creative Stack) */
+    .b-sky {
+      background: #e8f4fc;
+      border-color: #cbe6fa;
+      justify-content: space-between;
+    }
+    .b-sky .box-tag { color: #0284c7; }
+    .b-sky .box-title { color: #0369a1; }
+
+    .dav-matrix-item {
+      background: rgba(255, 255, 255, 0.65);
+      border-radius: 6px;
+      padding: 4px 6px;
+      border: 1px solid rgba(2, 132, 199, 0.18);
+      font-size: 7.3pt;
+      line-height: 1.35;
+    }
+    .dav-matrix-item strong {
+      color: #0369a1;
+      display: block;
+      font-size: 7.6pt;
+    }
+
+    .footer-quote {
+      margin-top: auto;
+      border-top: 1px solid rgba(2, 132, 199, 0.25);
+      padding-top: 4px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 7.4pt;
+      font-weight: 600;
+      color: #0369a1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    @media print {
+      body {
+        padding: 5mm !important;
+        background: #fff !important;
+      }
+      .top-actions { display: none !important; }
+      .cv-sheet { height: 285mm !important; gap: 3.5mm !important; }
+      .pastel-box, .box-header {
+        box-shadow: none !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Screen Actions -->
+  <div class="top-actions">
+    <span class="top-badge">Curriculum Vitae • Carlos Romero Madrid • Pastel Box Exhibition Edition</span>
+    <div class="action-group">
+      <a href="Carlos_Romero_CV.pdf" download class="print-btn">Download PDF</a>
+      <button class="print-btn" onclick="window.print()">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+        Print
+      </button>
+    </div>
+  </div>
+
+  <!-- THE CV SHEET -->
+  <div class="cv-sheet">
+
+    <!-- HEADER BANNER: WARM VANILLA -->
+    <header class="box-header">
+      <div>
+        <h1 class="brand-title">Carlos Romero Madrid</h1>
+        <p class="brand-subtitle">Computational Physicist · HPC Scientific Software Engineer · Creative Technologist</p>
+      </div>
+      <div class="header-contacts">
+        <a href="mailto:carrommad@gmail.com">carrommad@gmail.com</a> · <a href="mailto:carlos.romero@bsc.es">carlos.romero@bsc.es</a><br>
+        +34 611 423 133 · Barcelona, Spain<br>
+        <a href="https://linkedin.com/in/carrommad" target="_blank">linkedin.com/in/carrommad</a> · <a href="https://github.com/carrommad" target="_blank">github.com/carrommad</a>
+      </div>
+    </header>
+
+    <!-- 4 PASTEL CORE BOXES -->
+    <div class="boxes-grid">
+
+      <!-- BOX 1: PASTEL CORAL (Professional Trajectory) -->
+      <section class="pastel-box b-coral">
+        <div class="box-number">01</div>
+        <span class="box-tag">Trajectory · HPC Engineering</span>
+        <h2 class="box-title">Professional Experience</h2>
+        <div class="box-content">
+          <div class="role-item">
+            <div class="role-header">
+              <span>BSC · Performance Team (HPC Software Eng.)</span>
+              <span class="role-date">05/2025 – Present</span>
+            </div>
+            • Ocean–atmosphere coupling in <strong>DestinationE</strong> and <strong>ClimateDT</strong> digital twins.<br>
+            • Core development in the <strong>ECLand</strong> climate model with the Climate Change team.<br>
+            • Deploying, configuring & monitoring long-running workflows on <strong>MareNostrum 5 (MN5)</strong>.
+          </div>
+
+          <div class="role-item">
+            <div class="role-header">
+              <span>BSC · Fusion Team (Research Engineer)</span>
+              <span class="role-date">05/2023 – 04/2025</span>
+            </div>
+            • Advanced Computing Hub: optimized nuclear fusion simulation codes via OpenMP, MPI, PETSc, oneAPI, OpenACC on European Tier-0 supercomputers.<br>
+            • Electromagnetic modeling for superconducting magnets in <strong>ALYA-MAGNET</strong>.
+          </div>
+
+          <div class="role-item">
+            <div class="role-header">
+              <span>CENER · Data Scientist (Analysis & Design)</span>
+              <span class="role-date">05/2022 – 09/2022</span>
+            </div>
+            • Python pipelines for real-time wind plant telemetry, control, and predictive maintenance.
+          </div>
+
+          <div class="role-item">
+            <div class="role-header">
+              <span>Univ. Seville & Fraunhofer FHR · Researcher</span>
+              <span class="role-date">2018 – 2022</span>
+            </div>
+            • Particle-in-cell (PIC) & MHD plasma simulations; simulated annealing radar antenna design.
+          </div>
+        </div>
+      </section>
+
+      <!-- BOX 2: PASTEL MINT (Academic Core & Technical Matrix) -->
+      <section class="pastel-box b-mint">
+        <div class="box-number">02</div>
+        <span class="box-tag">Foundations · Compute Stack</span>
+        <h2 class="box-title">Academic & Technical Toolkit</h2>
+        <div class="box-content">
+          <div class="edu-badge-row">
+            <div class="edu-item">
+              <strong>BSc Physics & BSc Mathematics (Double Degree)</strong><br>
+              Univ. of Seville (2013–2018) · <em>8.35/10 · 3rd of Class</em>
+            </div>
+            <div class="edu-item">
+              <strong>MSc Plasma & Fusion Physics</strong><br>
+              Aix-Marseille Univ. (2019–2020) · <em>15.43/20 · 1st of Class</em>
+            </div>
+            <div class="edu-item">
+              <strong>MSc Advanced Mathematics</strong> — UNED (2023–Present, ABD)
+            </div>
+          </div>
+
+          <p style="font-size:7.2pt; color:#14532d; font-weight:700; margin-top:2px;">CORE HIGH-PERFORMANCE COMPUTING & ML:</p>
+          <div class="tech-pill-group">
+            <span class="t-pill">Fortran</span>
+            <span class="t-pill">C++</span>
+            <span class="t-pill">Python</span>
+            <span class="t-pill">OpenMP</span>
+            <span class="t-pill">MPI</span>
+            <span class="t-pill">CUDA</span>
+            <span class="t-pill">OpenACC</span>
+            <span class="t-pill">oneAPI</span>
+            <span class="t-pill">PETSc</span>
+            <span class="t-pill">Slurm</span>
+            <span class="t-pill">Pandas</span>
+            <span class="t-pill">Scikit-Learn</span>
+            <span class="t-pill">MN5</span>
+            <span class="t-pill">Leonardo</span>
+            <span class="t-pill">LUMI</span>
+          </div>
+
+          <p style="font-size:7.2pt; color:#14532d; font-weight:700; margin-top:2px;">AI-ASSISTED DEVELOPMENT:</p>
+          <div class="tech-pill-group">
+            <span class="t-pill">LLM Prompt Craft</span>
+            <span class="t-pill">DeepSeek</span>
+            <span class="t-pill">Antigravity</span>
+            <span class="t-pill">Rapid Prototyping</span>
+          </div>
+
+          <p style="font-size:7.2pt; color:#14532d; font-weight:700; margin-top:2px;">SPOKEN LANGUAGES:</p>
+          <p style="font-size:7.3pt; color:#334155;">
+            Spanish (Native) · English (C1/Prof.) · French (C1/Prof.) · Italian (Int.) · German (Int.)
+          </p>
+        </div>
+      </section>
+
+      <!-- BOX 3: PASTEL LAVENDER (Featured Creative Projects) -->
+      <section class="pastel-box b-lavender">
+        <div class="box-number">03</div>
+        <span class="box-tag">Art & Physicalization</span>
+        <h2 class="box-title">Creative Computing Portfolio</h2>
+        <div class="box-content">
+          <div class="proj-item">
+            <strong>MNusic — Listening to & Visualizing MN5 & LUMI</strong>
+            Translates live supercomputing telemetry (node power, GPU load, interconnect latency, cooling thermal gradients) into harmonic ambient soundscapes (Web Audio API) and generative particle dynamics. Makes European petascale algorithms palpable and audible.
+          </div>
+
+          <div class="proj-item">
+            <strong>Pipa-Music-Ball — Bio-Kinetic Interactive Artifact</strong>
+            Embedded sphere powered by ESP32 and 6-DoF inertial sensors (accelerometer/gyro). Converts feline kinetic velocity and angular acceleration into microtonal musical phrasing. Non-anthropocentric tangible physical computing.
+          </div>
+
+          <div class="proj-item">
+            <strong>Expo-Curator Studio (<a href="https://github.com/carrommad/expo-curator" target="_blank" style="color:#6d28d9;">github.com/carrommad/expo-curator</a>)</strong>
+            Application for automated image sub-classification, catalog booklet publishing, and 2D/3D gallery wall staging. Built for curators, art spaces, and visual science dissemination.
+          </div>
+
+          <div class="proj-item">
+            <strong>Lens & Motion — Photography & After Effects</strong>
+            Architectural and geometric still photography paired with procedural particle motion graphics and kinetic typography in Adobe After Effects for broadcast-grade visual essays.
+          </div>
+        </div>
+      </section>
+
+      <!-- BOX 4: PASTEL SKY BLUE (DAV Alignment & Science Democratization) -->
+      <section class="pastel-box b-sky">
+        <div class="box-number">04</div>
+        <span class="box-tag">DAV Group · Fernando Cucchietti</span>
+        <h2 class="box-title">Synergy with DAV Research Lines</h2>
+        <div class="box-content">
+          <div class="dav-matrix-item">
+            <strong>1. Scientific Visualization & Storytelling</strong>
+            Democratizing science by turning complex compute logs into visceral human experiences. Directly demonstrated in <em>MNusic</em> and After Effects visual essays.
+          </div>
+
+          <div class="dav-matrix-item">
+            <strong>2. Industrial AI & Digital Twins (GDU-HPC)</strong>
+            Direct match with my BSC DestinationE & ClimateDT digital twin workflows, HPC model integration, and CENER turbine predictive maintenance pipelines.
+          </div>
+
+          <div class="dav-matrix-item">
+            <strong>3. Creative Intelligence & Interactive Viz</strong>
+            Bio-kinetic hardware (Pipa-music-ball), participatory spatial environments, exhibition wall curation (Expo-Curator), and agile LLM acceleration.
+          </div>
+
+          <div class="dav-matrix-item">
+            <strong>4. Urban Data Science (AIR / REALLOCATE)</strong>
+            Physics grounding in fluid/atmospheric mechanics (MSc Plasma & Fluid) and renewable transport modeling applied to urban air resilience and sustainable active mobility.
+          </div>
+        </div>
+
+        <div class="footer-quote">
+          <span>"Data is not just numbers; it is raw matter to be felt."</span>
+          <span style="font-family:'JetBrains Mono'; font-size:6.8pt; color:#0284c7;">BSC · Barcelona, 2026</span>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+</body>
+</html>
