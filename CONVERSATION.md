@@ -282,7 +282,7 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
   - As soon as the user scrolls down (or uses wheel/touch down), the nonperiodic oscillator awakens smoothly (eased in over 1.8s) and continues indefinitely.
 - **Split into Two Independent Bachelor Degrees**:
   - Separated the double degree into two distinct academic records across web and PDFs:
-    - **BSc in Mathematics**: University of Seville (2013 – 2018) · `8.28/10`
+    - **BSc in Mathematics**: University of Seville (2013 – 2018) · `8.28/10 · 3rd of Class`
     - **BSc in Physics**: University of Seville (2013 – 2018) · `8.35/10 · 3rd of Class`
 - **Updated Section 02 Headings & Added After Effects**:
   - Replaced `"Languages & Parallel Runtimes:"` / `"HIGH-PERFORMANCE COMPUTING & RUNTIME STACK:"` with `"Skills & Parallel Runtimes:"`.

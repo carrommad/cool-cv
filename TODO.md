@@ -10,7 +10,7 @@
   - 04. Cover Letter to DAV Group
 - [x] Section 02 yellow outline border (`#FEB737`) and pure white background (`#ffffff` in Day Mode, adaptive in Dark Mode)
 - [x] Divided into 2 bachelors:
-  - BSc in Mathematics (8.28)
+  - BSc in Mathematics (8.28 · 3rd of Class)
   - BSc in Physics (8.35 · 3rd of Class)
 - [x] "Skills & Parallel Runtimes" heading instead of "Languages & Parallel Runtimes", added After Effects to skills pills
 - [x] 2-letter ISO language codes with simplified levels: `ES (Native) · EN (C1) · FR (C1) · IT (B1) · DE (B1)`
