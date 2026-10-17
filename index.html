@@ -235,6 +235,83 @@
       --bw-pill-border: #c92a2a;
     }
 
+    /* Palette 7: Deep Blue & Glacial Salt (Image 1 Palette) */
+    /* Deep Blue #2A4D88 · Concerto #D9D9D8 · Glacial Salt #B1BBC8 · Ocean City #7C94B8 */
+    body.theme-deep-blue {
+      --bw-bg: #111d33;
+      --bw-surface: #1b2f52;
+      --bw-surface-hover: #233e6b;
+      --bw-surface-sunken: #0c1626;
+      
+      --bw-border: #7C94B8; /* Ocean City */
+      --bw-border-medium: #B1BBC8; /* Glacial Salt */
+      --bw-border-subtle: #2A4D88; /* Deep Blue */
+      
+      --bw-text: #ffffff;
+      --bw-text-muted: #D9D9D8; /* Concerto */
+      --bw-text-dim: #B1BBC8; /* Glacial Salt */
+      
+      --bw-btn-bg: #7C94B8; /* Ocean City */
+      --bw-btn-text: #111d33;
+      --bw-btn-border: #B1BBC8; /* Glacial Salt */
+      --bw-btn-hover-bg: #96acd0;
+      
+      --bw-pill-bg: #152542;
+      --bw-pill-text: #D9D9D8; /* Concerto */
+      --bw-pill-border: #7C94B8; /* Ocean City */
+    }
+
+    /* Palette 8: Indigo, Honey & Periwinkle (Image 2 Palette Dark) */
+    /* Indigo #543786 · Honey #FEB737 · Periwinkle #A7B5FE · Sea Breeze #7BB8C0 · Lemon Meringue #FFEBAD */
+    body.theme-indigo-honey {
+      --bw-bg: #1c112e;
+      --bw-surface: #2d1b4a; /* Indigo Base */
+      --bw-surface-hover: #3d2564;
+      --bw-surface-sunken: #150c23;
+      
+      --bw-border: #FEB737; /* Honey */
+      --bw-border-medium: #A7B5FE; /* Periwinkle */
+      --bw-border-subtle: #543786; /* Indigo */
+      
+      --bw-text: #FFEBAD; /* Lemon Meringue */
+      --bw-text-muted: #A7B5FE; /* Periwinkle */
+      --bw-text-dim: #7BB8C0; /* Sea Breeze */
+      
+      --bw-btn-bg: #FEB737; /* Honey */
+      --bw-btn-text: #1c112e;
+      --bw-btn-border: #FFEBAD; /* Lemon Meringue */
+      --bw-btn-hover-bg: #ffc966;
+      
+      --bw-pill-bg: #271642;
+      --bw-pill-text: #FFEBAD; /* Lemon Meringue */
+      --bw-pill-border: #7BB8C0; /* Sea Breeze */
+    }
+
+    /* Palette 9: Lemon Meringue & Sea Breeze (Image 2 Palette Light) */
+    body.theme-lemon-meringue {
+      --bw-bg: #FFEBAD; /* Lemon Meringue Canvas */
+      --bw-surface: #fffdf5;
+      --bw-surface-hover: #fcf4dc;
+      --bw-surface-sunken: #f5df9c;
+      
+      --bw-border: #543786; /* Indigo */
+      --bw-border-medium: #7BB8C0; /* Sea Breeze */
+      --bw-border-subtle: #e5cd85;
+      
+      --bw-text: #543786; /* Indigo */
+      --bw-text-muted: #3a2260;
+      --bw-text-dim: #7BB8C0; /* Sea Breeze */
+      
+      --bw-btn-bg: #543786; /* Indigo */
+      --bw-btn-text: #FFEBAD; /* Lemon Meringue */
+      --bw-btn-border: #FEB737; /* Honey */
+      --bw-btn-hover-bg: #6e48b0;
+      
+      --bw-pill-bg: #f8e5b0;
+      --bw-pill-text: #543786;
+      --bw-pill-border: #7BB8C0; /* Sea Breeze */
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -467,7 +544,9 @@
     body.theme-touareg .split-disc,
     body.theme-cyber-yellow .split-disc,
     body.theme-nordic-pine .split-disc,
-    body.theme-marenostrum .split-disc {
+    body.theme-marenostrum .split-disc,
+    body.theme-deep-blue .split-disc,
+    body.theme-indigo-honey .split-disc {
       box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
       transform: rotate(180deg);
     }
@@ -476,7 +555,9 @@
     body.theme-touareg .btn-ctrl:hover .split-disc,
     body.theme-cyber-yellow .btn-ctrl:hover .split-disc,
     body.theme-nordic-pine .btn-ctrl:hover .split-disc,
-    body.theme-marenostrum .btn-ctrl:hover .split-disc {
+    body.theme-marenostrum .btn-ctrl:hover .split-disc,
+    body.theme-deep-blue .btn-ctrl:hover .split-disc,
+    body.theme-indigo-honey .btn-ctrl:hover .split-disc {
       transform: rotate(360deg);
     }
 
@@ -897,7 +978,9 @@
     body.theme-touareg #europe-leaflet-map,
     body.theme-cyber-yellow #europe-leaflet-map,
     body.theme-nordic-pine #europe-leaflet-map,
-    body.theme-marenostrum #europe-leaflet-map {
+    body.theme-marenostrum #europe-leaflet-map,
+    body.theme-deep-blue #europe-leaflet-map,
+    body.theme-indigo-honey #europe-leaflet-map {
       filter: grayscale(100%) invert(92%) contrast(125%);
     }
 
@@ -1413,6 +1496,9 @@
               <option value="nordic-pine">Palette: Nordic Pine &amp; Copper</option>
               <option value="marenostrum">Palette: MareNostrum 5 Navy</option>
               <option value="crimson-linen">Palette: Crimson &amp; Raw Linen</option>
+              <option value="deep-blue">Palette: Deep Blue &amp; Glacial</option>
+              <option value="indigo-honey">Palette: Indigo &amp; Honey</option>
+              <option value="lemon-meringue">Palette: Lemon Meringue &amp; Breeze</option>
             </select>
           </div>
           
@@ -2008,7 +2094,10 @@
       'theme-cyber-yellow',
       'theme-nordic-pine',
       'theme-marenostrum',
-      'theme-crimson-linen'
+      'theme-crimson-linen',
+      'theme-deep-blue',
+      'theme-indigo-honey',
+      'theme-lemon-meringue'
     ];
 
     let currentThemeMode = 'day';
@@ -2038,6 +2127,15 @@
         currentThemeMode = 'night';
       } else if (paletteId === 'crimson-linen') {
         document.body.classList.add('theme-crimson-linen');
+        currentThemeMode = 'day';
+      } else if (paletteId === 'deep-blue') {
+        document.body.classList.add('theme-deep-blue');
+        currentThemeMode = 'night';
+      } else if (paletteId === 'indigo-honey') {
+        document.body.classList.add('theme-indigo-honey');
+        currentThemeMode = 'night';
+      } else if (paletteId === 'lemon-meringue') {
+        document.body.classList.add('theme-lemon-meringue');
         currentThemeMode = 'day';
       } else {
         // editorial-day
@@ -2340,6 +2438,9 @@
         if (body.classList.contains('theme-nordic-pine')) return [61, 220, 151];
         if (body.classList.contains('theme-marenostrum')) return [0, 240, 255];
         if (body.classList.contains('theme-crimson-linen')) return [201, 42, 42];
+        if (body.classList.contains('theme-deep-blue')) return [124, 148, 184];
+        if (body.classList.contains('theme-indigo-honey')) return [254, 183, 55];
+        if (body.classList.contains('theme-lemon-meringue')) return [84, 55, 134];
         if (body.classList.contains('theme-night')) return [255, 255, 255];
         return [0, 0, 0];
       }
@@ -2402,7 +2503,10 @@
       'cyber-yellow': [233.08, 277.18, 311.13, 370.00, 415.30, 466.16, 554.37], // Cyber Augmented
       'nordic-pine': [220, 246.94, 277.18, 329.63, 370.00, 440, 493.88], // Nordic Birch Folk
       'marenostrum': [110, 165, 220, 330, 440, 550, 660], // HPC Supercomputing Overtone
-      'crimson-linen': [261.63, 293.66, 329.63, 392.00, 440, 523.25, 587.33] // Japanese Pentatonic
+      'crimson-linen': [261.63, 293.66, 329.63, 392.00, 440, 523.25, 587.33], // Japanese Pentatonic
+      'deep-blue': [220, 246.94, 261.63, 293.66, 329.63, 392.00, 440], // Deep Blue Aeolian
+      'indigo-honey': [220, 277.18, 329.63, 370.00, 440, 493.88, 554.37], // Indigo Twilight Harmonic
+      'lemon-meringue': [261.63, 329.63, 392.00, 440, 523.25, 659.25, 783.99] // Radiant Sun Lydian
     };
 
     function updateAudioMood(mode, paletteId) {

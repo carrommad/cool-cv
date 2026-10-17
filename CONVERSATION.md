@@ -187,5 +187,20 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
   - **Ambient Particle Canvas**: Neural constellation links and stardust dots dynamically recalculate their RGB colors to match the active palette's key highlights.
   - **Generative Audio Synthesizer**: Switching palettes dynamically retunes the real-time Web Audio API chimes and drones to authentic modal scales (e.g. Touareg Saharan pentatonic, Cyberpunk augmented, Nordic folk overtone).
 
+### P. Extracted Custom Color Palettes from User Swatches
+- **User Provided Swatch Cards**:
+  - **Card 1 (Oceanic Architecture)**: `DEEP BLUE` (`#2A4D88`), `CONCERTO` (`#D9D9D8`), `GLACIAL SALT` (`#B1BBC8`), `OCEAN CITY` (`#7C94B8`).
+  - **Card 2 (Pastel Chromatic Bauhaus)**: `LEMON MERINGUE` (`#FFEBAD`), `HONEY` (`#FEB737`), `PERIWINKLE` (`#A7B5FE`), `SEA BREEZE` (`#7BB8C0`), `INDIGO` (`#543786`).
+- **Added 3 New Themed Palettes**:
+  9. **Palette: Deep Blue & Glacial**: Deep oceanic canvas (`#111d33`), midnight navy surface (`#1b2f52`), Ocean City borders (`#7C94B8`), Glacial Salt pill borders (`#B1BBC8`), and crisp Concerto typography (`#D9D9D8`).
+  10. **Palette: Indigo & Honey**: Nocturnal violet canvas (`#1c112e`), royal Indigo surface (`#2d1b4a`), Honey amber buttons and borders (`#FEB737`), Periwinkle accents (`#A7B5FE`), Sea Breeze secondary borders (`#7BB8C0`), and warm Lemon Meringue text (`#FFEBAD`).
+  11. **Palette: Lemon Meringue & Breeze**: Warm sunny Lemon Meringue canvas (`#FFEBAD`), off-white surface (`#fffdf5`), high-contrast Indigo typography & action buttons (`#543786`), Honey amber accents (`#FEB737`), and Sea Breeze pill borders (`#7BB8C0`).
+- **Complete Ecosystem Integration**:
+  - Registered in `ALL_PALETTE_CLASSES` and `changeColorPalette()`.
+  - Added option elements to `<select id="palette-select">`.
+  - Interactive constellation particle canvas updated with custom RGB tints: `[124, 148, 184]` for Ocean City, `[254, 183, 55]` for Honey, and `[84, 55, 134]` for Indigo.
+  - Added specialized Web Audio musical scales (`PALETTE_SCALES`): Deep Blue Aeolian, Indigo Twilight Harmonic, and Radiant Sun Lydian.
+  - Leaflet Europe Map dynamically inverts for dark palettes (`deep-blue`, `indigo-honey`).
+
 
 
