@@ -1,6 +1,6 @@
 # Tasks & Completed Enhancements
 
-- [x] Header name compact 2-line layout (`Carlos` / `Romero Madrid`, line-height 0.90)
+- [x] Header name in 3 rows (`Carlos` / `Romero` / `Madrid`) with independent, slow, periodic dynamic stretching animations (`scaleX` + tracking)
 - [x] Subtitle orphan eliminated with balanced wrapping
 - [x] Renamed chapters to:
   - 01. Career & Journey

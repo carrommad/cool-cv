@@ -247,5 +247,21 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
   - Adapted `cv_pastel_boxes.html` and `cover_letter_quadrants.html` to fully match the Day Mode design tokens: Lemon Meringue canvas (`#FFEBAD`), White surfaces, Indigo typography (`#543786`), Honey accents (`#FEB737`), Syne 800, and JetBrains Mono.
   - Re-compiled both single-page A4 PDFs (`Carlos_Romero_CV.pdf`, `Carlos_Romero_Cover_Letter.pdf`) and synchronized with `./pdfs/`.
 
+### U. 3-Row Name Layout with Independent Periodic Dynamic Stretching
+- **Fixed 3-Row Architecture**:
+  - Explicitly separated the hero name into three distinct architectural lines across `index.html`, `cv_pastel_boxes.html`, and `cover_letter_quadrants.html`:
+    - Row 1: `Carlos`
+    - Row 2: `Romero`
+    - Row 3: `Madrid`
+- **Dynamic Periodic Kinetic Stretching (`index.html`)**:
+  - Implemented continuous, organic horizontal stretching on each line with `transform-origin: left center` (anchoring cleanly to the left margin).
+  - Configured incommensurate, slow breathing cycles and phase offsets for true visual independence:
+    - **Line 1 (`Carlos`)**: Period of `8.2s`, stretching between `scaleX(1.00)` (`-0.03em` tracking) and `scaleX(1.22)` (`+0.045em` tracking).
+    - **Line 2 (`Romero`)**: Period of `11.4s` with a `-3.8s` phase offset, stretching between `scaleX(0.96)` and `scaleX(1.26)` (`+0.05em` tracking).
+    - **Line 3 (`Madrid`)**: Period of `9.6s` with a `-6.4s` phase offset, stretching between `scaleX(1.02)` and `scaleX(1.24)` (`+0.04em` tracking).
+  - Includes `@media (prefers-reduced-motion: reduce)` override for full accessibility compliance.
+- **Synchronized Print PDFs**:
+  - Re-rendered both [Carlos_Romero_CV.pdf](file:///c:/Users/cromero/Desktop/cool-cv/Carlos_Romero_CV.pdf) and [Carlos_Romero_Cover_Letter.pdf](file:///c:/Users/cromero/Desktop/cool-cv/Carlos_Romero_Cover_Letter.pdf) preserving the 3-row header name with optimized 16.5pt Syne 800 typography.
+
 
 

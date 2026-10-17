@@ -119,29 +119,26 @@
       display: flex;
       flex-direction: column;
     }
-    .brand-name-line1 {
+    .brand-name-line1,
+    .brand-name-line2,
+    .brand-name-line3 {
       font-family: var(--font-display);
-      font-size: 21pt;
+      font-size: 16.5pt;
       font-weight: 800;
       color: var(--day-indigo);
       line-height: 0.90;
       letter-spacing: -0.025em;
     }
-    .brand-name-line2 {
-      font-family: var(--font-display);
-      font-size: 21pt;
-      font-weight: 800;
-      color: var(--day-indigo);
-      line-height: 0.90;
-      letter-spacing: -0.025em;
-      margin-top: 1.5px;
+    .brand-name-line2,
+    .brand-name-line3 {
+      margin-top: 1px;
     }
     .brand-subtitle {
       font-family: var(--font-mono);
-      font-size: 7.4pt;
+      font-size: 7.2pt;
       font-weight: 700;
       color: var(--day-indigo-dark);
-      margin-top: 4px;
+      margin-top: 3.5px;
       letter-spacing: -0.01em;
       text-wrap: balance;
     }
@@ -386,7 +383,8 @@
     <header class="box-header">
       <div class="header-name-block">
         <h1 class="brand-name-line1">Carlos</h1>
-        <div class="brand-name-line2">Romero Madrid</div>
+        <div class="brand-name-line2">Romero</div>
+        <div class="brand-name-line3">Madrid</div>
         <p class="brand-subtitle">Computational Physicist · HPC Scientific Software Engineer · Creative&nbsp;Technologist</p>
       </div>
       <div class="header-recipient-block">
