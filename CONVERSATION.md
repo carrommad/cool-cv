@@ -127,3 +127,7 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
 
 
 
+
+### I. Restored Script Tag & Button Interactivity
+- **Root Cause**: An opening <script> tag was omitted immediately preceding the JavaScript block at line 1826 during a layout update. The browser consequently treated the JavaScript code as HTML body text, visually dumping code at the bottom of the page and preventing all functions from executing.
+- **Resolution**: Restored <script> at line 1826. All buttons (Night/Day split mode, Typography Lab cascade, Ambient Audio synthesizer, Modals, PDFs) now work cleanly and no code appears on the page.
