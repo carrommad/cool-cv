@@ -728,10 +728,17 @@
     .hero-bio {
       font-family: var(--font-mono); /* JetBrains Mono */
       font-size: 12.8px;
-      line-height: 1.6;
+      line-height: 1.55;
       color: var(--bw-text-muted);
       max-width: 660px;
       margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .hero-bio-line {
+      display: block;
     }
 
     .hero-actions-row {
@@ -1853,9 +1860,13 @@
           <div class="hero-role-item hero-role-2">Scientific Software Engineer</div>
           <div class="hero-role-item hero-role-3">Creative Computing</div>
         </div>
-        <p class="hero-bio">
-          Double Degree in Physics & Mathematics. Scientific software optimization for nuclear and climate. Data analytics for wind turbine predictive maintenance. Physical simulation for Cognitive Radar. Creative prototyping.
-        </p>
+        <div class="hero-bio">
+          <span class="hero-bio-line">Double degree in Physics & Mathematics.</span>
+          <span class="hero-bio-line">Scientific software optimization for nuclear and climate.</span>
+          <span class="hero-bio-line">Data analytics for wind turbine predictive maintenance.</span>
+          <span class="hero-bio-line">Physical simulation for cognitive radar.</span>
+          <span class="hero-bio-line">Creative prototyping.</span>
+        </div>
       </div>
 
     </header>
@@ -2511,7 +2522,13 @@
       "Scientific Software Engineer",
       "Creative Computing"
     ],
-    "bio": "Double Degree in Physics & Mathematics. Scientific software optimization for nuclear and climate. Data analytics for wind turbine predictive maintenance. Physical simulation for Cognitive Radar. Creative prototyping."
+    "bio": [
+      "Double degree in Physics & Mathematics.",
+      "Scientific software optimization for nuclear and climate.",
+      "Data analytics for wind turbine predictive maintenance.",
+      "Physical simulation for cognitive radar.",
+      "Creative prototyping."
+    ]
   },
   "cards": [
     {
@@ -2615,7 +2632,13 @@
 
         if (data.header.bio) {
           const bio = document.querySelector('.hero-bio');
-          if (bio) bio.textContent = data.header.bio;
+          if (bio) {
+            if (Array.isArray(data.header.bio)) {
+              bio.innerHTML = data.header.bio.map(line => `<span class="hero-bio-line">${line}</span>`).join('');
+            } else {
+              bio.textContent = data.header.bio;
+            }
+          }
         }
       }
 

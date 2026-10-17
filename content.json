@@ -15,7 +15,13 @@
       "Scientific Software Engineer",
       "Creative Computing"
     ],
-    "bio": "Double Degree in Physics & Mathematics. Scientific software optimization for nuclear and climate. Data analytics for wind turbine predictive maintenance. Physical simulation for Cognitive Radar. Creative  prototyping."
+    "bio": [
+      "Double degree in Physics & Mathematics.",
+      "Scientific software optimization for nuclear and climate.",
+      "Data analytics for wind turbine predictive maintenance.",
+      "Physical simulation for cognitive radar.",
+      "Creative prototyping."
+    ]
   },
   "cards": [
     {
@@ -62,7 +68,7 @@
   "footer": {
     "cv_pdf_text": "Download CV PDF",
     "cv_pdf_file": "Carlos_Romero_CV.pdf",
-    "cover_letter_pdf_text": "Download Cover Letter PDF",
+    "cover_letter_pdf_text": "Cover Letter PDF",
     "cover_letter_pdf_file": "Carlos_Romero_Cover_Letter.pdf",
     "email_btn_text": "Contact Carlos Directly",
     "email": "carrommad@gmail.com",
