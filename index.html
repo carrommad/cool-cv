@@ -905,22 +905,57 @@
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
     }
 
-    /* SECTION 02: Yellow Outline & White Content */
+    /* SECTION 02: Yellow Outline & White Content (Day Mode) */
     .card-section-02 {
-      border: 2px solid #FEB737 !important;
-      background: #ffffff !important;
-      box-shadow: 0 4px 18px rgba(254, 183, 55, 0.20) !important;
+      border: 2px solid #FEB737;
+      background: #ffffff;
+      box-shadow: 0 4px 18px rgba(254, 183, 55, 0.20);
     }
     .card-section-02:hover {
-      background: #fffdf5 !important;
-      border-color: #FEB737 !important;
+      background: #fffdf5;
+      border-color: #FEB737;
       transform: translateY(-2px);
-      box-shadow: 0 12px 28px rgba(254, 183, 55, 0.32) !important;
+      box-shadow: 0 12px 28px rgba(254, 183, 55, 0.32);
     }
     #modal-foundations .sub-card {
       border: 2px solid #FEB737;
       background: #ffffff;
       box-shadow: 0 4px 16px rgba(254, 183, 55, 0.16);
+    }
+
+    /* Seamless Dark Mode Adaptation: Keep Dark Surface so text remains legible and cohesive */
+    body.theme-night .card-section-02,
+    body.theme-indigo-honey .card-section-02,
+    body.theme-black-silver .card-section-02,
+    body.theme-touareg .card-section-02,
+    body.theme-cyber-yellow .card-section-02,
+    body.theme-nordic-pine .card-section-02,
+    body.theme-marenostrum .card-section-02,
+    body.theme-deep-blue .card-section-02 {
+      background: var(--bw-surface) !important;
+      border: 2px solid #FEB737 !important;
+      box-shadow: 0 4px 18px rgba(254, 183, 55, 0.18) !important;
+    }
+    body.theme-night .card-section-02:hover,
+    body.theme-indigo-honey .card-section-02:hover,
+    body.theme-black-silver .card-section-02:hover,
+    body.theme-touareg .card-section-02:hover,
+    body.theme-cyber-yellow .card-section-02:hover,
+    body.theme-nordic-pine .card-section-02:hover,
+    body.theme-marenostrum .card-section-02:hover,
+    body.theme-deep-blue .card-section-02:hover {
+      background: var(--bw-surface-hover) !important;
+    }
+    body.theme-night #modal-foundations .sub-card,
+    body.theme-indigo-honey #modal-foundations .sub-card,
+    body.theme-black-silver #modal-foundations .sub-card,
+    body.theme-touareg #modal-foundations .sub-card,
+    body.theme-cyber-yellow #modal-foundations .sub-card,
+    body.theme-nordic-pine #modal-foundations .sub-card,
+    body.theme-marenostrum #modal-foundations .sub-card,
+    body.theme-deep-blue #modal-foundations .sub-card {
+      background: var(--bw-surface) !important;
+      border: 2px solid #FEB737 !important;
     }
 
     /* CURRENT EXPERIENCE HIGHLIGHT */
@@ -929,6 +964,17 @@
       background: #ffffff;
       box-shadow: 0 4px 18px rgba(254, 183, 55, 0.22);
       position: relative;
+    }
+    body.theme-night .timeline-card.is-current,
+    body.theme-indigo-honey .timeline-card.is-current,
+    body.theme-black-silver .timeline-card.is-current,
+    body.theme-touareg .timeline-card.is-current,
+    body.theme-cyber-yellow .timeline-card.is-current,
+    body.theme-nordic-pine .timeline-card.is-current,
+    body.theme-marenostrum .timeline-card.is-current,
+    body.theme-deep-blue .timeline-card.is-current {
+      background: var(--bw-surface-sunken) !important;
+      border: 2px solid #FEB737 !important;
     }
     .current-role-badge {
       display: inline-flex;
