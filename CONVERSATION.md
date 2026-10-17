@@ -316,3 +316,15 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
   - Adapted `cv_pastel_boxes.html` and `cover_letter_quadrants.html` to Crimson & Raw Day Mode.
   - Re-compiled fresh [Carlos_Romero_CV.pdf](file:///c:/Users/cromero/Desktop/cool-cv/Carlos_Romero_CV.pdf) and [Carlos_Romero_Cover_Letter.pdf](file:///c:/Users/cromero/Desktop/cool-cv/Carlos_Romero_Cover_Letter.pdf) via headless Edge into both root and `pdfs/`.
 
+### Y. Strictly Bounded Kinetic Oscillation (Text Limit Boundary Condition)
+- **Problem Addressed**:
+  - During wide irrational harmonic expansion, unconstrained `scaleX` allowed lines (particularly `Romero` and `Carlos`) to expand beyond the visual right edge of the text directly below them (`.hero-discipline`).
+- **Dynamic Geometric Boundary Calibration**:
+  - Implemented dynamic DOM measurement (`measureBoundaries()`) that samples the exact rendered line widths of `.hero-discipline` via `document.createRange().getClientRects()` on load and on viewport resize.
+  - Established a strict per-line ceiling:
+    $$s_{i,\max} = \min\left(1.48, \frac{W_{\text{textLimit}} - 2.5}{W_{i,\text{base}}}\right)$$
+  - Clamped all wave components so that at the absolute peak of the oscillation wave ($w_{\text{norm}} = 1.0$), the rendered pixel width of each line (`Carlos`, `Romero`, `Madrid`) satisfies:
+    $$W_{i,\text{rendered}} = W_{i,\text{base}} \times s_i(t) \le W_{\text{textLimit}} - 2.5\text{px} < W_{\text{textLimit}}$$
+  - Bounded oscillation safely between a gentle contraction floor ($s_{\min} = 0.94$) and $s_{i,\max}$, ensuring the name lines never surpass the text boundary on any screen size.
+
+

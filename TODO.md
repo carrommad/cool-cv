@@ -1,6 +1,7 @@
 # Tasks & Completed Enhancements
 
 - [x] Header name in 3 rows (`Carlos` / `Romero` / `Madrid`) with independent, slow, nonperiodic dynamic stretching (harmonic superposition of $\phi, \sqrt{2}, \sqrt{3}$)
+- [x] Strictly bounded oscillation: Maximum amplitude of name & surname is dynamically calibrated to NEVER surpass the subtitle text limit ($W_{\text{rendered}} \le W_{\text{textLimit}}$)
 - [x] Oscillation starts only once scrolled down, then continues smoothly
 - [x] Subtitle orphan eliminated with balanced wrapping
 - [x] Renamed chapters across web & PDFs:

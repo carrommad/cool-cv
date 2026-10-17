@@ -2886,6 +2886,7 @@
     // SLOW & NONPERIODIC KINETIC TYPOGRAPHY OSCILLATOR
     // Awakens only once user scrolls down, then continues indefinitely
     // Uses multi-frequency irrational harmonic superposition (phi, sqrt2, sqrt3)
+    // Strictly bounded: Maximum amplitude NEVER surpasses the text limit
     // =========================================================
     function initNonperiodicTypography() {
       const line1 = document.querySelector('.hero-name-line-1');
@@ -2910,6 +2911,46 @@
       let isMoving = false;
       let startTimestamp = null;
 
+      let baseW1 = 235, baseW2 = 252, baseW3 = 230;
+      let limitW1 = 360, limitW2 = 400, limitW3 = 400;
+
+      function measureBoundaries() {
+        const savedT1 = line1.style.transform;
+        const savedT2 = line2.style.transform;
+        const savedT3 = line3.style.transform;
+
+        line1.style.transform = 'scaleX(1)';
+        line2.style.transform = 'scaleX(1)';
+        line3.style.transform = 'scaleX(1)';
+
+        baseW1 = line1.getBoundingClientRect().width || 235;
+        baseW2 = line2.getBoundingClientRect().width || 252;
+        baseW3 = line3.getBoundingClientRect().width || 230;
+
+        const disc = document.querySelector('.hero-discipline');
+        let textLimits = [];
+        if (disc) {
+          const range = document.createRange();
+          range.selectNodeContents(disc);
+          for (let r of range.getClientRects()) {
+            if (r.width > 0) textLimits.push(r.width);
+          }
+        }
+        const maxDisc = textLimits.length > 0 ? Math.max(...textLimits) : 408;
+
+        // Visual text limit boundaries for each row (with 2.5px safety buffer):
+        limitW1 = (textLimits[0] ? textLimits[0] : maxDisc) - 2.5;
+        limitW2 = (textLimits[1] ? textLimits[1] : maxDisc) - 2.5;
+        limitW3 = maxDisc - 2.5;
+
+        line1.style.transform = savedT1;
+        line2.style.transform = savedT2;
+        line3.style.transform = savedT3;
+      }
+
+      measureBoundaries();
+      window.addEventListener('resize', measureBoundaries);
+
       function render(now) {
         if (!startTimestamp) startTimestamp = now;
         const elapsed = (now - startTimestamp);
@@ -2918,35 +2959,46 @@
         // Gentle ease-in ramp from resting state over 1.8s
         const ramp = Math.min(1, elapsed * 0.00055);
 
-        // Line 1 (Carlos): incommensurate irrational frequency superposition
-        const wave1 = 0.22 * Math.sin(0.38 * t) 
-          + 0.12 * Math.sin(0.38 * SQRT2 * t + 0.9) 
-          + 0.07 * Math.sin(0.38 * PHI * t + 2.1);
-        const s1 = 1.0 + (0.15 + wave1) * ramp;
-        const track1 = -0.025 + (s1 - 1.0) * 0.15;
+        // Normalized irrational harmonic superposition waves in [-1, +1]
+        const raw1 = (0.24 * Math.sin(0.38 * t) 
+                    + 0.14 * Math.sin(0.38 * SQRT2 * t + 0.9) 
+                    + 0.08 * Math.sin(0.38 * PHI * t + 2.1)) / 0.46;
+        const norm1 = (raw1 + 1) * 0.5; // in [0, 1]
 
-        // Line 2 (Romero): independent irrational frequency superposition
-        const wave2 = 0.25 * Math.sin(0.28 * t + 1.8) 
-          + 0.13 * Math.sin(0.28 * SQRT3 * t + 3.1) 
-          + 0.08 * Math.sin(0.28 * PI * t + 0.5);
-        const s2 = 1.0 + (0.18 + wave2) * ramp;
-        const track2 = -0.025 + (s2 - 1.0) * 0.15;
+        const raw2 = (0.25 * Math.sin(0.28 * t + 1.8) 
+                    + 0.13 * Math.sin(0.28 * SQRT3 * t + 3.1) 
+                    + 0.08 * Math.sin(0.28 * PI * t + 0.5)) / 0.46;
+        const norm2 = (raw2 + 1) * 0.5; // in [0, 1]
 
-        // Line 3 (Madrid): independent irrational frequency superposition
-        const wave3 = 0.23 * Math.sin(0.33 * t + 3.7) 
-          + 0.12 * Math.sin(0.33 * E * 0.6 * t + 1.4) 
-          + 0.07 * Math.sin(0.33 * PHI * 1.3 * t + 4.2);
-        const s3 = 1.0 + (0.16 + wave3) * ramp;
-        const track3 = -0.025 + (s3 - 1.0) * 0.15;
+        const raw3 = (0.23 * Math.sin(0.33 * t + 3.7) 
+                    + 0.12 * Math.sin(0.33 * E * 0.6 * t + 1.4) 
+                    + 0.08 * Math.sin(0.33 * PHI * 1.3 * t + 4.2)) / 0.43;
+        const norm3 = (raw3 + 1) * 0.5; // in [0, 1]
 
-        line1.style.transform = `scaleX(${s1.toFixed(4)})`;
-        line1.style.letterSpacing = `${track1.toFixed(4)}em`;
+        // Maximum allowed scale so width NEVER surpasses the text limit
+        const maxS1 = Math.min(1.48, limitW1 / baseW1);
+        const maxS2 = Math.min(1.48, limitW2 / baseW2);
+        const maxS3 = Math.min(1.48, limitW3 / baseW3);
 
-        line2.style.transform = `scaleX(${s2.toFixed(4)})`;
-        line2.style.letterSpacing = `${track2.toFixed(4)}em`;
+        const minS = 0.94; // Gentle contraction floor
 
-        line3.style.transform = `scaleX(${s3.toFixed(4)})`;
-        line3.style.letterSpacing = `${track3.toFixed(4)}em`;
+        const targetS1 = minS + norm1 * (maxS1 - minS);
+        const targetS2 = minS + norm2 * (maxS2 - minS);
+        const targetS3 = minS + norm3 * (maxS3 - minS);
+
+        // Apply ramp from resting baseline 1.0
+        const s1 = 1.0 + (targetS1 - 1.0) * ramp;
+        const s2 = 1.0 + (targetS2 - 1.0) * ramp;
+        const s3 = 1.0 + (targetS3 - 1.0) * ramp;
+
+        // Strict clamp ceiling: rendered width can NEVER exceed text limit
+        const finalS1 = Math.min(s1, limitW1 / baseW1);
+        const finalS2 = Math.min(s2, limitW2 / baseW2);
+        const finalS3 = Math.min(s3, limitW3 / baseW3);
+
+        line1.style.transform = `scaleX(${finalS1.toFixed(4)})`;
+        line2.style.transform = `scaleX(${finalS2.toFixed(4)})`;
+        line3.style.transform = `scaleX(${finalS3.toFixed(4)})`;
 
         requestAnimationFrame(render);
       }
