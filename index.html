@@ -696,15 +696,38 @@
 
     /* Nonperiodic kinetic typography stretching will be driven continuously by mathematical rAF oscillator */
 
-    .hero-discipline {
+    .hero-identity-row {
+      display: flex;
+      align-items: stretch;
+      gap: clamp(24px, 4vw, 54px);
+      margin-top: 2px;
+      margin-bottom: 2px;
+    }
+
+    .hero-roles-column {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      min-width: 0;
+    }
+
+    .hero-role-item {
+      flex: 1;
       font-family: var(--font-display); /* Syne 800 display */
-      font-size: clamp(12px, 1.45vw, 14.5px);
+      font-size: clamp(12px, 1.35vw, 14.5px);
       font-weight: 800;
       letter-spacing: 0.05em;
       text-transform: uppercase;
       color: var(--bw-text);
       opacity: 0.95;
-      text-wrap: balance;
+      white-space: nowrap;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-discipline {
+      display: none;
     }
 
     .hero-bio {
@@ -1765,6 +1788,14 @@
       .hero-header {
         padding: 20px 0 35px;
       }
+      .hero-identity-row {
+        flex-direction: column;
+        gap: 12px;
+      }
+      .hero-roles-column {
+        gap: 6px;
+        padding: 0;
+      }
       .modal-scroll-body {
         padding: 24px 18px;
       }
@@ -1819,13 +1850,17 @@
       </div>
 
       <div class="hero-name-block">
-        <h1 class="hero-name" aria-label="Carlos Romero Madrid">
-          <span class="hero-name-line hero-name-line-1">Carlos</span>
-          <span class="hero-name-line hero-name-line-2">Romero</span>
-          <span class="hero-name-line hero-name-line-3">Madrid</span>
-        </h1>
-        <div class="hero-discipline">
-          Computational Physicist · Scientific Software Engineer · Creative&nbsp;Computing
+        <div class="hero-identity-row">
+          <h1 class="hero-name" aria-label="Carlos Romero Madrid">
+            <span class="hero-name-line hero-name-line-1">Carlos</span>
+            <span class="hero-name-line hero-name-line-2">Romero</span>
+            <span class="hero-name-line hero-name-line-3">Madrid</span>
+          </h1>
+          <div class="hero-roles-column" aria-label="Disciplines & Professional Roles">
+            <div class="hero-role-item hero-role-1">Computational Physicist</div>
+            <div class="hero-role-item hero-role-2">Scientific Software Engineer</div>
+            <div class="hero-role-item hero-role-3">Creative Computing</div>
+          </div>
         </div>
         <p class="hero-bio">
           Double Degree in Physics & Mathematics. Optimizing petascale solvers across MareNostrum 5 (MN5) and LUMI at the Barcelona Supercomputing Center (BSC-CNS), while prototyping kinetic instruments, sound installations, and tangible data physicalization.
@@ -3141,21 +3176,25 @@
         baseW2 = line2.getBoundingClientRect().width || 252;
         baseW3 = line3.getBoundingClientRect().width || 230;
 
-        const disc = document.querySelector('.hero-discipline');
-        let textLimits = [];
-        if (disc) {
-          const range = document.createRange();
-          range.selectNodeContents(disc);
-          for (let r of range.getClientRects()) {
-            if (r.width > 0) textLimits.push(r.width);
-          }
-        }
-        const maxDisc = textLimits.length > 0 ? Math.max(...textLimits) : 408;
+        const rolesCol = document.querySelector('.hero-roles-column');
+        const isStacked = window.innerWidth <= 820;
 
-        // Visual text limit boundaries for each row (with 2.5px safety buffer):
-        limitW1 = (textLimits[0] ? textLimits[0] : maxDisc) - 2.5;
-        limitW2 = (textLimits[1] ? textLimits[1] : maxDisc) - 2.5;
-        limitW3 = maxDisc - 2.5;
+        if (rolesCol && !isStacked) {
+          const roleColLeft = rolesCol.getBoundingClientRect().left;
+          const left1 = line1.getBoundingClientRect().left;
+          const left2 = line2.getBoundingClientRect().left;
+          const left3 = line3.getBoundingClientRect().left;
+
+          // Safe boundary: distance from each line's left edge to the role column minus 16px buffer
+          limitW1 = Math.max(baseW1, roleColLeft - left1 - 16);
+          limitW2 = Math.max(baseW2, roleColLeft - left2 - 16);
+          limitW3 = Math.max(baseW3, roleColLeft - left3 - 16);
+        } else {
+          // Stacked mobile mode or fallback: bounded to 1.35x base width
+          limitW1 = baseW1 * 1.35;
+          limitW2 = baseW2 * 1.32;
+          limitW3 = baseW3 * 1.35;
+        }
 
         line1.style.transform = savedT1;
         line2.style.transform = savedT2;

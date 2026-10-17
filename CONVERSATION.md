@@ -422,6 +422,22 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
   - Modal panel maximum width expanded to `1140px` for optimal 3-column spacing on desktop displays (~340px per card).
   - Collapses fluidly to 2 columns on tablets (`<= 980px`) and a stacked single-column layout on mobile devices (`<= 860px` and `<= 640px`).
 
-
-
+### AG. Hero Roles Typographic Layout (3 Lines to the Right of Name Lines)
+- **Problem Addressed**:
+  - Previously, Carlos's three core professional disciplines were grouped into a single text block below the name: `COMPUTATIONAL PHYSICIST · SCIENTIFIC SOFTWARE ENGINEER · CREATIVE COMPUTING`.
+  - Depending on viewport scaling, this caused an awkward wrapping split across two lines (breaking between `SCIENTIFIC` and `SOFTWARE ENGINEER`), while leaving extensive negative space to the right of the three large name lines (`CARLOS` / `ROMERO` / `MADRID`).
+- **Architectural 1-to-1 Typography Lockup**:
+  - Reconfigured the hero identity into a balanced two-column lockup (`.hero-identity-row` with `gap: clamp(24px, 4vw, 54px)`):
+    - **Left**: `h1.hero-name` spanning 3 distinct rows (`Carlos` / `Romero` / `Madrid`).
+    - **Right (`.hero-roles-column`)**: Exactly 3 dedicated role lines with `flex: 1` vertical centering, achieving 1-to-1 visual correspondence:
+      1. `CARLOS` <——> `COMPUTATIONAL PHYSICIST`
+      2. `ROMERO` <——> `SCIENTIFIC SOFTWARE ENGINEER`
+      3. `MADRID` <——> `CREATIVE COMPUTING`
+  - Rendered in bold, uppercase Syne 800 (`font-size: clamp(12px, 1.35vw, 14.5px); letter-spacing: 0.05em;`).
+- **Dynamic Kinetic Oscillation Boundary Safety**:
+  - Updated the mathematical rAF oscillator's boundary detection (`measureBoundaries()`):
+    - Dynamically measures the distance from each name line's left edge to `rolesCol.getBoundingClientRect().left - 16px`.
+    - Guarantees that as `Carlos`, `Romero`, and `Madrid` stretch horizontally via nonperiodic irrational harmonic waves, they **never** surpass or collide with the roles column to their right.
+- **Responsive Stacking**:
+  - On mobile screens (`<= 820px`), `.hero-identity-row` seamlessly stacks vertically into a single column, keeping each of the three roles on its own distinct line directly below the name, eliminating any text wrapping or line breaks.
 
