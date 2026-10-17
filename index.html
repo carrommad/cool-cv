@@ -492,11 +492,27 @@
       100% { opacity: 0.4; transform: scale(0.85); }
     }
 
+    /* Hero Controls — Positioned at the most right, outside the central container */
     .hero-controls {
+      position: fixed;
+      top: 24px;
+      right: 32px;
+      z-index: 900;
       display: flex;
       align-items: center;
-      gap: 8px;
-      flex-shrink: 0;
+      gap: 10px;
+    }
+
+    @media (max-width: 860px) {
+      .hero-controls {
+        position: static;
+        justify-content: flex-end;
+        max-width: 720px;
+        width: 100%;
+        margin: 14px auto 0;
+        padding: 0 20px;
+        box-sizing: border-box;
+      }
     }
 
     .btn-ctrl {
@@ -504,23 +520,25 @@
       color: var(--bw-text);
       border: 1.5px solid var(--bw-border-medium);
       border-radius: 9999px;
-      padding: 5px 12px;
+      padding: 6px 14px;
       font-family: var(--font-mono);
-      font-size: 10px;
+      font-size: 10.5px;
       font-weight: 700;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 7px;
       transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
       box-sizing: border-box;
       white-space: nowrap;
-      height: 29px;
+      height: 32px;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
     }
     .btn-ctrl:hover {
       border-color: var(--bw-border);
       background: var(--bw-surface-hover);
       transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
     }
     .btn-ctrl.playing {
       background: var(--bw-btn-bg);
@@ -530,12 +548,12 @@
 
     /* Fixed uniform button widths to prevent layout shifts when toggling text */
     #btn-theme-toggle {
-      min-width: 104px;
+      min-width: 106px;
       justify-content: center;
     }
 
     #btn-mnusic-audio {
-      min-width: 126px;
+      min-width: 128px;
       justify-content: center;
     }
 
@@ -1649,6 +1667,21 @@
   <!-- Ambient Monochrome Particles Background -->
   <canvas id="ambient-particles-canvas"></canvas>
 
+  <!-- Global Viewport Controls Dock (Top Right Outside Container) -->
+  <aside class="hero-controls" aria-label="Global Controls">
+    <!-- Vertical Half-Black Half-White Split Theme Switcher (Day / Night) -->
+    <button class="btn-ctrl" onclick="toggleThemeBW()" id="btn-theme-toggle" title="Switch between Day and Night mode (also modulates ambient audio)">
+      <span class="split-disc"></span>
+      <span id="theme-btn-label">Day Mode</span>
+    </button>
+    
+    <!-- Ambient Audio Synthesizer -->
+    <button class="btn-ctrl" onclick="toggleMNusicAudio()" id="btn-mnusic-audio" title="Toggle real-time generative MNusic ambient synthesizer">
+      <span class="audio-icon">♫</span>
+      <span id="audio-btn-label">Ambient Audio</span>
+    </button>
+  </aside>
+
   <div class="container">
     
     <!-- =========================================================
@@ -1661,20 +1694,6 @@
           <span class="status-dot"></span>
           <span class="status-text-full">Available for Research & Engineering · Barcelona, Spain</span>
           <span class="status-text-short">Available · Barcelona, Spain</span>
-        </div>
-        
-        <div class="hero-controls">
-          <!-- Vertical Half-Black Half-White Split Theme Switcher (Day / Night) -->
-          <button class="btn-ctrl" onclick="toggleThemeBW()" id="btn-theme-toggle" title="Switch between Day and Night mode (also modulates ambient audio)">
-            <span class="split-disc"></span>
-            <span id="theme-btn-label">Day Mode</span>
-          </button>
-          
-          <!-- Ambient Audio Synthesizer -->
-          <button class="btn-ctrl" onclick="toggleMNusicAudio()" id="btn-mnusic-audio" title="Toggle real-time generative MNusic ambient synthesizer">
-            <span class="audio-icon">♫</span>
-            <span id="audio-btn-label">Ambient Audio</span>
-          </button>
         </div>
       </div>
 

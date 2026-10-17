@@ -25,4 +25,6 @@
 - [x] Night Mode: Deep Blue & Glacial palette (`#111d33` canvas, `#1b2f52` surface, `#FEB737` yellow accents) linked to theme switcher
 - [x] In Deep Blue & Glacial: ALL cards (01, 02, 03, 04) have the yellow outer outline line as card 2 (`2px solid #FEB737` + shadow)
 - [x] In Deep Blue & Glacial: All action prompt boxes ("Explore", "Inspect", "Read") styled in yellow (`#FEB737`) with obsidian text (`#0c1626`)
+- [x] Repositioned Night/Day Mode and Ambient Audio buttons to the top right of the viewport outside the central container (`position: fixed; top: 24px; right: 32px; z-index: 900`)
+
 

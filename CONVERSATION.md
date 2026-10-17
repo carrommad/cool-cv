@@ -325,6 +325,20 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
     $$s_{i,\max} = \min\left(1.48, \frac{W_{\text{textLimit}} - 2.5}{W_{i,\text{base}}}\right)$$
   - Clamped all wave components so that at the absolute peak of the oscillation wave ($w_{\text{norm}} = 1.0$), the rendered pixel width of each line (`Carlos`, `Romero`, `Madrid`) satisfies:
     $$W_{i,\text{rendered}} = W_{i,\text{base}} \times s_i(t) \le W_{\text{textLimit}} - 2.5\text{px} < W_{\text{textLimit}}$$
-  - Bounded oscillation safely between a gentle contraction floor ($s_{\min} = 0.94$) and $s_{i,\max}$, ensuring the name lines never surpass the text boundary on any screen size.
+### Z. Repositioning Theme Toggle & Audio Controls Outside the Central Container
+- **Relocated Outside 720px Container**:
+  - Moved `.hero-controls` out of `.hero-top-bar` and placed it as a dedicated `<aside class="hero-controls">` directly under `<body>`.
+  - Positioned at the top right of the viewport on widescreen/desktop:
+    ```css
+    position: fixed;
+    top: 24px;
+    right: 32px;
+    z-index: 900;
+    ```
+- **Visual & Ergonomic Impact**:
+  - Completely clears the space directly above the 3-row hero name (`Carlos` / `Romero` / `Madrid`), giving the name and subtitle full breathing room without any overlapping UI controls.
+  - Buttons float cleanly in the outer margins of the viewport, styled as pill controls with solid surfaces, borders (`#FEB737` yellow in Night Mode, `#1d1c19` Sumi black in Day Mode), and elevated hover shadows.
+  - Controls remain persistently accessible when scrolling, allowing users to toggle themes or toggle the generative soundscape from any section of the portfolio.
+  - Fully responsive: automatically switches to a static, inline flow on mobile devices (`@media (max-width: 860px)`).
 
 
