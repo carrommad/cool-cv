@@ -63,7 +63,14 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
 
 ---
 
-## 4. Pending / Next Steps
+## 4. Roadmap & Pending Action Items
 
-1. Review and implement **Felipe's advice** on the `felipe-advice` branch in `cool-cv`.
-2. Push commits to remote repositories (`cool-cv` and `pipa-music-ball`) when ready.
+1. **Implement Felipe's Advice**:
+   - Ready for changes on active branch `felipe-advice`.
+2. **Address Portfolio Positioning (`TODO.md`)**:
+   - Enhance visibility of AI / ML / creative AI competencies to match senior role requirements.
+   - Ensure external showcase repos (`pipa-music-ball`, `expo-curator`, `mnusic`) are public and documented with rich visuals.
+3. **Remote Push**:
+   - Push `pipa-music-ball` (`main` ahead by 1 commit with new images + README).
+   - Push `cool-cv` branch `felipe-advice` (`origin felipe-advice`) once reviewed.
+
