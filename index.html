@@ -287,16 +287,18 @@
       --bw-pill-border: #FEB737;
     }
 
-    /* In Deep Blue & Glacial: ALL cards have the yellow outer line as card 2 */
+    /* In Deep Blue & Glacial: cards at rest have clean subtle dark borders */
     body.theme-deep-blue .editorial-card {
-      border: 2px solid #FEB737 !important;
+      border: 1.5px solid var(--bw-border-subtle) !important;
       background: #1b2f52 !important;
-      box-shadow: 0 4px 18px rgba(254, 183, 55, 0.20) !important;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35) !important;
     }
+    /* The yellow outer line ONLY appears when HOVERING over the cards */
     body.theme-deep-blue .editorial-card:hover {
-      border-color: #ffd276 !important;
+      border: 2px solid #FEB737 !important;
       background: #233e6b !important;
-      box-shadow: 0 10px 28px rgba(254, 183, 55, 0.35) !important;
+      box-shadow: 0 10px 28px rgba(254, 183, 55, 0.32) !important;
+      transform: translateY(-2px);
     }
 
     /* In Deep Blue & Glacial: "Explore" "View..." action prompt boxes are yellow #FEB737 */
@@ -932,29 +934,7 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     }
 
-    /* Seamless Dark Mode Adaptation: Keep Dark Surface so text remains legible and cohesive */
-    body.theme-night .card-section-02,
-    body.theme-indigo-honey .card-section-02,
-    body.theme-black-silver .card-section-02,
-    body.theme-touareg .card-section-02,
-    body.theme-cyber-yellow .card-section-02,
-    body.theme-nordic-pine .card-section-02,
-    body.theme-marenostrum .card-section-02,
-    body.theme-deep-blue .card-section-02 {
-      background: var(--bw-surface) !important;
-      border: 2px solid #FEB737 !important;
-      box-shadow: 0 4px 18px rgba(254, 183, 55, 0.18) !important;
-    }
-    body.theme-night .card-section-02:hover,
-    body.theme-indigo-honey .card-section-02:hover,
-    body.theme-black-silver .card-section-02:hover,
-    body.theme-touareg .card-section-02:hover,
-    body.theme-cyber-yellow .card-section-02:hover,
-    body.theme-nordic-pine .card-section-02:hover,
-    body.theme-marenostrum .card-section-02:hover,
-    body.theme-deep-blue .card-section-02:hover {
-      background: var(--bw-surface-hover) !important;
-    }
+    /* Dark Mode: Sub-cards inside modal retain crisp styling */
     body.theme-night #modal-foundations .sub-card,
     body.theme-indigo-honey #modal-foundations .sub-card,
     body.theme-black-silver #modal-foundations .sub-card,

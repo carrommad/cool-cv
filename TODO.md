@@ -23,7 +23,7 @@
 - [x] Compiled both PDFs via headless Edge into root and `pdfs/` directories
 - [x] Day Mode: Crimson & Raw Linen palette (`#f7f4ea` canvas, `#ffffff` surface, `#c92a2a` Sumi lacquer crimson, `#1d1c19` Sumi black) set as default across web dossier
 - [x] Night Mode: Deep Blue & Glacial palette (`#111d33` canvas, `#1b2f52` surface, `#FEB737` yellow accents) linked to theme switcher
-- [x] In Deep Blue & Glacial: ALL cards (01, 02, 03, 04) have the yellow outer outline line as card 2 (`2px solid #FEB737` + shadow)
+- [x] In Deep Blue & Glacial Night Mode: Yellow outer line (`2px solid #FEB737` + warm glow) appears strictly on hover over cards; resting state cards have clean subtle dark oceanic borders (`#2A4D88`)
 - [x] In Deep Blue & Glacial: All action prompt boxes ("Explore", "Inspect", "Read") styled in yellow (`#FEB737`) with obsidian text (`#0c1626`)
 - [x] Repositioned Night/Day Mode and Ambient Audio buttons to the top right of the viewport outside the central container (`position: fixed; top: 24px; right: 32px; z-index: 900`)
 

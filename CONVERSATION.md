@@ -348,10 +348,19 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
     - Base border: `1.5px solid var(--bw-border-subtle)` (`#ddd6c3`)
     - Surface: White (`#ffffff`)
     - Hover: `border-color: var(--bw-border)` (`#c92a2a` Sumi lacquer crimson), elevated shadow, and smooth vertical lift.
-- **Night Mode Retention**:
-  - In Night Mode (`theme-deep-blue`), all 4 cards (01, 02, 03, 04) uniformly maintain the Honey Amber yellow outer border (`2px solid #FEB737 !important`) and yellow action buttons as requested.
 - **Print Templates & Recompiled PDFs**:
   - Updated [cv_pastel_boxes.html](file:///c:/Users/cromero/Desktop/cool-cv/cv_pastel_boxes.html) and [cover_letter_quadrants.html](file:///c:/Users/cromero/Desktop/cool-cv/cover_letter_quadrants.html) to keep Box 02 matching the rest of the boxes in Day Mode.
   - Re-rendered [Carlos_Romero_CV.pdf](file:///c:/Users/cromero/Desktop/cool-cv/Carlos_Romero_CV.pdf) and [Carlos_Romero_Cover_Letter.pdf](file:///c:/Users/cromero/Desktop/cool-cv/Carlos_Romero_Cover_Letter.pdf) and updated copies in `pdfs/`.
+
+### AB. Hover-Only Yellow Outer Line in Dark Mode
+- **Resting State Refinement**:
+  - In Night Mode (`theme-deep-blue`), cards (`01`, `02`, `03`, `04`) at rest no longer carry a persistent yellow border.
+  - Cards at rest feature a clean, sophisticated, subtle dark oceanic border (`1.5px solid var(--bw-border-subtle)` / `#2A4D88`) against the midnight navy surface (`#1b2f52`) with subtle elevation shadow (`0 4px 16px rgba(0, 0, 0, 0.35)`).
+- **Hover-Activated Focus State**:
+  - The electric yellow outer outline (`border: 2px solid #FEB737 !important; box-shadow: 0 10px 28px rgba(254, 183, 55, 0.32) !important; background: #233e6b !important; transform: translateY(-2px);`) now activates **strictly when hovering** over any card (`.editorial-card:hover`).
+  - Smooth transitions (`0.24s cubic-bezier(0.16, 1, 0.3, 1)`) deliver fluid entry and exit of the yellow outline and ambient glow.
+- **Action Buttons & Accents Intact**:
+  - Action prompt pills ("Explore Interactive Map & Journey ->", "Inspect Education & Skills Stack ->", "Read...", etc.) preserve their high-contrast `#FEB737` yellow fill with bold obsidian text (`#0c1626`) for persistent legibility and call-to-action visibility.
+
 
 
