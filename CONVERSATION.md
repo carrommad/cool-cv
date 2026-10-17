@@ -165,3 +165,10 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
 - **Removed Typography Lab & "Curated Dossier" Bar**: Completely removed the experimental typography dropdown lab and the `"Curated Dossier · 4 Chapters"` indicator bar along with their associated CSS rules and JavaScript logic. The page header now transitions directly into Chapter 01 for a cleaner, more streamlined reading experience.
 - **Modern Chapter Badges**: Card badges updated to clean editorial chapter identifiers (`CH. 01`, `CH. 02`, `CH. 03`, `CH. 04`).
 
+### N. Stabilized Hero Top Bar & Button Dimensions (Zero Layout Shift on Toggle)
+- **Root Cause of Button Jumping**: The text `"Night Mode"` (10 characters) is wider than `"Day Mode"` (8 characters) in monospaced JetBrains Mono. Inside the 720px container (`680px` content area), the combined width of the status badge and controls exceeded `680px` only in Night Mode, causing flexbox to wrap `.hero-controls` to the second row and dropping both the theme button and audio button down to the left.
+- **Fixed Button Dimensions**: Implemented `min-width: 114px` on `#btn-theme-toggle` and `min-width: 132px` on `#btn-mnusic-audio` with centered content so the buttons maintain an identical, invariant footprint regardless of label text.
+- **Refined Status Badge Tracking**: Adjusted `.status-badge` to `font-size: 10px; letter-spacing: 0.07em`, freeing up over 50px of breathing room so the status badge and controls fit effortlessly on a single row (`~626px` total footprint).
+- **Smooth Mobile Fallback**: Added `@media (max-width: 640px)` for compact screens to wrap naturally without any jump when toggling.
+
+
