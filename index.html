@@ -633,53 +633,7 @@
       -webkit-backface-visibility: hidden;
     }
 
-    /* Independent, slow, periodic dynamic stretching for each line */
-    .hero-name-line-1 {
-      animation: stretch-line-1 5.2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate !important;
-    }
-
-    .hero-name-line-2 {
-      animation: stretch-line-2 6.8s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate !important;
-      animation-delay: -2.4s !important;
-    }
-
-    .hero-name-line-3 {
-      animation: stretch-line-3 5.8s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate !important;
-      animation-delay: -4.1s !important;
-    }
-
-    @keyframes stretch-line-1 {
-      0% {
-        transform: scaleX(0.90);
-        letter-spacing: -0.035em;
-      }
-      100% {
-        transform: scaleX(1.45);
-        letter-spacing: 0.08em;
-      }
-    }
-
-    @keyframes stretch-line-2 {
-      0% {
-        transform: scaleX(0.88);
-        letter-spacing: -0.04em;
-      }
-      100% {
-        transform: scaleX(1.52);
-        letter-spacing: 0.09em;
-      }
-    }
-
-    @keyframes stretch-line-3 {
-      0% {
-        transform: scaleX(0.92);
-        letter-spacing: -0.03em;
-      }
-      100% {
-        transform: scaleX(1.48);
-        letter-spacing: 0.085em;
-      }
-    }
+    /* Nonperiodic kinetic typography stretching will be driven continuously by mathematical rAF oscillator */
 
     .hero-discipline {
       font-family: var(--font-display); /* Syne 800 display */
@@ -2878,6 +2832,74 @@
         sequenceTimer = setTimeout(scheduleNextPing, nextDelay);
       }
       scheduleNextPing();
+    }
+
+    // =========================================================
+    // SLOW & NONPERIODIC KINETIC TYPOGRAPHY OSCILLATOR
+    // Uses multi-frequency irrational harmonic superposition
+    // (golden ratio phi, sqrt(2), sqrt(3), e, pi) so the oscillation
+    // is mathematically aperiodic / non-repeating and gently slow
+    // =========================================================
+    function initNonperiodicTypography() {
+      const line1 = document.querySelector('.hero-name-line-1');
+      const line2 = document.querySelector('.hero-name-line-2');
+      const line3 = document.querySelector('.hero-name-line-3');
+      if (!line1 || !line2 || !line3) return;
+
+      const PHI = 1.6180339887;
+      const SQRT2 = 1.4142135623;
+      const SQRT3 = 1.7320508075;
+      const E = 2.7182818284;
+      const PI = Math.PI;
+
+      let startTimestamp = null;
+
+      function render(now) {
+        if (!startTimestamp) startTimestamp = now;
+        // Slow time advancement (0.00028 multiplier gives ~25-45s majestic waves)
+        const t = (now - startTimestamp) * 0.00028;
+
+        // Line 1 (Carlos): incommensurate irrational frequency superposition
+        const s1 = 1.15 
+          + 0.22 * Math.sin(0.38 * t) 
+          + 0.12 * Math.sin(0.38 * SQRT2 * t + 0.9) 
+          + 0.07 * Math.sin(0.38 * PHI * t + 2.1);
+        const track1 = -0.025 + (s1 - 1.0) * 0.15;
+
+        // Line 2 (Romero): independent irrational frequency superposition
+        const s2 = 1.18 
+          + 0.25 * Math.sin(0.28 * t + 1.8) 
+          + 0.13 * Math.sin(0.28 * SQRT3 * t + 3.1) 
+          + 0.08 * Math.sin(0.28 * PI * t + 0.5);
+        const track2 = -0.025 + (s2 - 1.0) * 0.15;
+
+        // Line 3 (Madrid): independent irrational frequency superposition
+        const s3 = 1.16 
+          + 0.23 * Math.sin(0.33 * t + 3.7) 
+          + 0.12 * Math.sin(0.33 * E * 0.6 * t + 1.4) 
+          + 0.07 * Math.sin(0.33 * PHI * 1.3 * t + 4.2);
+        const track3 = -0.025 + (s3 - 1.0) * 0.15;
+
+        line1.style.transform = `scaleX(${s1.toFixed(4)})`;
+        line1.style.letterSpacing = `${track1.toFixed(4)}em`;
+
+        line2.style.transform = `scaleX(${s2.toFixed(4)})`;
+        line2.style.letterSpacing = `${track2.toFixed(4)}em`;
+
+        line3.style.transform = `scaleX(${s3.toFixed(4)})`;
+        line3.style.letterSpacing = `${track3.toFixed(4)}em`;
+
+        requestAnimationFrame(render);
+      }
+
+      requestAnimationFrame(render);
+    }
+
+    // Launch oscillator immediately when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initNonperiodicTypography);
+    } else {
+      initNonperiodicTypography();
     }
   </script>
 </body>
