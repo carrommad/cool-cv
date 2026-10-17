@@ -147,3 +147,8 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
   - **Plus Jakarta Sans** (Contemporary Editorial)
   - **JetBrains Mono** (Technical Monospace)
 - **Live Badge Synchronization**: Every selection dynamically cascades across the full page (hero header, titles, body descriptions, pills, action buttons, metadata, modals, and footer) and updates each chapter numeral badge (e.g. Roboto Slab · 01).
+
+### K. Moved Primary Action Buttons to Bottom Footer Dock (Zero Repetition)
+- **Header Cleanliness**: Removed .hero-actions-row from <header>, greatly reducing the header's vertical footprint and giving the typographic hero title and bio maximum breathing room.
+- **Footer Actions Dock**: Relocated the 5 action buttons (**Download CV PDF**, **Cover Letter PDF**, **Email**, **LinkedIn**, **GitHub**) to the bottom footer.
+- **Eliminated Repetition**: Removed the redundant plain text links for LinkedIn and GitHub previously located in the footer, so they only appear once as high-contrast tactile action pills.
