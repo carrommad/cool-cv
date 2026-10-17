@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Carlos Romero Madrid — Portfolio & Trajectory</title>
   
-  <!-- Curated High-Character Typefaces from Google Fonts -->
+  <!-- Curated Modernist Typeface Pairing: Syne 800 & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800&family=Hanken+Grotesk:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Roboto+Slab:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;600;700&family=Syne:wght@400;600;700;800&family=Work+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,700&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
   
   <!-- Favicon: Yellow ball matching webpage aesthetic -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -24,6 +24,7 @@
        HIGH-CONTRAST BLACK & WHITE EDITORIAL DESIGN SYSTEM
        Default: Day Mode (Luminous White Canvas)
        Toggle:  Night Mode (80% Black Canvas #333333)
+       Typography: Syne 800 (Header + Subtitle) · JetBrains Mono (The Rest)
        ========================================================= */
     :root {
       /* Day Mode Palette (Default on page load) */
@@ -49,18 +50,10 @@
       --bw-pill-text: #000000;
       --bw-pill-border: #d4d4d8;
 
-      /* Typography Family Design Tokens */
-      --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      /* Typography Family Design Tokens: Syne 800 + JetBrains Mono */
+      --font-display: 'Syne', sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
-      
-      --font-dm-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      --font-montserrat: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
-      --font-roboto-slab: 'Roboto Slab', Georgia, serif;
-      --font-akzidenz: 'Akzidenz-Grotesk', 'Akzidenz Grotesk', 'AkzidenzGrotesk', 'Hanken Grotesk', 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      --font-c1: 'Syne', sans-serif;
-      --font-c2: 'Space Grotesk', sans-serif;
-      --font-c3: 'Bricolage Grotesque', sans-serif;
-      --font-c4: 'Playfair Display', Georgia, serif;
+      --font-body: 'JetBrains Mono', monospace;
     }
 
     /* Night Mode Palette (80% Black Canvas #333333 instead of 100% #000000) */
@@ -108,7 +101,7 @@
 
     body {
       font-family: var(--font-body);
-      font-size: 15px;
+      font-size: 13.5px;
       line-height: 1.6;
       display: flex;
       flex-direction: column;
@@ -266,10 +259,10 @@
     }
 
     h1.hero-name {
-      font-family: var(--font-c1); /* Syne 800 display */
-      font-size: clamp(28px, 4.4vw, 46px);
-      font-weight: 900;
-      letter-spacing: -0.035em;
+      font-family: var(--font-display); /* Syne 800 display */
+      font-size: clamp(32px, 5.2vw, 54px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
       line-height: 1.02;
       color: var(--bw-text);
       margin: 0;
@@ -277,18 +270,19 @@
     }
 
     .hero-discipline {
-      font-family: var(--font-mono);
-      font-size: clamp(11px, 1.3vw, 12.5px);
-      font-weight: 700;
-      letter-spacing: 0.12em;
+      font-family: var(--font-display); /* Syne 800 display */
+      font-size: clamp(12px, 1.45vw, 14.5px);
+      font-weight: 800;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
       color: var(--bw-text);
-      opacity: 0.92;
+      opacity: 0.95;
     }
 
     .hero-bio {
-      font-size: 13.5px;
-      line-height: 1.55;
+      font-family: var(--font-mono); /* JetBrains Mono */
+      font-size: 12.8px;
+      line-height: 1.6;
       color: var(--bw-text-muted);
       max-width: 660px;
       margin: 0;
@@ -340,90 +334,6 @@
       transform: translateY(-1px);
     }
 
-    /* =========================================================
-       TYPOGRAPHY COMPARISON LAB (Dropdown Font Selector)
-       Allows selecting single typeface globally across full page
-       ========================================================= */
-    .typo-lab-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 10px;
-      padding: 8px 14px;
-      background: var(--bw-surface-sunken);
-      border: 1px solid var(--bw-border-subtle);
-      border-radius: 10px;
-      margin-bottom: 16px;
-    }
-
-    .typo-lab-title {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--bw-text);
-    }
-    .typo-lab-sublabel {
-      font-size: 10px;
-      font-weight: 500;
-      color: var(--bw-text-muted);
-      letter-spacing: 0.04em;
-      text-transform: none;
-    }
-
-    .typo-lab-select-wrap {
-      display: flex;
-      align-items: center;
-      position: relative;
-    }
-
-    .typo-select {
-      background: var(--bw-surface);
-      color: var(--bw-text);
-      border: 1.5px solid var(--bw-border-medium);
-      border-radius: 8px;
-      padding: 6px 34px 6px 12px;
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 700;
-      cursor: pointer;
-      appearance: none;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23000000' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: calc(100% - 10px) center;
-      background-size: 12px;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    }
-    .typo-select:hover {
-      border-color: var(--bw-border);
-      background-color: var(--bw-surface-hover);
-    }
-    .typo-select:focus {
-      outline: none;
-      border-color: var(--bw-border);
-      box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.15);
-    }
-    body.theme-night .typo-select {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-    }
-    body.theme-night .typo-select:focus {
-      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.25);
-    }
-    .typo-select option {
-      background: var(--bw-surface);
-      color: var(--bw-text);
-      font-family: var(--font-mono);
-      font-size: 11px;
-      padding: 6px;
-    }
 
     /* =========================================================
        VERTICAL 1-COLUMN LIST WITH BIG NUMBERS ON THE LEFT
@@ -562,10 +472,11 @@
     }
 
     .card-title {
+      font-family: var(--font-mono);
       font-size: clamp(17px, 2.1vw, 21.5px);
       font-weight: 800;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
+      line-height: 1.25;
+      letter-spacing: -0.025em;
       color: var(--bw-text);
       margin: 0;
     }
@@ -624,66 +535,6 @@
       gap: 8px;
     }
 
-    /* CARD-SPECIFIC TYPOGRAPHIES */
-    .card-syne .card-big-num,
-    .card-syne .card-title {
-      font-family: var(--font-c1);
-    }
-    .card-space .card-big-num,
-    .card-space .card-title {
-      font-family: var(--font-c2);
-    }
-    .card-bricolage .card-big-num,
-    .card-bricolage .card-title {
-      font-family: var(--font-c3);
-    }
-    .card-playfair .card-big-num,
-    .card-playfair .card-title {
-      font-family: var(--font-c4);
-    }
-
-    /* GLOBAL TYPOGRAPHY OVERRIDE PREVIEWS — FULL PAGE TRANSFORMATION */
-    body.font-override-dm-sans,
-    body.font-override-dm-sans *:not(svg):not(path):not(line):not(circle):not(rect):not(polygon) {
-      font-family: var(--font-dm-sans) !important;
-    }
-    body.font-override-montserrat,
-    body.font-override-montserrat *:not(svg):not(path):not(line):not(circle):not(rect):not(polygon) {
-      font-family: var(--font-montserrat) !important;
-    }
-    body.font-override-roboto-slab,
-    body.font-override-roboto-slab *:not(svg):not(path):not(line):not(circle):not(rect):not(polygon) {
-      font-family: var(--font-roboto-slab) !important;
-    }
-    body.font-override-akzidenz,
-    body.font-override-akzidenz *:not(svg):not(path):not(line):not(circle):not(rect):not(polygon) {
-      font-family: var(--font-akzidenz) !important;
-    }
-    body.font-override-syne,
-    body.font-override-syne *:not(svg):not(path):not(line):not(circle):not(rect):not(polygon) {
-      font-family: var(--font-c1) !important;
-    }
-    body.font-override-space,
-    body.font-override-space *:not(svg):not(path):not(line):not(circle):not(rect):not(polygon) {
-      font-family: var(--font-c2) !important;
-    }
-    body.font-override-bricolage,
-    body.font-override-bricolage *:not(svg):not(path):not(line):not(circle):not(rect):not(polygon) {
-      font-family: var(--font-c3) !important;
-    }
-    body.font-override-playfair,
-    body.font-override-playfair *:not(svg):not(path):not(line):not(circle):not(rect):not(polygon) {
-      font-family: var(--font-c4) !important;
-    }
-    body.font-override-jakarta,
-    body.font-override-jakarta *:not(svg):not(path):not(line):not(circle):not(rect):not(polygon) {
-      font-family: var(--font-body) !important;
-    }
-    body.font-override-mono,
-    body.font-override-mono *:not(svg):not(path):not(line):not(circle):not(rect):not(polygon) {
-      font-family: var(--font-mono) !important;
-    }
-
     /* =========================================================
        EXPANDED MODAL OVERLAY (B&W High-Contrast Architecture)
        ========================================================= */
@@ -738,6 +589,7 @@
       background: var(--bw-surface);
     }
     .modal-header-titles h2 {
+      font-family: var(--font-mono);
       font-size: 24px;
       font-weight: 800;
       letter-spacing: -0.02em;
@@ -798,6 +650,7 @@
       gap: 10px;
     }
     .map-header h3 {
+      font-family: var(--font-mono);
       font-size: 18px;
       font-weight: 800;
       color: var(--bw-text);
@@ -937,6 +790,7 @@
       padding: 26px;
     }
     .sub-card h4 {
+      font-family: var(--font-mono);
       font-size: 18px;
       font-weight: 800;
       color: var(--bw-text);
@@ -1033,6 +887,7 @@
       letter-spacing: 0.08em;
     }
     .proj-name {
+      font-family: var(--font-mono);
       font-size: 19px;
       font-weight: 800;
       color: var(--bw-text);
@@ -1159,6 +1014,7 @@
       color: var(--bw-text);
     }
     .letter-subject {
+      font-family: var(--font-mono);
       font-size: 19px;
       font-weight: 800;
       color: var(--bw-text);
@@ -1321,31 +1177,6 @@
 
     </header>
 
-    <!-- =========================================================
-         TYPOGRAPHY COMPARISON LAB (Dropdown Font Selector)
-         ========================================================= -->
-    <div class="typo-lab-bar">
-      <div class="typo-lab-title">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg>
-        <span>Typography Lab</span>
-        <span class="typo-lab-sublabel">Select Single Typeface:</span>
-      </div>
-      <div class="typo-lab-select-wrap">
-        <select id="font-select" class="typo-select" onchange="setFontPreview(this.value)" aria-label="Select typography">
-          <option value="dm-sans" selected>DM Sans (Clean Geometric Sans)</option>
-          <option value="montserrat">Montserrat (Architectural Modern Sans)</option>
-          <option value="roboto-slab">Roboto Slab (Editorial Mechanical Slab)</option>
-          <option value="akzidenz">Akzidenz-Grotesk (Historic 1896 Grotesque)</option>
-          <option value="syne">Syne 800 (Bold Wide Display)</option>
-          <option value="space">Space Grotesk (Brutalist Tech)</option>
-          <option value="bricolage">Bricolage Grotesque (Quirky Expressive)</option>
-          <option value="playfair">Playfair Display (High-Contrast Serif)</option>
-          <option value="jakarta">Plus Jakarta Sans (Contemporary Editorial)</option>
-          <option value="mono">JetBrains Mono (Technical Monospace)</option>
-        </select>
-      </div>
-    </div>
-
     <!-- Section Intro Indicator -->
     <div class="section-intro-row">
       <span class="section-label">Curated Dossier · 4 Chapters</span>
@@ -1357,12 +1188,12 @@
          ========================================================= -->
     <main class="vertical-cards-list">
       
-      <!-- CHAPTER 01: TRAJECTORY & RESEARCH JOURNEY (Font: Syne 800) -->
-      <article class="editorial-card card-syne" onclick="openSectionModal('modal-trajectory')">
+      <!-- CHAPTER 01: TRAJECTORY & RESEARCH JOURNEY -->
+      <article class="editorial-card" onclick="openSectionModal('modal-trajectory')">
         <div class="card-grid-inner">
           <div class="card-num-col">
             <span class="card-big-num">01</span>
-            <span class="card-font-badge" id="badge-card-1">Syne 800</span>
+            <span class="card-font-badge" id="badge-card-1">CH. 01</span>
             <!-- Book of Shapes Modernist Starburst Glyph -->
             <svg class="shape-emblem" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.2" title="Geometric Starburst (Book of Shapes)">
               <line x1="20" y1="3" x2="20" y2="37"/>
@@ -1396,12 +1227,12 @@
         </div>
       </article>
 
-      <!-- CHAPTER 02: ACADEMIC FOUNDATIONS & HPC STACK (Font: Space Grotesk 700) -->
-      <article class="editorial-card card-space" onclick="openSectionModal('modal-foundations')">
+      <!-- CHAPTER 02: ACADEMIC FOUNDATIONS & HPC STACK -->
+      <article class="editorial-card" onclick="openSectionModal('modal-foundations')">
         <div class="card-grid-inner">
           <div class="card-num-col">
             <span class="card-big-num">02</span>
-            <span class="card-font-badge" id="badge-card-2">Space Grotesk 700</span>
+            <span class="card-font-badge" id="badge-card-2">CH. 02</span>
             <!-- Book of Shapes Stepped Diamond Matrix Glyph -->
             <svg class="shape-emblem" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" title="Stepped Diamond Matrix (Book of Shapes)">
               <rect x="20" y="5" width="21" height="21" transform="rotate(45 20 5)"/>
@@ -1434,12 +1265,12 @@
         </div>
       </article>
 
-      <!-- CHAPTER 03: CREATIVE COMPUTING & INSTALLATIONS (Font: Bricolage Grotesque 800) -->
-      <article class="editorial-card card-bricolage" onclick="openSectionModal('modal-creative')">
+      <!-- CHAPTER 03: CREATIVE COMPUTING & INSTALLATIONS -->
+      <article class="editorial-card" onclick="openSectionModal('modal-creative')">
         <div class="card-grid-inner">
           <div class="card-num-col">
             <span class="card-big-num">03</span>
-            <span class="card-font-badge" id="badge-card-3">Bricolage 800</span>
+            <span class="card-font-badge" id="badge-card-3">CH. 03</span>
             <!-- Book of Shapes Kinetic Orbital Spheres Glyph -->
             <svg class="shape-emblem" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" title="Kinetic Orbital Spheres (Book of Shapes)">
               <circle cx="15" cy="20" r="11"/>
@@ -1470,12 +1301,12 @@
         </div>
       </article>
 
-      <!-- CHAPTER 04: COVER LETTER TO DAV GROUP (Font: Playfair Display 900) -->
-      <article class="editorial-card card-playfair" onclick="openSectionModal('modal-cover-letter')">
+      <!-- CHAPTER 04: COVER LETTER TO DAV GROUP -->
+      <article class="editorial-card" onclick="openSectionModal('modal-cover-letter')">
         <div class="card-grid-inner">
           <div class="card-num-col">
             <span class="card-big-num">04</span>
-            <span class="card-font-badge" id="badge-card-4">Playfair Serif 900</span>
+            <span class="card-font-badge" id="badge-card-4">CH. 04</span>
             <!-- Book of Shapes Modernist Editorial Quadrant Glyph -->
             <svg class="shape-emblem" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" title="Editorial Quadrant (Book of Shapes)">
               <rect x="7" y="7" width="26" height="26" rx="3"/>
@@ -1935,63 +1766,6 @@
     }
 
     // ---------------------------------------------------------
-    // TYPOGRAPHY LAB DROPDOWN SELECTOR (Full-Page Cascade)
-    // ---------------------------------------------------------
-    const FONT_PREVIEW_CLASSES = [
-      'font-override-dm-sans',
-      'font-override-montserrat',
-      'font-override-roboto-slab',
-      'font-override-akzidenz',
-      'font-override-syne',
-      'font-override-space',
-      'font-override-bricolage',
-      'font-override-playfair',
-      'font-override-jakarta',
-      'font-override-mono'
-    ];
-
-    const FONT_LABELS = {
-      'dm-sans': 'DM Sans',
-      'montserrat': 'Montserrat',
-      'roboto-slab': 'Roboto Slab',
-      'akzidenz': 'Akzidenz-Grotesk',
-      'syne': 'Syne 800',
-      'space': 'Space Grotesk',
-      'bricolage': 'Bricolage',
-      'playfair': 'Playfair Serif',
-      'jakarta': 'Plus Jakarta',
-      'mono': 'JetBrains Mono'
-    };
-
-    function setFontPreview(mode) {
-      document.body.classList.remove(...FONT_PREVIEW_CLASSES);
-      
-      const targetClass = `font-override-${mode}`;
-      if (FONT_PREVIEW_CLASSES.includes(targetClass)) {
-        document.body.classList.add(targetClass);
-      }
-
-      // Synchronize select element if triggered elsewhere
-      const select = document.getElementById('font-select');
-      if (select && select.value !== mode) {
-        select.value = mode;
-      }
-
-      const labelName = FONT_LABELS[mode] || mode;
-      const b1 = document.getElementById('badge-card-1');
-      const b2 = document.getElementById('badge-card-2');
-      const b3 = document.getElementById('badge-card-3');
-      const b4 = document.getElementById('badge-card-4');
-
-      [b1, b2, b3, b4].forEach((b, idx) => {
-        if (b) b.textContent = `${labelName} · 0${idx + 1}`;
-      });
-    }
-
-    // Initialize default font on page load
-    setFontPreview('dm-sans');
-
-    // ---------------------------------------------------------
     // MODAL HANDLERS
     // ---------------------------------------------------------
     function openSectionModal(modalId) {
@@ -2157,10 +1931,10 @@
         const marker = L.marker(city.coords, { icon: markerIcon }).addTo(map);
         
         marker.bindPopup(`
-          <div style="font-family:'Plus Jakarta Sans', sans-serif; color:#000;">
+          <div style="font-family:var(--font-mono); color:#000;">
             <div style="font-size:15px; font-weight:800; margin-bottom:2px;">${city.name}</div>
             <div style="font-size:12.5px; font-weight:600; color:#444;">${city.org}</div>
-            <div style="font-family:'JetBrains Mono', monospace; font-size:11.5px; margin-top:4px; font-weight:700;">${city.role}</div>
+            <div style="font-family:var(--font-mono); font-size:11.5px; margin-top:4px; font-weight:700;">${city.role}</div>
             <div style="font-size:11px; color:#777; margin-top:2px;">${city.period}</div>
           </div>
         `);

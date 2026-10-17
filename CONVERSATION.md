@@ -156,3 +156,12 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
 ### L. Split Bottom Dock: Left Actions & Right-Aligned Social Profiles
 - **Left Group (.footer-actions-left)**: Houses document and direct communication actions (**Download CV PDF**, **Cover Letter PDF**, **Email**).
 - **Right Group (.footer-actions-right)**: Anchors external profiles (**LinkedIn**, **GitHub**) flush to the right edge via justify-content: space-between, creating balanced editorial symmetry across the bottom of the dossier.
+
+### M. Finalized Typography Pairing: Syne 800 (Header + Subtitle) & JetBrains Mono (Rest with Bold Titles)
+- **Header Name (`h1.hero-name`)**: Styled strictly with **Syne 800** display font (`font-weight: 800; font-family: var(--font-display)`), uppercase with high-impact editorial tracking (`-0.03em`).
+- **Subtitle (`.hero-discipline`)**: Styled strictly with **Syne 800** display font (`font-weight: 800; font-family: var(--font-display); letter-spacing: 0.05em`).
+- **The Rest of the Dossier (`JetBrains Mono`)**: The entire body, hero bio, card metadata, descriptions, highlights, numerals, buttons, modals, and Leaflet interactive map popups are rendered in **JetBrains Mono** (`var(--font-mono)` / `var(--font-body)`).
+- **Bold Titles**: All chapter titles (`.card-title`), modal headers (`.modal-header-titles h2`), map headers (`.map-header h3`), project names (`.proj-name`), sub-card titles (`.sub-card h4`), and cover letter subject (`.letter-subject`) are explicitly rendered in **Bold** (`font-weight: 800`).
+- **Removed Typography Lab**: The experimental dropdown bar and `setFontPreview` logic were cleanly excised from markup, styles, and scripts now that the typography pairing is finalized.
+- **Modern Chapter Badges**: Card badges updated to clean editorial chapter identifiers (`CH. 01`, `CH. 02`, `CH. 03`, `CH. 04`).
+
