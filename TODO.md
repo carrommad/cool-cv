@@ -31,5 +31,6 @@
 - [x] Background Particles & Connectors Visibility: Increased canvas opacity (0.85), node radius (1.8–4.0px), base alpha (0.38–0.66), connector distance (135px), and connector line alpha (nearly ~3x more visible)
 - [x] Career & Journey Modal Restructure: Reconfigured into vertical map (left) + highlighted Current Position card (right), followed by a 2x3 grid of 6 milestone cards (separating Seville Plasma Research and Double Degree: BSc Math & BSc Physics)
 - [x] Hero Roles Layout: Reconfigured the 3 roles from an awkward 2-line break into 3 dedicated lines positioned directly to the right of the 3 name lines (Carlos / Romero / Madrid), with 1-to-1 vertical centering, dynamic oscillation boundary safety, and responsive mobile stacking
+- [x] Centralized Text Control JSON: Created content.json (and updated content_cards.json) allowing complete control of header status badge, name, the 3 roles, subtitle/bio paragraph, all 4 cards (number, tag, period, title, description, action button), and footer actions, with dynamic fetching on web servers and graceful embedded JSON fallback for file:/// protocol
 
 

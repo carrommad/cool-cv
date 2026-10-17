@@ -1,51 +1,71 @@
 {
-  "dashboard_cards": [
+  "header": {
+    "status_badge": {
+      "full": "Interested in Creative Intelligence & Design · Barcelona, Spain",
+      "short": "Creative Intelligence & Design · Barcelona"
+    },
+    "name": {
+      "first_name": "Carlos",
+      "surname_1": "Romero",
+      "surname_2": "Madrid"
+    },
+    "roles": [
+      "Computational Physicist",
+      "Scientific Software Engineer",
+      "Creative Computing"
+    ],
+    "bio": "Double Degree in Physics & Mathematics. Optimizing petascale solvers across MareNostrum 5 (MN5) and LUMI at the Barcelona Supercomputing Center (BSC-CNS), while prototyping kinetic instruments, sound installations, and tangible data physicalization."
+  },
+  "cards": [
     {
       "id": "card-01",
-      "section_number": "01",
-      "tag": "01 · Geographic & Research Journey",
-      "title": "Trajectory & Continuous Learning",
-      "description": "European mobility across Seville, Bonn/Cologne, Marseille, Pamplona, and BSC Barcelona. Interactive journey map and verified research positions.",
-      "action_text": "Click to explore map & timeline",
-      "theme": "sky",
-      "modal_id": "modal-trajectory"
+      "number": "01",
+      "modal_id": "modal-trajectory",
+      "tag": "European Mobility & Research",
+      "period": "2013 — Present",
+      "title": "Career & Journey",
+      "description": "Cross-European scientific trajectory spanning Seville, Bonn/Cologne (Fraunhofer FHR cognitive radar), Marseille (MSc Plasma & Fusion Physics, 1st of Class), Pamplona (CENER wind plant data pipelines), and BSC Barcelona (HPC Fusion & Performance).",
+      "action_text": "Explore Interactive Map & Journey →"
     },
     {
       "id": "card-02",
-      "section_number": "02",
-      "tag": "02 · Rigor & Compute Toolkit",
-      "title": "Academic & Technical Stack",
-      "description": "Double Degree in Physics & Math (3rd of Class), MSc Plasma Physics (1st of Class), parallel HPC runtime stack, Slurm, MPI/OpenMP, and supercomputers operated.",
-      "action_text": "Click to view degrees & stack",
-      "theme": "mint",
-      "modal_id": "modal-foundations"
+      "number": "02",
+      "modal_id": "modal-foundations",
+      "tag": "Rigor & Compute Toolkit",
+      "period": "Physics · Math · Petascale",
+      "title": "Education & Skills",
+      "description": "BSc in Mathematics (8.28, 3rd of Class) & BSc in Physics (8.35, 3rd of Class), MSc Plasma Physics (1st of Class), Skills & Parallel HPC runtime stack, Slurm orchestration, After Effects, and deployment experience across MareNostrum 5 (MN5), Leonardo, and LUMI.",
+      "action_text": "Inspect Education & Skills Stack →"
     },
     {
       "id": "card-03",
-      "section_number": "03",
-      "tag": "03 · Physicalization, Sound & Visual Media",
-      "title": "Creative Computing & Installations",
-      "description": "Personal software & hardware prototypes: MNusic telemetry sonification, Pipa-Music-Ball bio-kinetic instrument, Expo-Curator studio, and After Effects motion lab.",
-      "action_text": "Click to view projects & dropzones",
-      "theme": "lavender",
-      "modal_id": "modal-creative"
+      "number": "03",
+      "modal_id": "modal-creative",
+      "tag": "Physicalization, Sound & Visual Media",
+      "period": "Software & Hardware Prototypes",
+      "title": "Creative Computing",
+      "description": "Tangible data experiences bridging scientific computing with playful interaction: MNusic (real-time cluster telemetry sonification), Pipa-Music-Ball (cat-interactive 6-DoF kinetic sphere), Expo-Curator (open-source gallery staging engine), and Lens & Motion procedural animation.",
+      "action_text": "View Creative Computing Prototypes →"
     },
     {
       "id": "card-04",
-      "section_number": "04",
-      "tag": "04 · Vision & Statement",
+      "number": "04",
+      "modal_id": "modal-cover-letter",
+      "tag": "Vision & Statement",
+      "period": "Addressed to Fernando Cucchietti",
       "title": "Cover Letter to DAV Group",
-      "description": "Direct application statement addressed to Fernando Cucchietti & team: bridging petascale supercomputing with Domestic Data Streamers design philosophy.",
-      "action_text": "Click to read full letter",
-      "theme": "coral",
-      "modal_id": "modal-cover-letter"
+      "description": "Strategic application statement addressed to the Data Analytics & Visualization Group at BSC-CNS: proposing to bridge petascale supercomputing with Domestic Data Streamers design philosophy to democratize science through emotional, tangible experiences.",
+      "action_text": "Read Full Application Letter →"
     }
   ],
-  "header": {
-    "name": "Carlos Romero Madrid",
-    "tagline": "Computational Physicist & Scientific Software Engineer · BSC-CNS",
+  "footer": {
+    "cv_pdf_text": "Download CV PDF",
+    "cv_pdf_file": "Carlos_Romero_CV.pdf",
+    "cover_letter_pdf_text": "Download Cover Letter PDF",
+    "cover_letter_pdf_file": "Carlos_Romero_Cover_Letter.pdf",
+    "email_btn_text": "Contact Carlos Directly",
     "email": "carrommad@gmail.com",
-    "email_subject": "Aww, so you like me?",
-    "email_body": "I also like you ⭐ Let's talk!"
+    "phone": "+34 611 423 133",
+    "location": "Barcelona, Spain"
   }
 }

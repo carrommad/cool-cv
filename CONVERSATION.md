@@ -441,3 +441,22 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
 - **Responsive Stacking**:
   - On mobile screens (`<= 820px`), `.hero-identity-row` seamlessly stacks vertically into a single column, keeping each of the three roles on its own distinct line directly below the name, eliminating any text wrapping or line breaks.
 
+### AH. Centralized Main Page Text Control (`content.json` & Dynamic Hydration)
+- **Problem Addressed**:
+  - Main page text elements (status badge, hero name, 3 roles, bio paragraph, 4 chapter cards, and footer buttons) were hardcoded inside `index.html`.
+  - The user requested a centralized JSON file to easily edit and control all textual pieces of the main page without touching complex HTML markup.
+- **Created [content.json](file:///c:/Users/cromero/Desktop/cool-cv/content.json)**:
+  - Structured into intuitive, clean top-level sections:
+    - `header.status_badge`: `full` and `short` responsive strings.
+    - `header.name`: `first_name`, `surname_1`, `surname_2`.
+    - `header.roles`: array of 3 professional roles corresponding to the 3 name lines.
+    - `header.bio`: main overview paragraph.
+    - `cards`: array of 4 objects containing `number`, `modal_id`, `tag`, `period`, `title`, `description`, and `action_text`.
+    - `footer`: PDF download labels/links and direct contact data.
+  - Also synchronized [content_cards.json](file:///c:/Users/cromero/Desktop/cool-cv/content_cards.json) with this standardized schema.
+- **Dual-Engine Hydration Architecture in [index.html](file:///c:/Users/cromero/Desktop/cool-cv/index.html)**:
+  - **HTTP / Live Server Mode**: Automatically fetches `content.json` via asynchronous `fetch('content.json')`, immediately updating DOM text nodes upon receipt.
+  - **Zero-CORS Offline Fallback (`file:///`)**: Embeds the JSON configuration within `<script id="main-content-data" type="application/json">` so opening `index.html` directly from Windows explorer without a web server works flawlessly without browser CORS blocks.
+  - **Dynamic Recalibration**: Whenever `applyMainContent(data)` updates DOM nodes, it invokes `measureBoundaries()` to dynamically recalculate the kinetic typography bounds for nonperiodic oscillation.
+
+

@@ -2499,9 +2499,209 @@
   </div>
 
   <!-- =========================================================
+       CENTRALIZED CONTENT REPOSITORY (Default / file:// Fallback)
+       Edit content.json directly when running locally or on server!
+       ========================================================= -->
+  <script id="main-content-data" type="application/json">
+{
+  "header": {
+    "status_badge": {
+      "full": "Interested in Creative Intelligence & Design · Barcelona, Spain",
+      "short": "Creative Intelligence & Design · Barcelona"
+    },
+    "name": {
+      "first_name": "Carlos",
+      "surname_1": "Romero",
+      "surname_2": "Madrid"
+    },
+    "roles": [
+      "Computational Physicist",
+      "Scientific Software Engineer",
+      "Creative Computing"
+    ],
+    "bio": "Double Degree in Physics & Mathematics. Optimizing petascale solvers across MareNostrum 5 (MN5) and LUMI at the Barcelona Supercomputing Center (BSC-CNS), while prototyping kinetic instruments, sound installations, and tangible data physicalization."
+  },
+  "cards": [
+    {
+      "id": "card-01",
+      "number": "01",
+      "modal_id": "modal-trajectory",
+      "tag": "European Mobility & Research",
+      "period": "2013 — Present",
+      "title": "Career & Journey",
+      "description": "Cross-European scientific trajectory spanning Seville, Bonn/Cologne (Fraunhofer FHR cognitive radar), Marseille (MSc Plasma & Fusion Physics, 1st of Class), Pamplona (CENER wind plant data pipelines), and BSC Barcelona (HPC Fusion & Performance).",
+      "action_text": "Explore Interactive Map & Journey →"
+    },
+    {
+      "id": "card-02",
+      "number": "02",
+      "modal_id": "modal-foundations",
+      "tag": "Rigor & Compute Toolkit",
+      "period": "Physics · Math · Petascale",
+      "title": "Education & Skills",
+      "description": "BSc in Mathematics (8.28, 3rd of Class) & BSc in Physics (8.35, 3rd of Class), MSc Plasma Physics (1st of Class), Skills & Parallel HPC runtime stack, Slurm orchestration, After Effects, and deployment experience across MareNostrum 5 (MN5), Leonardo, and LUMI.",
+      "action_text": "Inspect Education & Skills Stack →"
+    },
+    {
+      "id": "card-03",
+      "number": "03",
+      "modal_id": "modal-creative",
+      "tag": "Physicalization, Sound & Visual Media",
+      "period": "Software & Hardware Prototypes",
+      "title": "Creative Computing",
+      "description": "Tangible data experiences bridging scientific computing with playful interaction: MNusic (real-time cluster telemetry sonification), Pipa-Music-Ball (cat-interactive 6-DoF kinetic sphere), Expo-Curator (open-source gallery staging engine), and Lens & Motion procedural animation.",
+      "action_text": "View Creative Computing Prototypes →"
+    },
+    {
+      "id": "card-04",
+      "number": "04",
+      "modal_id": "modal-cover-letter",
+      "tag": "Vision & Statement",
+      "period": "Addressed to Fernando Cucchietti",
+      "title": "Cover Letter to DAV Group",
+      "description": "Strategic application statement addressed to the Data Analytics & Visualization Group at BSC-CNS: proposing to bridge petascale supercomputing with Domestic Data Streamers design philosophy to democratize science through emotional, tangible experiences.",
+      "action_text": "Read Full Application Letter →"
+    }
+  ],
+  "footer": {
+    "cv_pdf_text": "Download CV PDF",
+    "cv_pdf_file": "Carlos_Romero_CV.pdf",
+    "cover_letter_pdf_text": "Download Cover Letter PDF",
+    "cover_letter_pdf_file": "Carlos_Romero_Cover_Letter.pdf",
+    "email_btn_text": "Email",
+    "email": "carrommad@gmail.com",
+    "phone": "+34 611 423 133",
+    "location": "Barcelona, Spain"
+  }
+}
+  </script>
+
+  <!-- =========================================================
        JAVASCRIPT LOGIC
        ========================================================= -->
   <script>
+    // ---------------------------------------------------------
+    // DYNAMIC CONTENT LOADER (from content.json / embedded data)
+    // ---------------------------------------------------------
+    function applyMainContent(data) {
+      if (!data) return;
+
+      // Header
+      if (data.header) {
+        if (data.header.status_badge) {
+          const full = document.querySelector('.status-text-full');
+          const short = document.querySelector('.status-text-short');
+          if (full && data.header.status_badge.full) full.textContent = data.header.status_badge.full;
+          if (short && data.header.status_badge.short) short.textContent = data.header.status_badge.short;
+        }
+
+        if (data.header.name) {
+          const l1 = document.querySelector('.hero-name-line-1');
+          const l2 = document.querySelector('.hero-name-line-2');
+          const l3 = document.querySelector('.hero-name-line-3');
+          if (l1 && data.header.name.first_name) l1.textContent = data.header.name.first_name;
+          if (l2 && data.header.name.surname_1) l2.textContent = data.header.name.surname_1;
+          if (l3 && data.header.name.surname_2) l3.textContent = data.header.name.surname_2;
+
+          const h1 = document.querySelector('.hero-name');
+          if (h1 && data.header.name.first_name) {
+            h1.setAttribute('aria-label', `${data.header.name.first_name} ${data.header.name.surname_1 || ''} ${data.header.name.surname_2 || ''}`.trim());
+          }
+        }
+
+        if (data.header.roles && Array.isArray(data.header.roles)) {
+          const r1 = document.querySelector('.hero-role-1');
+          const r2 = document.querySelector('.hero-role-2');
+          const r3 = document.querySelector('.hero-role-3');
+          if (r1 && data.header.roles[0]) r1.textContent = data.header.roles[0];
+          if (r2 && data.header.roles[1]) r2.textContent = data.header.roles[1];
+          if (r3 && data.header.roles[2]) r3.textContent = data.header.roles[2];
+        }
+
+        if (data.header.bio) {
+          const bio = document.querySelector('.hero-bio');
+          if (bio) bio.textContent = data.header.bio;
+        }
+      }
+
+      // Cards
+      if (data.cards && Array.isArray(data.cards)) {
+        const cardEls = document.querySelectorAll('.vertical-cards-list .editorial-card');
+        data.cards.forEach((cardData, idx) => {
+          const cardEl = cardEls[idx];
+          if (!cardEl) return;
+          const numEl = cardEl.querySelector('.card-big-num');
+          const tagEl = cardEl.querySelector('.meta-tag');
+          const periodEl = cardEl.querySelector('.meta-period');
+          const titleEl = cardEl.querySelector('.card-title');
+          const descEl = cardEl.querySelector('.card-desc');
+          const btnEl = cardEl.querySelector('.action-prompt-btn');
+
+          if (numEl && cardData.number) numEl.textContent = cardData.number;
+          if (tagEl && cardData.tag) tagEl.textContent = cardData.tag;
+          if (periodEl && cardData.period) periodEl.textContent = cardData.period;
+          if (titleEl && cardData.title) titleEl.textContent = cardData.title;
+          if (descEl && cardData.description) descEl.textContent = cardData.description;
+          if (btnEl && cardData.action_text) btnEl.textContent = cardData.action_text;
+        });
+      }
+
+      // Footer Actions
+      if (data.footer) {
+        if (data.footer.cv_pdf_file) {
+          const cvBtn = document.querySelector('a[href$="CV.pdf"]');
+          if (cvBtn) {
+            cvBtn.href = data.footer.cv_pdf_file;
+            if (data.footer.cv_pdf_text) {
+              const svg = cvBtn.querySelector('svg');
+              cvBtn.innerHTML = (svg ? svg.outerHTML + ' ' : '') + data.footer.cv_pdf_text;
+            }
+          }
+        }
+        if (data.footer.cover_letter_pdf_file) {
+          const clBtn = document.querySelector('a[href$="Cover_Letter.pdf"]');
+          if (clBtn) {
+            clBtn.href = data.footer.cover_letter_pdf_file;
+            if (data.footer.cover_letter_pdf_text) {
+              const svg = clBtn.querySelector('svg');
+              clBtn.innerHTML = (svg ? svg.outerHTML + ' ' : '') + data.footer.cover_letter_pdf_text;
+            }
+          }
+        }
+      }
+
+      // Recalibrate dynamic boundaries if typography oscillator is active
+      if (typeof measureBoundaries === 'function') {
+        measureBoundaries();
+      }
+    }
+
+    function initMainPageContent() {
+      // 1. Try loading from external content.json (works on web servers & localhost)
+      fetch('content.json')
+        .then(res => {
+          if (!res.ok) throw new Error('content.json fetch failed');
+          return res.json();
+        })
+        .then(data => {
+          applyMainContent(data);
+        })
+        .catch(() => {
+          // 2. Graceful fallback to embedded JSON (works when opened via file://)
+          const embeddedScript = document.getElementById('main-content-data');
+          if (embeddedScript) {
+            try {
+              const fallbackData = JSON.parse(embeddedScript.textContent);
+              applyMainContent(fallbackData);
+            } catch (err) {
+              // Static HTML DOM remains completely untouched
+            }
+          }
+        });
+    }
+
+    initMainPageContent();
+
     // ---------------------------------------------------------
     // COLOR PALETTES SUITE CONTROLLER
     // ---------------------------------------------------------
