@@ -1,13 +1,19 @@
 # Tasks & Completed Enhancements
 
-- [x] Header name in 3 rows (`Carlos` / `Romero` / `Madrid`) with independent, slow, periodic dynamic stretching animations (`scaleX` + tracking)
+- [x] Header name in 3 rows (`Carlos` / `Romero` / `Madrid`) with independent, slow, nonperiodic dynamic stretching (harmonic superposition of $\phi, \sqrt{2}, \sqrt{3}$)
+- [x] Oscillation starts only once scrolled down, then continues smoothly
 - [x] Subtitle orphan eliminated with balanced wrapping
-- [x] Renamed chapters to:
+- [x] Renamed chapters across web & PDFs:
   - 01. Career & Journey
   - 02. Education & Skills
   - 03. Creative Computing
   - 04. Cover Letter to DAV Group
-- [x] Section 02 yellow outline border (`#FEB737`) and pure white background (`#ffffff`)
+- [x] Section 02 yellow outline border (`#FEB737`) and pure white background (`#ffffff` in Day Mode, adaptive in Dark Mode)
+- [x] Divided into 2 bachelors:
+  - BSc in Mathematics (8.28)
+  - BSc in Physics (8.35 · 3rd of Class)
+- [x] "Skills & Parallel Runtimes" heading instead of "Languages & Parallel Runtimes", added After Effects to skills pills
+- [x] 2-letter ISO language codes with simplified levels: `ES (Native) · EN (C1) · FR (C1) · IT (B1) · DE (B1)`
 - [x] Experience list with current BSC position highlighted (`Posición Actual / Current Position`)
 - [x] Hashtag tags removed from all 4 cards; high-contrast action prompt buttons added
 - [x] Leaflet Europe map made more compact (250px) with Spain, France, and Germany highlighted in colors

@@ -276,6 +276,19 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
 - **Dynamic Scale & Tracking**:
   - Smoothly modulates horizontal `scaleX` between $\sim 0.80$ and $\sim 1.55$ with proportional letter-spacing tracking (`-0.025em` to `+0.08em`).
 
-
-
-
+### W. Scroll-Triggered Awakening, Dual BSc Degrees & Skills Stack Refinement
+- **Scroll-Activated Kinetic Oscillator (`index.html`)**:
+  - The name remains completely static at its resting geometric state (`scaleX(1.0)`) on page load.
+  - As soon as the user scrolls down (or uses wheel/touch down), the nonperiodic oscillator awakens smoothly (eased in over 1.8s) and continues indefinitely.
+- **Split into Two Independent Bachelor Degrees**:
+  - Separated the double degree into two distinct academic records across web and PDFs:
+    - **BSc in Mathematics**: University of Seville (2013 – 2018) · `8.28/10`
+    - **BSc in Physics**: University of Seville (2013 – 2018) · `8.35/10 · 3rd of Class`
+- **Updated Section 02 Headings & Added After Effects**:
+  - Replaced `"Languages & Parallel Runtimes:"` / `"HIGH-PERFORMANCE COMPUTING & RUNTIME STACK:"` with `"Skills & Parallel Runtimes:"`.
+  - Added **`After Effects`** to the technical skills pill stack.
+- **Standardized 2-Letter ISO Language Codes with Simplified Levels**:
+  - Simplified language listings to clean, professional 2-letter codes:
+    - `ES (Native) · EN (C1) · FR (C1) · IT (B1) · DE (B1)`
+- **PDFs Re-compiled**:
+  - Re-rendered [Carlos_Romero_CV.pdf](file:///c:/Users/cromero/Desktop/cool-cv/Carlos_Romero_CV.pdf) and [Carlos_Romero_Cover_Letter.pdf](file:///c:/Users/cromero/Desktop/cool-cv/Carlos_Romero_Cover_Letter.pdf) and synchronized with `pdfs/`.

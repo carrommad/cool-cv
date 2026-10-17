@@ -1709,7 +1709,7 @@
             </div>
             <h2 class="card-title">Education &amp; Skills</h2>
             <p class="card-desc">
-              Double Degree in Physics & Mathematics (3rd of Class), MSc Plasma Physics (1st of Class), parallel HPC runtime stack, Slurm job orchestration, and direct deployment experience across MareNostrum 5 (MN5), Leonardo (CINECA), and LUMI (CSC Finland).
+              BSc in Mathematics (8.28) &amp; BSc in Physics (8.35, 3rd of Class), MSc Plasma Physics (1st of Class), Skills &amp; Parallel HPC runtime stack, Slurm orchestration, After Effects, and deployment experience across MareNostrum 5 (MN5), Leonardo, and LUMI.
             </p>
             <div class="card-action-row">
               <span class="action-prompt-btn">Inspect Education &amp; Skills Stack →</span>
@@ -1972,7 +1972,13 @@
             <h4>Academic Background & Honors</h4>
             
             <div class="edu-item">
-              <div class="edu-title">BSc in Physics & BSc in Mathematics (Double Degree)</div>
+              <div class="edu-title">BSc in Mathematics</div>
+              <div class="edu-meta">University of Seville (2013 – 2018)</div>
+              <span class="edu-rank">8.28/10</span>
+            </div>
+
+            <div class="edu-item">
+              <div class="edu-title">BSc in Physics</div>
               <div class="edu-meta">University of Seville (2013 – 2018)</div>
               <span class="edu-rank">8.35/10 · 3rd of Class</span>
             </div>
@@ -1992,7 +1998,7 @@
           <!-- Technical & HPC Stack -->
           <div class="sub-card">
             <h4>High-Performance Computing & Software</h4>
-            <p style="font-size:14px; color:var(--bw-text-muted); margin-bottom:8px;">Languages & Parallel Runtimes:</p>
+            <p style="font-size:14px; color:var(--bw-text-muted); margin-bottom:8px;">Skills &amp; Parallel Runtimes:</p>
             <div class="tech-pills">
               <span class="pill">Fortran</span>
               <span class="pill">C++</span>
@@ -2005,6 +2011,7 @@
               <span class="pill">Intel oneAPI</span>
               <span class="pill">PETSc</span>
               <span class="pill">Slurm</span>
+              <span class="pill">After Effects</span>
             </div>
 
             <p style="font-size:14px; color:var(--bw-text-muted); margin-top:16px; margin-bottom:8px;">Supercomputers Deployed & Operated:</p>
@@ -2016,7 +2023,7 @@
 
             <p style="font-size:14px; color:var(--bw-text-muted); margin-top:16px; margin-bottom:8px;">Languages Spoken:</p>
             <p style="font-size:14.5px; color:var(--bw-text); font-weight:700;">
-              Spanish (Native) · English (C1/Prof.) · French (C1/Prof.) · Italian (Int.) · German (Int.)
+              ES (Native) · EN (C1) · FR (C1) · IT (B1) · DE (B1)
             </p>
           </div>
         </div>
@@ -2836,9 +2843,8 @@
 
     // =========================================================
     // SLOW & NONPERIODIC KINETIC TYPOGRAPHY OSCILLATOR
-    // Uses multi-frequency irrational harmonic superposition
-    // (golden ratio phi, sqrt(2), sqrt(3), e, pi) so the oscillation
-    // is mathematically aperiodic / non-repeating and gently slow
+    // Awakens only once user scrolls down, then continues indefinitely
+    // Uses multi-frequency irrational harmonic superposition (phi, sqrt2, sqrt3)
     // =========================================================
     function initNonperiodicTypography() {
       const line1 = document.querySelector('.hero-name-line-1');
@@ -2846,38 +2852,50 @@
       const line3 = document.querySelector('.hero-name-line-3');
       if (!line1 || !line2 || !line3) return;
 
+      // Initial resting baseline
+      line1.style.transform = 'scaleX(1)';
+      line1.style.letterSpacing = '-0.025em';
+      line2.style.transform = 'scaleX(1)';
+      line2.style.letterSpacing = '-0.025em';
+      line3.style.transform = 'scaleX(1)';
+      line3.style.letterSpacing = '-0.025em';
+
       const PHI = 1.6180339887;
       const SQRT2 = 1.4142135623;
       const SQRT3 = 1.7320508075;
       const E = 2.7182818284;
       const PI = Math.PI;
 
+      let isMoving = false;
       let startTimestamp = null;
 
       function render(now) {
         if (!startTimestamp) startTimestamp = now;
-        // Slow time advancement (0.00028 multiplier gives ~25-45s majestic waves)
-        const t = (now - startTimestamp) * 0.00028;
+        const elapsed = (now - startTimestamp);
+        // Slow time advancement
+        const t = elapsed * 0.00028;
+        // Gentle ease-in ramp from resting state over 1.8s
+        const ramp = Math.min(1, elapsed * 0.00055);
 
         // Line 1 (Carlos): incommensurate irrational frequency superposition
-        const s1 = 1.15 
-          + 0.22 * Math.sin(0.38 * t) 
+        const wave1 = 0.22 * Math.sin(0.38 * t) 
           + 0.12 * Math.sin(0.38 * SQRT2 * t + 0.9) 
           + 0.07 * Math.sin(0.38 * PHI * t + 2.1);
+        const s1 = 1.0 + (0.15 + wave1) * ramp;
         const track1 = -0.025 + (s1 - 1.0) * 0.15;
 
         // Line 2 (Romero): independent irrational frequency superposition
-        const s2 = 1.18 
-          + 0.25 * Math.sin(0.28 * t + 1.8) 
+        const wave2 = 0.25 * Math.sin(0.28 * t + 1.8) 
           + 0.13 * Math.sin(0.28 * SQRT3 * t + 3.1) 
           + 0.08 * Math.sin(0.28 * PI * t + 0.5);
+        const s2 = 1.0 + (0.18 + wave2) * ramp;
         const track2 = -0.025 + (s2 - 1.0) * 0.15;
 
         // Line 3 (Madrid): independent irrational frequency superposition
-        const s3 = 1.16 
-          + 0.23 * Math.sin(0.33 * t + 3.7) 
+        const wave3 = 0.23 * Math.sin(0.33 * t + 3.7) 
           + 0.12 * Math.sin(0.33 * E * 0.6 * t + 1.4) 
           + 0.07 * Math.sin(0.33 * PHI * 1.3 * t + 4.2);
+        const s3 = 1.0 + (0.16 + wave3) * ramp;
         const track3 = -0.025 + (s3 - 1.0) * 0.15;
 
         line1.style.transform = `scaleX(${s1.toFixed(4)})`;
@@ -2892,10 +2910,37 @@
         requestAnimationFrame(render);
       }
 
-      requestAnimationFrame(render);
+      function startOscillation() {
+        if (isMoving) return;
+        isMoving = true;
+        window.removeEventListener('scroll', handleScrollTrigger);
+        window.removeEventListener('wheel', handleWheelTrigger);
+        window.removeEventListener('touchmove', handleScrollTrigger);
+        requestAnimationFrame(render);
+      }
+
+      function handleScrollTrigger() {
+        if (window.scrollY > 10) {
+          startOscillation();
+        }
+      }
+
+      function handleWheelTrigger(e) {
+        if (e.deltaY > 0) {
+          startOscillation();
+        }
+      }
+
+      // Check if already scrolled on load, otherwise arm scroll listeners
+      if (window.scrollY > 10) {
+        startOscillation();
+      } else {
+        window.addEventListener('scroll', handleScrollTrigger, { passive: true });
+        window.addEventListener('wheel', handleWheelTrigger, { passive: true });
+        window.addEventListener('touchmove', handleScrollTrigger, { passive: true });
+      }
     }
 
-    // Launch oscillator immediately when DOM is ready
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', initNonperiodicTypography);
     } else {
