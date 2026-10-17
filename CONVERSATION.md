@@ -105,9 +105,19 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
 - All four interactive modals (Trajectory & European Map, Academic & Technical Stack, Creative Computing with Pipa-Music-Ball photos, and Cover Letter to DAV Group) converted to pure black-and-white.
 - The interactive Leaflet map uses a high-contrast grayscale filter and custom monochrome markers.
 
+### G. Lateral Empty Space & Minimal Scroll Optimization
+- **Narrower Card Width (`720px`)**: Scaled `.container` down from `980px` to `720px`. On standard desktop monitors, this introduces expansive, calming negative space on both sides.
+- **Scroll Less (Vertical Footprint Cut by ~50%)**:
+  - Tightened card padding from `42px 46px` to `18px 24px`.
+  - Tightened card gap from `36px` to `14px`.
+  - Re-proportioned the two-column card grid to `78px` number column + concise content column.
+  - Streamlined header vertical padding and Typography Lab bar.
+  - The entire page height now sits at ~1,100px, allowing the full dossier to be browsed with a single gentle flick of the scroll wheel.
+
 ---
 
 ## 5. Next Steps
 1. Push commits to `origin/felipe-advice` when ready.
 2. Review typography selection to finalize the permanent 1-2 fonts.
+
 

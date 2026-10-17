@@ -1,2 +1,0 @@
-- [x] include a button half black half white (vertically) to change between night and day mode. It should also change the ambient audio (the audio playing) to match the mode.
-- [x] incorporate modernist geometric vector glyphs inspired by https://bookofshapes.com/ (embedded in Chapters 01 to 04).
