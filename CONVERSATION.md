@@ -114,10 +114,16 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
   - Streamlined header vertical padding and Typography Lab bar.
   - The entire page height now sits at ~1,100px, allowing the full dossier to be browsed with a single gentle flick of the scroll wheel.
 
+### H. Full-Page Typography Transformation Fix
+- Updated the Typography Lab switcher so that selecting any font (**All Syne 800**, **All Space Grotesk**, **All Bricolage**, **All Playfair Serif**) transforms the **entire page typography** (hero header, titles, body descriptions, pills, action buttons, metadata, modals, and footer).
+- Added dynamic label feedback to each card's numeral badge (e.g. `Syne (Active)`).
+- Selecting `Mixed Showcase` instantly restores the original 4-font editorial combination.
+
 ---
 
 ## 5. Next Steps
 1. Push commits to `origin/felipe-advice` when ready.
 2. Review typography selection to finalize the permanent 1-2 fonts.
+
 
 
