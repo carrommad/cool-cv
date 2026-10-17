@@ -462,5 +462,16 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
   - Updated `highlightTimelineCard(cityKey, shouldScroll = false)`:
     - Added a `shouldScroll` guard (default `false`) so highlighting cards on click maintains the card's active border highlight without fighting the scroll-to-top motion.
 
-
-
+### AJ. Hero Roles Layout & Right-Alignment
+- **User Requirements**:
+  - All 3 professional role lines (`COMPUTATIONAL PHYSICIST`, `SCIENTIFIC SOFTWARE ENGINEER`, `CREATIVE COMPUTING`) must sit directly below the 3 name lines (`Carlos` / `Romero` / `Madrid`), above the bio paragraph.
+  - Positioned at the right of the composition page (`.container`).
+  - Text indented/aligned flush to the right margin (`align-items: flex-end; text-align: right;`).
+- **Implementation**:
+  - **Structure**: Created `.hero-roles-right` directly below `h1.hero-name`, containing `.hero-role-1`, `.hero-role-2`, and `.hero-role-3`.
+  - **Right Indentation & Docking**:
+    - Container: `align-self: flex-end; align-items: flex-end; text-align: right; margin: 4px 0 10px auto; gap: 3px; width: fit-content;`.
+    - Role items: `font-family: var(--font-display); font-size: clamp(11.5px, 1.35vw, 14.5px); font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap; line-height: 1.2; text-align: right;`.
+  - **Dynamic Hydration**: Wired to `content.json` (`header.roles[0..2]`) with automatic live updates and offline fallback.
+  - **Kinetic Oscillation Safety**: Preserved nonperiodic harmonic superposition oscillation ($\phi, \sqrt{2}, \sqrt{3}$) for the 3 name lines with smooth baseline scale boundaries (0.94x to 1.35x).
+  - **Responsive Design**: Maintained right alignment on mobile with responsive clamp scaling (`clamp(11.5px, 1.35vw, 14.5px)`) preventing overflow.

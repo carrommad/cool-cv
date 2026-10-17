@@ -696,15 +696,33 @@
 
     /* Nonperiodic kinetic typography stretching will be driven continuously by mathematical rAF oscillator */
 
-    .hero-discipline {
+    /* 3 Dedicated Professional Roles positioned below the name at the right of the composition page */
+    .hero-roles-right {
+      display: flex;
+      flex-direction: column;
+      align-self: flex-end;
+      align-items: flex-end;
+      text-align: right;
+      margin: 4px 0 10px auto;
+      gap: 3px;
+      width: fit-content;
+    }
+
+    .hero-role-item {
       font-family: var(--font-display); /* Syne 800 display */
-      font-size: clamp(12px, 1.45vw, 14.5px);
+      font-size: clamp(11.5px, 1.35vw, 14.5px);
       font-weight: 800;
       letter-spacing: 0.05em;
       text-transform: uppercase;
       color: var(--bw-text);
       opacity: 0.95;
-      text-wrap: balance;
+      white-space: nowrap;
+      line-height: 1.2;
+      text-align: right;
+    }
+
+    .hero-discipline {
+      display: none;
     }
 
     .hero-bio {
@@ -1765,6 +1783,12 @@
       .hero-header {
         padding: 20px 0 35px;
       }
+      .hero-roles-right {
+        align-self: flex-end;
+        align-items: flex-end;
+        text-align: right;
+        margin: 6px 0 8px auto;
+      }
       .modal-scroll-body {
         padding: 24px 18px;
       }
@@ -1824,11 +1848,13 @@
           <span class="hero-name-line hero-name-line-2">Romero</span>
           <span class="hero-name-line hero-name-line-3">Madrid</span>
         </h1>
-        <div class="hero-discipline">
-          Computational Physicist · Scientific Software Engineer · Creative&nbsp;Computing
+        <div class="hero-roles-right" aria-label="Professional Roles">
+          <div class="hero-role-item hero-role-1">Computational Physicist</div>
+          <div class="hero-role-item hero-role-2">Scientific Software Engineer</div>
+          <div class="hero-role-item hero-role-3">Creative Computing</div>
         </div>
         <p class="hero-bio">
-          Double Degree in Physics & Mathematics. Optimizing petascale solvers across MareNostrum 5 (MN5) and LUMI at the Barcelona Supercomputing Center (BSC-CNS), while prototyping kinetic instruments, sound installations, and tangible data physicalization.
+          Double Degree in Physics & Mathematics. Scientific software optimization for nuclear and climate. Data analytics for wind turbine predictive maintenance. Physical simulation for Cognitive Radar. Creative prototyping.
         </p>
       </div>
 
@@ -2485,7 +2511,7 @@
       "Scientific Software Engineer",
       "Creative Computing"
     ],
-    "bio": "Double Degree in Physics & Mathematics. Optimizing petascale solvers across MareNostrum 5 (MN5) and LUMI at the Barcelona Supercomputing Center (BSC-CNS), while prototyping kinetic instruments, sound installations, and tangible data physicalization."
+    "bio": "Double Degree in Physics & Mathematics. Scientific software optimization for nuclear and climate. Data analytics for wind turbine predictive maintenance. Physical simulation for Cognitive Radar. Creative prototyping."
   },
   "cards": [
     {
@@ -2575,12 +2601,16 @@
           }
         }
 
-        if (data.header.discipline) {
+        if (data.header.roles && Array.isArray(data.header.roles)) {
+          const r1 = document.querySelector('.hero-role-1');
+          const r2 = document.querySelector('.hero-role-2');
+          const r3 = document.querySelector('.hero-role-3');
+          if (r1 && data.header.roles[0]) r1.textContent = data.header.roles[0];
+          if (r2 && data.header.roles[1]) r2.textContent = data.header.roles[1];
+          if (r3 && data.header.roles[2]) r3.textContent = data.header.roles[2];
+        } else if (data.header.discipline) {
           const disc = document.querySelector('.hero-discipline');
           if (disc) disc.textContent = data.header.discipline;
-        } else if (data.header.roles && Array.isArray(data.header.roles)) {
-          const disc = document.querySelector('.hero-discipline');
-          if (disc) disc.textContent = data.header.roles.join(' · ');
         }
 
         if (data.header.bio) {
@@ -2642,10 +2672,10 @@
     }
 
     function initMainPageContent() {
-      // 1. Try loading from external content.json (works on web servers & localhost)
-      fetch('content.json')
+      // 1. Try loading from external content_cards.json or content.json (works on web servers & localhost)
+      fetch('content_cards.json')
         .then(res => {
-          if (!res.ok) throw new Error('content.json fetch failed');
+          if (!res.ok) return fetch('content.json').then(r => r.json());
           return res.json();
         })
         .then(data => {
@@ -3348,21 +3378,10 @@
         baseW2 = line2.getBoundingClientRect().width || 252;
         baseW3 = line3.getBoundingClientRect().width || 230;
 
-        const disc = document.querySelector('.hero-discipline');
-        let textLimits = [];
-        if (disc) {
-          const range = document.createRange();
-          range.selectNodeContents(disc);
-          for (let r of range.getClientRects()) {
-            if (r.width > 0) textLimits.push(r.width);
-          }
-        }
-        const maxDisc = textLimits.length > 0 ? Math.max(...textLimits) : 408;
-
-        // Visual text limit boundaries for each row (with 2.5px safety buffer):
-        limitW1 = (textLimits[0] ? textLimits[0] : maxDisc) - 2.5;
-        limitW2 = (textLimits[1] ? textLimits[1] : maxDisc) - 2.5;
-        limitW3 = maxDisc - 2.5;
+        // Bounded oscillation: dynamic scale between 0.94x and 1.35x
+        limitW1 = baseW1 * 1.35;
+        limitW2 = baseW2 * 1.32;
+        limitW3 = baseW3 * 1.35;
 
         line1.style.transform = savedT1;
         line2.style.transform = savedT2;

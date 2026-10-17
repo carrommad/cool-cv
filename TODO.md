@@ -33,5 +33,6 @@
 - [x] Hero Roles Layout: Reverted side-by-side roles layout; restored the original discipline subtitle block directly below the name lines with balanced wrapping and text-limit oscillation boundaries
 - [x] Centralized Text Control JSON: Created content.json (and updated content_cards.json) allowing complete control of header status badge, name, the 3 roles, subtitle/bio paragraph, all 4 cards (number, tag, period, title, description, action button), and footer actions, with dynamic fetching on web servers and graceful embedded JSON fallback for file:/// protocol
 - [x] Work Card Click Map Viewport Scroll: When clicking any work card in Career & Journey, the modal scroll body smoothly scrolls to the top (scrollTop: 0) so the map fly/zoom animation and city popup are immediately visible, while preserving card highlight outlines
+- [x] Hero Roles Layout & Right-Alignment: Positioned all 3 dedicated roles (`COMPUTATIONAL PHYSICIST`, `SCIENTIFIC SOFTWARE ENGINEER`, `CREATIVE COMPUTING`) on individual lines stacked directly below the 3 name lines and docked to the right of the composition page, with text indented/flush-aligned to the right.
 
 
