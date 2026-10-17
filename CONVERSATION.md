@@ -374,5 +374,12 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
   - Deep Sumi ink black text (`#1d1c19`) and bold numerals ("01", "02", etc.) achieve maximum typographic clarity (> 14:1 contrast ratio).
   - The lacquer crimson border (`#c92a2a`) and crimson action prompt button ("EXPLORE INTERACTIVE MAP & JOURNEY →") pop with high-impact editorial elegance, reminiscent of Japanese stamp seals on golden washi paper.
 
+### AD. Status Badge Tagline Update: "Interested in Creative Intelligence & Design"
+- **Updated Copy**:
+  - Replaced the conventional hiring tagline `"Available for Research & Engineering"` with `"Interested in Creative Intelligence & Design · Barcelona, Spain"`.
+  - On responsive mobile viewports (`@media (max-width: 860px)`), dynamically displays the concise format `"Creative Intelligence & Design · Barcelona"` to prevent badge wrapping.
+- **Narrative Alignment**:
+  - Unifies the portfolio's dual identity: combining petascale computational physics & mathematics with creative computing, generative media, data physicalization, and interaction design.
+
 
 
