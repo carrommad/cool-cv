@@ -27,28 +27,28 @@
        Typography: Syne 800 (Header + Subtitle) · JetBrains Mono (The Rest)
        ========================================================= */
     :root {
-      /* Day Mode Palette: Lemon Meringue & Sea Breeze (Default on page load) */
-      --bw-bg: #FFEBAD; /* Lemon Meringue Canvas */
-      --bw-surface: #fffdf5;
-      --bw-surface-hover: #fcf4dc;
-      --bw-surface-sunken: #f5df9c;
+      /* Day Mode Palette: Crimson & Raw Linen (Default on page load) */
+      --bw-bg: #f7f4ea; /* Raw Washi Paper Linen */
+      --bw-surface: #ffffff;
+      --bw-surface-hover: #f0ece0;
+      --bw-surface-sunken: #eee9dc;
       
-      --bw-border: #543786; /* Indigo */
-      --bw-border-medium: #7BB8C0; /* Sea Breeze */
-      --bw-border-subtle: #e5cd85;
+      --bw-border: #c92a2a; /* Sumi Lacquer Crimson */
+      --bw-border-medium: #1d1c19; /* Sumi Ink Black */
+      --bw-border-subtle: #ddd6c3;
       
-      --bw-text: #543786; /* Indigo */
-      --bw-text-muted: #3a2260;
-      --bw-text-dim: #7BB8C0; /* Sea Breeze */
+      --bw-text: #1d1c19;
+      --bw-text-muted: #56534a;
+      --bw-text-dim: #888275;
       
-      --bw-btn-bg: #543786; /* Indigo */
-      --bw-btn-text: #FFEBAD; /* Lemon Meringue */
-      --bw-btn-border: #FEB737; /* Honey */
-      --bw-btn-hover-bg: #6e48b0;
+      --bw-btn-bg: #c92a2a;
+      --bw-btn-text: #ffffff;
+      --bw-btn-border: #1d1c19;
+      --bw-btn-hover-bg: #de3535;
       
-      --bw-pill-bg: #f8e5b0;
-      --bw-pill-text: #543786;
-      --bw-pill-border: #7BB8C0; /* Sea Breeze */
+      --bw-pill-bg: #ede7d7;
+      --bw-pill-text: #c92a2a;
+      --bw-pill-border: #c92a2a;
 
       /* Typography Family Design Tokens: Syne 800 + JetBrains Mono */
       --font-display: 'Syne', sans-serif;
@@ -261,29 +261,70 @@
     }
 
     /* Palette 7: Deep Blue & Glacial Salt (Image 1 Palette) */
-    /* Deep Blue #2A4D88 · Concerto #D9D9D8 · Glacial Salt #B1BBC8 · Ocean City #7C94B8 */
+    /* Palette 7: Deep Blue & Glacial Salt (Default Night Mode) */
+    /* Deep Blue #111d33 · Surface #1b2f52 · Accent Yellow #FEB737 · Glacial Salt #B1BBC8 */
     body.theme-deep-blue {
       --bw-bg: #111d33;
       --bw-surface: #1b2f52;
       --bw-surface-hover: #233e6b;
       --bw-surface-sunken: #0c1626;
       
-      --bw-border: #7C94B8; /* Ocean City */
-      --bw-border-medium: #B1BBC8; /* Glacial Salt */
+      --bw-border: #FEB737; /* Honey Yellow outer line as card 2 */
+      --bw-border-medium: #FEB737;
       --bw-border-subtle: #2A4D88; /* Deep Blue */
       
       --bw-text: #ffffff;
       --bw-text-muted: #D9D9D8; /* Concerto */
       --bw-text-dim: #B1BBC8; /* Glacial Salt */
       
-      --bw-btn-bg: #7C94B8; /* Ocean City */
-      --bw-btn-text: #111d33;
-      --bw-btn-border: #B1BBC8; /* Glacial Salt */
-      --bw-btn-hover-bg: #96acd0;
+      --bw-btn-bg: #FEB737; /* Yellow highlight button */
+      --bw-btn-text: #0c1626; /* Deep obsidian for max contrast */
+      --bw-btn-border: #FEB737;
+      --bw-btn-hover-bg: #ffd276;
       
       --bw-pill-bg: #152542;
-      --bw-pill-text: #D9D9D8; /* Concerto */
-      --bw-pill-border: #7C94B8; /* Ocean City */
+      --bw-pill-text: #FEB737;
+      --bw-pill-border: #FEB737;
+    }
+
+    /* In Deep Blue & Glacial: ALL cards have the yellow outer line as card 2 */
+    body.theme-deep-blue .editorial-card {
+      border: 2px solid #FEB737 !important;
+      background: #1b2f52 !important;
+      box-shadow: 0 4px 18px rgba(254, 183, 55, 0.20) !important;
+    }
+    body.theme-deep-blue .editorial-card:hover {
+      border-color: #ffd276 !important;
+      background: #233e6b !important;
+      box-shadow: 0 10px 28px rgba(254, 183, 55, 0.35) !important;
+    }
+
+    /* In Deep Blue & Glacial: "Explore" "View..." action prompt boxes are yellow #FEB737 */
+    body.theme-deep-blue .action-prompt-btn {
+      background: #FEB737 !important;
+      color: #0c1626 !important;
+      border: 1.5px solid #FEB737 !important;
+      font-weight: 800 !important;
+      box-shadow: 0 2px 10px rgba(254, 183, 55, 0.30) !important;
+    }
+    body.theme-deep-blue .action-prompt-btn:hover,
+    body.theme-deep-blue .editorial-card:hover .action-prompt-btn {
+      background: #ffd276 !important;
+      color: #0c1626 !important;
+      border-color: #ffd276 !important;
+      box-shadow: 0 4px 18px rgba(254, 183, 55, 0.50) !important;
+      transform: translateY(-2px);
+    }
+
+    body.theme-deep-blue .btn-hero-primary {
+      background: #FEB737 !important;
+      color: #0c1626 !important;
+      border: 1.5px solid #FEB737 !important;
+      font-weight: 800 !important;
+    }
+    body.theme-deep-blue .btn-hero-primary:hover {
+      background: #ffd276 !important;
+      color: #0c1626 !important;
     }
 
     /* Palette 8: Indigo, Honey & Periwinkle (Image 2 Palette Dark) */
@@ -1603,7 +1644,7 @@
     }
   </style>
 </head>
-<body class="theme-lemon-meringue">
+<body class="theme-crimson-linen">
 
   <!-- Ambient Monochrome Particles Background -->
   <canvas id="ambient-particles-canvas"></canvas>
@@ -1819,8 +1860,10 @@
         </div>
         <div class="palette-select-wrap">
           <select id="palette-select" class="palette-select" onchange="changeColorPalette(this.value)" aria-label="Select color palette" title="Select Color Palette">
-            <option value="lemon-meringue" selected>Palette: Lemon Meringue &amp; Breeze (Day)</option>
-            <option value="indigo-honey">Palette: Indigo &amp; Honey (Dark)</option>
+            <option value="crimson-linen" selected>Palette: Crimson &amp; Raw Linen (Day)</option>
+            <option value="deep-blue">Palette: Deep Blue &amp; Glacial (Night)</option>
+            <option value="lemon-meringue">Palette: Lemon Meringue &amp; Breeze</option>
+            <option value="indigo-honey">Palette: Indigo &amp; Honey</option>
             <option value="editorial-day">Palette: Editorial Day (B&amp;W)</option>
             <option value="editorial-night">Palette: 80% Black Night</option>
             <option value="black-silver">Palette: Black &amp; Silver</option>
@@ -1828,8 +1871,6 @@
             <option value="cyber-yellow">Palette: Cyber Yellow &amp; Violet</option>
             <option value="nordic-pine">Palette: Nordic Pine &amp; Copper</option>
             <option value="marenostrum">Palette: MareNostrum 5 Navy</option>
-            <option value="crimson-linen">Palette: Crimson &amp; Raw Linen</option>
-            <option value="deep-blue">Palette: Deep Blue &amp; Glacial</option>
           </select>
         </div>
       </div>
@@ -2236,7 +2277,7 @@
     ];
 
     let currentThemeMode = 'day';
-    let currentActivePalette = 'lemon-meringue';
+    let currentActivePalette = 'crimson-linen';
 
     function changeColorPalette(paletteId) {
       currentActivePalette = paletteId;
@@ -2276,7 +2317,7 @@
         document.body.classList.add('theme-lemon-meringue');
         currentThemeMode = 'day';
       } else {
-        document.body.classList.add('theme-lemon-meringue');
+        document.body.classList.add('theme-crimson-linen');
         currentThemeMode = 'day';
       }
 
@@ -2299,11 +2340,11 @@
     }
 
     function toggleThemeBW() {
-      // Toggle between Day Mode (Lemon Meringue & Breeze) and Dark Mode (Indigo & Honey)
+      // Toggle between Day Mode (Crimson & Raw) and Night Mode (Deep Blue & Glacial)
       if (currentThemeMode === 'night') {
-        changeColorPalette('lemon-meringue');
+        changeColorPalette('crimson-linen');
       } else {
-        changeColorPalette('indigo-honey');
+        changeColorPalette('deep-blue');
       }
     }
 
@@ -2621,12 +2662,12 @@
         if (body.classList.contains('theme-nordic-pine')) return [61, 220, 151];
         if (body.classList.contains('theme-marenostrum')) return [0, 240, 255];
         if (body.classList.contains('theme-crimson-linen')) return [201, 42, 42];
-        if (body.classList.contains('theme-deep-blue')) return [124, 148, 184];
+        if (body.classList.contains('theme-deep-blue')) return [254, 183, 55];
         if (body.classList.contains('theme-indigo-honey')) return [254, 183, 55];
         if (body.classList.contains('theme-lemon-meringue')) return [84, 55, 134];
         if (body.classList.contains('theme-editorial-day')) return [0, 0, 0];
         if (body.classList.contains('theme-night')) return [255, 255, 255];
-        return [84, 55, 134]; // Default: Indigo
+        return [201, 42, 42]; // Default: Crimson
       }
 
       for (let i = 0; i < numParticles; i++) {
@@ -2696,8 +2737,8 @@
     function updateAudioMood(mode, paletteId) {
       if (!isPlayingAudio || !audioCtx) return;
       const now = audioCtx.currentTime;
-      const pal = paletteId || currentActivePalette || 'lemon-meringue';
-      const scale = PALETTE_SCALES[pal] || PALETTE_SCALES['lemon-meringue'];
+      const pal = paletteId || currentActivePalette || 'crimson-linen';
+      const scale = PALETTE_SCALES[pal] || PALETTE_SCALES['crimson-linen'];
 
       if (mode === 'day') {
         // DAY / LIGHT MODE
@@ -2785,7 +2826,7 @@
       activeNodes.push(droneOsc, droneGain, droneFilter);
 
       // Harmonic Shimmer Chords matching active palette
-      const currentScale = PALETTE_SCALES[currentActivePalette] || PALETTE_SCALES['lemon-meringue'];
+      const currentScale = PALETTE_SCALES[currentActivePalette] || PALETTE_SCALES['crimson-linen'];
       padOscs = [];
 
       currentScale.slice(0, 5).forEach((freq, idx) => {
@@ -2807,7 +2848,7 @@
 
       function playTelemetryPing() {
         if (!isPlayingAudio) return;
-        const scale = PALETTE_SCALES[currentActivePalette] || PALETTE_SCALES['lemon-meringue'];
+        const scale = PALETTE_SCALES[currentActivePalette] || PALETTE_SCALES['crimson-linen'];
         const noteFreq = scale[Math.floor(Math.random() * scale.length)];
         const pingOsc = audioCtx.createOscillator();
         const pingGain = audioCtx.createGain();

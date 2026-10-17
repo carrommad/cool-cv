@@ -17,6 +17,11 @@
 - [x] Experience list with current BSC position highlighted (`Posición Actual / Current Position`)
 - [x] Hashtag tags removed from all 4 cards; high-contrast action prompt buttons added
 - [x] Leaflet Europe map made more compact (250px) with Spain, France, and Germany highlighted in colors
-- [x] Adapted CV PDF (`cv_pastel_boxes.html` -> `Carlos_Romero_CV.pdf`) to Day Mode (Lemon Meringue canvas, Syne 800 + JetBrains Mono)
-- [x] Adapted Cover Letter PDF (`cover_letter_quadrants.html` -> `Carlos_Romero_Cover_Letter.pdf`) to Day Mode (Lemon Meringue canvas, Syne 800 + JetBrains Mono)
+- [x] Adapted CV PDF (`cv_pastel_boxes.html` -> `Carlos_Romero_CV.pdf`) to Day Mode (Crimson & Raw Linen canvas, Syne 800 + JetBrains Mono)
+- [x] Adapted Cover Letter PDF (`cover_letter_quadrants.html` -> `Carlos_Romero_Cover_Letter.pdf`) to Day Mode (Crimson & Raw Linen canvas, Syne 800 + JetBrains Mono)
 - [x] Compiled both PDFs via headless Edge into root and `pdfs/` directories
+- [x] Day Mode: Crimson & Raw Linen palette (`#f7f4ea` canvas, `#ffffff` surface, `#c92a2a` Sumi lacquer crimson, `#1d1c19` Sumi black) set as default across web dossier
+- [x] Night Mode: Deep Blue & Glacial palette (`#111d33` canvas, `#1b2f52` surface, `#FEB737` yellow accents) linked to theme switcher
+- [x] In Deep Blue & Glacial: ALL cards (01, 02, 03, 04) have the yellow outer outline line as card 2 (`2px solid #FEB737` + shadow)
+- [x] In Deep Blue & Glacial: All action prompt boxes ("Explore", "Inspect", "Read") styled in yellow (`#FEB737`) with obsidian text (`#0c1626`)
+

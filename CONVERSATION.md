@@ -292,3 +292,27 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
     - `ES (Native) · EN (C1) · FR (C1) · IT (B1) · DE (B1)`
 - **PDFs Re-compiled**:
   - Re-rendered [Carlos_Romero_CV.pdf](file:///c:/Users/cromero/Desktop/cool-cv/Carlos_Romero_CV.pdf) and [Carlos_Romero_Cover_Letter.pdf](file:///c:/Users/cromero/Desktop/cool-cv/Carlos_Romero_Cover_Letter.pdf) and synchronized with `pdfs/`.
+
+### X. Day Mode (Crimson & Raw) & Night Mode (Deep Blue & Glacial) with Yellow Card Accents
+- **Day Mode: Crimson & Raw Linen Palette**:
+  - **Canvas Background**: Raw Washi Paper Linen (`#f7f4ea`).
+  - **Surfaces**: Crisp white card surfaces (`#ffffff`) with warm linen sunken panels (`#eee9dc`).
+  - **Primary Accents**: Sumi lacquer crimson (`#c92a2a`) on structural borders, action buttons, and active pills.
+  - **Typography**: Sumi ink black (`#1d1c19`) with muted graphite (`#56534a`).
+  - **Card 02 Highlight**: Honey Amber yellow outline border (`2px solid #FEB737`).
+- **Night Mode: Deep Blue & Glacial Palette**:
+  - **Canvas Background**: Deep oceanic blue (`#111d33`).
+  - **Surfaces**: Midnight navy surfaces (`#1b2f52`) with sunken midnight obsidian (`#0c1626`).
+  - **All 4 Cards with Card 02 Yellow Outline**:
+    - Cards `01`, `02`, `03`, and `04` all feature the identical Honey Amber yellow outer border: `border: 2px solid #FEB737 !important;` paired with the subtle ambient glow `box-shadow: 0 4px 18px rgba(254, 183, 55, 0.20) !important;`.
+    - On hover, cards smoothly elevate with `border-color: #ffd276 !important;` and `box-shadow: 0 10px 28px rgba(254, 183, 55, 0.35) !important;`.
+  - **Yellow Action Prompt Boxes (`.action-prompt-btn`)**:
+    - All action boxes ("Explore Interactive Map & Journey", "Inspect Education & Skills Stack", "View Creative Prototypes", "Read Full Application Letter") are styled with vibrant Honey Amber background (`#FEB737 !important`) and deep obsidian high-contrast text (`#0c1626 !important`).
+    - On hover, the buttons glow into `#ffd276` while maintaining obsidian text for maximum legibility.
+- **Theme Switcher & Audio Tone Sync**:
+  - The hero theme toggle alternates directly between **Crimson & Raw Linen** (Day) and **Deep Blue & Glacial** (Night).
+  - Ambient audio synthesizer modulates between Japanese pentatonic scales (Day) and Deep Blue Aeolian scales (Night), accompanied by yellow and crimson constellation particle stardust.
+- **Print Templates & PDFs Updated**:
+  - Adapted `cv_pastel_boxes.html` and `cover_letter_quadrants.html` to Crimson & Raw Day Mode.
+  - Re-compiled fresh [Carlos_Romero_CV.pdf](file:///c:/Users/cromero/Desktop/cool-cv/Carlos_Romero_CV.pdf) and [Carlos_Romero_Cover_Letter.pdf](file:///c:/Users/cromero/Desktop/cool-cv/Carlos_Romero_Cover_Letter.pdf) via headless Edge into both root and `pdfs/`.
+
