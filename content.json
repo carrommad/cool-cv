@@ -1,4 +1,4 @@
-{
+﻿{
   "header": {
     "status_badge": {
       "full": "Interested in Creative Intelligence & Design · Barcelona, Spain",
@@ -16,8 +16,7 @@
       "Creative Computing"
     ],
     "bio": [
-      "Double degree in Physics & Mathematics.",
-      "Scientific software optimization for nuclear and climate.",
+      "Double degree in Physics & Mathematics. Scientific software optimization for nuclear and climate.",
       "Data analytics for wind turbine predictive maintenance.",
       "Physical simulation for cognitive radar.",
       "Creative prototyping."

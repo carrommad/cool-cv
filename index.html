@@ -19,6 +19,9 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
+  <!-- External Content Config (Loads synchronously on file:/// without CORS restrictions) -->
+  <script src="content_cards.js"></script>
+
   <style>
     /* =========================================================
        HIGH-CONTRAST BLACK & WHITE EDITORIAL DESIGN SYSTEM
@@ -1861,8 +1864,7 @@
           <div class="hero-role-item hero-role-3">Creative Computing</div>
         </div>
         <div class="hero-bio">
-          <span class="hero-bio-line">Double degree in Physics & Mathematics.</span>
-          <span class="hero-bio-line">Scientific software optimization for nuclear and climate.</span>
+          <span class="hero-bio-line">Double degree in Physics & Mathematics. Scientific software optimization for nuclear and climate.</span>
           <span class="hero-bio-line">Data analytics for wind turbine predictive maintenance.</span>
           <span class="hero-bio-line">Physical simulation for cognitive radar.</span>
           <span class="hero-bio-line">Creative prototyping.</span>
@@ -2523,8 +2525,7 @@
       "Creative Computing"
     ],
     "bio": [
-      "Double degree in Physics & Mathematics.",
-      "Scientific software optimization for nuclear and climate.",
+      "Double degree in Physics & Mathematics. Scientific software optimization for nuclear and climate.",
       "Data analytics for wind turbine predictive maintenance.",
       "Physical simulation for cognitive radar.",
       "Creative prototyping."
@@ -2695,7 +2696,13 @@
     }
 
     function initMainPageContent() {
-      // 1. Try loading from external content_cards.json or content.json (works on web servers & localhost)
+      // 1. If loaded via script tag (works natively on file:/// without CORS restrictions)
+      if (window.PORTFOLIO_CONTENT) {
+        applyMainContent(window.PORTFOLIO_CONTENT);
+        return;
+      }
+
+      // 2. Try loading from external content_cards.json or content.json (works on web servers & localhost)
       fetch('content_cards.json')
         .then(res => {
           if (!res.ok) return fetch('content.json').then(r => r.json());
@@ -2705,7 +2712,7 @@
           applyMainContent(data);
         })
         .catch(() => {
-          // 2. Graceful fallback to embedded JSON (works when opened via file://)
+          // 3. Graceful fallback to embedded JSON (works when opened via file://)
           const embeddedScript = document.getElementById('main-content-data');
           if (embeddedScript) {
             try {
