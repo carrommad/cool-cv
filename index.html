@@ -30,7 +30,7 @@
       /* Day Mode Palette: Crimson & Raw Linen (Default on page load) */
       --bw-bg: #f7f4ea; /* Raw Washi Paper Linen */
       --bw-surface: #ffffff;
-      --bw-surface-hover: #f0ece0;
+      --bw-surface-hover: #fff4b8; /* Luminous Golden Butter Yellow */
       --bw-surface-sunken: #eee9dc;
       
       --bw-border: #c92a2a; /* Sumi Lacquer Crimson */
@@ -239,7 +239,7 @@
     body.theme-crimson-linen {
       --bw-bg: #f7f4ea; /* Raw Washi Paper Linen */
       --bw-surface: #ffffff;
-      --bw-surface-hover: #f0ece0;
+      --bw-surface-hover: #fff4b8; /* Luminous Golden Butter Yellow */
       --bw-surface-sunken: #eee9dc;
       
       --bw-border: #c92a2a; /* Sumi Lacquer Crimson */
@@ -791,6 +791,9 @@
       background: var(--bw-surface-hover);
       transform: translateY(-2px);
       box-shadow: 0 10px 24px rgba(0, 0, 0, 0.10);
+    }
+    body.theme-crimson-linen .editorial-card:hover {
+      box-shadow: 0 10px 24px rgba(200, 140, 20, 0.16), 0 4px 10px rgba(0, 0, 0, 0.06);
     }
     body.theme-night .editorial-card {
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);

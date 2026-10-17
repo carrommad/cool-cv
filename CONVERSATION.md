@@ -362,5 +362,17 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
 - **Action Buttons & Accents Intact**:
   - Action prompt pills ("Explore Interactive Map & Journey ->", "Inspect Education & Skills Stack ->", "Read...", etc.) preserve their high-contrast `#FEB737` yellow fill with bold obsidian text (`#0c1626`) for persistent legibility and call-to-action visibility.
 
+### AC. Luminous Golden Butter Yellow Card Hover in Day Mode
+- **Problem Addressed**:
+  - In Day Mode, hovering over an `.editorial-card` shifted its surface color from white (`#ffffff`) to `--bw-surface-hover` (`#f0ece0`).
+  - Because the page background canvas is Raw Linen (`#f7f4ea`), `#f0ece0` had less than 3% luminance difference, causing the card to wash out and blend directly into the page canvas.
+- **Luminous Golden Butter Yellow (`#fff4b8`)**:
+  - Upgraded `--bw-surface-hover` in both `:root` and `body.theme-crimson-linen` to `#fff4b8`.
+  - When hovered, cards illuminate with a vibrant, warm, sunlit golden-butter tone that clearly contrasts against both the pure white resting cards (`#ffffff`) and the linen background canvas (`#f7f4ea`).
+  - Added a matching warm amber elevation shadow (`box-shadow: 0 10px 24px rgba(200, 140, 20, 0.16), 0 4px 10px rgba(0, 0, 0, 0.06);`) that enhances the warm light effect.
+- **Editorial Contrast & Readability**:
+  - Deep Sumi ink black text (`#1d1c19`) and bold numerals ("01", "02", etc.) achieve maximum typographic clarity (> 14:1 contrast ratio).
+  - The lacquer crimson border (`#c92a2a`) and crimson action prompt button ("EXPLORE INTERACTIVE MAP & JOURNEY →") pop with high-impact editorial elegance, reminiscent of Japanese stamp seals on golden washi paper.
+
 
 

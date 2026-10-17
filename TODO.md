@@ -26,5 +26,6 @@
 - [x] In Deep Blue & Glacial Night Mode: Yellow outer line (`2px solid #FEB737` + warm glow) appears strictly on hover over cards; resting state cards have clean subtle dark oceanic borders (`#2A4D88`)
 - [x] In Deep Blue & Glacial: All action prompt boxes ("Explore", "Inspect", "Read") styled in yellow (`#FEB737`) with obsidian text (`#0c1626`)
 - [x] Repositioned Night/Day Mode and Ambient Audio buttons to the top right of the viewport outside the central container (`position: fixed; top: 24px; right: 32px; z-index: 900`)
+- [x] Day Mode Card Hover Color: Upgraded surface from dull linen grey (`#f0ece0`) to luminous golden butter yellow (`#fff4b8`) with warm golden-amber underglow, eliminating canvas blending and maximizing contrast
 
 
