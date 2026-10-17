@@ -67,18 +67,27 @@
       padding: 0;
     }
 
+    html, body {
+      height: 100vh;
+      height: 100dvh;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       background-color: var(--bg-cream);
       color: var(--text-dark);
-      font-size: 16px;
-      line-height: 1.65;
-      padding: 24px 18px;
-      min-height: 100vh;
+      font-size: 14px;
+      line-height: 1.45;
       display: flex;
       flex-direction: column;
+      align-items: center;
       justify-content: center;
       position: relative;
+      padding: 20px;
     }
 
     /* Ambient Relaxing Particle Canvas Background */
@@ -93,65 +102,70 @@
     }
 
     .container {
-      max-width: 1180px;
+      max-width: 980px;
       width: 100%;
       margin: auto;
       display: flex;
       flex-direction: column;
-      gap: 22px;
+      gap: 11px;
       position: relative;
       z-index: 1;
+      box-sizing: border-box;
     }
 
     /* TOP HEADER (Vanilla Pastel) */
     header.header-card {
       background: var(--header-bg);
       border: 1.5px solid var(--header-border);
-      border-radius: 18px;
-      padding: 22px 32px;
+      border-radius: 14px;
+      padding: 10px 18px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+      flex-wrap: nowrap;
+      gap: 12px;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.03);
     }
 
     .header-info h1 {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 32px;
+      font-size: 21px;
       font-weight: 800;
       color: var(--header-text);
       letter-spacing: -0.025em;
       line-height: 1.15;
+      white-space: nowrap;
     }
 
     .header-info p {
-      font-size: 16px;
+      font-size: 12.5px;
       font-weight: 600;
       color: var(--header-sub);
-      margin-top: 4px;
+      margin-top: 2px;
+      white-space: nowrap;
     }
 
     .header-links {
       display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
+      flex-wrap: nowrap;
+      gap: 7px;
+      flex-shrink: 0;
     }
 
     .btn-link {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
+      gap: 5px;
       background: #ffffff;
       color: var(--header-text);
       border: 1.5px solid var(--header-border);
-      padding: 8px 16px;
+      padding: 5px 12px;
       border-radius: 9999px;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 13px;
+      font-size: 11.5px;
       font-weight: 700;
       text-decoration: none;
+      white-space: nowrap;
       transition: all 0.2s ease;
     }
     .btn-link:hover {
@@ -183,6 +197,32 @@
       border-color: #8b5cf6;
       color: #5b21b6;
       box-shadow: 0 0 14px rgba(139, 92, 246, 0.25);
+    }
+    /* Floating Top-Right Ambient Audio Button */
+    .btn-floating-audio {
+      position: fixed;
+      top: 18px;
+      right: 22px;
+      z-index: 100;
+      box-shadow: 0 4px 16px rgba(109, 40, 217, 0.12), 0 2px 6px rgba(0, 0, 0, 0.04);
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(8px);
+      border: 1.5px solid #ded6f7;
+      padding: 7px 15px;
+      font-size: 12px;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-floating-audio:hover {
+      background: #f8f5ff;
+      border-color: #a78bfa;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(109, 40, 217, 0.2);
+    }
+    .btn-floating-audio.playing {
+      background: #f5f0ff;
+      border-color: #8b5cf6;
+      color: #5b21b6;
+      box-shadow: 0 0 18px rgba(139, 92, 246, 0.35);
     }
     .audio-wave-icon {
       display: inline-flex;
@@ -219,12 +259,12 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 2px 6px;
-      margin-bottom: -10px;
+      padding: 0 4px;
+      margin-bottom: -3px;
     }
     .instruction-text {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 13px;
+      font-size: 11px;
       font-weight: 700;
       color: var(--text-muted);
       text-transform: uppercase;
@@ -232,7 +272,7 @@
     }
     .instruction-hint {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
+      font-size: 10.5px;
       color: #2563eb;
       font-weight: 600;
     }
@@ -240,79 +280,74 @@
     .four-cards-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-    @media (max-width: 768px) {
-      .four-cards-grid { 
-        grid-template-columns: 1fr; 
-      }
+      gap: 11px;
     }
 
     .menu-card {
-      border-radius: 18px;
-      padding: 26px 28px;
+      border-radius: 14px;
+      padding: 13px 18px;
       cursor: pointer;
       position: relative;
       border: 1.5px solid rgba(0, 0, 0, 0.08);
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.03);
       transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-height: 205px;
       overflow: hidden;
     }
     .menu-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
     }
 
     .card-watermark-num {
       position: absolute;
-      top: 14px;
-      right: 20px;
+      top: 8px;
+      right: 14px;
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 46px;
+      font-size: 30px;
       font-weight: 800;
-      opacity: 0.18;
+      opacity: 0.16;
       line-height: 1;
       pointer-events: none;
     }
 
     .mc-tag {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
+      font-size: 9.5px;
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.07em;
-      margin-bottom: 6px;
+      letter-spacing: 0.06em;
+      margin-bottom: 2px;
       display: block;
     }
 
     .mc-title {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 23px;
+      font-size: 16px;
       font-weight: 800;
-      line-height: 1.25;
-      margin-bottom: 8px;
+      line-height: 1.2;
+      margin-bottom: 3px;
       letter-spacing: -0.015em;
     }
 
     .mc-desc {
-      font-size: 14.5px;
-      line-height: 1.5;
+      font-size: 11.5px;
+      line-height: 1.35;
       color: var(--text-body);
-      margin-bottom: 16px;
+      margin-bottom: 6px;
     }
 
     .mc-footer-action {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 12.5px;
+      font-size: 10px;
       font-weight: 800;
       margin-top: auto;
+      padding-top: 2px;
     }
 
     /* Card Themes */
@@ -755,6 +790,72 @@
       transform: translateY(-3px);
       box-shadow: 0 8px 24px rgba(109, 40, 217, 0.12);
     }
+    .proj-preview-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 12px 0 10px;
+    }
+    .proj-img-wrap {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      display: block;
+      border: 1.5px solid rgba(109, 40, 217, 0.15);
+      background: #000;
+      transition: all 0.2s ease;
+      aspect-ratio: 16/9;
+    }
+    .proj-img-wrap:hover {
+      transform: scale(1.02);
+      border-color: var(--lavender-accent);
+      box-shadow: 0 4px 14px rgba(109, 40, 217, 0.18);
+    }
+    .proj-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .proj-img-cap {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(15, 23, 42, 0.78);
+      color: #fff;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 6px;
+      backdrop-filter: blur(4px);
+      text-align: center;
+    }
+    .proj-links-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .btn-proj-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #6d28d9;
+      background: #f5f0ff;
+      border: 1px solid #ded6f7;
+      padding: 5px 12px;
+      border-radius: 9999px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .btn-proj-link:hover {
+      background: #ede4ff;
+      border-color: #8b5cf6;
+      transform: translateY(-1px);
+    }
     .proj-badge {
       display: inline-block;
       font-family: 'JetBrains Mono', monospace;
@@ -865,23 +966,101 @@
     footer.footer-card {
       background: var(--header-bg);
       border: 1.5px solid var(--header-border);
-      border-radius: 18px;
-      padding: 24px 30px;
+      border-radius: 12px;
+      padding: 7px 18px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-      font-size: 14px;
+      flex-wrap: nowrap;
+      gap: 12px;
+      font-size: 11.5px;
       color: var(--header-sub);
+    }
+    .footer-left, .footer-right {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .footer-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4.5px;
+      color: var(--header-text);
+      font-weight: 800;
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+    .footer-link:hover {
+      color: #004c97;
+      text-decoration: underline;
+    }
+    .footer-link svg {
+      opacity: 0.85;
+    }
+    .footer-sep {
+      opacity: 0.45;
+    }
+    .footer-label {
+      font-weight: 600;
+      color: var(--header-sub);
+      margin-right: 2px;
     }
     footer a {
       color: var(--header-text);
       font-weight: 800;
       text-decoration: none;
+      transition: color 0.15s ease;
     }
     footer a:hover {
+      color: #004c97;
       text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      html, body {
+        height: auto;
+        overflow-y: auto;
+      }
+      body {
+        padding: 12px;
+      }
+      .btn-floating-audio {
+        top: 10px;
+        right: 12px;
+        padding: 5px 11px;
+        font-size: 11px;
+      }
+      .container {
+        height: auto;
+        min-height: auto;
+        gap: 12px;
+        padding: 0;
+      }
+      header.header-card {
+        flex-wrap: wrap;
+      }
+      .header-info h1, .header-info p {
+        white-space: normal;
+      }
+      .header-links {
+        flex-wrap: wrap;
+      }
+      .four-cards-grid {
+        grid-template-columns: 1fr;
+      }
+      footer.footer-card {
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-height: 480px) and (min-width: 769px) {
+      html, body {
+        height: auto;
+        overflow-y: auto;
+      }
+      body {
+        padding: 10px;
+      }
     }
   </style>
 </head>
@@ -889,6 +1068,16 @@
 
   <!-- Ambient Relaxing 5-Color Particle Canvas -->
   <canvas id="ambient-particles-canvas"></canvas>
+
+  <!-- Top-Right Floating Ambient Audio Button -->
+  <button id="btn-mnusic-audio" class="btn-link btn-audio btn-floating-audio" onclick="toggleMNusicAudio()" title="Play generative ambient telemetry audio">
+    <span class="audio-wave-icon">
+      <span class="bar bar1"></span>
+      <span class="bar bar2"></span>
+      <span class="bar bar3"></span>
+    </span>
+    <span id="audio-btn-label">Ambient Audio</span>
+  </button>
 
   <div class="container">
     
@@ -907,14 +1096,6 @@
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
           Cover Letter PDF
         </a>
-        <button id="btn-mnusic-audio" class="btn-link btn-audio" onclick="toggleMNusicAudio()" title="Play generative MNusic ambient telemetry">
-          <span class="audio-wave-icon">
-            <span class="bar bar1"></span>
-            <span class="bar bar2"></span>
-            <span class="bar bar3"></span>
-          </span>
-          <span id="audio-btn-label">MNusic Audio</span>
-        </button>
         <a href="mailto:carrommad@gmail.com?subject=Aww%2C%20so%20you%20like%20me%3F&body=I%20also%20like%20you%20%E2%AD%90%20Let%27s%20talk%21" class="btn-link">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
           Email
@@ -999,12 +1180,23 @@
 
     <!-- FOOTER -->
     <footer class="footer-card">
-      <div>
-        <strong>Carlos Romero Madrid</strong>
+      <div class="footer-left">
+        <a href="https://linkedin.com/in/carrommad" target="_blank" rel="noopener noreferrer" class="footer-link" title="LinkedIn Profile">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          LinkedIn
+        </a>
+        <span class="footer-sep">·</span>
+        <a href="https://github.com/carrommad" target="_blank" rel="noopener noreferrer" class="footer-link" title="GitHub Profile">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          GitHub
+        </a>
       </div>
-      <div>
-        <a href="https://github.com/carrommad/mnusic" target="_blank" rel="noopener noreferrer">MNusic</a> · 
-        <a href="https://github.com/carrommad/pipa-music-ball" target="_blank" rel="noopener noreferrer">Pipa-Music-Ball</a> · 
+      <div class="footer-right">
+        <span class="footer-label">Projects:</span>
+        <a href="https://github.com/carrommad/mnusic" target="_blank" rel="noopener noreferrer">MNusic</a>
+        <span class="footer-sep">·</span>
+        <a href="https://github.com/carrommad/pipa-music-ball" target="_blank" rel="noopener noreferrer">Pipa-Music-Ball</a>
+        <span class="footer-sep">·</span>
         <a href="https://github.com/carrommad/expo-curator" target="_blank" rel="noopener noreferrer">Expo-Curator</a>
       </div>
     </footer>
@@ -1226,9 +1418,21 @@
                 Embedded interactive sphere with ESP32 and 6-DoF inertial sensors (accelerometer & gyro). Converts kinetic play and rotational acceleration into microtonal musical phrasing when a cat plays with the object.
               </p>
             </div>
-            <div class="media-dropzone-notice">
-              <strong>Ready for Artifact Media</strong>
-              Drop photos into <code>assets/photos/</code>
+            <div class="proj-preview-gallery">
+              <a href="https://github.com/carrommad/pipa-music-ball" target="_blank" class="proj-img-wrap" title="Bio-Kinetic Sphere Prototype">
+                <img src="assets/photos/sphere_prototype.jpg" alt="Pipa-Music-Ball Sphere Prototype" loading="lazy">
+                <span class="proj-img-cap">Prototype Hardware</span>
+              </a>
+              <a href="https://github.com/carrommad/pipa-music-ball" target="_blank" class="proj-img-wrap" title="Real-Time 3D Telemetry Dashboard">
+                <img src="assets/photos/telemetry_dashboard.jpg" alt="3D Cavalier Telemetry Dashboard" loading="lazy">
+                <span class="proj-img-cap">Telemetry Visualizer</span>
+              </a>
+            </div>
+            <div class="proj-links-row">
+              <a href="https://github.com/carrommad/pipa-music-ball" target="_blank" class="btn-proj-link">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                View on GitHub
+              </a>
             </div>
           </div>
 
@@ -1662,7 +1866,7 @@
       const modal = document.getElementById(modalId);
       if (modal) {
         modal.classList.remove('active');
-        document.body.style.overflow = 'auto';
+        document.body.style.overflow = '';
       }
     }
 
@@ -1679,7 +1883,7 @@
         document.querySelectorAll('.modal-overlay.active').forEach(modal => {
           modal.classList.remove('active');
         });
-        document.body.style.overflow = 'auto';
+        document.body.style.overflow = '';
       }
     });
 
@@ -1821,7 +2025,7 @@
         activeNodes = [];
         isPlayingAudio = false;
         btn.classList.remove('playing');
-        label.textContent = 'MNusic Audio';
+        label.textContent = 'Ambient Audio';
         return;
       }
 
@@ -1835,7 +2039,7 @@
 
       isPlayingAudio = true;
       btn.classList.add('playing');
-      label.textContent = 'Playing MNusic';
+      label.textContent = 'Playing Audio';
 
       // 1. Master Output with warm soft-limiter / compressor
       const masterCompressor = audioCtx.createDynamicsCompressor();
