@@ -7,8 +7,7 @@
   
   <!-- Curated High-Character Typefaces from Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;600;700;800&family=JetBrains+Mono:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Favicon: Yellow ball matching webpage aesthetic -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -603,25 +602,21 @@
       font-family: var(--font-c4);
     }
 
-    /* GLOBAL TYPOGRAPHY OVERRIDE PREVIEWS */
-    body.font-override-syne .card-big-num,
-    body.font-override-syne .card-title,
-    body.font-override-syne h1.hero-name {
+    /* GLOBAL TYPOGRAPHY OVERRIDE PREVIEWS — FULL PAGE TRANSFORMATION */
+    body.font-override-syne,
+    body.font-override-syne *:not(svg):not(path):not(line):not(circle):not(rect):not(polygon) {
       font-family: var(--font-c1) !important;
     }
-    body.font-override-space .card-big-num,
-    body.font-override-space .card-title,
-    body.font-override-space h1.hero-name {
+    body.font-override-space,
+    body.font-override-space *:not(svg):not(path):not(line):not(circle):not(rect):not(polygon) {
       font-family: var(--font-c2) !important;
     }
-    body.font-override-bricolage .card-big-num,
-    body.font-override-bricolage .card-title,
-    body.font-override-bricolage h1.hero-name {
+    body.font-override-bricolage,
+    body.font-override-bricolage *:not(svg):not(path):not(line):not(circle):not(rect):not(polygon) {
       font-family: var(--font-c3) !important;
     }
-    body.font-override-playfair .card-big-num,
-    body.font-override-playfair .card-title,
-    body.font-override-playfair h1.hero-name {
+    body.font-override-playfair,
+    body.font-override-playfair *:not(svg):not(path):not(line):not(circle):not(rect):not(polygon) {
       font-family: var(--font-c4) !important;
     }
 
@@ -1297,7 +1292,7 @@
         <div class="card-grid-inner">
           <div class="card-num-col">
             <span class="card-big-num">01</span>
-            <span class="card-font-badge">Syne 800</span>
+            <span class="card-font-badge" id="badge-card-1">Syne 800</span>
             <!-- Book of Shapes Modernist Starburst Glyph -->
             <svg class="shape-emblem" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.2" title="Geometric Starburst (Book of Shapes)">
               <line x1="20" y1="3" x2="20" y2="37"/>
@@ -1336,7 +1331,7 @@
         <div class="card-grid-inner">
           <div class="card-num-col">
             <span class="card-big-num">02</span>
-            <span class="card-font-badge">Space Grotesk 700</span>
+            <span class="card-font-badge" id="badge-card-2">Space Grotesk 700</span>
             <!-- Book of Shapes Stepped Diamond Matrix Glyph -->
             <svg class="shape-emblem" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" title="Stepped Diamond Matrix (Book of Shapes)">
               <rect x="20" y="5" width="21" height="21" transform="rotate(45 20 5)"/>
@@ -1374,7 +1369,7 @@
         <div class="card-grid-inner">
           <div class="card-num-col">
             <span class="card-big-num">03</span>
-            <span class="card-font-badge">Bricolage 800</span>
+            <span class="card-font-badge" id="badge-card-3">Bricolage 800</span>
             <!-- Book of Shapes Kinetic Orbital Spheres Glyph -->
             <svg class="shape-emblem" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" title="Kinetic Orbital Spheres (Book of Shapes)">
               <circle cx="15" cy="20" r="11"/>
@@ -1410,7 +1405,7 @@
         <div class="card-grid-inner">
           <div class="card-num-col">
             <span class="card-big-num">04</span>
-            <span class="card-font-badge">Playfair Serif 900</span>
+            <span class="card-font-badge" id="badge-card-4">Playfair Serif 900</span>
             <!-- Book of Shapes Modernist Editorial Quadrant Glyph -->
             <svg class="shape-emblem" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" title="Editorial Quadrant (Book of Shapes)">
               <rect x="7" y="7" width="26" height="26" rx="3"/>
@@ -1855,20 +1850,33 @@
       const buttons = document.querySelectorAll('.btn-typo');
       buttons.forEach(btn => btn.classList.remove('active'));
 
+      const b1 = document.getElementById('badge-card-1');
+      const b2 = document.getElementById('badge-card-2');
+      const b3 = document.getElementById('badge-card-3');
+      const b4 = document.getElementById('badge-card-4');
+
       if (mode === 'mixed') {
         document.getElementById('btn-typo-mixed').classList.add('active');
+        if (b1) b1.textContent = 'Syne 800';
+        if (b2) b2.textContent = 'Space Grotesk 700';
+        if (b3) b3.textContent = 'Bricolage 800';
+        if (b4) b4.textContent = 'Playfair Serif 900';
       } else if (mode === 'syne') {
         document.body.classList.add('font-override-syne');
         document.getElementById('btn-typo-syne').classList.add('active');
+        [b1, b2, b3, b4].forEach(b => { if (b) b.textContent = 'Syne (Active)'; });
       } else if (mode === 'space') {
         document.body.classList.add('font-override-space');
         document.getElementById('btn-typo-space').classList.add('active');
+        [b1, b2, b3, b4].forEach(b => { if (b) b.textContent = 'Space (Active)'; });
       } else if (mode === 'bricolage') {
         document.body.classList.add('font-override-bricolage');
         document.getElementById('btn-typo-bricolage').classList.add('active');
+        [b1, b2, b3, b4].forEach(b => { if (b) b.textContent = 'Bricolage (Active)'; });
       } else if (mode === 'playfair') {
         document.body.classList.add('font-override-playfair');
         document.getElementById('btn-typo-playfair').classList.add('active');
+        [b1, b2, b3, b4].forEach(b => { if (b) b.textContent = 'Playfair (Active)'; });
       }
     }
 
