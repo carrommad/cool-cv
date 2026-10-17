@@ -339,6 +339,19 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
   - Completely clears the space directly above the 3-row hero name (`Carlos` / `Romero` / `Madrid`), giving the name and subtitle full breathing room without any overlapping UI controls.
   - Buttons float cleanly in the outer margins of the viewport, styled as pill controls with solid surfaces, borders (`#FEB737` yellow in Night Mode, `#1d1c19` Sumi black in Day Mode), and elevated hover shadows.
   - Controls remain persistently accessible when scrolling, allowing users to toggle themes or toggle the generative soundscape from any section of the portfolio.
-  - Fully responsive: automatically switches to a static, inline flow on mobile devices (`@media (max-width: 860px)`).
+- Fully responsive: automatically switches to a static, inline flow on mobile devices (`@media (max-width: 860px)`).
+
+### AA. Harmonizing Card 02 in Day Mode (Kept as the Others)
+- **Day Mode Card 02 Unification**:
+  - Removed the standalone yellow border override from `.card-section-02` in Day Mode.
+  - Card 02 now shares the identical aesthetic of cards `01`, `03`, and `04`:
+    - Base border: `1.5px solid var(--bw-border-subtle)` (`#ddd6c3`)
+    - Surface: White (`#ffffff`)
+    - Hover: `border-color: var(--bw-border)` (`#c92a2a` Sumi lacquer crimson), elevated shadow, and smooth vertical lift.
+- **Night Mode Retention**:
+  - In Night Mode (`theme-deep-blue`), all 4 cards (01, 02, 03, 04) uniformly maintain the Honey Amber yellow outer border (`2px solid #FEB737 !important`) and yellow action buttons as requested.
+- **Print Templates & Recompiled PDFs**:
+  - Updated [cv_pastel_boxes.html](file:///c:/Users/cromero/Desktop/cool-cv/cv_pastel_boxes.html) and [cover_letter_quadrants.html](file:///c:/Users/cromero/Desktop/cool-cv/cover_letter_quadrants.html) to keep Box 02 matching the rest of the boxes in Day Mode.
+  - Re-rendered [Carlos_Romero_CV.pdf](file:///c:/Users/cromero/Desktop/cool-cv/Carlos_Romero_CV.pdf) and [Carlos_Romero_Cover_Letter.pdf](file:///c:/Users/cromero/Desktop/cool-cv/Carlos_Romero_Cover_Letter.pdf) and updated copies in `pdfs/`.
 
 

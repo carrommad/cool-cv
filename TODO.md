@@ -9,7 +9,7 @@
   - 02. Education & Skills
   - 03. Creative Computing
   - 04. Cover Letter to DAV Group
-- [x] Section 02 yellow outline border (`#FEB737`) and pure white background (`#ffffff` in Day Mode, adaptive in Dark Mode)
+- [x] Day Mode Card 02 kept identical to the other cards (subtle border, white surface, crimson hover); yellow outline reserved for Night Mode across all cards
 - [x] Divided into 2 bachelors:
   - BSc in Mathematics (8.28 · 3rd of Class)
   - BSc in Physics (8.35 · 3rd of Class)
