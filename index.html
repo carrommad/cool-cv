@@ -625,63 +625,59 @@
     }
 
     .hero-name-line {
-      display: inline-block;
-      width: fit-content;
-      transform-origin: left center;
+      display: block !important;
+      width: max-content !important;
+      transform-origin: left center !important;
       will-change: transform, letter-spacing;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
     }
 
     /* Independent, slow, periodic dynamic stretching for each line */
     .hero-name-line-1 {
-      animation: stretch-line-1 8.2s ease-in-out infinite alternate;
+      animation: stretch-line-1 5.2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate !important;
     }
 
     .hero-name-line-2 {
-      animation: stretch-line-2 11.4s ease-in-out infinite alternate;
-      animation-delay: -3.8s;
+      animation: stretch-line-2 6.8s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate !important;
+      animation-delay: -2.4s !important;
     }
 
     .hero-name-line-3 {
-      animation: stretch-line-3 9.6s ease-in-out infinite alternate;
-      animation-delay: -6.4s;
+      animation: stretch-line-3 5.8s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate !important;
+      animation-delay: -4.1s !important;
     }
 
     @keyframes stretch-line-1 {
       0% {
-        transform: scaleX(1);
-        letter-spacing: -0.03em;
+        transform: scaleX(0.90);
+        letter-spacing: -0.035em;
       }
       100% {
-        transform: scaleX(1.22);
-        letter-spacing: 0.045em;
+        transform: scaleX(1.45);
+        letter-spacing: 0.08em;
       }
     }
 
     @keyframes stretch-line-2 {
       0% {
-        transform: scaleX(0.96);
-        letter-spacing: -0.035em;
+        transform: scaleX(0.88);
+        letter-spacing: -0.04em;
       }
       100% {
-        transform: scaleX(1.26);
-        letter-spacing: 0.05em;
+        transform: scaleX(1.52);
+        letter-spacing: 0.09em;
       }
     }
 
     @keyframes stretch-line-3 {
       0% {
-        transform: scaleX(1.02);
-        letter-spacing: -0.025em;
+        transform: scaleX(0.92);
+        letter-spacing: -0.03em;
       }
       100% {
-        transform: scaleX(1.24);
-        letter-spacing: 0.04em;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .hero-name-line {
-        animation: none !important;
+        transform: scaleX(1.48);
+        letter-spacing: 0.085em;
       }
     }
 
