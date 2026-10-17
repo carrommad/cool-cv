@@ -263,5 +263,19 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
 - **Synchronized Print PDFs**:
   - Re-rendered both [Carlos_Romero_CV.pdf](file:///c:/Users/cromero/Desktop/cool-cv/Carlos_Romero_CV.pdf) and [Carlos_Romero_Cover_Letter.pdf](file:///c:/Users/cromero/Desktop/cool-cv/Carlos_Romero_Cover_Letter.pdf) preserving the 3-row header name with optimized 16.5pt Syne 800 typography.
 
+### V. Slower, Nonperiodic Mathematical Kinetic Oscillator
+- **True Aperiodic Superposition**:
+  - Replaced repetitive CSS loops with a continuous `requestAnimationFrame` oscillator based on multi-frequency irrational harmonic superposition (golden ratio $\phi = 1.618$, $\sqrt{2}$, $\sqrt{3}$, $e$, $\pi$).
+  - Because frequency ratios are irrational ($\notin \mathbb{Q}$), the oscillation waveform is mathematically nonperiodic and never repeats the same shape.
+- **Majestic Slow Rate**:
+  - Scaled time advancement factor to `0.00028`, producing gentle, organic breathing waves spanning 25 to 45 seconds per fundamental cycle.
+- **Fully Independent Trajectories**:
+  - **Line 1 (`Carlos`)**: Base angular frequency $0.38\text{ rad/s}$ with $\sqrt{2}$ and $\phi$ harmonics.
+  - **Line 2 (`Romero`)**: Base angular frequency $0.28\text{ rad/s}$ with $\sqrt{3}$ and $\pi$ harmonics.
+  - **Line 3 (`Madrid`)**: Base angular frequency $0.33\text{ rad/s}$ with $e$ and $\phi$ harmonics.
+- **Dynamic Scale & Tracking**:
+  - Smoothly modulates horizontal `scaleX` between $\sim 0.80$ and $\sim 1.55$ with proportional letter-spacing tracking (`-0.025em` to `+0.08em`).
+
+
 
 
