@@ -27,7 +27,37 @@
        Typography: Syne 800 (Header + Subtitle) · JetBrains Mono (The Rest)
        ========================================================= */
     :root {
-      /* Day Mode Palette (Default on page load) */
+      /* Day Mode Palette: Lemon Meringue & Sea Breeze (Default on page load) */
+      --bw-bg: #FFEBAD; /* Lemon Meringue Canvas */
+      --bw-surface: #fffdf5;
+      --bw-surface-hover: #fcf4dc;
+      --bw-surface-sunken: #f5df9c;
+      
+      --bw-border: #543786; /* Indigo */
+      --bw-border-medium: #7BB8C0; /* Sea Breeze */
+      --bw-border-subtle: #e5cd85;
+      
+      --bw-text: #543786; /* Indigo */
+      --bw-text-muted: #3a2260;
+      --bw-text-dim: #7BB8C0; /* Sea Breeze */
+      
+      --bw-btn-bg: #543786; /* Indigo */
+      --bw-btn-text: #FFEBAD; /* Lemon Meringue */
+      --bw-btn-border: #FEB737; /* Honey */
+      --bw-btn-hover-bg: #6e48b0;
+      
+      --bw-pill-bg: #f8e5b0;
+      --bw-pill-text: #543786;
+      --bw-pill-border: #7BB8C0; /* Sea Breeze */
+
+      /* Typography Family Design Tokens: Syne 800 + JetBrains Mono */
+      --font-display: 'Syne', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --font-body: 'JetBrains Mono', monospace;
+    }
+
+    /* Editorial Day Palette (Classic High-Contrast B&W) */
+    body.theme-editorial-day {
       --bw-bg: #ffffff;
       --bw-surface: #ffffff;
       --bw-surface-hover: #f5f5f5;
@@ -49,11 +79,6 @@
       --bw-pill-bg: #f4f4f5;
       --bw-pill-text: #000000;
       --bw-pill-border: #d4d4d8;
-
-      /* Typography Family Design Tokens: Syne 800 + JetBrains Mono */
-      --font-display: 'Syne', sans-serif;
-      --font-mono: 'JetBrains Mono', monospace;
-      --font-body: 'JetBrains Mono', monospace;
     }
 
     /* Night Mode Palette (80% Black Canvas #333333 instead of 100% #000000) */
@@ -1475,7 +1500,7 @@
     }
   </style>
 </head>
-<body>
+<body class="theme-lemon-meringue">
 
   <!-- Ambient Monochrome Particles Background -->
   <canvas id="ambient-particles-canvas"></canvas>
@@ -1714,7 +1739,9 @@
         </div>
         <div class="palette-select-wrap">
           <select id="palette-select" class="palette-select" onchange="changeColorPalette(this.value)" aria-label="Select color palette" title="Select Color Palette">
-            <option value="editorial-day" selected>Palette: Editorial Day</option>
+            <option value="lemon-meringue" selected>Palette: Lemon Meringue &amp; Breeze (Day)</option>
+            <option value="indigo-honey">Palette: Indigo &amp; Honey (Dark)</option>
+            <option value="editorial-day">Palette: Editorial Day (B&amp;W)</option>
             <option value="editorial-night">Palette: 80% Black Night</option>
             <option value="black-silver">Palette: Black &amp; Silver</option>
             <option value="touareg">Palette: Touareg &amp; Terracotta</option>
@@ -1723,8 +1750,6 @@
             <option value="marenostrum">Palette: MareNostrum 5 Navy</option>
             <option value="crimson-linen">Palette: Crimson &amp; Raw Linen</option>
             <option value="deep-blue">Palette: Deep Blue &amp; Glacial</option>
-            <option value="indigo-honey">Palette: Indigo &amp; Honey</option>
-            <option value="lemon-meringue">Palette: Lemon Meringue &amp; Breeze</option>
           </select>
         </div>
       </div>
@@ -2107,6 +2132,7 @@
     // ---------------------------------------------------------
     const ALL_PALETTE_CLASSES = [
       'theme-night',
+      'theme-editorial-day',
       'theme-black-silver',
       'theme-touareg',
       'theme-cyber-yellow',
@@ -2119,7 +2145,7 @@
     ];
 
     let currentThemeMode = 'day';
-    let currentActivePalette = 'editorial-day';
+    let currentActivePalette = 'lemon-meringue';
 
     function changeColorPalette(paletteId) {
       currentActivePalette = paletteId;
@@ -2128,6 +2154,9 @@
       if (paletteId === 'editorial-night') {
         document.body.classList.add('theme-night');
         currentThemeMode = 'night';
+      } else if (paletteId === 'editorial-day') {
+        document.body.classList.add('theme-editorial-day');
+        currentThemeMode = 'day';
       } else if (paletteId === 'black-silver') {
         document.body.classList.add('theme-black-silver');
         currentThemeMode = 'night';
@@ -2156,7 +2185,7 @@
         document.body.classList.add('theme-lemon-meringue');
         currentThemeMode = 'day';
       } else {
-        // editorial-day
+        document.body.classList.add('theme-lemon-meringue');
         currentThemeMode = 'day';
       }
 
@@ -2179,11 +2208,11 @@
     }
 
     function toggleThemeBW() {
-      // If currently on any dark palette or night mode, toggle to editorial-day
+      // Toggle between Day Mode (Lemon Meringue & Breeze) and Dark Mode (Indigo & Honey)
       if (currentThemeMode === 'night') {
-        changeColorPalette('editorial-day');
+        changeColorPalette('lemon-meringue');
       } else {
-        changeColorPalette('editorial-night');
+        changeColorPalette('indigo-honey');
       }
     }
 
@@ -2459,8 +2488,9 @@
         if (body.classList.contains('theme-deep-blue')) return [124, 148, 184];
         if (body.classList.contains('theme-indigo-honey')) return [254, 183, 55];
         if (body.classList.contains('theme-lemon-meringue')) return [84, 55, 134];
+        if (body.classList.contains('theme-editorial-day')) return [0, 0, 0];
         if (body.classList.contains('theme-night')) return [255, 255, 255];
-        return [0, 0, 0];
+        return [84, 55, 134]; // Default: Indigo
       }
 
       for (let i = 0; i < numParticles; i++) {
@@ -2530,8 +2560,8 @@
     function updateAudioMood(mode, paletteId) {
       if (!isPlayingAudio || !audioCtx) return;
       const now = audioCtx.currentTime;
-      const pal = paletteId || currentActivePalette || 'editorial-day';
-      const scale = PALETTE_SCALES[pal] || PALETTE_SCALES['editorial-day'];
+      const pal = paletteId || currentActivePalette || 'lemon-meringue';
+      const scale = PALETTE_SCALES[pal] || PALETTE_SCALES['lemon-meringue'];
 
       if (mode === 'day') {
         // DAY / LIGHT MODE
@@ -2619,7 +2649,7 @@
       activeNodes.push(droneOsc, droneGain, droneFilter);
 
       // Harmonic Shimmer Chords matching active palette
-      const currentScale = PALETTE_SCALES[currentActivePalette] || PALETTE_SCALES['editorial-day'];
+      const currentScale = PALETTE_SCALES[currentActivePalette] || PALETTE_SCALES['lemon-meringue'];
       padOscs = [];
 
       currentScale.slice(0, 5).forEach((freq, idx) => {
@@ -2641,7 +2671,7 @@
 
       function playTelemetryPing() {
         if (!isPlayingAudio) return;
-        const scale = PALETTE_SCALES[currentActivePalette] || PALETTE_SCALES['editorial-day'];
+        const scale = PALETTE_SCALES[currentActivePalette] || PALETTE_SCALES['lemon-meringue'];
         const noteFreq = scale[Math.floor(Math.random() * scale.length)];
         const pingOsc = audioCtx.createOscillator();
         const pingGain = audioCtx.createGain();

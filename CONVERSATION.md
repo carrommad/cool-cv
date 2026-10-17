@@ -211,6 +211,16 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
 - **Dedicated Footer Dock Placement**: Positioned the palette switcher inside a dedicated, balanced row (`.footer-palette-row`) in `footer.footer-card`, between the primary action buttons (`.footer-actions-row`) and the repository metadata (`.footer-meta-row`).
 - **Balanced Symmetry**: Features a subtle label (`Dossier Color Palette`) with a live swatch indicator dot on the left, and the styled scrolldown selector flush to the right edge, seamlessly accessible alongside the download and social actions.
 
+### S. Paired Day Mode with "Lemon Meringue & Breeze" and Dark Mode with "Indigo & Honey"
+- **Default Day Mode**: Configured `:root` and `<body class="theme-lemon-meringue">` to use the sunny unbleached **Lemon Meringue & Breeze** palette (`#FFEBAD` canvas, `#fffdf5` surfaces, `#543786` Indigo typography, `#7BB8C0` Sea Breeze borders, and `#FEB737` Honey accents) as the default presentation upon page load.
+- **Default Dark Mode**: Configured the theme toggle (`toggleThemeBW()`) to alternate directly with **Indigo & Honey** (`#1c112e` canvas, `#2d1b4a` Indigo surface, and `#FEB737` Honey amber buttons/borders).
+- **Synchronized Ecosystem**:
+  - The hero `#btn-theme-toggle` button toggles between **Day Mode** (`lemon-meringue`) and **Night Mode** (`indigo-honey`).
+  - Constellation particles default to rich Indigo stardust (`[84, 55, 134]`), dynamically transitioning to Honey amber (`[254, 183, 55]`) in dark mode.
+  - Generative ambient audio tunes between Radiant Sun Lydian (Day) and Indigo Twilight Harmonic (Dark).
+  - The classic high-contrast Black & White palette remains accessible in the palette selector under `Palette: Editorial Day (B&W)`.
+
+
 
 
 
