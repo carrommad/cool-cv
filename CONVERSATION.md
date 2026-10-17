@@ -381,5 +381,21 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
 - **Narrative Alignment**:
   - Unifies the portfolio's dual identity: combining petascale computational physics & mathematics with creative computing, generative media, data physicalization, and interaction design.
 
+### AE. Ambient Background Particles & Connectors Visibility Enhancement
+- **Problem Addressed**:
+  - Background particle nodes and interconnecting constellation lines were overly faint (canvas opacity `0.65`, connector linkAlpha max `0.08`, linewidth `0.8px`), making the constellation structure almost imperceptible on modern calibrated displays.
+- **Enhanced Node Visibility**:
+  - Boosted `#ambient-particles-canvas` opacity from `0.65` to `0.85`.
+  - Increased node radius from `1.0–4.0px` to `1.8–4.0px` for well-defined, crisp celestial vertices.
+  - Raised particle `baseAlpha` from `0.15–0.50` to `0.38–0.66` (with dynamic harmonic phase pulsing up to `0.85`).
+  - Increased particle density threshold: `numParticles` scaled from 75 max (16,000 px²/node) to 95 max (12,500 px²/node).
+- **Pronounced Constellation Connectors**:
+  - Extended linkage proximity distance from `110px` to `135px`, creating richer geometric polygonal tessellations.
+  - Boosted connector `linkAlpha` multiplier from `0.08` to `0.22` (~2.75× increase in line opacity).
+  - Increased connector stroke width from `0.8px` to `1.0px`.
+- **Palette Harmonic Balance**:
+  - In Day Mode: Crimson lacquer nodes (`#c92a2a`) and delicate connecting lines float with crisp clarity on the `#f7f4ea` Raw Linen canvas.
+  - In Night Mode: Honey yellow nodes (`#FEB737`) and telemetry tracks shimmer vividly across the deep ocean navy background (`#111d33`).
+
 
 
