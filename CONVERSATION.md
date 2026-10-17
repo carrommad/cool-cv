@@ -459,4 +459,17 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
   - **Zero-CORS Offline Fallback (`file:///`)**: Embeds the JSON configuration within `<script id="main-content-data" type="application/json">` so opening `index.html` directly from Windows explorer without a web server works flawlessly without browser CORS blocks.
   - **Dynamic Recalibration**: Whenever `applyMainContent(data)` updates DOM nodes, it invokes `measureBoundaries()` to dynamically recalculate the kinetic typography bounds for nonperiodic oscillation.
 
+### AI. Work Card Click Smooth Viewport Scroll to Map
+- **UX Issue Addressed**:
+  - In the restructured **01. Career & Journey** modal, the interactive Leaflet European trajectory map is located at the top inside `.map-showcase-card`.
+  - When the user scrolled down into the 2×3 grid of milestone cards and clicked on a card, `focusCity()` would fly the map to the city, but the modal viewport remained scrolled down, preventing the user from seeing the map animation and city popup. Furthermore, `highlightTimelineCard()` was calling `scrollIntoView()` on the card itself, keeping the viewport locked to the bottom.
+- **Implementation**:
+  - Updated `focusCity(cityKey, openPopup = true)`:
+    - Queries `#modal-trajectory .modal-scroll-body` and, if `scrollTop > 0`, invokes `scrollBody.scrollTo({ top: 0, behavior: 'smooth' })`.
+    - This smoothly glides the scrollbar to the top so the map is front and center as `map.flyTo()` animates to the selected European research hub.
+    - Automatically opens the city marker popup upon arrival (`setTimeout(..., 800)`).
+  - Updated `highlightTimelineCard(cityKey, shouldScroll = false)`:
+    - Added a `shouldScroll` guard (default `false`) so highlighting cards on click maintains the card's active border highlight without fighting the scroll-to-top motion.
+
+
 

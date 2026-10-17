@@ -3015,7 +3015,7 @@
         `);
 
         marker.on('click', () => {
-          highlightTimelineCard(city.key);
+          highlightTimelineCard(city.key, false);
         });
 
         markers[city.key] = marker;
@@ -3029,6 +3029,13 @@
       const city = citiesData.find(c => c.key === cityKey);
       if (!city || !map) return;
 
+      // Smoothly scroll the modal scroll body to top so the map is fully visible
+      const modalTrajectory = document.getElementById('modal-trajectory');
+      const scrollBody = modalTrajectory ? modalTrajectory.querySelector('.modal-scroll-body') : null;
+      if (scrollBody && scrollBody.scrollTop > 0) {
+        scrollBody.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
       map.flyTo(city.coords, 6.5, {
         animate: true,
         duration: 1.0
@@ -3037,16 +3044,16 @@
       if (openPopup && markers[cityKey]) {
         setTimeout(() => {
           markers[cityKey].openPopup();
-        }, 1000);
+        }, 800);
       }
-      highlightTimelineCard(cityKey);
+      highlightTimelineCard(cityKey, false);
     }
 
-    function highlightTimelineCard(cityKey) {
+    function highlightTimelineCard(cityKey, shouldScroll = false) {
       document.querySelectorAll('.timeline-card').forEach(c => c.classList.remove('highlight'));
       const activeCards = document.querySelectorAll(`.timeline-card[data-city="${cityKey}"]`);
       activeCards.forEach(c => c.classList.add('highlight'));
-      if (activeCards.length > 0) {
+      if (shouldScroll && activeCards.length > 0) {
         activeCards[0].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
     }
