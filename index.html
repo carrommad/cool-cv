@@ -1020,7 +1020,7 @@
 
     .modal-panel {
       width: 100%;
-      max-width: 1080px;
+      max-width: 1140px;
       max-height: 90vh;
       border-radius: 20px;
       background: var(--bw-surface);
@@ -1090,36 +1090,62 @@
     }
 
     /* Modal Internal Sections */
-    .map-container {
+    .trajectory-showcase-row {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 20px;
+      margin-bottom: 24px;
+      align-items: stretch;
+    }
+    @media (max-width: 860px) {
+      .trajectory-showcase-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .map-showcase-card {
       background: var(--bw-surface-sunken);
       border-radius: 16px;
       border: 1.5px solid var(--bw-border-subtle);
-      padding: 24px;
-      margin-bottom: 28px;
+      padding: 18px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      min-height: 380px;
     }
-    .map-header {
+    .map-showcase-card .map-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 6px;
     }
-    .map-header h3 {
+    .map-showcase-card .map-header h3 {
       font-family: var(--font-mono);
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 800;
       color: var(--bw-text);
+      margin: 0;
+    }
+    .map-showcase-card .map-header .map-subtitle {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--bw-text-muted);
+      font-weight: 700;
+      display: block;
+      margin-top: 2px;
     }
     .map-hint {
-      font-size: 12px;
+      font-size: 11px;
       font-family: var(--font-mono);
-      color: var(--bw-text-muted);
+      color: var(--bw-text-dim);
       font-weight: 700;
     }
     #europe-leaflet-map {
       width: 100%;
-      height: 250px;
+      flex: 1;
+      min-height: 290px;
+      height: 100%;
       border-radius: 12px;
       border: 1.5px solid var(--bw-border-medium);
       overflow: hidden;
@@ -1191,7 +1217,7 @@
       border: 1.5px solid var(--bw-border-subtle);
       border-left: 6px solid var(--bw-border) !important;
       border-radius: 14px;
-      padding: 22px 24px;
+      padding: 20px 22px;
       transition: all 0.25s ease;
       cursor: pointer;
       display: flex;
@@ -1201,6 +1227,118 @@
       border-color: var(--bw-border);
       background: var(--bw-surface-hover);
       transform: translateY(-2px);
+    }
+    .current-showcase-card {
+      background: var(--bw-surface);
+      border: 2px solid #FEB737 !important;
+      box-shadow: 0 4px 18px rgba(254, 183, 55, 0.22);
+      border-radius: 16px;
+      padding: 24px 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 380px;
+    }
+    .current-card-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px dashed var(--bw-border-subtle);
+    }
+    .current-chip {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: var(--bw-pill-bg);
+      color: var(--bw-pill-text);
+      border: 1px solid var(--bw-pill-border);
+    }
+
+    .timeline-section-divider {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 10px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1.5px solid var(--bw-border-subtle);
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .timeline-section-divider h4 {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--bw-text);
+      margin: 0;
+    }
+    .timeline-section-divider span {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--bw-text-muted);
+    }
+
+    .timeline-grid-six {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 980px) {
+      .timeline-grid-six {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 640px) {
+      .timeline-grid-six {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .timeline-grid-six .timeline-card {
+      padding: 16px 18px;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .timeline-grid-six .t-card-role {
+      font-size: 14.5px;
+      line-height: 1.3;
+    }
+    .timeline-grid-six .t-card-org {
+      font-size: 12.5px;
+    }
+    .timeline-grid-six .t-card-dates {
+      font-size: 11px;
+      margin-bottom: 8px;
+    }
+    .timeline-grid-six .t-card-desc {
+      font-size: 12px;
+      line-height: 1.45;
+    }
+    .t-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px dashed var(--bw-border-subtle);
+    }
+    .t-card-tags span {
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: var(--bw-pill-bg);
+      color: var(--bw-pill-text);
+      border: 1px solid var(--bw-border-subtle);
     }
     .t-location-badge {
       display: inline-flex;
@@ -1238,8 +1376,8 @@
       font-weight: 600;
     }
     .t-card-desc {
-      font-size: 14px;
-      line-height: 1.6;
+      font-size: 13.5px;
+      line-height: 1.55;
       color: var(--bw-text-muted);
       margin-top: auto;
     }
@@ -1908,34 +2046,57 @@
 
       <div class="modal-scroll-body">
         
-        <!-- Interactive Leaflet Map -->
-        <div class="map-container">
-          <div class="map-header">
-            <h3>Geographic Trajectory Map</h3>
-            <span class="map-hint">Click any city pin or timeline card below to focus</span>
+        <!-- TOP ROW: Vertical Trajectory Map (Left) + Current Position (Right) -->
+        <div class="trajectory-showcase-row">
+          
+          <!-- LEFT: Interactive Map -->
+          <div class="map-showcase-card">
+            <div class="map-header">
+              <div>
+                <h3 style="margin:0; font-size:16px;">Geographic Trajectory Map</h3>
+                <span class="map-subtitle">European Research Corridor · 2013–Present</span>
+              </div>
+              <span class="map-hint">Click pin to focus</span>
+            </div>
+            <div id="europe-leaflet-map"></div>
           </div>
-          <div id="europe-leaflet-map"></div>
+
+          <!-- RIGHT: Current Position (BSC Performance Team) -->
+          <div class="timeline-card is-current current-showcase-card" id="card-bsc-perf" data-city="barcelona" onclick="focusCity('barcelona', true)">
+            <div>
+              <div class="current-role-badge">
+                <span class="pulse-dot"></span>
+                Posición Actual · Current Position
+              </div>
+              <span class="t-location-badge">Barcelona, Spain · BSC-CNS</span>
+              <div class="t-card-role" style="font-size: 19px; margin-top: 4px;">Research Engineer · Performance Team</div>
+              <div class="t-card-org" style="font-size: 15px;">Barcelona Supercomputing Center (BSC)</div>
+              <div class="t-card-dates" style="font-size: 12.5px; font-weight: 800; color: #FEB737; margin: 4px 0 10px;">May 2025 – Present</div>
+              <p class="t-card-desc" style="font-size: 13px; line-height: 1.5;">
+                Benchmarking and performance analysis of European flagship supercomputing codes across MareNostrum 5 (MN5) and LUMI. Profiling execution bottlenecks, cache locality, and parallel efficiency with Extrae, Paraver, and Dimemas.
+              </p>
+            </div>
+            <div class="current-card-meta">
+              <span class="current-chip">MareNostrum 5 (MN5)</span>
+              <span class="current-chip">LUMI Supercomputer</span>
+              <span class="current-chip">Paraver / Extrae</span>
+              <span class="current-chip">Slurm Orchestration</span>
+              <span class="current-chip">HPC Profiling</span>
+            </div>
+          </div>
+
         </div>
 
-        <!-- Chronological Timeline Cards -->
-        <div class="timeline-grid">
-          
-          <!-- 5. BSC Performance (Current) -->
-          <div class="timeline-card is-current" id="card-bsc-perf" data-city="barcelona" onclick="focusCity('barcelona', true)">
-            <div class="current-role-badge">
-              <span class="pulse-dot"></span>
-              Posición Actual · Current Position
-            </div>
-            <span class="t-location-badge">Barcelona, Spain · BSC-CNS</span>
-            <div class="t-card-role">Research Engineer · Performance Team</div>
-            <div class="t-card-org">Barcelona Supercomputing Center (BSC)</div>
-            <div class="t-card-dates">May 2025 – Present</div>
-            <p class="t-card-desc">
-              Benchmarking and performance analysis of European flagship supercomputing codes across MareNostrum 5 (MN5) and LUMI. Profiling execution bottlenecks with Extrae, Paraver, and Dimemas.
-            </p>
-          </div>
+        <!-- SECTION DIVIDER -->
+        <div class="timeline-section-divider">
+          <h4>Trajectory Milestones &amp; Academic Degrees</h4>
+          <span>6 Foundations &amp; Research Appointments (2013–2025)</span>
+        </div>
 
-          <!-- 5. BSC Fusion -->
+        <!-- BOTTOM GRID: 2 ROWS OF 3 CARDS -->
+        <div class="timeline-grid-six">
+          
+          <!-- 1. BSC Fusion -->
           <div class="timeline-card" id="card-bsc-fusion" data-city="barcelona" onclick="focusCity('barcelona', true)">
             <span class="t-location-badge">Barcelona, Spain · BSC Fusion</span>
             <div class="t-card-role">Research Engineer · Fusion Team</div>
@@ -1944,42 +2105,66 @@
             <p class="t-card-desc">
               Advanced Computing Hub: parallel optimization of nuclear fusion simulation codes using OpenMP, MPI, PETSc, oneAPI, and OpenACC. Developed electromagnetic features for superconducting magnets (MAGNET in ALYA).
             </p>
+            <div class="t-card-tags">
+              <span>ALYA</span>
+              <span>OpenMP/MPI</span>
+              <span>PETSc</span>
+              <span>oneAPI</span>
+              <span>OpenACC</span>
+            </div>
           </div>
 
-          <!-- 4. Pamplona: CENER -->
+          <!-- 2. CENER Pamplona -->
           <div class="timeline-card" id="card-cener" data-city="pamplona" onclick="focusCity('pamplona', true)">
             <span class="t-location-badge">Pamplona, Spain · Renewable Energy</span>
-            <div class="t-card-role">Data Scientist · Analysis & Design</div>
+            <div class="t-card-role">Data Scientist · Analysis &amp; Design</div>
             <div class="t-card-org">National Renewable Energy Centre (CENER)</div>
             <div class="t-card-dates">May 2022 – September 2022</div>
             <p class="t-card-desc">
               Engineered Python data pipelines for characterisation and control of offshore wind plants. Built predictive maintenance classification algorithms with Pandas and Scikit-Learn.
             </p>
+            <div class="t-card-tags">
+              <span>Python</span>
+              <span>Scikit-Learn</span>
+              <span>Pandas</span>
+              <span>Offshore Wind</span>
+            </div>
           </div>
 
-          <!-- 3. Seville -->
-          <div class="timeline-card" id="card-seville" data-city="seville" onclick="focusCity('seville', true)">
+          <!-- 3. Seville Plasma Research -->
+          <div class="timeline-card" id="card-seville-research" data-city="seville" onclick="focusCity('seville', true)">
             <span class="t-location-badge">Seville, Spain · Univ. of Seville</span>
-            <div class="t-card-role">Research Scientist & Double Degree</div>
-            <div class="t-card-org">University of Seville</div>
-            <div class="t-card-dates">2013 – 2018 (Degree) · Sep 2020 – Apr 2022 (Research)</div>
+            <div class="t-card-role">Plasma Physics Researcher</div>
+            <div class="t-card-org">University of Seville · FAMN Group</div>
+            <div class="t-card-dates">September 2020 – April 2022</div>
             <p class="t-card-desc">
-              Double Degree in Physics & Mathematics (3rd of Class). Theoretical and computational plasma physics on HPC clusters using gyrokinetic theory and MHD simulations. Python particle tracking diagnostics.
+              Theoretical and computational plasma physics on HPC clusters using gyrokinetic theory and MHD simulations. Python particle tracking diagnostics and spectral velocity analysis.
             </p>
+            <div class="t-card-tags">
+              <span>HPC Plasma</span>
+              <span>Gyrokinetics</span>
+              <span>MHD Simulations</span>
+              <span>Particle Tracking</span>
+            </div>
           </div>
 
-          <!-- 2. Marseille -->
+          <!-- 4. Marseille MSc -->
           <div class="timeline-card" id="card-marseille" data-city="marseille" onclick="focusCity('marseille', true)">
             <span class="t-location-badge">Marseille, France · Aix-Marseille Univ</span>
-            <div class="t-card-role">MSc in Plasma & Fusion Physics</div>
+            <div class="t-card-role">MSc Plasma &amp; Fusion Physics</div>
             <div class="t-card-org">Aix-Marseille University</div>
-            <div class="t-card-dates">2019 – 2020</div>
+            <div class="t-card-dates">2019 – 2020 · 1st of Class (15.43/20)</div>
             <p class="t-card-desc">
-              Graduated <strong>1st of Class</strong> (15.43/20). Advanced statistical mechanics, magnetized plasmas, kinetic equations, and computational modeling across European research facilities.
+              Graduated <strong>1st of Class</strong>. Advanced statistical mechanics, magnetized plasmas, kinetic equations, and computational modeling across European research facilities.
             </p>
+            <div class="t-card-tags">
+              <span>1st of Class</span>
+              <span>Fusion Physics</span>
+              <span>Statistical Mechanics</span>
+            </div>
           </div>
 
-          <!-- 1. Bonn / Cologne -->
+          <!-- 5. Bonn Fraunhofer -->
           <div class="timeline-card" id="card-bonn" data-city="bonn" onclick="focusCity('bonn', true)">
             <span class="t-location-badge">Bonn / Cologne, Germany · Fraunhofer FHR</span>
             <div class="t-card-role">Research Scientist · Cognitive Radar</div>
@@ -1988,6 +2173,27 @@
             <p class="t-card-desc">
               Simulated annealing stochastic optimization in MATLAB for non-planar radar antenna design to improve automotive radar directivity.
             </p>
+            <div class="t-card-tags">
+              <span>Cognitive Radar</span>
+              <span>Simulated Annealing</span>
+              <span>MATLAB Optimization</span>
+            </div>
+          </div>
+
+          <!-- 6. Seville Double Degree -->
+          <div class="timeline-card" id="card-seville-degree" data-city="seville" onclick="focusCity('seville', true)">
+            <span class="t-location-badge">Seville, Spain · Double Degree</span>
+            <div class="t-card-role">Double Degree: BSc Math &amp; BSc Physics</div>
+            <div class="t-card-org">University of Seville</div>
+            <div class="t-card-dates">2013 – 2018 · 3rd of Class in Both</div>
+            <p class="t-card-desc">
+              Completed rigorous 5-year simultaneous double degree. Ranked <strong>3rd of Class in Mathematics (8.28)</strong> and <strong>3rd of Class in Physics (8.35)</strong>. Classical mechanics, abstract algebra, numerical analysis, differential geometry.
+            </p>
+            <div class="t-card-tags">
+              <span>BSc Math (8.28)</span>
+              <span>BSc Physics (8.35)</span>
+              <span>3rd of Class</span>
+            </div>
           </div>
 
         </div>
@@ -2362,7 +2568,11 @@
         if (modalId === 'modal-trajectory') {
           setTimeout(() => {
             initMap();
-          }, 150);
+            if (map) {
+              map.invalidateSize();
+              map.fitBounds([[35.8, -8.0], [52.2, 10.5]], { padding: [15, 15] });
+            }
+          }, 180);
         }
       }
     }
@@ -2576,6 +2786,7 @@
         markers[city.key] = marker;
       });
 
+      map.fitBounds([[35.8, -8.0], [52.2, 10.5]], { padding: [15, 15] });
       mapInitialized = true;
     }
 
@@ -2598,9 +2809,10 @@
 
     function highlightTimelineCard(cityKey) {
       document.querySelectorAll('.timeline-card').forEach(c => c.classList.remove('highlight'));
-      const activeCard = document.querySelector(`.timeline-card[data-city="${cityKey}"]`);
-      if (activeCard) {
-        activeCard.classList.add('highlight');
+      const activeCards = document.querySelectorAll(`.timeline-card[data-city="${cityKey}"]`);
+      activeCards.forEach(c => c.classList.add('highlight'));
+      if (activeCards.length > 0) {
+        activeCards[0].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
     }
 

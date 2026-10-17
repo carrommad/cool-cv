@@ -397,5 +397,31 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
   - In Day Mode: Crimson lacquer nodes (`#c92a2a`) and delicate connecting lines float with crisp clarity on the `#f7f4ea` Raw Linen canvas.
   - In Night Mode: Honey yellow nodes (`#FEB737`) and telemetry tracks shimmer vividly across the deep ocean navy background (`#111d33`).
 
+### AF. Career & Journey Modal Redesign (Vertical European Map & 2x3 Milestone Grid)
+- **Problem & Geometric Rationale**:
+  - The previous modal layout placed a horizontal 16:9 European map across the full modal width, pushing all experience cards deep below the fold.
+  - Because Carlos's research and academic journey spans Western Europe along a predominantly vertical North-South corridor (Bonn/Cologne at lat ~50.7°N down through Marseille, Barcelona, Pamplona to Seville at lat ~37.4°N — roughly 14° latitude by ~13° longitude), a horizontal aspect ratio caused extensive empty ocean/continental space to the west and east.
+- **Top Showcase Tier: Vertical Map & Current Position Anchor**:
+  - Replaced the wide top banner with a balanced 2-column showcase row (`.trajectory-showcase-row` with `1.05fr 0.95fr` grid):
+    - **Left (`.map-showcase-card`)**: Interactive Leaflet trajectory map housed in a tall, dedicated container (`min-height: 290px`, `flex: 1`). The map automatically bounds to Western Europe with `map.fitBounds([[35.8, -8.0], [52.2, 10.5]], { padding: [15, 15] })` and refreshes seamlessly on modal open with `map.invalidateSize()`.
+    - **Right (`#card-bsc-perf`)**: Carlos's active appointment as **Research Support Engineer in the Computer Sciences Performance Team at the Barcelona Supercomputing Center (BSC)** (Oct 2024 – Present). Styled as a featured showcase card with an active pulsing status beacon (`BSC · CURRENT POSITION · OCT 2024 - PRESENT`), rich narrative detail on MareNostrum 5 & LUMI performance analysis, and tech chips (`MareNostrum 5`, `LUMI`, `Paraver / Extrae`, `Slurm`, `Scalability Analysis`).
+- **Bottom Grid: 2 Rows of 3 Milestone Cards (`.timeline-grid-six`)**:
+  - Structured into a clean, symmetrical 2×3 grid of 6 chronological milestone cards beneath a dedicated sub-header divider (`.timeline-section-divider` labeled `"Trajectory Milestones & Academic Degrees"`):
+    - **Row 1**:
+      1. **BSC Fusion Team** (Barcelona, Spain · Jun 2023 – Oct 2025 · HPC Research Engineer · PIC plasma simulation code optimization on MareNostrum 4/5)
+      2. **CENER** (Pamplona, Spain · Apr 2022 – Nov 2022 · Data Scientist · Computational fluid dynamics & meteorological wind energy forecasting)
+      3. **University of Seville Plasma Research** (Seville, Spain · Sep 2020 – Apr 2022 · Plasma Physics Researcher · Neutral Beam Injection simulation for Tokamak reactors)
+    - **Row 2**:
+      4. **Aix-Marseille University** (Marseille & Cadarache, France · Sep 2019 – Sep 2020 · MSc in Plasma Physics & Fusion Energy · **1st of Class** · High Honors)
+      5. **Fraunhofer FHR** (Bonn & Wachtberg, Germany · Jul 2018 – Feb 2019 · Cognitive Radar Researcher · Dual-frequency radar detection & Bayesian DSP)
+      6. **University of Seville Double Degree** (Seville, Spain · Sep 2013 – Sep 2018 · **Double Degree: BSc in Mathematics & BSc in Physics** · **3rd of Class in Both Degrees**)
+- **Interactive Map & Card Synchronization**:
+  - Clicking any city pin on the map triggers `highlightTimelineCard(cityKey)`, which highlights all corresponding cards in the grid (handling multi-appointment cities like Seville and Barcelona seamlessly) and smoothly scrolls the card into viewport.
+  - Clicking any card triggers `flyToCity(cityKey)`, panning and zooming the Leaflet map directly to that European research center.
+- **Responsive Adaptability**:
+  - Modal panel maximum width expanded to `1140px` for optimal 3-column spacing on desktop displays (~340px per card).
+  - Collapses fluidly to 2 columns on tablets (`<= 980px`) and a stacked single-column layout on mobile devices (`<= 860px` and `<= 640px`).
+
+
 
 
