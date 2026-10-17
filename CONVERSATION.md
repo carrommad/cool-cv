@@ -206,6 +206,12 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
 - **Eliminated Intermediary Badges**: Removed the pill badge elements (`CH. 01`, `CH. 02`, `CH. 03`, `CH. 04`) positioned between the oversized chapter numerals and the modernist vector glyph emblems.
 - **Enhanced Visual Rhythm**: Cleaned up the `.card-num-col` layout with an optimized `gap: 8px`, establishing a direct, uncluttered vertical relationship between the bold numeral (`01`, `02`, `03`, `04`) and its corresponding modernist Book of Shapes emblem (starburst, stepped diamond matrix, orbital spheres, and editorial quadrant).
 
+### R. Relocated Color Palette Menu to the Footer Dock (Zero Header Collision)
+- **Resolved Header Layout Collision**: Removed the `<select id="palette-select">` from `.hero-controls` in the top bar. This restores ample breathing room for the status badge (`• AVAILABLE FOR RESEARCH & ENGINEERING · BARCELONA, SPAIN`) and keeps the Day/Night toggle and Ambient Audio button anchored cleanly to the right edge with zero collision or wrapping.
+- **Dedicated Footer Dock Placement**: Positioned the palette switcher inside a dedicated, balanced row (`.footer-palette-row`) in `footer.footer-card`, between the primary action buttons (`.footer-actions-row`) and the repository metadata (`.footer-meta-row`).
+- **Balanced Symmetry**: Features a subtle label (`Dossier Color Palette`) with a live swatch indicator dot on the left, and the styled scrolldown selector flush to the right edge, seamlessly accessible alongside the download and social actions.
+
+
 
 
 
