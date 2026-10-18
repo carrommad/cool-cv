@@ -901,6 +901,12 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
   - Clicking on the dark backdrop outside the cinema dialog smoothly closes the overlay.
   - Closing Modal 03 automatically pauses and closes Cinema Mode if open.
 
+### BW. Synchronized Pipa-Music-Ball Telemetry Dashboard Showcase to GitHub
+- **Synchronization**:
+  - Switched repository remote in `c:\Users\cromero\Desktop\pipa-music-ball` to SSH (`git@github.com:carrommad/pipa-music-ball.git`), matching the user's authenticated SSH setup.
+  - Pushed unpushed commits (`fd4d4f9` and `e1f22bd`) to `origin/main`.
+  - The live application screenshot (`gallery/telemetry_dashboard.png`) and hardware prototype showcase (`gallery/sphere_prototype.jpg`) are now fully published and visible on the public GitHub `README.md` ([carrommad/pipa-music-ball](https://github.com/carrommad/pipa-music-ball)).
+
 
 
 
