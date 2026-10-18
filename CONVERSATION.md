@@ -587,5 +587,10 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
     - Particle visualizer: dynamically updates its color scheme (`[201, 42, 42]` crimson stardust in Day Mode, `[254, 183, 55]` amber stardust in Night Mode).
   - Preserves manual interaction: Clicking `toggleThemeBW()` smoothly toggles between Day Mode and Night Mode at any time.
 
+### AT. Pure English Status Badge for Current Position
+- **Adjustment**: Removed the Spanish prefix `POSICIÓN ACTUAL · ` from the status pill (`.current-role-badge`) above Carlos's active BSC Performance Team appointment in [index.html](file:///c:/Users/cromero/Desktop/cool-cv/index.html#L2190-L2193).
+- **Result**: Badge now displays strictly `● CURRENT POSITION` (uppercase via CSS `text-transform: uppercase`), creating a uniform, professional English presentation across the entire dossier.
+
+
 
 
