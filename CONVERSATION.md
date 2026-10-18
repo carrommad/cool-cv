@@ -560,5 +560,14 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
   4. **Lens & Motion — AE Lab**:
      - Selected an atmospheric landscape exploring architectural light geometry and sunbeam dynamics (`P1040251.JPG`) from Carlos's photography catalog, optimized as `assets/photos/lens_motion.jpg`.
 
+### AR. Social Actions Positioning (GitHub then LinkedIn on the Far Right)
+- **Reordering**: Moved the **LinkedIn** button to the far right of `.footer-actions-right`, immediately following **GitHub**.
+- **Final Action Buttons Hierarchy (Left to Right)**:
+  1. `[ ✉ Email ]` (Solid Sumi lacquer crimson primary button, leading position on the left)
+  2. `[ ⤓ Download CV PDF ]` (Secondary outlined button)
+  3. `[ 📄 Cover Letter PDF ]` (Secondary outlined button with schematic document sheet icon)
+  4. `[ 🐙 GitHub ]` (Secondary outlined social link)
+  5. `[ 💼 LinkedIn ]` (Secondary outlined social link, docked on the far right)
+
 
 
