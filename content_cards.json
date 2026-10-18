@@ -16,10 +16,8 @@
       "Creative Computing"
     ],
     "bio": [
-      "Double degree in Physics & Mathematics. Scientific software optimization for nuclear and climate.",
-      "Data analytics for wind turbine predictive maintenance.",
-      "Physical simulation for cognitive radar.",
-      "Creative prototyping."
+      "Nuclear Physics & Advanced Mathematics. Scientific software optimization for nuclear and climate. Data analytics for wind turbine predictive maintenance.",
+      "Physical simulation for cognitive radar. Creative prototyping."
     ]
   },
   "cards": [
@@ -60,7 +58,7 @@
       "tag": "Vision & Statement",
       "period": "Addressed to Fernando Cucchietti",
       "title": "Cover Letter to DAV Group",
-      "description": "Strategic application statement addressed to the Data Analytics & Visualization Group at BSC-CNS: proposing to bridge petascale supercomputing with Domestic Data Streamers design philosophy to democratize science through emotional, tangible experiences.",
+      "description": "Hi DAV team! This is my honest cover letter, probably the least assited AI thing I have done in my spare time apart from painting and playing music. Hope it gives you a real idea about my interests.",
       "action_text": "Read Full Application Letter →"
     }
   ],

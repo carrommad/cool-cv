@@ -475,3 +475,90 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
   - **Dynamic Hydration**: Wired to `content.json` (`header.roles[0..2]`) with automatic live updates and offline fallback.
   - **Kinetic Oscillation Safety**: Preserved nonperiodic harmonic superposition oscillation ($\phi, \sqrt{2}, \sqrt{3}$) for the 3 name lines with smooth baseline scale boundaries (0.94x to 1.35x).
   - **Responsive Design**: Maintained right alignment on mobile with responsive clamp scaling (`clamp(11.5px, 1.35vw, 14.5px)`) preventing overflow.
+
+### AK. Standardized Modal Color System (Day & Night Modes)
+- **Objective**: Standardize color styling across all four interactive modals (Career & Journey, Education & Skills, Creative Computing, Cover Letter) to seamlessly reflect the main view's Day Mode (**Crimson & Raw Linen**) and Night Mode (**Deep Blue & Glacial Salt**), removing hardcoded hex overrides and unifying the nested card experience.
+- **Unified Semantic Token Mapping**:
+  - Modal Canvas (`.modal-panel`, `.modal-header`): `var(--bw-surface)` and `var(--bw-border)`.
+  - Nested Inset Cards (`.sub-card`, `.project-box`, `.current-showcase-card`, `.letter-container`): Standardized to `var(--bw-surface-sunken)` with `var(--bw-border-subtle)` at rest.
+  - Hover States: Illuminated with primary accent `var(--bw-border)` and `var(--bw-surface-hover)`.
+  - Badges & Pills (`.proj-badge`, `.pill`, `.current-chip`, `.current-role-badge`): Fully bound to token variables (`var(--bw-pill-bg)`, `var(--bw-pill-text)`, `var(--bw-btn-bg)`), eliminating hardcoded `#FEB737` in day mode.
+  - Typography & Headings: `var(--bw-text)` for titles, `var(--bw-border)` for highlights, letter subject, dates, and callout quotes.
+  - Leaflet Map Synchronization: Custom marker pins (`.custom-map-marker`), route dashed paths (`path.leaflet-route-core`), and popup cards (`.leaflet-popup-content-wrapper`) dynamically adapt to the active theme palette via CSS tokens.
+  - Custom Themed Scrollbars: Implemented sleek `-webkit-scrollbar` and standard `scrollbar-color` rules for `.modal-scroll-body` using `var(--bw-border-subtle)` and `var(--bw-surface-sunken)`.
+
+### AL. High-Precision Country Masks & Default Zoom Matching Overview Pic
+- **Objective**: Calibrate default Leaflet map zoom and geographic country masks in **Modal 01 (Career & Journey)** to match the exact overview perspective provided by the user, ensuring all 5 cities are naturally enclosed within authentic country boundaries.
+- **Accurate Geographic Boundaries**:
+  - Replaced rough 15-20 point approximations with high-precision geographic contour rings for **Spain** (51 points), **France** (48 points), and **Germany** (58 points).
+  - Spain's mask strictly follows the Portuguese border ("La Raya"), Pyrenees, and Atlantic/Mediterranean coastlines.
+  - France's mask accurately outlines Brittany, Normandy, the English Channel, Pyrenees, Alps, and Mediterranean Côte d'Azur.
+  - Germany's mask accurately reflects its frontiers with Denmark, the Baltic/North Seas, Poland, Czechia, Austria, Switzerland, France, Benelux, and Netherlands.
+  - Verified via point-in-polygon tests that all 5 cities (**Bonn** [50.74, 7.10] in DEU, **Marseille** [43.30, 5.37] in FRA, **Seville** [37.39, -5.98] in ESP, **Pamplona** [42.81, -1.65] in ESP, **Barcelona** [41.39, 2.17] in ESP) reside completely within their respective national boundaries.
+- **Calibrated Default Zoom & Viewport**:
+  - Set default map viewport to `center: [45.0, 3.5]`, `zoom: 4`.
+  - Replaced restrictive `fitBounds([[35.8, -8.0], [52.2, 10.5]])` with `resetMapView()` (`map.setView([45.0, 3.5], 4)`), displaying the complete European research corridor from Ireland and the UK down to Gibraltar and North Africa, and from Portugal to Czechia, Austria, and Italy.
+  - Added a clickable `Reset ↺` control in the map header (`<span class="map-hint" onclick="resetMapView()">`) allowing instant re-centering after flying to specific cities.
+
+### AM. Unified Single-Page Editorial PDFs (CV & Cover Letter)
+- **Problem Addressed**: The earlier 4-quadrant / 4-box layout broke narrative flow in the Cover Letter and cramped the scientific trajectory and technical stacks in the CV into rigid square cards.
+- **New Editorial Architecture**:
+  - **Aesthetic Alignment with Web Day Mode**:
+    - **Raw Washi Linen Canvas** (`#f7f4ea`) base.
+    - **Sumi Lacquer Crimson** (`#c92a2a`) structural accents, section indicators, and badges.
+    - **Sumi Ink Black** (`#1d1c19`) high-contrast text for pristine typographic legibility.
+    - **Pure White Cards** (`#ffffff`) with subtle structural hairlines (`#ded6c4`) and warm tint accents (`#f2ece0`).
+    - **Modernist Typography**: `Syne 800/900` for bold editorial titles and headers, paired with `JetBrains Mono` for badges, metadata, and technical stacks, and clean sans-serif for comfortable reading.
+  - **Ambient Constellation Background**:
+    - Embedded deterministic SVG constellation network (`viewBox="0 0 1000 1414"`) behind content cards.
+    - Features 88 interconnected celestial nodes and delicate crimson connection hairlines (`rgba(201, 42, 42, 0.10–0.28)` with outer rings), matching the live stardust canvas in `index.html`.
+  - **High-Emphasis Web Design Callout Banner**:
+    - Featured prominently right beneath the header on both CV and Cover Letter.
+    - Dedicated callout card linking directly to `carrommad.github.io/cool-cv` with pill button (`↗`).
+    - Explicitly highlights the live interactive features: *Interactive European Trajectory Map (5 Research Hubs)*, *Real-Time MN5 Telemetry Audio Synthesizer (MNusic)*, and *3D Bio-Kinetic Sensor Visualizer (Pipa-Music-Ball)*.
+  - **Curriculum Vitae Layout (`cv_editorial.html`)**:
+    - **Header**: `CARLOS ROMERO MADRID` (Syne 900), docked role badges (`COMPUTATIONAL PHYSICIST`, `SCIENTIFIC SOFTWARE ENGINEER`, `CREATIVE COMPUTING`), and complete contact info.
+    - **Asymmetric 2-Column Grid**:
+      - **Left Column (60%)**: Chronological research trajectory with current role highlight at BSC Performance Team (DestinationE, ClimateDT, ECLand, MN5), BSC Fusion Team (ALYA MAGNET, MPI/OpenMP/PETSc/oneAPI/OpenACC), CENER (offshore wind data pipelines), Univ. of Seville (plasma physics & particle tracking), and Fraunhofer FHR (cognitive radar).
+      - **Right Column (40%)**: Academic Rigor (Double Degree 3rd of Class, MSc Plasma 1st of Class, MSc Advanced Math), Compute & HPC Stack (MN5, Leonardo, LUMI, Fortran, C++, Python, Slurm, etc.), Creative Computing (MNusic, Pipa-Music-Ball, Expo-Curator), and Spoken Languages.
+      - **Footer**: European Research Route (`Seville → Bonn → Marseille → Pamplona → Barcelona`) + Live Web Dossier URL.
+  - **Cover Letter Layout (`cover_letter_editorial.html`)**:
+    - **Letterhead & Recipient Block**: Addressed to Dr. Fernando Cucchietti & Selection Committee (DAV Group, BSC-CNS).
+    - **Continuous Narrative Flow**: Compelling narrative connecting the hum of MareNostrum 5 with the chime of Pipa-Music-Ball, arguing for data physicalization and science democratization inspired by Domestic Data Streamers.
+    - **3-Pillars Horizontal Strip**: 01 / MNusic Engine (Supercomputing sonification), 02 / Pipa-Music-Ball (Tangible bio-kinetic computing), 03 / Expo-Curator (Open-source spatial exhibition curation).
+    - **Formal Signoff**: Executive signature block and European route footer.
+  - **Compilation Pipeline**:
+    - Compiled via headless Microsoft Edge (`msedge.exe --headless=new --disable-gpu --no-pdf-header-footer --print-to-pdf=...`).
+    - Verified single-page fit: Both `Carlos_Romero_CV.pdf` and `Carlos_Romero_Cover_Letter.pdf` are exactly **1 page** each, synced across root and `pdfs/`.
+
+### AN. Symmetrical Red Divider Border Above Footer Action Buttons
+- **Adjustment**: The dividing line above the footer buttons (`Download CV PDF`, `Cover Letter PDF`, `Email`, `LinkedIn`, `GitHub`) in `index.html` was previously set to `1.5px solid var(--bw-border-subtle)` (subtle beige).
+- **Alignment**: Updated `footer.footer-card` to `border-top: 2px solid var(--bw-border);`, perfectly matching the primary Sumi lacquer crimson red divider (`border-bottom: 2px solid var(--bw-border);`) between the hero header and Card 01. This creates a clean, harmonious top-and-bottom framing for the 4 interactive cards.
+
+### AO. Footer Action Buttons Hierarchy & Primary Emphasis
+- **Adjustment**: Moved the **Email** button to the leading position on the left, styled in primary filled Sumi lacquer crimson (`btn-hero btn-hero-primary`).
+- **Secondary PDF Buttons**: Reverted both **Download CV PDF** and **Cover Letter PDF** to secondary outline styling (`btn-hero btn-hero-secondary`), keeping the primary red call-to-action focused on direct contact while keeping PDF downloads clean and uncluttered.
+
+### AP. Distinct Schematic Sheet Icon for Cover Letter
+- **Icon Differentiation**: Replaced the envelope SVG on the **Cover Letter PDF** button with a classic folded-corner schematic document sheet icon featuring horizontal technical lines (`file-text`):
+  - **Email Button**: Preserves the primary envelope icon (`M4 4h16c1.1... polyline points="22,6 12,13 2,6"`).
+  - **Download CV PDF**: Uses the vertical downward arrow into a tray (`polyline points="7 10 12 15 17 10"`).
+  - **Cover Letter PDF**: Uses the technical schematic document sheet with a top-right dog-ear fold and content hairlines (`M14 2H6... polyline points="14 2 14 8 20 8"`), providing instant visual distinction.
+
+### AQ. Authentic Project Imagery from Repositories (Modal 03: Creative Computing)
+- **Authentic Sourcing Across Repositories**:
+  1. **MNusic — Sonifying MN5 & LUMI**:
+     - Fetched the authentic `screenshot.png` directly from [`carrommad/mnusic`](https://github.com/carrommad/mnusic) on GitHub (referenced in its `README.md`).
+     - Stored as `assets/photos/mnusic_dashboard.png` (461 KB), displaying the live cluster telemetry engine, Web Audio parameters, and continuous node flow canvas.
+  2. **Pipa-Music-Ball (Live Web App Screenshot)**:
+     - Opened the live web application (`pipa-music-ball/visualizer.html`) and captured an authentic high-resolution screenshot displaying the 3D Cavalier trajectory projections, 3 synchronized orthogonal slices (XY, XZ, YZ), numeric vector telemetry, and 4-channel neon oscilloscopes.
+     - Updated [`c:\Users\cromero\Desktop\pipa-music-ball\README.md`](file:///c:/Users/cromero/Desktop/pipa-music-ball/README.md) to showcase `gallery/telemetry_dashboard.png`.
+     - In the Web CV (`index.html`), replaced the former 2-image grid with **strictly only this live screenshot** (`assets/photos/pipa_telemetry_live.png`), exactly as instructed.
+  3. **Expo-Curator Studio**:
+     - Extracted `documentation/screenshots/exhibition_wall_studio.png` from [`c:\Users\cromero\Desktop\expo`](file:///c:/Users/cromero/Desktop/expo) (referenced in `expo/README.md`).
+     - Stored as `assets/photos/expo_wall_studio.png`, showcasing the metric spatial gallery staging engine with framed artworks hung to scale.
+  4. **Lens & Motion — AE Lab**:
+     - Selected an atmospheric landscape exploring architectural light geometry and sunbeam dynamics (`P1040251.JPG`) from Carlos's photography catalog, optimized as `assets/photos/lens_motion.jpg`.
+
+
+
