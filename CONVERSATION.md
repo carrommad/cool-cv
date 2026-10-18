@@ -762,6 +762,15 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
   - **Mobile Invariance**: Maintained `position: static` on mobile (`max-width: 860px`), allowing standard in-flow page scrolling without unexpected fading.
 - **Files Modified**: [index.html](file:///c:/Users/cromero/Desktop/cool-cv/index.html#L452-L470).
 
+### BN. Equispaced Vertical Rhythm for Hero Bio
+- **Issue**: In `.hero-bio`, the first sentence wrapped naturally across 2 lines governed by `line-height: 1.55`. The second span (`"Physical simulation for cognitive radar. Creative prototyping."`) was styled as a flex item under `.hero-bio { display: flex; flex-direction: column; gap: 3px; }`. This added an extra 3px between line 2 and line 3, causing uneven line-to-line spacing.
+- **Solution — 100% Equispaced Flow**:
+  - Replaced the flex container and `gap: 3px` with standard block flow: `.hero-bio { display: block; line-height: 1.55; }`.
+  - Configured `.hero-bio-line { display: block; margin: 0; padding: 0; line-height: inherit; }`.
+  - Every single line in the bio now shares the exact same baseline-to-baseline vertical cadence (`1.55 * 12.8px = 19.84px`), completely eliminating the uneven jump between line 2 and line 3 regardless of soft text wrapping or span divisions.
+- **Files Modified**: [index.html](file:///c:/Users/cromero/Desktop/cool-cv/index.html#L766-L782).
+
+
 
 
 
