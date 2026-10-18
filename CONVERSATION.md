@@ -667,6 +667,15 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
 - **Playback Safety**:
   - Updated `closeSectionModal()` so any active video playback automatically pauses whenever the modal closes (via button, backdrop click, or ESC key), preventing background audio leakage.
 
+### BB. Removal of Redundant Inline GitHub Links in Project Descriptions
+- **Requirement**: Remove raw `(github.com/carrommad/...)` text from project descriptions, as each card already features a dedicated GitHub action button directly below its media preview.
+- **Updates Applied**:
+  - **Modal 03 (Expo-Curator Studio)**: Cleaned description paragraph in [index.html](file:///c:/Users/cromero/Desktop/cool-cv/index.html#L2562-L2566) to:
+    `"Open-source spatial staging and publication application for automated image sub-classification, booklet design, and 2D/3D gallery wall staging for curators and museum exhibitions."`
+  - **Modal 04 & Standalone Cover Letters**: Cleaned `Expo-Curator` bullet points across [index.html](file:///c:/Users/cromero/Desktop/cool-cv/index.html#L2674-L2678), `cover_letter.html`, `cover_letter_editorial.html`, `cover_letter_quadrants.html`, and `cv_pastel_boxes.html`, standardizing titles to `Expo-Curator Studio — Spatial Staging & Visual Analytics`.
+  - **PDF Compilers**: Updated [scripts/generate_cv_pdf.py](file:///c:/Users/cromero/Desktop/cool-cv/scripts/generate_cv_pdf.py) and [scripts/generate_cover_letter_pdf.py](file:///c:/Users/cromero/Desktop/cool-cv/scripts/generate_cover_letter_pdf.py) with portable paths and regenerated [Carlos_Romero_CV.pdf](file:///c:/Users/cromero/Desktop/cool-cv/Carlos_Romero_CV.pdf) and [Carlos_Romero_Cover_Letter.pdf](file:///c:/Users/cromero/Desktop/cool-cv/Carlos_Romero_Cover_Letter.pdf).
+
+
 
 
 

@@ -5,7 +5,8 @@ from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, HRFlowable
 
 def generate_cv_pdf():
-    pdf_filename = "/home/cromero/Desktop/cool-cv/Carlos_Romero_CV.pdf"
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    pdf_filename = os.path.join(base_dir, "Carlos_Romero_CV.pdf")
     doc = SimpleDocTemplate(
         pdf_filename,
         pagesize=A4,
@@ -189,7 +190,7 @@ def generate_cv_pdf():
             Paragraph("EXHIBITION DESIGN • GITHUB", proj_tag_style)
         ],
         [
-            Paragraph("• Open-source studio application for image curation, automated sub-classification, booklet design, and exhibition wall staging (<a href='https://github.com/carrommad/expo-curator' color='#6366f1'>github.com/carrommad/expo-curator</a>).<br/>• Streamlines spatial narrative organization and print-ready editorial catalogs for cultural spaces, science centers, and multidisciplinary exhibitions.", body_style),
+            Paragraph("• Open-source studio application for image curation, automated sub-classification, booklet design, and exhibition wall staging.<br/>• Streamlines spatial narrative organization and print-ready editorial catalogs for cultural spaces, science centers, and multidisciplinary exhibitions.", body_style),
             ""
         ],
         [

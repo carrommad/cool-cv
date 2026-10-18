@@ -5,7 +5,8 @@ from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, HRFlowable
 
 def generate_cover_letter():
-    pdf_filename = "/home/cromero/Desktop/cool-cv/Carlos_Romero_Cover_Letter.pdf"
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    pdf_filename = os.path.join(base_dir, "Carlos_Romero_Cover_Letter.pdf")
     doc = SimpleDocTemplate(
         pdf_filename,
         pagesize=A4,
@@ -155,7 +156,7 @@ def generate_cover_letter():
     story.append(Spacer(1, 4))
     
     story.append(Paragraph(
-        "• <b>Expo-Curator (Exhibition & Booklet Design Studio — github.com/carrommad/expo-curator):</b> An open-source application for automated image sub-classification, catalog booklet design, and exhibition wall staging.",
+        "• <b>Expo-Curator (Exhibition & Booklet Design Studio):</b> An open-source application for automated image sub-classification, catalog booklet design, and exhibition wall staging.",
         bullet_style
     ))
     story.append(Spacer(1, 4))
