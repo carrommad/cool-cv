@@ -1,4 +1,5 @@
 import os
+import json
 from reportlab.lib.pagesizes import A4
 from reportlab.lib import colors
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
@@ -7,20 +8,55 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, Tabl
 def generate_cover_letter():
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     pdf_filename = os.path.join(base_dir, "Carlos_Romero_Cover_Letter.pdf")
+    json_path = os.path.join(base_dir, "cover_letter.json")
+
+    # Load from cover_letter.json if available
+    data = {}
+    if os.path.exists(json_path):
+        try:
+            with open(json_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+        except Exception as e:
+            print(f"Warning: Could not read cover_letter.json: {e}")
+
+    recipient = data.get("recipient", {
+        "to": "The Selection Committee & Group Lead",
+        "group": "Data Analytics and Visualization Group (DAV)",
+        "institution": "Barcelona Supercomputing Center (BSC-CNS)"
+    })
+    subject_text = data.get("subject", "Application to join the Data Analytics and Visualization Group")
+    opening = data.get("opening", "Dear Members of the Data Analytics and Visualization Group,")
+    paragraphs = data.get("paragraphs", [])
+    projects = data.get("projects", [])
+    closing_paragraphs = data.get("closing_paragraphs", [])
+    invitation = data.get("invitation_box", {
+        "title": "Live Interactive Portfolio & Sound Installation",
+        "text": "Explore real-time MN5 telemetry sonification, day/night audio crossfader, and video cinema mode at:",
+        "url": "https://carrommad.github.io/cool-cv/",
+        "url_display": "carrommad.github.io/cool-cv"
+    })
+    signoff = data.get("signoff", {
+        "greeting": "Warm regards,",
+        "name": "Carlos Romero Madrid",
+        "title": "Computational Physicist · HPC Scientific Software Engineer (BSC)",
+        "contact": "carrommad@gmail.com · carlos.romero@bsc.es · +34 611 423 133",
+        "web_url": "https://carrommad.github.io/cool-cv/"
+    })
+
     doc = SimpleDocTemplate(
         pdf_filename,
         pagesize=A4,
-        rightMargin=40,
-        leftMargin=40,
-        topMargin=34,
-        bottomMargin=34
+        rightMargin=38,
+        leftMargin=38,
+        topMargin=32,
+        bottomMargin=30
     )
     
     styles = getSampleStyleSheet()
     
-    # Custom Palette
+    # Palette
     C_PRIMARY = colors.HexColor("#0f172a")
-    C_ACCENT = colors.HexColor("#6366f1")
+    C_ACCENT = colors.HexColor("#4f46e5")
     C_SECONDARY = colors.HexColor("#475569")
     C_TEXT = colors.HexColor("#1e293b")
     
@@ -28,27 +64,18 @@ def generate_cover_letter():
         'CoverName',
         parent=styles['Normal'],
         fontName='Helvetica-Bold',
-        fontSize=22,
-        leading=26,
+        fontSize=21,
+        leading=25,
         textColor=C_PRIMARY
-    )
-    
-    sub_style = ParagraphStyle(
-        'CoverSub',
-        parent=styles['Normal'],
-        fontName='Helvetica-Bold',
-        fontSize=10,
-        leading=14,
-        textColor=C_ACCENT
     )
     
     meta_style = ParagraphStyle(
         'CoverMeta',
         parent=styles['Normal'],
         fontName='Helvetica',
-        fontSize=9,
-        leading=13,
-        alignment=2, # Right align
+        fontSize=8.5,
+        leading=12.2,
+        alignment=2,
         textColor=C_SECONDARY
     )
     
@@ -56,8 +83,8 @@ def generate_cover_letter():
         'CoverTo',
         parent=styles['Normal'],
         fontName='Helvetica',
-        fontSize=10,
-        leading=14,
+        fontSize=9.2,
+        leading=13.2,
         textColor=C_TEXT
     )
     
@@ -65,8 +92,8 @@ def generate_cover_letter():
         'CoverSubject',
         parent=styles['Normal'],
         fontName='Helvetica-Bold',
-        fontSize=11,
-        leading=15,
+        fontSize=10.5,
+        leading=14.5,
         textColor=C_PRIMARY
     )
     
@@ -74,20 +101,29 @@ def generate_cover_letter():
         'CoverBody',
         parent=styles['Normal'],
         fontName='Helvetica',
-        fontSize=9.8,
-        leading=14.5,
+        fontSize=9.2,
+        leading=13.6,
         textColor=C_TEXT,
-        alignment=4 # Justify
+        alignment=4 # Justified
     )
     
     bullet_style = ParagraphStyle(
         'CoverBullet',
         parent=styles['Normal'],
         fontName='Helvetica',
-        fontSize=9.5,
-        leading=14,
+        fontSize=9.0,
+        leading=13.2,
         textColor=C_TEXT,
-        leftIndent=14
+        leftIndent=12
+    )
+
+    callout_style = ParagraphStyle(
+        'CoverCallout',
+        parent=styles['Normal'],
+        fontName='Helvetica',
+        fontSize=8.6,
+        leading=12.6,
+        textColor=C_TEXT
     )
     
     story = []
@@ -95,11 +131,11 @@ def generate_cover_letter():
     # Header Table
     header_data = [
         [
-            Paragraph("<b>Carlos Romero Madrid</b><br/><font color='#6366f1' size=9><b>Computational Physicist • HPC Software Engineer • Creative Technologist</b></font>", name_style),
-            Paragraph("<b>carrommad@gmail.com</b><br/>+34 611 423 133 • Barcelona<br/><font color='#6366f1'><b><link href=\"https://carrommad.github.io/cool-cv/\">🌐 carrommad.github.io/cool-cv</link></b></font><br/>October 2026", meta_style)
+            Paragraph("<b>Carlos Romero Madrid</b><br/><font color='#4f46e5' size=8.8><b>Computational Physicist • HPC Software Engineer • Creative Technologist</b></font>", name_style),
+            Paragraph(f"<b>carrommad@gmail.com</b><br/>+34 611 423 133 • Barcelona<br/><font color='#4f46e5'><b><link href='{invitation.get('url', 'https://carrommad.github.io/cool-cv/')}'>🌐 {invitation.get('url_display', 'carrommad.github.io/cool-cv')}</link></b></font><br/>October 2026", meta_style)
         ]
     ]
-    t = Table(header_data, colWidths=[310, 200])
+    t = Table(header_data, colWidths=[315, 204])
     t.setStyle(TableStyle([
         ('VALIGN', (0,0), (-1,-1), 'TOP'),
         ('BOTTOMPADDING', (0,0), (-1,-1), 0),
@@ -108,106 +144,76 @@ def generate_cover_letter():
         ('RIGHTPADDING', (0,0), (-1,-1), 0),
     ]))
     story.append(t)
-    story.append(Spacer(1, 6))
+    story.append(Spacer(1, 5))
     story.append(HRFlowable(width="100%", thickness=1.5, color=C_ACCENT, spaceBefore=2, spaceAfter=8))
     
     # Recipient
-    story.append(Paragraph("<b>To: The Selection Committee & Group Lead</b><br/>Data Analytics and Visualization Group<br/>Barcelona Supercomputing Center (BSC-CNS)", to_style))
-    story.append(Spacer(1, 8))
-    
-    # Subject
-    story.append(Paragraph("<b>Subject: Application to join the Data Analytics and Visualization Group</b>", subject_style))
+    recip_html = f"<b>To: {recipient.get('to', '')}</b><br/>{recipient.get('group', '')}<br/>{recipient.get('institution', '')}"
+    story.append(Paragraph(recip_html, to_style))
     story.append(Spacer(1, 7))
     
-    # Body Paragraphs
-    story.append(Paragraph(
-        "Dear Members of the Data Analytics and Visualization Group,", body_style
-    ))
+    # Subject
+    story.append(Paragraph(f"<b>Subject: {subject_text}</b>", subject_style))
+    story.append(Spacer(1, 6))
+    
+    # Opening
+    story.append(Paragraph(opening, body_style))
     story.append(Spacer(1, 4))
     
-    story.append(Paragraph(
-        "Most resumes begin with a dense list of buzzwords. Let me begin with a sound: the hum of <b>MareNostrum 5</b> computing climate turbulence, or the chime of a motion-sensing sphere when my cat <b>Pipa</b> knocks it across the floor.",
-        body_style
-    ))
-    story.append(Spacer(1, 4))
+    # Paragraphs
+    for p in paragraphs:
+        story.append(Paragraph(p, body_style))
+        story.append(Spacer(1, 4))
     
-    story.append(Paragraph(
-        "As a <b>Computational Physicist</b> (Double Degree Physics & Mathematics, 1st of Class MSc Plasma Physics) and <b>HPC Scientific Software Engineer</b> at BSC, I spend my days parallelizing solvers on Tier-0 supercomputers (MN5, Leonardo, LUMI). Yet my honest conviction is simple: <i>if petabytes of scientific discoveries remain locked behind cold terminal logs and abstract matrices, we have only completed half the mission.</i>",
-        body_style
-    ))
-    story.append(Spacer(1, 4))
+    # Projects
+    for proj in projects:
+        name = proj.get("name", "")
+        tag = proj.get("tag", "")
+        summary = proj.get("summary", "")
+        p_html = f"• <b>{name}</b> ({tag}): {summary}"
+        story.append(Paragraph(p_html, bullet_style))
+        story.append(Spacer(1, 3))
     
-    story.append(Paragraph(
-        "Inspired by <b>Domestic Data Streamers</b>, I treat data as raw physical matter to be touched, heard, and questioned. In my personal studio, I turn this into playful and rigorous reality:",
-        body_style
-    ))
-    story.append(Spacer(1, 4))
+    story.append(Spacer(1, 2))
     
-    story.append(Paragraph(
-        "• <b>MNusic (Sonifying & Visualizing MareNostrum 5 & LUMI):</b> Synaesthetic telemetry engine mapping cluster load, memory pipelines, and thermal gradients into real-time harmonic soundscapes (Web Audio API) and generative particles, letting audiences hear Europe's supercomputing heartbeat.",
-        bullet_style
-    ))
-    story.append(Spacer(1, 3))
-    
-    story.append(Paragraph(
-        "• <b>Pipa-Music-Ball (Bio-Kinetic Physical Computing):</b> Embedded interactive sphere (ESP32, 6-DoF IMU) translating feline kinetic play into microtonal scales. Proof that physical data interfaces can be both scientifically grounded and feline-approved.",
-        bullet_style
-    ))
-    story.append(Spacer(1, 3))
-    
-    story.append(Paragraph(
-        "• <b>Expo-Curator (Exhibition & Booklet Design Studio):</b> An open-source application for automated image sub-classification, catalog booklet design, and exhibition wall staging.",
-        bullet_style
-    ))
-    story.append(Spacer(1, 3))
-    
-    story.append(Paragraph(
-        "• <b>After Effects Lab (Procedural Motion Design):</b> Still photographic composition paired with motion graphics, procedural particle animations, and kinetic video in After Effects to turn static research figures into broadcast-ready visual essays.",
-        bullet_style
-    ))
-    story.append(Spacer(1, 4))
-    
-    story.append(Paragraph(
-        "I build at lightning speed: pairing with Large Language Models allows me to fluidly bridge C++/Fortran HPC kernels, microcontroller firmware, browser audio synthesis, and visual motion graphics.",
-        body_style
-    ))
-    story.append(Spacer(1, 4))
-    
-    story.append(Paragraph(
-        "Following your workshops and tracking your flagship initiatives—such as the urban digital twin modeling of <b>GDU-HPC</b>, the atmospheric narratives of <b>AIR</b>, and climate mobility in <b>REALLOCATE</b>—I see an organic match with my digital twin work at BSC (DestinationE / ClimateDT) and my creative installations. I would be thrilled to join Fernando Cucchietti and the team to co-design the next generation of daring, unforgettable scientific data experiences.",
-        body_style
-    ))
-    story.append(Spacer(1, 4))
+    # Closing Paragraphs
+    for cp in closing_paragraphs:
+        story.append(Paragraph(cp, body_style))
+        story.append(Spacer(1, 4))
 
     # Live Interactive Web Dossier Invitation Box
-    callout_data = [
-        [
-            Paragraph("<font color='#4338ca'><b>🌐 Live Interactive Portfolio & Sound Installation:</b></font> <font color='#1e293b'>I have built an interactive web version of this application featuring real-time MareNostrum 5 telemetry sonification, day/night audio crossfader, and video cinema mode at </font><font color='#4f46e5'><b><link href=\"https://carrommad.github.io/cool-cv/\"><u>https://carrommad.github.io/cool-cv</u></link></b></font>", body_style)
-        ]
-    ]
-    callout_t = Table(callout_data, colWidths=[510])
-    callout_t.setStyle(TableStyle([
-        ('BACKGROUND', (0,0), (-1,-1), colors.HexColor("#f1f5f9")),
+    callout_html = (
+        f"<font color='#4338ca'><b>🌐 {invitation.get('title', 'Live Interactive Portfolio')}:</b></font> "
+        f"{invitation.get('text', '')} "
+        f"<font color='#4f46e5'><b><link href='{invitation.get('url', 'https://carrommad.github.io/cool-cv/')}'>"
+        f"<u>{invitation.get('url_display', 'carrommad.github.io/cool-cv')}</u></link></b></font>"
+    )
+    callout_table = Table([[Paragraph(callout_html, callout_style)]], colWidths=[519])
+    callout_table.setStyle(TableStyle([
+        ('BACKGROUND', (0,0), (-1,-1), colors.HexColor("#f8fafc")),
         ('BOX', (0,0), (-1,-1), 0.75, colors.HexColor("#cbd5e1")),
         ('TOPPADDING', (0,0), (-1,-1), 4),
         ('BOTTOMPADDING', (0,0), (-1,-1), 4),
         ('LEFTPADDING', (0,0), (-1,-1), 8),
         ('RIGHTPADDING', (0,0), (-1,-1), 8),
     ]))
-    story.append(callout_t)
-    story.append(Spacer(1, 6))
-
-    story.append(Paragraph(
-        "Thank you for your time, consideration, and inspiration. I look forward to meeting and brainstorming upcoming projects.",
-        body_style
-    ))
+    story.append(callout_table)
     story.append(Spacer(1, 6))
     
     # Signoff
-    story.append(Paragraph("Warm regards,<br/><br/><b>Carlos Romero Madrid</b><br/><font color='#64748b' size=8.5>Computational Physicist · HPC Scientific Software Engineer (BSC)<br/>carrommad@gmail.com · carlos.romero@bsc.es · +34 611 423 133 · <font color='#6366f1'><link href=\"https://carrommad.github.io/cool-cv/\"><b>carrommad.github.io/cool-cv</b></link></font></font>", to_style))
+    signoff_html = (
+        f"{signoff.get('greeting', 'Warm regards,')}<br/><br/>"
+        f"<b>{signoff.get('name', 'Carlos Romero Madrid')}</b><br/>"
+        f"<font color='#64748b' size=8.5>{signoff.get('title', '')}<br/>"
+        f"{signoff.get('contact', '')} · "
+        f"<font color='#4f46e5'><link href='{signoff.get('web_url', 'https://carrommad.github.io/cool-cv/')}'>"
+        f"<b>{invitation.get('url_display', 'carrommad.github.io/cool-cv')}</b></link></font></font>"
+    )
+    story.append(Paragraph(signoff_html, to_style))
     
     doc.build(story)
-    print("Cover letter generated:", pdf_filename)
+    print("Cover letter generated from cover_letter.json:", pdf_filename)
 
 if __name__ == "__main__":
     generate_cover_letter()
+

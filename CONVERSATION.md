@@ -935,3 +935,16 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
   - Recalibrated margins, table cell paddings, and vertical spacers so both `Carlos_Romero_CV.pdf` and `Carlos_Romero_Cover_Letter.pdf` fit strictly into dense, elegant 1-page documents.
 - **GitHub Main Branch Synchronization**:
   - Fast-forwarded `main` to current branch `felipe-advice` so `main` becomes the primary branch containing all portfolio work, ready for zero-maintenance hosting via GitHub Pages.
+
+### CB. Created Dedicated cover_letter.json & Redesigned Spacious, Attractive 1-Page CV & Cover Letter
+- **Dedicated Cover Letter JSON**:
+  - Created `cover_letter.json` (and `cover_letter.js` for offline fallback) containing structured recipient details, subject, opening, body paragraphs, project pillars with punchy tags/summaries, closing vision, invitation box, and signoff.
+  - Connected `cover_letter.json` to `index.html` via `applyCoverLetterContent()` and `initCoverLetter()` so edits to `cover_letter.json` instantly update the web modal.
+  - Updated `scripts/generate_cover_letter_pdf.py` to read directly from `cover_letter.json`, providing a single unified source of truth for both web and PDF.
+- **Given "Oxygen" to Cover Letter**:
+  - Relaxed line height and spacing across the letter, replacing dense blocks with clear paragraphs and crisp bullet pillars.
+- **Redesigned CV for Maximum Visual Appeal & Breathing Room**:
+  - Restructured the 4 creative projects in `scripts/generate_cv_pdf.py` into a modern **2x2 grid**, saving ~160 points of vertical space while elevating visual balance.
+  - Re-expanded typography (body 8.6pt/12.6pt, headers 11pt, title 21pt) and card padding (6-8pt).
+  - Added a dedicated, stylish **Live Portfolio & Telemetry Synthesizer** callout box at the bottom.
+  - Recompiled both `Carlos_Romero_CV.pdf` and `Carlos_Romero_Cover_Letter.pdf` as strict, gorgeous, spacious **1-page** executive sheets.

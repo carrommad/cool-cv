@@ -21,6 +21,7 @@
 
   <!-- External Content Config (Loads synchronously on file:/// without CORS restrictions) -->
   <script src="content_cards.js"></script>
+  <script src="cover_letter.js"></script>
 
   <style>
     /* =========================================================
@@ -3043,18 +3044,18 @@
             </div>
           </div>
 
-          <div class="letter-recipient">
+          <div class="letter-recipient" id="letter-recipient">
             <strong>To: Fernando Cucchietti & Selection Committee</strong><br>
             Data Analytics and Visualization Group (DAV)<br>
             Barcelona Supercomputing Center (BSC-CNS)
           </div>
 
-          <div class="letter-subject">
-            Application: Scientific Storytelling, Creative Computing & Data Democratization
+          <div class="letter-subject" id="letter-subject">
+            Application to join the Data Analytics and Visualization Group
           </div>
 
-          <div class="letter-body">
-            <p>Dear Fernando and Members of the Data Analytics and Visualization Group,</p>
+          <div class="letter-body" id="letter-body">
+            <p>Dear Members of the Data Analytics and Visualization Group,</p>
 
             <p>
               Most resumes you read probably start with a list of buzzwords. Let me start with a sound: the hum of <strong>MareNostrum 5</strong> calculating climate turbulence, or the gentle chime of a motion-sensing sphere when my cat <strong>Pipa</strong> knocks it across the floor.
@@ -3065,37 +3066,43 @@
             </p>
 
             <p>
-              Like the visionary work of <strong>Domestic Data Streamers (DDS)</strong>, I believe data is not just an analytic output—it is raw material waiting to be felt, touched, and inhabited. Science deserves to be democratized, and that requires making it thrilling, tangible, and emotionally resonant.
-            </p>
-
-            <p>
-              In my personal creative studio, I bridge rigorous physics with experimental media:
+              Inspired by <strong>Domestic Data Streamers</strong>, I treat data as raw physical matter to be touched, heard, and questioned. In my personal studio, I turn this into playful reality:
             </p>
 
             <ul class="letter-pillars-list">
               <li>
-                <strong>MNusic (Listening to & Visualizing MN5 & LUMI):</strong> A live synaesthetic engine that turns supercomputing telemetry into real-time harmonic soundscapes (Web Audio API) and generative particle dynamics. Visitors don't just see a load curve; they hear the harmonic pulse of Europe’s computational engine.
+                <strong>MNusic (HPC Telemetry Sonification):</strong> Translates MareNostrum 5 and LUMI cluster metrics into real-time harmonic soundscapes (Web Audio API) and generative dynamic particles.
               </li>
               <li>
-                <strong>Pipa-Music-Ball (Bio-Kinetic Physical Computing):</strong> An embedded interactive sphere running on an ESP32 and a 6-DoF inertial sensor. When my cat pounces on it, kinetic vectors are converted into microtonal scales. Proving tangible computing can be both scientifically rigorous and playful.
+                <strong>Pipa-Music-Ball (Bio-Kinetic Physical Computing):</strong> Embedded interactive sphere (ESP32, 6-DoF IMU) translating feline kinetic play into microtonal scales—proof that physical data interfaces can be playful and tactile.
               </li>
               <li>
-                <strong>Expo-Curator (Spatial Staging &amp; Visual Analytics):</strong> An open curation platform for automated sub-classification, booklet design, and exhibition wall staging—directly serving the practical spatial needs of galleries and science dissemination centers.
+                <strong>Expo-Curator (Visual Corpus Analytics & Staging):</strong> Open-source application for automated visual curation, catalog design, and exhibition staging for cultural and science spaces.
               </li>
               <li>
-                <strong>After Effects Lab (Motion Design &amp; Visual Essays):</strong> Still photographic composition paired with procedural particle animation, kinetic typography, and motion design in After Effects to turn static research figures into broadcast-ready visual essays.
+                <strong>After Effects Lab (Procedural Motion Design):</strong> Photographic composition paired with procedural motion graphics to turn static scientific figures into broadcast-ready visual essays.
               </li>
             </ul>
 
             <p>
-              My goal is to bring this exact convergence—rigorous HPC physics and mathematical depth paired with creative visual empathy—directly into the <strong>Data Analytics and Visualization Group</strong>. Whether designing interactive digital twins (<strong>GDU-HPC</strong>), communicating urban climate resilience (<strong>AIR / REALLOCATE</strong>), or staging public scientific installations, I am excited to collaborate on experiences that wow visitors and elevate public understanding of science.
+              I build at lightning speed: pairing with Large Language Models allows me to fluidly bridge C++/Fortran HPC kernels, microcontroller firmware, browser audio synthesis, and visual motion graphics.
             </p>
+
+            <p>
+              Following your flagship initiatives—such as the urban digital twin modeling of <strong>GDU-HPC</strong>, atmospheric narratives of <strong>AIR</strong>, and climate mobility in <strong>REALLOCATE</strong>—I see an organic match with my digital twin work at BSC (DestinationE / ClimateDT). I would be thrilled to join Fernando Cucchietti and the team to co-design the next generation of daring, unforgettable scientific data experiences.
+            </p>
+
+            <div style="background:var(--bw-surface-sunken); border:1.5px solid var(--bw-border-subtle); border-radius:10px; padding:16px 20px; margin:22px 0; font-size:14.5px;">
+              <span style="font-weight:800; color:var(--bw-border);">🌐 Live Interactive Portfolio & Sound Installation:</span>
+              Explore real-time MN5 telemetry sonification, day/night audio crossfader, and video cinema mode at:
+              <a href="https://carrommad.github.io/cool-cv/" target="_blank" style="font-weight:700; color:var(--bw-border); text-decoration:underline; margin-left:4px;">carrommad.github.io/cool-cv</a>
+            </div>
           </div>
 
           <div class="letter-signoff">
             <div>
-              <div style="font-weight:700; color:var(--bw-text-muted);">Warm regards,</div>
-              <div style="font-size:18px; font-weight:800; color:var(--bw-text); margin-top:4px;">Carlos Romero Madrid</div>
+              <div id="letter-signoff-greeting" style="font-weight:700; color:var(--bw-text-muted);">Warm regards,</div>
+              <div id="letter-signoff-name" style="font-size:18px; font-weight:800; color:var(--bw-text); margin-top:4px;">Carlos Romero Madrid</div>
             </div>
             <a href="Carlos_Romero_Cover_Letter.pdf" target="_blank" class="btn-hero btn-hero-primary">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
@@ -3419,6 +3426,71 @@
     }
 
     initMainPageContent();
+
+    // ---------------------------------------------------------
+    // COVER LETTER CONTENT HYDRATION (from cover_letter.json / cover_letter.js)
+    // ---------------------------------------------------------
+    function applyCoverLetterContent(data) {
+      if (!data) return;
+      try {
+        const recipEl = document.getElementById('letter-recipient');
+        if (recipEl && data.recipient) {
+          recipEl.innerHTML = `<strong>To: ${data.recipient.to || ''}</strong><br>${data.recipient.group || ''}<br>${data.recipient.institution || ''}`;
+        }
+        const subjEl = document.getElementById('letter-subject');
+        if (subjEl && data.subject) {
+          subjEl.textContent = data.subject;
+        }
+        const bodyEl = document.getElementById('letter-body');
+        if (bodyEl) {
+          let html = '';
+          if (data.opening) html += `<p>${data.opening}</p>`;
+          if (Array.isArray(data.paragraphs)) {
+            data.paragraphs.forEach(p => html += `<p>${p}</p>`);
+          }
+          if (Array.isArray(data.projects) && data.projects.length) {
+            html += '<ul class="letter-pillars-list">';
+            data.projects.forEach(proj => {
+              html += `<li><strong>${proj.name || ''} (${proj.tag || ''}):</strong> ${proj.summary || ''}</li>`;
+            });
+            html += '</ul>';
+          }
+          if (Array.isArray(data.closing_paragraphs)) {
+            data.closing_paragraphs.forEach(p => html += `<p>${p}</p>`);
+          }
+          if (data.invitation_box) {
+            html += `<div style="background:var(--bw-surface-sunken); border:1.5px solid var(--bw-border-subtle); border-radius:10px; padding:16px 20px; margin:22px 0; font-size:14.5px;">
+              <span style="font-weight:800; color:var(--bw-border);">🌐 ${data.invitation_box.title || 'Live Interactive Portfolio'}:</span>
+              ${data.invitation_box.text || ''}
+              <a href="${data.invitation_box.url || '#'}" target="_blank" style="font-weight:700; color:var(--bw-border); text-decoration:underline; margin-left:4px;">${data.invitation_box.url_display || data.invitation_box.url}</a>
+            </div>`;
+          }
+          bodyEl.innerHTML = html;
+        }
+        if (data.signoff) {
+          const sName = document.getElementById('letter-signoff-name');
+          if (sName && data.signoff.name) sName.textContent = data.signoff.name;
+          const sGreet = document.getElementById('letter-signoff-greeting');
+          if (sGreet && data.signoff.greeting) sGreet.textContent = data.signoff.greeting;
+        }
+      } catch (err) {
+        console.warn('Cover letter hydration error:', err);
+      }
+    }
+
+    function initCoverLetter() {
+      if (window.COVER_LETTER_DATA) {
+        applyCoverLetterContent(window.COVER_LETTER_DATA);
+      }
+      if (location.protocol !== 'file:') {
+        fetch('cover_letter.json?v=' + Date.now())
+          .then(r => r.ok ? r.json() : null)
+          .then(d => { if (d) applyCoverLetterContent(d); })
+          .catch(() => {});
+      }
+    }
+
+    initCoverLetter();
 
     // ---------------------------------------------------------
     // COLOR PALETTES SUITE CONTROLLER
