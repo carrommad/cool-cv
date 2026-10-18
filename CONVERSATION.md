@@ -706,6 +706,22 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
 - **Cleanup**: Since After Effects Lab is a standalone motion study video without a public GitHub repository, removed the non-functional bottom button (`● After Effects 2026 Motion Study` / `● After Effects Kinetic Testing`) from [index.html](file:///c:/Users/cromero/Desktop/cool-cv/index.html#L2595-L2605).
 - **Result**: The card now cleanly ends on the video player and caption, avoiding misleading non-interactive button UI elements.
 
+### BH. Generative Ambient Synthesizer: Dual-Engine Mood Crossfader
+- **Problem**: The original audio mood switch bent existing oscillator frequencies via `setTargetAtTime(note, now, 1.8)` and dropped the drone octave, resulting in an abrasive, dissonant glissando/pitch warp whenever Day or Night mode was toggled.
+- **Architectural Solution — Parallel Dual-Engine Crossfader**:
+  - Replaced the single pitch-bending engine with two concurrent sound worlds running through dedicated gain buses (`dayBus` and `nightBus`) into the master compressor.
+  - **Zero Pitch Bending**: Day and Night maintain fixed harmonic tunings. Toggling modes triggers a seamless 3.6-second cinematic linear crossfade between the two buses, creating a smooth acoustic dissolve (like sunrise or sunset).
+- **Day Sound World ("Happier at day")**:
+  - **Harmony**: Radiant C Major 9 Lydian (`C - E - G - B - D - E` over warm C2/C3 fundamental drone).
+  - **Timbre**: Airy 1450 Hz low-pass filter gently modulated by a 0.07 Hz breathing LFO.
+  - **Pings**: Crystalline, sparkling glockenspiel/celesta bell chimes (523 Hz to 1046 Hz) with stereo panning every 2.0 to 3.8 seconds.
+- **Night Sound World ("More nostalgic at night")**:
+  - **Harmony**: Poignant, wistful D Minor 9 (`D - F - A - C - E - A` over deep D2/D1 resonant bass drone).
+  - **Timbre**: Dark, velvety, vintage tape-saturated 420 Hz filter with slow 0.04 Hz tidal breathing.
+  - **Pings**: Distant, warm Rhodes electric piano / soft vibraphone chimes with lingering 2.8s reverberant decay, comfortably spaced every 3.4 to 6.0 seconds.
+- **Master Cleanup**: Added a gentle 0.35s master volume ramp down when stopping audio to eliminate clicks.
+
+
 
 
 

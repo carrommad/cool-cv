@@ -3544,53 +3544,53 @@
 
     // ---------------------------------------------------------
     // GENERATIVE AMBIENT AUDIO SYNTHESIZER (MNusic Web Audio)
-    // Dual Mode: Night (Nocturnal Deep Drone) vs Day (Radiant Shimmer)
+    // Dual-Engine Architectural Crossfader:
+    // Day: Radiant, Joyful C Major 9 Lydian Chimes (sunlit, uplifting)
+    // Night: Wistful, Nostalgic D Minor 9 Nocturne (melancholic, cinematic)
+    // Seamless 3.6s organic crossfade between moods with zero pitch-bending
     // ---------------------------------------------------------
     let audioCtx = null;
     let isPlayingAudio = false;
-    let activeNodes = [];
     let sequenceTimer = null;
     let masterCompressor = null;
-    let droneOsc = null;
-    let droneFilter = null;
-    let padOscs = [];
+    let masterGain = null;
+    let dayBus = null;
+    let nightBus = null;
+    let activeAudioNodes = [];
 
-    const PALETTE_SCALES = {
-      'editorial-day': [329.63, 440, 493.88, 554.37, 659.25, 740.00, 880], // A Major / Lydian
-      'editorial-night': [220, 261.63, 293.66, 329.63, 392.00, 440, 523.25], // A Minor / Dorian
-      'black-silver': [146.83, 220, 293.66, 329.63, 440, 587.33, 659.25], // Industrial D Minor
-      'touareg': [196, 220, 261.63, 293.66, 349.23, 392, 440], // Saharan Desert Pentatonic
-      'cyber-yellow': [233.08, 277.18, 311.13, 370.00, 415.30, 466.16, 554.37], // Cyber Augmented
-      'nordic-pine': [220, 246.94, 277.18, 329.63, 370.00, 440, 493.88], // Nordic Birch Folk
-      'marenostrum': [110, 165, 220, 330, 440, 550, 660], // HPC Supercomputing Overtone
-      'crimson-linen': [261.63, 293.66, 329.63, 392.00, 440, 523.25, 587.33], // Japanese Pentatonic
-      'deep-blue': [220, 246.94, 261.63, 293.66, 329.63, 392.00, 440], // Deep Blue Aeolian
-      'indigo-honey': [220, 277.18, 329.63, 370.00, 440, 493.88, 554.37], // Indigo Twilight Harmonic
-      'lemon-meringue': [261.63, 329.63, 392.00, 440, 523.25, 659.25, 783.99] // Radiant Sun Lydian
-    };
+    // Musical Tunings (Hz)
+    // Day: Radiant C Major 9 (C - E - G - B - D - E) - uplifting, sunny, bright
+    const DAY_PAD_FREQS = [130.81, 261.63, 329.63, 392.00, 493.88, 587.33, 659.25];
+    const DAY_BELL_NOTES = [523.25, 587.33, 659.25, 783.99, 880.00, 1046.50];
 
-    function updateAudioMood(mode, paletteId) {
-      if (!isPlayingAudio || !audioCtx) return;
+    // Night: Nostalgic D Minor 9 (D - F - A - C - E - A) - melancholic, wistful, nocturnal
+    const NIGHT_PAD_FREQS = [73.42, 146.83, 174.61, 220.00, 261.63, 329.63, 440.00];
+    const NIGHT_BELL_NOTES = [220.00, 261.63, 293.66, 349.23, 392.00, 440.00, 523.25];
+
+    function updateAudioMood(mode) {
+      if (!isPlayingAudio || !audioCtx || !dayBus || !nightBus) return;
       const now = audioCtx.currentTime;
-      const pal = paletteId || currentActivePalette || 'crimson-linen';
-      const scale = PALETTE_SCALES[pal] || PALETTE_SCALES['crimson-linen'];
+      const FADE_DUR = 3.6; // 3.6s organic cinematic crossfade
 
       if (mode === 'day') {
-        // DAY / LIGHT MODE
-        if (droneOsc) droneOsc.frequency.setTargetAtTime(110, now, 1.2);
-        if (droneFilter) droneFilter.frequency.setTargetAtTime(750, now, 1.2);
-      } else {
-        // NIGHT / DARK MODE
-        if (droneOsc) droneOsc.frequency.setTargetAtTime(55, now, 1.2);
-        if (droneFilter) droneFilter.frequency.setTargetAtTime(180, now, 1.2);
-      }
+        // Smoothly dissolve Night out, blossom Day in
+        nightBus.gain.cancelScheduledValues(now);
+        nightBus.gain.setValueAtTime(nightBus.gain.value, now);
+        nightBus.gain.linearRampToValueAtTime(0.0, now + FADE_DUR);
 
-      padOscs.forEach((osc, idx) => {
-        const note = scale[idx % scale.length];
-        if (note) {
-          osc.frequency.setTargetAtTime(note, now, 1.8);
-        }
-      });
+        dayBus.gain.cancelScheduledValues(now);
+        dayBus.gain.setValueAtTime(dayBus.gain.value, now);
+        dayBus.gain.linearRampToValueAtTime(1.0, now + FADE_DUR);
+      } else {
+        // Smoothly dissolve Day out, descend into Night nostalgia
+        dayBus.gain.cancelScheduledValues(now);
+        dayBus.gain.setValueAtTime(dayBus.gain.value, now);
+        dayBus.gain.linearRampToValueAtTime(0.0, now + FADE_DUR);
+
+        nightBus.gain.cancelScheduledValues(now);
+        nightBus.gain.setValueAtTime(nightBus.gain.value, now);
+        nightBus.gain.linearRampToValueAtTime(1.0, now + FADE_DUR);
+      }
     }
 
     function toggleMNusicAudio() {
@@ -3598,20 +3598,31 @@
       const label = document.getElementById('audio-btn-label');
 
       if (isPlayingAudio) {
-        if (sequenceTimer) clearInterval(sequenceTimer);
-        activeNodes.forEach(n => {
-          try {
-            if (n.stop) n.stop();
-            if (n.disconnect) n.disconnect();
-          } catch(e) {}
-        });
-        activeNodes = [];
-        padOscs = [];
-        droneOsc = null;
-        droneFilter = null;
+        if (sequenceTimer) clearTimeout(sequenceTimer);
+        sequenceTimer = null;
         isPlayingAudio = false;
         btn.classList.remove('playing');
         label.textContent = 'Ambient Audio';
+
+        if (masterGain && audioCtx) {
+          const now = audioCtx.currentTime;
+          masterGain.gain.cancelScheduledValues(now);
+          masterGain.gain.setValueAtTime(masterGain.gain.value, now);
+          masterGain.gain.linearRampToValueAtTime(0.0001, now + 0.35);
+          setTimeout(() => {
+            activeAudioNodes.forEach(n => {
+              try {
+                if (n.stop) n.stop();
+                if (n.disconnect) n.disconnect();
+              } catch(e) {}
+            });
+            activeAudioNodes = [];
+            dayBus = null;
+            nightBus = null;
+            masterGain = null;
+            masterCompressor = null;
+          }, 400);
+        }
         return;
       }
 
@@ -3626,95 +3637,205 @@
       btn.classList.add('playing');
       label.textContent = 'Playing Audio';
 
-      masterCompressor = audioCtx.createDynamicsCompressor();
-      masterCompressor.threshold.setValueAtTime(-20, audioCtx.currentTime);
-      masterCompressor.knee.setValueAtTime(30, audioCtx.currentTime);
-      masterCompressor.ratio.setValueAtTime(12, audioCtx.currentTime);
-      masterCompressor.attack.setValueAtTime(0.003, audioCtx.currentTime);
-      masterCompressor.release.setValueAtTime(0.25, audioCtx.currentTime);
+      const now = audioCtx.currentTime;
 
-      const masterGain = audioCtx.createGain();
-      masterGain.gain.setValueAtTime(0.24, audioCtx.currentTime);
+      // Master Output Chain
+      masterCompressor = audioCtx.createDynamicsCompressor();
+      masterCompressor.threshold.setValueAtTime(-18, now);
+      masterCompressor.knee.setValueAtTime(25, now);
+      masterCompressor.ratio.setValueAtTime(8, now);
+      masterCompressor.attack.setValueAtTime(0.005, now);
+      masterCompressor.release.setValueAtTime(0.2, now);
+
+      masterGain = audioCtx.createGain();
+      masterGain.gain.setValueAtTime(0.001, now);
+      masterGain.gain.linearRampToValueAtTime(0.22, now + 1.5);
+
       masterCompressor.connect(masterGain);
       masterGain.connect(audioCtx.destination);
-      activeNodes.push(masterGain, masterCompressor);
+      activeAudioNodes.push(masterCompressor, masterGain);
 
-      // Fundamental Drone
+      // Dedicated Day & Night Crossfade Buses
+      dayBus = audioCtx.createGain();
+      nightBus = audioCtx.createGain();
       const isDay = (currentThemeMode === 'day');
-      droneOsc = audioCtx.createOscillator();
-      const droneGain = audioCtx.createGain();
-      droneFilter = audioCtx.createBiquadFilter();
 
-      droneOsc.type = 'sine';
-      droneOsc.frequency.setValueAtTime(isDay ? 110 : 55, audioCtx.currentTime);
-      droneFilter.type = 'lowpass';
-      droneFilter.frequency.setValueAtTime(isDay ? 750 : 180, audioCtx.currentTime);
+      dayBus.gain.setValueAtTime(isDay ? 1.0 : 0.0, now);
+      nightBus.gain.setValueAtTime(isDay ? 0.0 : 1.0, now);
 
-      droneGain.gain.setValueAtTime(0, audioCtx.currentTime);
-      droneGain.gain.linearRampToValueAtTime(0.32, audioCtx.currentTime + 3);
+      dayBus.connect(masterCompressor);
+      nightBus.connect(masterCompressor);
+      activeAudioNodes.push(dayBus, nightBus);
 
-      droneOsc.connect(droneFilter);
-      droneFilter.connect(droneGain);
-      droneGain.connect(masterCompressor);
+      // --- 1. DAY ENGINE: Radiant C Major 9 Lydian ---
+      // Day Master Filter (Airy & Open)
+      const dayFilter = audioCtx.createBiquadFilter();
+      dayFilter.type = 'lowpass';
+      dayFilter.frequency.setValueAtTime(1450, now);
+      dayFilter.Q.setValueAtTime(0.8, now);
+      dayFilter.connect(dayBus);
+      activeAudioNodes.push(dayFilter);
 
-      droneOsc.start();
-      activeNodes.push(droneOsc, droneGain, droneFilter);
+      // Day Slow Breathing LFO (Subtle brightness pulse)
+      const dayLfo = audioCtx.createOscillator();
+      const dayLfoGain = audioCtx.createGain();
+      dayLfo.frequency.setValueAtTime(0.07, now); // ~14 second cycle
+      dayLfoGain.gain.setValueAtTime(220, now);
+      dayLfo.connect(dayLfoGain);
+      dayLfoGain.connect(dayFilter.frequency);
+      dayLfo.start(now);
+      activeAudioNodes.push(dayLfo, dayLfoGain);
 
-      // Harmonic Shimmer Chords matching active palette
-      const currentScale = PALETTE_SCALES[currentActivePalette] || PALETTE_SCALES['crimson-linen'];
-      padOscs = [];
+      // Day Bass Drone (C2 / C3 fundamental warm glow)
+      const dayDrone = audioCtx.createOscillator();
+      const dayDroneGain = audioCtx.createGain();
+      dayDrone.type = 'sine';
+      dayDrone.frequency.setValueAtTime(65.41, now); // C2
+      dayDroneGain.gain.setValueAtTime(0.28, now);
+      dayDrone.connect(dayDroneGain);
+      dayDroneGain.connect(dayFilter);
+      dayDrone.start(now);
+      activeAudioNodes.push(dayDrone, dayDroneGain);
 
-      currentScale.slice(0, 5).forEach((freq, idx) => {
+      // Day Chord Voices (Major 9 Shimmer)
+      DAY_PAD_FREQS.forEach((freq, idx) => {
         const osc = audioCtx.createOscillator();
         const g = audioCtx.createGain();
-        osc.type = idx % 2 === 0 ? 'sine' : 'triangle';
-        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-        osc.detune.setValueAtTime((idx - 2) * 5, audioCtx.currentTime);
+        osc.type = (idx % 2 === 0) ? 'sine' : 'triangle';
+        osc.frequency.setValueAtTime(freq, now);
+        osc.detune.setValueAtTime((idx - 3) * 3.5, now); // Gentle organic chorusing
 
-        g.gain.setValueAtTime(0, audioCtx.currentTime);
-        g.gain.linearRampToValueAtTime(0.065 / 5, audioCtx.currentTime + 4 + idx * 0.5);
+        g.gain.setValueAtTime(0.001, now);
+        g.gain.linearRampToValueAtTime(0.048, now + 2.0 + idx * 0.3);
 
         osc.connect(g);
-        g.connect(masterCompressor);
-        osc.start();
-        activeNodes.push(osc, g);
-        padOscs.push(osc);
+        g.connect(dayFilter);
+        osc.start(now);
+        activeAudioNodes.push(osc, g);
       });
 
+      // --- 2. NIGHT ENGINE: Nostalgic D Minor 9 Nocturne ---
+      // Night Master Filter (Warm, velvety, tape-saturated lowpass)
+      const nightFilter = audioCtx.createBiquadFilter();
+      nightFilter.type = 'lowpass';
+      nightFilter.frequency.setValueAtTime(420, now);
+      nightFilter.Q.setValueAtTime(1.1, now);
+      nightFilter.connect(nightBus);
+      activeAudioNodes.push(nightFilter);
+
+      // Night Deep Tidal LFO (Slow breathing undercurrent)
+      const nightLfo = audioCtx.createOscillator();
+      const nightLfoGain = audioCtx.createGain();
+      nightLfo.frequency.setValueAtTime(0.04, now); // ~25 second wave
+      nightLfoGain.gain.setValueAtTime(80, now);
+      nightLfo.connect(nightLfoGain);
+      nightLfoGain.connect(nightFilter.frequency);
+      nightLfo.start(now);
+      activeAudioNodes.push(nightLfo, nightLfoGain);
+
+      // Night Deep Bass Drone (Sub D2 + A1 fifth for poignant foundation)
+      const nightDrone = audioCtx.createOscillator();
+      const nightDroneGain = audioCtx.createGain();
+      nightDrone.type = 'sine';
+      nightDrone.frequency.setValueAtTime(73.42, now); // D2
+      nightDroneGain.gain.setValueAtTime(0.34, now);
+      nightDrone.connect(nightDroneGain);
+      nightDroneGain.connect(nightFilter);
+      nightDrone.start(now);
+      activeAudioNodes.push(nightDrone, nightDroneGain);
+
+      // Night Chord Voices (Minor 9 Wistfulness)
+      NIGHT_PAD_FREQS.forEach((freq, idx) => {
+        const osc = audioCtx.createOscillator();
+        const g = audioCtx.createGain();
+        osc.type = 'sine'; // pure, mellow, warm vintage tone
+        osc.frequency.setValueAtTime(freq, now);
+        osc.detune.setValueAtTime((idx - 3) * 2.5, now);
+
+        g.gain.setValueAtTime(0.001, now);
+        g.gain.linearRampToValueAtTime(0.052, now + 2.5 + idx * 0.4);
+
+        osc.connect(g);
+        g.connect(nightFilter);
+        osc.start(now);
+        activeAudioNodes.push(osc, g);
+      });
+
+      // --- 3. ORGANIC TELEMETRY PINGS (Day vs Night) ---
       function playTelemetryPing() {
-        if (!isPlayingAudio) return;
-        const scale = PALETTE_SCALES[currentActivePalette] || PALETTE_SCALES['crimson-linen'];
-        const noteFreq = scale[Math.floor(Math.random() * scale.length)];
+        if (!isPlayingAudio || !audioCtx) return;
+        const isDayMode = (currentThemeMode === 'day');
+        const notes = isDayMode ? DAY_BELL_NOTES : NIGHT_BELL_NOTES;
+        const noteFreq = notes[Math.floor(Math.random() * notes.length)];
+        const pingTime = audioCtx.currentTime;
+
         const pingOsc = audioCtx.createOscillator();
         const pingGain = audioCtx.createGain();
         const pingFilter = audioCtx.createBiquadFilter();
+        let panner = null;
+        if (audioCtx.createStereoPanner) {
+          panner = audioCtx.createStereoPanner();
+          const panVal = (Math.random() * 0.8) - 0.4;
+          panner.pan.setValueAtTime(panVal, pingTime);
+        }
 
-        pingOsc.type = (currentThemeMode === 'day') ? 'triangle' : 'sine';
-        pingOsc.frequency.setValueAtTime(noteFreq, audioCtx.currentTime);
-        pingFilter.type = 'bandpass';
-        pingFilter.frequency.setValueAtTime(noteFreq, audioCtx.currentTime);
-        pingFilter.Q.setValueAtTime(currentThemeMode === 'day' ? 3.5 : 2.5, audioCtx.currentTime);
+        if (isDayMode) {
+          // DAY: Crystalline, joyful bell / glockenspiel
+          pingOsc.type = 'triangle';
+          pingOsc.frequency.setValueAtTime(noteFreq, pingTime);
+          pingFilter.type = 'bandpass';
+          pingFilter.frequency.setValueAtTime(noteFreq, pingTime);
+          pingFilter.Q.setValueAtTime(3.8, pingTime);
 
-        const now = audioCtx.currentTime;
-        pingGain.gain.setValueAtTime(0.001, now);
-        pingGain.gain.exponentialRampToValueAtTime(0.10, now + 0.06);
-        pingGain.gain.exponentialRampToValueAtTime(0.0001, now + (currentThemeMode === 'day' ? 1.4 : 2.0));
+          pingGain.gain.setValueAtTime(0.0001, pingTime);
+          pingGain.gain.exponentialRampToValueAtTime(0.09, pingTime + 0.04);
+          pingGain.gain.exponentialRampToValueAtTime(0.0001, pingTime + 1.8);
 
-        pingOsc.connect(pingFilter);
-        pingFilter.connect(pingGain);
-        pingGain.connect(masterCompressor);
+          pingOsc.connect(pingFilter);
+          pingFilter.connect(pingGain);
+          if (panner) {
+            pingGain.connect(panner);
+            panner.connect(dayBus);
+          } else {
+            pingGain.connect(dayBus);
+          }
+          pingOsc.start(pingTime);
+          pingOsc.stop(pingTime + 1.9);
+        } else {
+          // NIGHT: Nostalgic, distant warm Rhodes / soft vibraphone
+          pingOsc.type = 'sine';
+          pingOsc.frequency.setValueAtTime(noteFreq, pingTime);
+          pingFilter.type = 'lowpass';
+          pingFilter.frequency.setValueAtTime(580, pingTime);
+          pingFilter.Q.setValueAtTime(1.2, pingTime);
 
-        pingOsc.start(now);
-        pingOsc.stop(now + 2.2);
+          pingGain.gain.setValueAtTime(0.0001, pingTime);
+          pingGain.gain.exponentialRampToValueAtTime(0.075, pingTime + 0.08); // softer rounded attack
+          pingGain.gain.exponentialRampToValueAtTime(0.0001, pingTime + 2.8); // longer melancholic tail
+
+          pingOsc.connect(pingFilter);
+          pingFilter.connect(pingGain);
+          if (panner) {
+            pingGain.connect(panner);
+            panner.connect(nightBus);
+          } else {
+            pingGain.connect(nightBus);
+          }
+          pingOsc.start(pingTime);
+          pingOsc.stop(pingTime + 2.9);
+        }
       }
 
       function scheduleNextPing() {
         if (!isPlayingAudio) return;
         playTelemetryPing();
-        const nextDelay = Math.random() * 600 + 350;
+        // Spaced out gracefully: Day is brisk and lively (2.0s - 3.8s), Night is contemplative and lingering (3.4s - 6.0s)
+        const isDayMode = (currentThemeMode === 'day');
+        const nextDelay = isDayMode ? (Math.random() * 1800 + 2000) : (Math.random() * 2600 + 3400);
         sequenceTimer = setTimeout(scheduleNextPing, nextDelay);
       }
-      scheduleNextPing();
+      // Start initial ping after warm pad has bloomed
+      sequenceTimer = setTimeout(scheduleNextPing, 2200);
     }
 
     // =========================================================
