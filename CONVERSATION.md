@@ -752,6 +752,17 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
   - [content.json](file:///c:/Users/cromero/Desktop/cool-cv/content.json#L72-L73)
   - [content_cards.js](file:///c:/Users/cromero/Desktop/cool-cv/content_cards.js#L72-L73)
 
+### BM. Rapid Scroll-Driven Fade-Out for Top Status Dock
+- **Issue**: On desktop, the candidate status dock (`.top-status-dock`: *"Interested in Creative Intelligence & Design · Barcelona, Spain"*) was fixed at `top: 24px; right: 32px`. When the user scrolled down, the hero text (`COMPUTATIONAL PHYSICIST / SCIENTIFIC SOFTWARE ENGINEER / CREATIVE COMPUTING`) scrolled up and intersected directly beneath the status dock text.
+- **Solution — Fast Vertical-Space Fade-Out**:
+  - **CSS Transition**: Added `transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1)` and `will-change: opacity, transform` to `.top-status-dock`.
+  - **Scrolled State (`.is-scrolled`)**: At `window.scrollY > 20px` (a short vertical scroll distance of merely ~1 line of text), `.is-scrolled` triggers `opacity: 0`, `pointer-events: none`, and `transform: translateY(-8px)` on desktop (`min-width: 861px`).
+  - **Scroll Restoration**: Scrolling back up (`window.scrollY <= 20px`) immediately restores `opacity: 1` and `transform: translateY(0)`.
+  - **Performance**: Driven via a lightweight `requestAnimationFrame` throttled scroll listener (`initStatusDockScrollFade()`) with `{ passive: true }` to ensure zero layout thrashing or stutter.
+  - **Mobile Invariance**: Maintained `position: static` on mobile (`max-width: 860px`), allowing standard in-flow page scrolling without unexpected fading.
+- **Files Modified**: [index.html](file:///c:/Users/cromero/Desktop/cool-cv/index.html#L452-L470).
+
+
 
 
 
