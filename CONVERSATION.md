@@ -652,6 +652,21 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
     - Image: `assets/photos/expo_analytics_overview.png`
     - Caption: `Visual Corpus Analytics & Multi-Dimensional Telemetry Dashboard`
 
+### BA. Adobe After Effects Video Integration (Lens & Motion — AE Lab)
+- **Source Video**: Retrieved 6K motion study (`graffiti.mp4`, 83.8 MB, 6000x4000) from user's local path:
+  `C:\Users\cromero\Documents\Adobe\After Effects 2026\Projects\graffiti folder\graffiti.mp4`.
+- **Assets Installed**:
+  - Copied video to `assets/videos/graffiti.mp4`.
+  - Extracted and web-optimized opening frame poster: `assets/photos/graffiti_poster.jpg` (1440x960, 279 KB) for instant visual preview with zero initial network overhead.
+- **Project Card 4 (Modal 03: Creative Computing)**:
+  - Replaced static placeholder image with an HTML5 `<video>` player in [index.html](file:///c:/Users/cromero/Desktop/cool-cv/index.html#L2582-L2608):
+    - Native responsive player: `aspect-ratio: 3/2; width: 100%; max-height: 480px; object-fit: contain; background: #000;`.
+    - Features native video controls (`controls`, `playsinline`, `preload="metadata"`), ensuring instant initial load without upfront buffer until played.
+    - Added `.proj-video-wrap` and `.proj-video-cap` styling consistent with dark/light themes.
+    - Updated badge to `Adobe After Effects & Motion Design` and link badge to `● After Effects 2026 Motion Study`.
+- **Playback Safety**:
+  - Updated `closeSectionModal()` so any active video playback automatically pauses whenever the modal closes (via button, backdrop click, or ESC key), preventing background audio leakage.
+
 
 
 

@@ -1664,6 +1664,48 @@
       filter: none;
     }
 
+    .proj-video-wrap {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      display: block;
+      border: 1.5px solid var(--bw-border-subtle);
+      background: #000;
+      transition: all 0.25s ease;
+      width: 100%;
+    }
+    .proj-video-wrap:hover {
+      border-color: var(--bw-border);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+    }
+    .proj-video-wrap video {
+      width: 100%;
+      height: auto;
+      max-height: 480px;
+      display: block;
+      background: #000;
+      aspect-ratio: 3/2;
+      object-fit: contain;
+    }
+    .proj-video-cap {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--bw-text-muted);
+      margin-top: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .proj-video-cap::before {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--bw-text-muted);
+      opacity: 0.7;
+    }
+
     .proj-img-cap {
       position: absolute;
       bottom: 0;
@@ -2540,21 +2582,26 @@
           <!-- Project 4: Lens & Motion -->
           <div class="project-box">
             <div>
-              <span class="proj-badge">Photography &amp; Motion Design</span>
+              <span class="proj-badge">Adobe After Effects &amp; Motion Design</span>
               <h3 class="proj-name">Lens &amp; Motion — AE Lab</h3>
               <p class="proj-desc">
-                Still photography exploring architectural light geometry paired with Adobe After Effects procedural motion design, kinetic type, and particle dynamics for science dissemination and visual storytelling.
+                Graffiti mural art and architectural light geometry brought to life through Adobe After Effects motion design, kinetic overlays, and visual storytelling.
               </p>
             </div>
             <div class="proj-preview-single">
-              <div class="proj-img-wrap" title="Atmospheric Light Geometry &amp; Kinetic Studies">
-                <img src="assets/photos/lens_motion.jpg" alt="Architectural Light Geometry" loading="lazy">
-                <span class="proj-img-cap">Architectural Light Geometry &amp; Motion Design Lab</span>
+              <div class="proj-video-wrap">
+                <video controls preload="metadata" playsinline poster="assets/photos/graffiti_poster.jpg">
+                  <source src="assets/videos/graffiti.mp4" type="video/mp4">
+                  Your browser does not support HTML5 video.
+                </video>
+              </div>
+              <div class="proj-video-cap">
+                Graffiti &amp; Architectural Collage — Adobe After Effects Motion Study
               </div>
             </div>
             <div class="proj-links-row">
               <span class="btn-proj-link" style="cursor:default; opacity:0.85;">
-                ● After Effects Kinetic Testing
+                ● After Effects 2026 Motion Study
               </span>
             </div>
           </div>
@@ -3120,6 +3167,10 @@
       if (modal) {
         modal.classList.remove('active');
         document.body.style.overflow = 'auto';
+        const videos = modal.querySelectorAll('video');
+        videos.forEach(v => {
+          if (!v.paused) v.pause();
+        });
       }
     }
 
