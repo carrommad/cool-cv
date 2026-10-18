@@ -520,7 +520,7 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
     - **Header**: `CARLOS ROMERO MADRID` (Syne 900), docked role badges (`COMPUTATIONAL PHYSICIST`, `SCIENTIFIC SOFTWARE ENGINEER`, `CREATIVE COMPUTING`), and complete contact info.
     - **Asymmetric 2-Column Grid**:
       - **Left Column (60%)**: Chronological research trajectory with current role highlight at BSC Performance Team (DestinationE, ClimateDT, ECLand, MN5), BSC Fusion Team (ALYA MAGNET, MPI/OpenMP/PETSc/oneAPI/OpenACC), CENER (offshore wind data pipelines), Univ. of Seville (plasma physics & particle tracking), and Fraunhofer FHR (cognitive radar).
-      - **Right Column (40%)**: Academic Rigor (Double Degree 3rd of Class, MSc Plasma 1st of Class, MSc Advanced Math), Compute & HPC Stack (MN5, Leonardo, LUMI, Fortran, C++, Python, Slurm, etc.), Creative Computing (MNusic, Pipa-Music-Ball, Expo-Curator), and Spoken Languages.
+      - **Right Column (40%)**: Academic Rigor (Double Degree 3rd of Class, MSc Plasma 1st of Class, MSc Advanced Mathematics), Compute & HPC Stack (MN5, Leonardo, LUMI, Fortran, C++, Python, Slurm, etc.), Creative Computing (MNusic, Pipa-Music-Ball, Expo-Curator), and Spoken Languages.
       - **Footer**: European Research Route (`Seville → Bonn → Marseille → Pamplona → Barcelona`) + Live Web Dossier URL.
   - **Cover Letter Layout (`cover_letter_editorial.html`)**:
     - **Letterhead & Recipient Block**: Addressed to Dr. Fernando Cucchietti & Selection Committee (DAV Group, BSC-CNS).

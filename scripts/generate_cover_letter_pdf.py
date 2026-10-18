@@ -131,7 +131,7 @@ def generate_cover_letter():
     story.append(Spacer(1, 5))
     
     story.append(Paragraph(
-        "As a <b>Computational Physicist</b> (Double Degree Physics & Math, 1st of Class MSc Plasma Physics) and <b>HPC Scientific Software Engineer</b> at BSC, I spend my days parallelizing solvers on Tier-0 supercomputers (MN5, Leonardo, LUMI). Yet my honest conviction is simple: <i>if petabytes of scientific discoveries remain locked behind cold terminal logs and abstract matrices, we have only completed half the mission.</i>",
+        "As a <b>Computational Physicist</b> (Double Degree Physics & Mathematics, 1st of Class MSc Plasma Physics) and <b>HPC Scientific Software Engineer</b> at BSC, I spend my days parallelizing solvers on Tier-0 supercomputers (MN5, Leonardo, LUMI). Yet my honest conviction is simple: <i>if petabytes of scientific discoveries remain locked behind cold terminal logs and abstract matrices, we have only completed half the mission.</i>",
         body_style
     ))
     story.append(Spacer(1, 5))

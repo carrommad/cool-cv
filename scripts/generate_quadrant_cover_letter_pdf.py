@@ -290,7 +290,7 @@ def generate_quadrant_cover_letter():
     c.setFillColor(C_MUTED)
     c.setFont("Helvetica", 7.2)
     c.drawString(x4 + 16, y4 + 30, "Computational Physicist · HPC Scientific Software Engineer (BSC)")
-    c.drawString(x4 + 16, y4 + 20, "Double Degree Physics & Math · MSc Plasma Physics (1st)")
+    c.drawString(x4 + 16, y4 + 20, "Double Degree Physics & Mathematics · MSc Plasma Physics (1st)")
     
     c.setFillColor(P_SKY_TITLE)
     c.setFont("Helvetica-Bold", 7.2)

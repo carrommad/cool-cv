@@ -135,7 +135,7 @@ def generate_cv_pdf():
     
     # 2. Executive Statement
     summary_p = Paragraph(
-        "<b>Profile & Mission:</b> Computational Physicist (Double Degree Physics & Math, 1st of Class MSc Plasma Physics) and HPC Software Engineer at BSC with 5+ years experience. Bridging extreme-scale HPC clusters (MN5, Leonardo, LUMI) with physical computing, generative sound, and narrative data visualization for the <b>democratization of science</b>. Actively pairing with LLMs for high-velocity cross-disciplinary prototyping.",
+        "<b>Profile & Mission:</b> Computational Physicist (Double Degree Physics & Mathematics, 1st of Class MSc Plasma Physics) and HPC Software Engineer at BSC with 5+ years experience. Bridging extreme-scale HPC clusters (MN5, Leonardo, LUMI) with physical computing, generative sound, and narrative data visualization for the <b>democratization of science</b>. Actively pairing with LLMs for high-velocity cross-disciplinary prototyping.",
         summary_style
     )
     story.append(summary_p)
@@ -145,7 +145,7 @@ def generate_cv_pdf():
     hl_data = [
         [
             Paragraph("<b>BSC HPC Engineer</b><br/><font size=7.2 color='#64748b'>MN5, ClimateDT & DestinationE</font>", body_style),
-            Paragraph("<b>Physics & Math</b><br/><font size=7.2 color='#64748b'>Double Degree & Plasma MSc (1st)</font>", body_style),
+            Paragraph("<b>Physics & Mathematics</b><br/><font size=7.2 color='#64748b'>Double Degree & Plasma MSc (1st)</font>", body_style),
             Paragraph("<b>Physical Computing</b><br/><font size=7.2 color='#64748b'>ESP32, 6-DoF IMU & I2S Sonification</font>", body_style),
             Paragraph("<b>Visual Storytelling</b><br/><font size=7.2 color='#64748b'>Expo-Curator, Photo & After Effects</font>", body_style),
         ]
@@ -273,7 +273,7 @@ def generate_cv_pdf():
             ""
         ],
         [
-            Paragraph("<b>Education: Double BSc Physics & Math (8.35 · 3rd) • MSc Plasma (15.43 · 1st)</b>", proj_title_style),
+            Paragraph("<b>Education: Double BSc Physics & Mathematics (8.35 · 3rd) • MSc Plasma (15.43 · 1st)</b>", proj_title_style),
             Paragraph("Univ. Seville • Aix-Marseille • UNED", meta_style)
         ],
         [
