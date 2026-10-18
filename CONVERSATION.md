@@ -569,5 +569,23 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
   4. `[ 🐙 GitHub ]` (Secondary outlined social link)
   5. `[ 💼 LinkedIn ]` (Secondary outlined social link, docked on the far right)
 
+### AS. Dynamic Spain Solar Time Auto-Theme Synchronization (Day / Night Mode)
+- **Objective**: Automatically load the web dossier in **Day Mode** (`theme-crimson-linen`) during daylight hours in Spain and in **Night Mode** (`theme-deep-blue`) during night hours in Spain, using today's sun hours (mid-October: Sunrise ~08:05 CEST, Sunset ~19:08 CEST in Barcelona/Spain) as reference.
+- **Immediate Pre-Render Execution (Zero-Flash Initial Paint)**:
+  - Placed an inline synchronous `<script>` at the absolute top of `<body>` before any UI markup is evaluated or painted.
+  - Queries `Intl.DateTimeFormat` for `'Europe/Madrid'` time:
+    - If `cur >= 8.08 && cur < 19.13`, defaults to Day Mode (`document.body.className = 'theme-crimson-linen'`).
+    - Otherwise (e.g. at 02:38 AM CEST), immediately sets `document.body.className = 'theme-deep-blue'`, preventing any flash of day/light theme.
+- **NOAA Astronomical Solar Calculation Engine**:
+  - Implemented `getSpainSolarTimes(date = new Date())` implementing standard NOAA solar declination and equation-of-time astronomical equations for Spain coordinates (Barcelona / BSC: 41.3879° N, 2.1699° E).
+  - Automatically derives the exact sunrise and sunset decimal hours and formatted time strings (`08:05` and `19:08` CEST for today).
+- **DOM & State Synchronization (`initSolarThemeSync()`)**:
+  - Automatically executes on page load, synchronizing:
+    - Internal state: `currentThemeMode` ('day' / 'night') and `currentActivePalette`.
+    - Theme button label: `#theme-btn-label` dynamically displays `Day Mode` or `Night Mode`.
+    - Button telemetry tooltip: `#btn-theme-toggle` displays `Spain Solar Theme: [Mode] (Sunrise: 08:05, Sunset: 19:08 CEST). Click to toggle Day/Night.`.
+    - Particle visualizer: dynamically updates its color scheme (`[201, 42, 42]` crimson stardust in Day Mode, `[254, 183, 55]` amber stardust in Night Mode).
+  - Preserves manual interaction: Clicking `toggleThemeBW()` smoothly toggles between Day Mode and Night Mode at any time.
+
 
 
