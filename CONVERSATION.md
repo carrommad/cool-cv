@@ -918,29 +918,10 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
   - Updated `changeColorPalette()` to synchronize theme classes on both `document.documentElement` and `document.body`.
   - Verified via CDP: In Night Mode (`deep-blue`), `htmlBg` and `bodyBg` settle to `rgb(17, 29, 51)` (#111d33) with crisp white text and radiant yellow accents.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+### BZ. Removed AI Prototype Render from Pipa-Music-Ball Showcase
+- **Documentation & Asset Cleanup**:
+  - Removed the `## 🔮 The Physical Instrument` section and AI prototype concept image (`gallery/sphere_prototype.jpg`) from `pipa-music-ball/README.md`.
+  - Deleted the image file `gallery/sphere_prototype.jpg` from the repository.
+  - Retained the authentic, real-time telemetry visualizer capture (`gallery/telemetry_dashboard.png` and `gallery/telemetry_dashboard.jpg`) as the dedicated showcase.
+  - Committed (`c1a205d`) and pushed directly to `origin/main` in `pipa-music-ball`.
 
