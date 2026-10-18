@@ -1214,7 +1214,7 @@
     body.theme-marenostrum #europe-leaflet-map .leaflet-tile-pane,
     body.theme-deep-blue #europe-leaflet-map .leaflet-tile-pane,
     body.theme-indigo-honey #europe-leaflet-map .leaflet-tile-pane {
-      filter: grayscale(85%) invert(92%) contrast(125%);
+      filter: grayscale(75%) invert(86%) contrast(102%) brightness(140%);
     }
 
     .custom-map-marker {
@@ -3754,10 +3754,24 @@
     }
 
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initNonperiodicTypography);
+      document.addEventListener('DOMContentLoaded', () => {
+        initNonperiodicTypography();
+        checkInitialModalHash();
+      });
     } else {
       initNonperiodicTypography();
+      checkInitialModalHash();
     }
+
+    function checkInitialModalHash() {
+      if (window.location.hash) {
+        const h = window.location.hash.substring(1);
+        if (document.getElementById(h)) {
+          setTimeout(() => openSectionModal(h), 80);
+        }
+      }
+    }
+    window.addEventListener('hashchange', checkInitialModalHash);
   </script>
 </body>
 </html>

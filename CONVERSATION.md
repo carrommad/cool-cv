@@ -602,6 +602,18 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
   - **Sunken Callouts**: Callouts and notices inside cards (`.letter-recipient`, `.media-dropzone-notice`) use `var(--bw-surface-sunken)` to provide clean inset framing.
 - **Outcome**: The visual hierarchy inside each modal now matches the main page: the background is darker than the cards, and cards stand out with clean, elevated contrast.
 
+### AV. Night Mode Map Brightness & Legibility Optimization
+- **Problem**: In Night Mode (`theme-deep-blue` and other dark palettes), the Leaflet trajectory map in Modal 01 appeared excessively dark and murky due to an aggressive CSS tile filter (`invert(92%) contrast(125%)` with no brightness boost), which crushed low-light luminance down to pitch black and obscured country names and geographic borders.
+- **Adjustment**: Updated the `.leaflet-tile-pane` night-mode filter in [index.html](file:///c:/Users/cromero/Desktop/cool-cv/index.html#L1209-L1218) to:
+  ```css
+  filter: grayscale(75%) invert(86%) contrast(102%) brightness(140%);
+  ```
+- **Result**:
+  - Lifted the base map luminance out of the black void into an illuminated dark slate-navy cartographic style.
+  - Country labels ("GERMANY", "FRANCE", "SPAIN", "ITALY", "AUSTRIA", "CZECHIA", etc.) and territorial borders are now clearly visible and legible.
+  - Preserves luminous contrast for the golden Amber Spain highlight, Sea Breeze France highlight, Violet Germany highlight, and glowing waypoint beacons.
+
+
 
 
 
