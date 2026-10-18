@@ -925,3 +925,13 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
   - Retained the authentic, real-time telemetry visualizer capture (`gallery/telemetry_dashboard.png` and `gallery/telemetry_dashboard.jpg`) as the dedicated showcase.
   - Committed (`c1a205d`) and pushed directly to `origin/main` in `pipa-music-ball`.
 
+### CA. Publicized Live Web Dossier in 1-Page PDFs & Prepared Primary Main Branch for GitHub Pages
+- **Synchronized User Card Copy**:
+  - Preserved user's edits in `content_cards.json` (and synced `content_cards.js` / `content.json`) across Cards 01-04 (including "Vibe coding for playful interaction..." and "Cover Letter" addressed to DAV).
+- **Publicized Interactive Web Portfolio in PDFs**:
+  - Updated both `scripts/generate_cv_pdf.py` and `scripts/generate_cover_letter_pdf.py` with clickable `https://carrommad.github.io/cool-cv/` links in the header metadata banner.
+  - Added dedicated interactive callout strips inviting reviewers to explore the live MareNostrum 5 telemetry synthesizer, audio crossfader, and cinema video lab online.
+  - Added direct action links (`WEB APP ↗`, `GITHUB ↗`, `CINEMA REEL ↗`) for each featured creative project in the CV PDF.
+  - Recalibrated margins, table cell paddings, and vertical spacers so both `Carlos_Romero_CV.pdf` and `Carlos_Romero_Cover_Letter.pdf` fit strictly into dense, elegant 1-page documents.
+- **GitHub Main Branch Synchronization**:
+  - Fast-forwarded `main` to current branch `felipe-advice` so `main` becomes the primary branch containing all portfolio work, ready for zero-maintenance hosting via GitHub Pages.
