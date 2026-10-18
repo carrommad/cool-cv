@@ -721,6 +721,14 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
   - **Pings**: Distant, warm Rhodes electric piano / soft vibraphone chimes with lingering 2.8s reverberant decay, comfortably spaced every 3.4 to 6.0 seconds.
 - **Master Cleanup**: Added a gentle 0.35s master volume ramp down when stopping audio to eliminate clicks.
 
+### BI. Card 01 Action Button Updated to "Open Career & Journey →"
+- **Button Text Update**: Simplified the Card 01 action button from `Explore Interactive Map & Journey →` to **`Open Career & Journey →`** across:
+  - [index.html](file:///c:/Users/cromero/Desktop/cool-cv/index.html#L2079-L2084) (HTML markup & embedded JSON)
+  - [content_cards.json](file:///c:/Users/cromero/Desktop/cool-cv/content_cards.json)
+  - [content.json](file:///c:/Users/cromero/Desktop/cool-cv/content.json)
+  - [content_cards.js](file:///c:/Users/cromero/Desktop/cool-cv/content_cards.js)
+
+
 
 
 
