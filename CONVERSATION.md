@@ -908,7 +908,16 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
 - **Card Click Scope & UX Polish**:
   - Expanded Cinema Mode trigger to the entire `.project-box` container across all 4 Creative Computing cards (MNusic, Pipa-Music-Ball, Expo-Curator, and After Effects Lab) with `cursor: pointer;` and responsive hover feedback.
   - Preserved GitHub button functionality with `event.stopPropagation()` so clicking "View on GitHub" navigates directly to repositories without triggering the media lightbox.
-  - Verified with automated browser CDP tests that clicking cards, titles, and media previews reliably activates the centered Cinema Lightbox with correct assets, high z-index (20,000), and captions.
+### BY. Fixed Night Mode Viewport & Body Background Color Bleed
+- **Root Cause**:
+  - `html` was styled with `background-color: var(--bw-bg)` while `body` had `background-color: transparent`. Because palette variables (`--bw-bg`, etc.) were defined on `body.theme-*`, `html` could not access them and defaulted to `:root`'s light washi paper (`#f7f4ea`).
+  - In Night Mode (`theme-deep-blue`), typography and cards rendered in white and deep blue, but the overall viewport background remained cream/washi paper, causing white text to look ghostly/invisible against a light canvas.
+- **Resolution**:
+  - Attached palette tokens to both `html.theme-*` and `body.theme-*` in CSS so `--bw-bg` and `--bw-text` resolve seamlessly at the root level.
+  - Set `body { background-color: var(--bw-bg); color: var(--bw-text); transition: background-color 0.25s ease, color 0.25s ease; }`.
+  - Updated `changeColorPalette()` to synchronize theme classes on both `document.documentElement` and `document.body`.
+  - Verified via CDP: In Night Mode (`deep-blue`), `htmlBg` and `bodyBg` settle to `rgb(17, 29, 51)` (#111d33) with crisp white text and radiant yellow accents.
+
 
 
 

@@ -60,7 +60,7 @@
     }
 
     /* Editorial Day Palette (Classic High-Contrast B&W) */
-    body.theme-editorial-day {
+    html.theme-editorial-day, body.theme-editorial-day {
       --bw-bg: #ffffff;
       --bw-surface: #ffffff;
       --bw-surface-hover: #f5f5f5;
@@ -85,7 +85,7 @@
     }
 
     /* Night Mode Palette (80% Black Canvas #333333 instead of 100% #000000) */
-    body.theme-night {
+    html.theme-night, body.theme-night {
       --bw-bg: #333333; /* 80% black */
       --bw-surface: #262626;
       --bw-surface-hover: #363636;
@@ -114,7 +114,7 @@
        ========================================================= */
 
     /* Palette 1: Black & Silver (Obsidian & Liquid Chrome) */
-    body.theme-black-silver {
+    html.theme-black-silver, body.theme-black-silver {
       --bw-bg: #0b0c0e;
       --bw-surface: #14161b;
       --bw-surface-hover: #1e2129;
@@ -139,7 +139,7 @@
     }
 
     /* Palette 2: Touareg & Couple of Complementaries (Cobalt, Desert Sand & Terracotta) */
-    body.theme-touareg {
+    html.theme-touareg, body.theme-touareg {
       --bw-bg: #0a1420; /* Deep Saharan Night Indigo */
       --bw-surface: #12243a; /* Touareg Cobalt Blue */
       --bw-surface-hover: #193352;
@@ -164,7 +164,7 @@
     }
 
     /* Palette 3: Yellow & A Complementary (Bauhaus Solar Yellow & Electric Iris Violet) */
-    body.theme-cyber-yellow {
+    html.theme-cyber-yellow, body.theme-cyber-yellow {
       --bw-bg: #0c0d10; /* Deep Carbon Obsidian */
       --bw-surface: #17181f; /* Matte Graphite */
       --bw-surface-hover: #22232d;
@@ -189,7 +189,7 @@
     }
 
     /* Palette 4: Nordic Pine & Copper (LUMI Supercomputing / Finnish Spruce) */
-    body.theme-nordic-pine {
+    html.theme-nordic-pine, body.theme-nordic-pine {
       --bw-bg: #081410; /* Boreal Spruce Forest */
       --bw-surface: #10241c; /* Dark Alpine Pine */
       --bw-surface-hover: #183529;
@@ -214,7 +214,7 @@
     }
 
     /* Palette 5: MareNostrum 5 (Deep Mediterranean Blue & Champagne Gold) */
-    body.theme-marenostrum {
+    html.theme-marenostrum, body.theme-marenostrum {
       --bw-bg: #050e1d; /* Supercomputing Deep Ocean */
       --bw-surface: #0c1b33; /* MareNostrum Cobalt */
       --bw-surface-hover: #132749;
@@ -239,7 +239,7 @@
     }
 
     /* Palette 6: Crimson & Raw Linen (Japanese Editorial Warm Paper) */
-    body.theme-crimson-linen {
+    html.theme-crimson-linen, body.theme-crimson-linen {
       --bw-bg: #f7f4ea; /* Raw Washi Paper Linen */
       --bw-surface: #ffffff;
       --bw-surface-hover: #fff4b8; /* Luminous Golden Butter Yellow */
@@ -266,7 +266,7 @@
     /* Palette 7: Deep Blue & Glacial Salt (Image 1 Palette) */
     /* Palette 7: Deep Blue & Glacial Salt (Default Night Mode) */
     /* Deep Blue #111d33 · Surface #1b2f52 · Accent Yellow #FEB737 · Glacial Salt #B1BBC8 */
-    body.theme-deep-blue {
+    html.theme-deep-blue, body.theme-deep-blue {
       --bw-bg: #111d33;
       --bw-surface: #1b2f52;
       --bw-surface-hover: #233e6b;
@@ -334,7 +334,7 @@
 
     /* Palette 8: Indigo, Honey & Periwinkle (Image 2 Palette Dark) */
     /* Indigo #543786 · Honey #FEB737 · Periwinkle #A7B5FE · Sea Breeze #7BB8C0 · Lemon Meringue #FFEBAD */
-    body.theme-indigo-honey {
+    html.theme-indigo-honey, body.theme-indigo-honey {
       --bw-bg: #1c112e;
       --bw-surface: #2d1b4a; /* Indigo Base */
       --bw-surface-hover: #3d2564;
@@ -359,7 +359,7 @@
     }
 
     /* Palette 9: Lemon Meringue & Sea Breeze (Image 2 Palette Light) */
-    body.theme-lemon-meringue {
+    html.theme-lemon-meringue, body.theme-lemon-meringue {
       --bw-bg: #FFEBAD; /* Lemon Meringue Canvas */
       --bw-surface: #fffdf5;
       --bw-surface-hover: #fcf4dc;
@@ -407,8 +407,8 @@
       box-sizing: border-box;
       min-height: 100vh;
       overflow: visible;
-      background-color: transparent;
-      color: inherit;
+      background-color: var(--bw-bg);
+      color: var(--bw-text);
       font-family: var(--font-body);
       font-size: 13.5px;
       line-height: 1.6;
@@ -416,6 +416,7 @@
       flex-direction: column;
       align-items: center;
       position: relative;
+      transition: background-color 0.25s ease, color 0.25s ease;
     }
 
     /* Subtle Ambient Canvas Background */
@@ -3442,44 +3443,49 @@
     function changeColorPalette(paletteId) {
       currentActivePalette = paletteId;
       document.body.classList.remove(...ALL_PALETTE_CLASSES);
+      document.documentElement.classList.remove(...ALL_PALETTE_CLASSES);
 
+      let targetClass = 'theme-crimson-linen';
       if (paletteId === 'editorial-night') {
-        document.body.classList.add('theme-night');
+        targetClass = 'theme-night';
         currentThemeMode = 'night';
       } else if (paletteId === 'editorial-day') {
-        document.body.classList.add('theme-editorial-day');
+        targetClass = 'theme-editorial-day';
         currentThemeMode = 'day';
       } else if (paletteId === 'black-silver') {
-        document.body.classList.add('theme-black-silver');
+        targetClass = 'theme-black-silver';
         currentThemeMode = 'night';
       } else if (paletteId === 'touareg') {
-        document.body.classList.add('theme-touareg');
+        targetClass = 'theme-touareg';
         currentThemeMode = 'night';
       } else if (paletteId === 'cyber-yellow') {
-        document.body.classList.add('theme-cyber-yellow');
+        targetClass = 'theme-cyber-yellow';
         currentThemeMode = 'night';
       } else if (paletteId === 'nordic-pine') {
-        document.body.classList.add('theme-nordic-pine');
+        targetClass = 'theme-nordic-pine';
         currentThemeMode = 'night';
       } else if (paletteId === 'marenostrum') {
-        document.body.classList.add('theme-marenostrum');
+        targetClass = 'theme-marenostrum';
         currentThemeMode = 'night';
       } else if (paletteId === 'crimson-linen') {
-        document.body.classList.add('theme-crimson-linen');
+        targetClass = 'theme-crimson-linen';
         currentThemeMode = 'day';
       } else if (paletteId === 'deep-blue') {
-        document.body.classList.add('theme-deep-blue');
+        targetClass = 'theme-deep-blue';
         currentThemeMode = 'night';
       } else if (paletteId === 'indigo-honey') {
-        document.body.classList.add('theme-indigo-honey');
+        targetClass = 'theme-indigo-honey';
         currentThemeMode = 'night';
       } else if (paletteId === 'lemon-meringue') {
-        document.body.classList.add('theme-lemon-meringue');
+        targetClass = 'theme-lemon-meringue';
         currentThemeMode = 'day';
       } else {
-        document.body.classList.add('theme-crimson-linen');
+        targetClass = 'theme-crimson-linen';
         currentThemeMode = 'day';
       }
+
+      document.body.classList.add(targetClass);
+      document.documentElement.classList.add(targetClass);
 
       // Sync select dropdown
       const sel = document.getElementById('palette-select');
