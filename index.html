@@ -3995,8 +3995,8 @@
 
       let ticking = false;
       function onScroll() {
-        const y = window.scrollY || document.documentElement.scrollTop || 0;
-        if (y > 20) {
+        const y = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset || 0;
+        if (y > 15) {
           dock.classList.add('is-scrolled');
         } else {
           dock.classList.remove('is-scrolled');
@@ -4005,6 +4005,13 @@
       }
 
       window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(onScroll);
+          ticking = true;
+        }
+      }, { passive: true });
+
+      document.addEventListener('scroll', () => {
         if (!ticking) {
           requestAnimationFrame(onScroll);
           ticking = true;
