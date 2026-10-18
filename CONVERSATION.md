@@ -585,11 +585,23 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
     - Theme button label: `#theme-btn-label` dynamically displays `Day Mode` or `Night Mode`.
     - Button telemetry tooltip: `#btn-theme-toggle` displays `Spain Solar Theme: [Mode] (Sunrise: 08:05, Sunset: 19:08 CEST). Click to toggle Day/Night.`.
     - Particle visualizer: dynamically updates its color scheme (`[201, 42, 42]` crimson stardust in Day Mode, `[254, 183, 55]` amber stardust in Night Mode).
-  - Preserves manual interaction: Clicking `toggleThemeBW()` smoothly toggles between Day Mode and Night Mode at any time.
-
 ### AT. Pure English Status Badge for Current Position
 - **Adjustment**: Removed the Spanish prefix `POSICIÓN ACTUAL · ` from the status pill (`.current-role-badge`) above Carlos's active BSC Performance Team appointment in [index.html](file:///c:/Users/cromero/Desktop/cool-cv/index.html#L2190-L2193).
 - **Result**: Badge now displays strictly `● CURRENT POSITION` (uppercase via CSS `text-transform: uppercase`), creating a uniform, professional English presentation across the entire dossier.
+
+### AU. Dark Mode In-Modal Contrast Correction (Background Darker Than Cards)
+- **Problem**: When expanding cards 01 to 04 in Dark Mode (`theme-deep-blue`), the color hierarchy was accidentally inverted: the modal panel background was rendered in lighter blue (`var(--bw-surface)` #1b2f52), while the cards inside (`.timeline-card`, `.map-showcase-card`, `.sub-card`, `.project-box`, `.letter-container`) were rendered in darker sunken obsidian (`var(--bw-surface-sunken)` #0c1626).
+- **Correction Applied Across All Cards 1 to 4**:
+  - **Modal Container Background**: Set `.modal-panel` and `.modal-header` to `var(--bw-bg)` (`#111d33` in Deep Blue, `#f7f4ea` in Day Mode), establishing the dark backdrop.
+  - **Internal Content Cards**: Updated all content cards across all 4 modals to `var(--bw-surface)` (`#1b2f52` in Deep Blue, `#ffffff` in Day Mode):
+    - **Modal 01 (Career & Journey)**: `.timeline-card`, `.current-showcase-card`, `.map-showcase-card`.
+    - **Modal 02 (Education & Skills)**: `.sub-card`, `#modal-foundations .sub-card`.
+    - **Modal 03 (Creative Computing)**: `.project-box` (MNusic, Pipa-Music-Ball, Expo-Curator, Lens & Motion).
+    - **Modal 04 (Cover Letter)**: `.letter-container`.
+  - **Hover Dynamics**: Hover states consistently transition to `var(--bw-surface-hover)` (`#233e6b` in Deep Blue), identical to the main page card hover effect.
+  - **Sunken Callouts**: Callouts and notices inside cards (`.letter-recipient`, `.media-dropzone-notice`) use `var(--bw-surface-sunken)` to provide clean inset framing.
+- **Outcome**: The visual hierarchy inside each modal now matches the main page: the background is darker than the cards, and cards stand out with clean, elevated contrast.
+
 
 
 

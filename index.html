@@ -961,22 +961,22 @@
     }
     #modal-foundations .sub-card {
       border: 1.5px solid var(--bw-border-subtle);
-      background: var(--bw-surface-sunken);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      background: var(--bw-surface);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
       transition: all 0.25s ease;
     }
     #modal-foundations .sub-card:hover {
       border-color: var(--bw-border);
       background: var(--bw-surface-hover);
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
     }
 
     /* CURRENT EXPERIENCE HIGHLIGHT */
     .timeline-card.is-current {
       border: 2px solid var(--bw-border) !important;
-      background: var(--bw-surface-sunken) !important;
-      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.14);
+      background: var(--bw-surface) !important;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
       position: relative;
     }
     .current-role-badge {
@@ -1050,7 +1050,7 @@
       max-width: 1140px;
       max-height: 90vh;
       border-radius: 20px;
-      background: var(--bw-surface);
+      background: var(--bw-bg);
       border: 2px solid var(--bw-border);
       box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
       display: flex;
@@ -1069,7 +1069,7 @@
       justify-content: space-between;
       align-items: center;
       border-bottom: 2px solid var(--bw-border-subtle);
-      background: var(--bw-surface);
+      background: var(--bw-bg);
       transition: background 0.25s ease, border-color 0.25s ease;
     }
     .modal-header-titles h2 {
@@ -1117,19 +1117,19 @@
       flex: 1;
       color: var(--bw-text);
       scrollbar-width: thin;
-      scrollbar-color: var(--bw-border-subtle) var(--bw-surface-sunken);
+      scrollbar-color: var(--bw-border-subtle) var(--bw-bg);
     }
     .modal-scroll-body::-webkit-scrollbar {
       width: 8px;
     }
     .modal-scroll-body::-webkit-scrollbar-track {
-      background: var(--bw-surface-sunken);
+      background: var(--bw-bg);
       border-radius: 4px;
     }
     .modal-scroll-body::-webkit-scrollbar-thumb {
       background: var(--bw-border-subtle);
       border-radius: 4px;
-      border: 2px solid var(--bw-surface-sunken);
+      border: 2px solid var(--bw-bg);
     }
     .modal-scroll-body::-webkit-scrollbar-thumb:hover {
       background: var(--bw-border);
@@ -1150,13 +1150,19 @@
     }
 
     .map-showcase-card {
-      background: var(--bw-surface-sunken);
+      background: var(--bw-surface);
       border-radius: 16px;
       border: 1.5px solid var(--bw-border-subtle);
       padding: 18px 20px 20px;
       display: flex;
       flex-direction: column;
       min-height: 380px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+      transition: all 0.25s ease;
+    }
+    .map-showcase-card:hover {
+      border-color: var(--bw-border);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
     }
     .map-showcase-card .map-header {
       display: flex;
@@ -1274,7 +1280,7 @@
       gap: 18px;
     }
     .timeline-card {
-      background: var(--bw-surface-sunken);
+      background: var(--bw-surface);
       border: 1.5px solid var(--bw-border-subtle);
       border-left: 6px solid var(--bw-border) !important;
       border-radius: 14px;
@@ -1283,16 +1289,18 @@
       cursor: pointer;
       display: flex;
       flex-direction: column;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
     }
     .timeline-card:hover, .timeline-card.highlight {
       border-color: var(--bw-border);
       background: var(--bw-surface-hover);
       transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.30);
     }
     .current-showcase-card {
-      background: var(--bw-surface-sunken);
+      background: var(--bw-surface);
       border: 2px solid var(--bw-border) !important;
-      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.24);
       border-radius: 16px;
       padding: 24px 26px;
       display: flex;
@@ -1303,7 +1311,8 @@
     }
     .current-showcase-card:hover {
       border-color: var(--bw-border);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+      background: var(--bw-surface-hover);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.32);
     }
     .current-card-meta {
       display: flex;
@@ -1458,17 +1467,18 @@
       .foundations-grid { grid-template-columns: 1fr; }
     }
     .sub-card {
-      background: var(--bw-surface-sunken);
+      background: var(--bw-surface);
       border: 1.5px solid var(--bw-border-subtle);
       border-radius: 16px;
       padding: 26px;
       transition: all 0.25s ease;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
     }
     .sub-card:hover {
       border-color: var(--bw-border);
       background: var(--bw-surface-hover);
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
     }
     .sub-card h4 {
       font-family: var(--font-mono);
@@ -1544,7 +1554,7 @@
       .creative-2x2-grid { grid-template-columns: 1fr; }
     }
     .project-box {
-      background: var(--bw-surface-sunken);
+      background: var(--bw-surface);
       border: 1.5px solid var(--bw-border-subtle);
       border-radius: 16px;
       padding: 26px;
@@ -1553,11 +1563,13 @@
       justify-content: space-between;
       transition: all 0.25s ease;
       gap: 16px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
     }
     .project-box:hover {
       border-color: var(--bw-border);
       background: var(--bw-surface-hover);
       transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
     }
     .proj-badge {
       display: inline-block;
@@ -1666,7 +1678,7 @@
       color: var(--bw-btn-text);
     }
     .media-dropzone-notice {
-      background: var(--bw-surface);
+      background: var(--bw-surface-sunken);
       border: 1.5px dashed var(--bw-border-medium);
       border-radius: 12px;
       padding: 12px 14px;
@@ -1685,7 +1697,7 @@
 
     /* Modal 04: Cover Letter Article */
     .letter-container {
-      background: var(--bw-surface-sunken);
+      background: var(--bw-surface);
       border-radius: 16px;
       border: 1.5px solid var(--bw-border-subtle);
       padding: 40px 44px;
@@ -1693,7 +1705,7 @@
       line-height: 1.8;
       max-width: 880px;
       margin: 0 auto;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 6px 26px rgba(0, 0, 0, 0.25);
       transition: all 0.25s ease;
     }
     .letter-header-row {
@@ -1707,7 +1719,7 @@
       gap: 14px;
     }
     .letter-recipient {
-      background: var(--bw-surface);
+      background: var(--bw-surface-sunken);
       border-left: 4px solid var(--bw-border);
       border-top: 1px solid var(--bw-border-subtle);
       border-right: 1px solid var(--bw-border-subtle);
