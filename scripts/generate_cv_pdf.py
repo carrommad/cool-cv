@@ -10,10 +10,10 @@ def generate_cv_pdf():
     doc = SimpleDocTemplate(
         pdf_filename,
         pagesize=A4,
-        rightMargin=36,
-        leftMargin=36,
-        topMargin=36,
-        bottomMargin=36
+        rightMargin=28,
+        leftMargin=28,
+        topMargin=22,
+        bottomMargin=20
     )
     
     styles = getSampleStyleSheet()
@@ -33,8 +33,8 @@ def generate_cv_pdf():
         'DocTitle',
         parent=styles['Normal'],
         fontName='Helvetica-Bold',
-        fontSize=20,
-        leading=24,
+        fontSize=18,
+        leading=22,
         textColor=C_PRIMARY
     )
     
@@ -42,8 +42,8 @@ def generate_cv_pdf():
         'Tagline',
         parent=styles['Normal'],
         fontName='Helvetica-Bold',
-        fontSize=9.5,
-        leading=13,
+        fontSize=9,
+        leading=12,
         textColor=C_ACCENT
     )
     
@@ -51,8 +51,8 @@ def generate_cv_pdf():
         'DocMeta',
         parent=styles['Normal'],
         fontName='Helvetica',
-        fontSize=8.5,
-        leading=12,
+        fontSize=8.2,
+        leading=11.5,
         alignment=2,
         textColor=C_MUTED
     )
@@ -61,19 +61,19 @@ def generate_cv_pdf():
         'SectionH',
         parent=styles['Normal'],
         fontName='Helvetica-Bold',
-        fontSize=11,
-        leading=15,
+        fontSize=10,
+        leading=13,
         textColor=C_PRIMARY,
-        spaceBefore=8,
-        spaceAfter=4
+        spaceBefore=6,
+        spaceAfter=3
     )
     
     summary_style = ParagraphStyle(
         'Summary',
         parent=styles['Normal'],
         fontName='Helvetica',
-        fontSize=8.8,
-        leading=13.5,
+        fontSize=8.5,
+        leading=12.5,
         textColor=C_TEXT
     )
     
@@ -81,8 +81,8 @@ def generate_cv_pdf():
         'ProjTitle',
         parent=styles['Normal'],
         fontName='Helvetica-Bold',
-        fontSize=9.5,
-        leading=13,
+        fontSize=9,
+        leading=12,
         textColor=C_PRIMARY
     )
     
@@ -90,7 +90,7 @@ def generate_cv_pdf():
         'ProjTag',
         parent=styles['Normal'],
         fontName='Helvetica-Bold',
-        fontSize=7.5,
+        fontSize=7.2,
         leading=10,
         textColor=C_CORAL
     )
@@ -99,8 +99,8 @@ def generate_cv_pdf():
         'BodyP',
         parent=styles['Normal'],
         fontName='Helvetica',
-        fontSize=8.3,
-        leading=12.2,
+        fontSize=8.0,
+        leading=11.2,
         textColor=C_TEXT
     )
     
@@ -108,8 +108,8 @@ def generate_cv_pdf():
         'BodyMuted',
         parent=styles['Normal'],
         fontName='Helvetica',
-        fontSize=7.8,
-        leading=11,
+        fontSize=7.5,
+        leading=10.5,
         textColor=C_MUTED
     )
     
@@ -118,11 +118,11 @@ def generate_cv_pdf():
     # 1. Header Banner
     header_data = [
         [
-            Paragraph("<b>Carlos Romero Madrid</b><br/><font color='#6366f1' size=9><b>Computational Physicist • HPC Software Engineer • Creative Technologist</b></font>", title_style),
-            Paragraph("<b>carrommad@gmail.com</b> • carlos.romero@bsc.es<br/>+34 611 423 133 • Barcelona, Spain<br/>linkedin.com/in/carrommad", meta_style)
+            Paragraph("<b>Carlos Romero Madrid</b><br/><font color='#6366f1' size=8.8><b>Computational Physicist • HPC Software Engineer • Creative Technologist</b></font>", title_style),
+            Paragraph("<b>carrommad@gmail.com</b> • +34 611 423 133<br/>carlos.romero@bsc.es • Barcelona, Spain<br/><font color='#4f46e5'><b><link href=\"https://carrommad.github.io/cool-cv/\">🌐 carrommad.github.io/cool-cv</link></b></font> • <link href=\"https://linkedin.com/in/carrommad\">linkedin.com/in/carrommad</link>", meta_style)
         ]
     ]
-    header_table = Table(header_data, colWidths=[330, 193])
+    header_table = Table(header_data, colWidths=[330, 209])
     header_table.setStyle(TableStyle([
         ('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
         ('TOPPADDING', (0,0), (-1,-1), 0),
@@ -131,47 +131,47 @@ def generate_cv_pdf():
         ('RIGHTPADDING', (0,0), (-1,-1), 0),
     ]))
     story.append(header_table)
-    story.append(Spacer(1, 3))
-    story.append(HRFlowable(width="100%", thickness=1.5, color=C_ACCENT, spaceBefore=3, spaceAfter=6))
+    story.append(Spacer(1, 2))
+    story.append(HRFlowable(width="100%", thickness=1.5, color=C_ACCENT, spaceBefore=2, spaceAfter=4))
     
     # 2. Executive Statement
     summary_p = Paragraph(
-        "<b>Profile & Mission:</b> Computational Physicist (Double Degree Physics & Mathematics, 1st of Class MSc Plasma Physics) and HPC Software Engineer at BSC with 5+ years experience. Bridging extreme-scale HPC clusters (MN5, Leonardo, LUMI) with physical computing, generative sound, and narrative data visualization for the <b>democratization of science</b>. Actively pairing with LLMs for high-velocity cross-disciplinary prototyping.",
+        "<b>Profile & Mission:</b> Computational Physicist (Double Degree Physics & Mathematics, 1st of Class MSc Plasma Physics) and HPC Software Engineer at BSC with 5+ years experience. Bridging extreme-scale HPC clusters (MN5, Leonardo, LUMI) with physical computing, generative sound, and narrative data visualization for the <b>democratization of science</b>. <font color='#4338ca'><b>Live Interactive Portfolio & Synthesizer: <link href=\"https://carrommad.github.io/cool-cv/\"><u>carrommad.github.io/cool-cv</u></link></b></font>",
         summary_style
     )
     story.append(summary_p)
-    story.append(Spacer(1, 5))
+    story.append(Spacer(1, 4))
     
     # 3. Highlights Strip
     hl_data = [
         [
-            Paragraph("<b>BSC HPC Engineer</b><br/><font size=7.2 color='#64748b'>MN5, ClimateDT & DestinationE</font>", body_style),
-            Paragraph("<b>Physics & Mathematics</b><br/><font size=7.2 color='#64748b'>Double Degree & Plasma MSc (1st)</font>", body_style),
-            Paragraph("<b>Physical Computing</b><br/><font size=7.2 color='#64748b'>ESP32, 6-DoF IMU & I2S Sonification</font>", body_style),
-            Paragraph("<b>Visual Storytelling</b><br/><font size=7.2 color='#64748b'>Expo-Curator, Photo & After Effects</font>", body_style),
+            Paragraph("<b>BSC HPC Engineer</b><br/><font size=7 color='#64748b'>MN5, ClimateDT & DestinE</font>", body_style),
+            Paragraph("<b>Physics & Mathematics</b><br/><font size=7 color='#64748b'>Double Degree & Plasma (1st)</font>", body_style),
+            Paragraph("<b>Physical Computing</b><br/><font size=7 color='#64748b'>ESP32, 6-DoF IMU & I2S Audio</font>", body_style),
+            Paragraph("<b>Visual Storytelling</b><br/><font size=7 color='#64748b'>Expo-Curator, Video & After Effects</font>", body_style),
         ]
     ]
-    hl_table = Table(hl_data, colWidths=[130, 130, 130, 133])
+    hl_table = Table(hl_data, colWidths=[134, 135, 135, 135])
     hl_table.setStyle(TableStyle([
         ('BACKGROUND', (0,0), (-1,-1), C_CARD_BG),
         ('BOX', (0,0), (-1,-1), 0.5, C_BORDER),
         ('INNERGRID', (0,0), (-1,-1), 0.5, C_BORDER),
-        ('TOPPADDING', (0,0), (-1,-1), 4),
-        ('BOTTOMPADDING', (0,0), (-1,-1), 4),
-        ('LEFTPADDING', (0,0), (-1,-1), 6),
-        ('RIGHTPADDING', (0,0), (-1,-1), 6),
+        ('TOPPADDING', (0,0), (-1,-1), 3),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 3),
+        ('LEFTPADDING', (0,0), (-1,-1), 5),
+        ('RIGHTPADDING', (0,0), (-1,-1), 5),
     ]))
     story.append(hl_table)
-    story.append(Spacer(1, 6))
+    story.append(Spacer(1, 4))
     
     # 4. Featured Creative Projects
     story.append(Paragraph("<b>Featured Creative Computing & Data Projects</b>", section_h_style))
-    story.append(HRFlowable(width="100%", thickness=0.8, color=C_BORDER, spaceBefore=2, spaceAfter=5))
+    story.append(HRFlowable(width="100%", thickness=0.8, color=C_BORDER, spaceBefore=1, spaceAfter=4))
     
     projs_content = [
         [
             Paragraph("<b>MNusic — Visualizing & Listening to MareNostrum 5 & LUMI</b>", proj_title_style),
-            Paragraph("HPC DATA SONIFICATION", proj_tag_style)
+            Paragraph("HPC DATA SONIFICATION • <font color='#4f46e5'><link href=\"https://carrommad.github.io/cool-cv/\"><b>WEB APP ↗</b></link></font>", proj_tag_style)
         ],
         [
             Paragraph("• Synaesthetic telemetry engine translating tier-0 supercomputing metrics into real-time harmonic soundscapes (Web Audio API) and generative dynamic particle visuals.<br/>• Maps compute utilization, GPU tensor spikes, interconnect latency, and cooling thermal gradients into microtonal frequencies and acoustic harmonics, humanizing petascale computation.", body_style),
@@ -179,7 +179,7 @@ def generate_cv_pdf():
         ],
         [
             Paragraph("<b>Pipa-Music-Ball — Non-Human Bio-Kinetic Interactive Sound System</b>", proj_title_style),
-            Paragraph("PHYSICAL COMPUTING & SENSORY IOT", proj_tag_style)
+            Paragraph("PHYSICAL COMPUTING • <font color='#4f46e5'><link href=\"https://github.com/carrommad/pipa-music-ball\"><b>GITHUB ↗</b></link></font>", proj_tag_style)
         ],
         [
             Paragraph("• Embedded microcontroller-powered physical sphere translating feline kinetic play (velocity, tilt, angular acceleration) into generative microtonal acoustic phrases.<br/>• Places animal curiosity at the heart of the generative loop; tangible proof that data interfaces can be playful, tactile, and non-anthropocentric (ESP32, 6-DoF IMU, I2S DAC).", body_style),
@@ -187,7 +187,7 @@ def generate_cv_pdf():
         ],
         [
             Paragraph("<b>Expo-Curator — Visual Corpus Analytics & Exhibition Staging</b>", proj_title_style),
-            Paragraph("CORPUS ANALYTICS • GITHUB", proj_tag_style)
+            Paragraph("CORPUS ANALYTICS • <font color='#4f46e5'><link href=\"https://github.com/carrommad/expo\"><b>GITHUB ↗</b></link></font>", proj_tag_style)
         ],
         [
             Paragraph("• Open-source studio application for image curation, automated sub-classification, booklet design, and exhibition wall staging.<br/>• Streamlines spatial narrative organization and print-ready editorial catalogs for cultural spaces, science centers, and multidisciplinary exhibitions.", body_style),
@@ -195,14 +195,14 @@ def generate_cv_pdf():
         ],
         [
             Paragraph("<b>After Effects Lab — Procedural Motion Design & Kinetic Animation</b>", proj_title_style),
-            Paragraph("VISUAL MEDIA & MOTION DESIGN", proj_tag_style)
+            Paragraph("MOTION DESIGN • <font color='#4f46e5'><link href=\"https://carrommad.github.io/cool-cv/\"><b>CINEMA REEL ↗</b></link></font>", proj_tag_style)
         ],
         [
             Paragraph("• Creative investigation combining still photographic framing, spatial composition, and lighting with procedural Adobe After Effects motion graphics.<br/>• Translates abstract scientific telemetry into broadcast-quality cinematic videos, kinetic typography, and exhibition reels.", body_style),
             ""
         ]
     ]
-    p_table = Table(projs_content, colWidths=[395, 128])
+    p_table = Table(projs_content, colWidths=[410, 129])
     p_table.setStyle(TableStyle([
         ('SPAN', (0,1), (1,1)),
         ('SPAN', (0,3), (1,3)),
@@ -211,17 +211,17 @@ def generate_cv_pdf():
         ('BACKGROUND', (0,0), (-1,-1), C_CARD_BG),
         ('BOX', (0,0), (-1,-1), 0.5, C_BORDER),
         ('INNERGRID', (0,0), (-1,-1), 0.3, C_BORDER),
-        ('TOPPADDING', (0,0), (-1,-1), 3),
-        ('BOTTOMPADDING', (0,0), (-1,-1), 4),
-        ('LEFTPADDING', (0,0), (-1,-1), 7),
-        ('RIGHTPADDING', (0,0), (-1,-1), 7),
+        ('TOPPADDING', (0,0), (-1,-1), 2.5),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 3),
+        ('LEFTPADDING', (0,0), (-1,-1), 6),
+        ('RIGHTPADDING', (0,0), (-1,-1), 6),
     ]))
     story.append(p_table)
-    story.append(Spacer(1, 6))
+    story.append(Spacer(1, 4))
     
     # 5. Skills & Toolkit Matrix (3 Columns)
     story.append(Paragraph("<b>Technical Matrix & Creative Capabilities</b>", section_h_style))
-    story.append(HRFlowable(width="100%", thickness=0.8, color=C_BORDER, spaceBefore=2, spaceAfter=5))
+    story.append(HRFlowable(width="100%", thickness=0.8, color=C_BORDER, spaceBefore=1, spaceAfter=4))
     
     skills_data = [
         [
@@ -230,23 +230,23 @@ def generate_cv_pdf():
             Paragraph("<b>AI, Vision & Physical Computing</b><br/>• <b>Computer Vision & MediaPipe</b><br/>• PyTorch, Embeddings & Latent Space<br/>• Physical Computing (ESP32, 6-DoF IMU)<br/>• CUDA GPU & Slurm Cluster Scaling<br/>• <b>Agentic LLM Pipelines & Web ML</b>", body_style)
         ]
     ]
-    skills_table = Table(skills_data, colWidths=[174, 174, 175])
+    skills_table = Table(skills_data, colWidths=[179, 180, 180])
     skills_table.setStyle(TableStyle([
         ('BACKGROUND', (0,0), (-1,-1), C_CARD_BG),
         ('BOX', (0,0), (-1,-1), 0.5, C_BORDER),
         ('INNERGRID', (0,0), (-1,-1), 0.5, C_BORDER),
         ('VALIGN', (0,0), (-1,-1), 'TOP'),
-        ('TOPPADDING', (0,0), (-1,-1), 5),
-        ('BOTTOMPADDING', (0,0), (-1,-1), 5),
+        ('TOPPADDING', (0,0), (-1,-1), 4),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 4),
         ('LEFTPADDING', (0,0), (-1,-1), 6),
         ('RIGHTPADDING', (0,0), (-1,-1), 6),
     ]))
     story.append(skills_table)
-    story.append(Spacer(1, 6))
+    story.append(Spacer(1, 4))
     
     # 6. Trajectory & Experience
     story.append(Paragraph("<b>Professional Trajectory & Academic Foundation</b>", section_h_style))
-    story.append(HRFlowable(width="100%", thickness=0.8, color=C_BORDER, spaceBefore=2, spaceAfter=5))
+    story.append(HRFlowable(width="100%", thickness=0.8, color=C_BORDER, spaceBefore=1, spaceAfter=4))
     
     traj_data = [
         [
@@ -282,7 +282,7 @@ def generate_cv_pdf():
             ""
         ]
     ]
-    traj_table = Table(traj_data, colWidths=[395, 128])
+    traj_table = Table(traj_data, colWidths=[410, 129])
     traj_table.setStyle(TableStyle([
         ('SPAN', (0,1), (1,1)),
         ('SPAN', (0,3), (1,3)),
@@ -290,7 +290,7 @@ def generate_cv_pdf():
         ('SPAN', (0,7), (1,7)),
         ('VALIGN', (0,0), (-1,-1), 'TOP'),
         ('TOPPADDING', (0,0), (-1,-1), 1),
-        ('BOTTOMPADDING', (0,0), (-1,-1), 3),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 2),
         ('LEFTPADDING', (0,0), (-1,-1), 0),
         ('RIGHTPADDING', (0,0), (-1,-1), 0),
     ]))
