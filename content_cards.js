@@ -1,4 +1,4 @@
-﻿window.PORTFOLIO_CONTENT = {
+window.PORTFOLIO_CONTENT = {
   "header": {
     "status_badge": {
       "full": "Interested in Creative Intelligence & Design · Barcelona, Spain",
@@ -16,10 +16,8 @@
       "Creative Computing"
     ],
     "bio": [
-      "Double degree in Physics & Mathematics. Scientific software optimization for nuclear and climate.",
-      "Data analytics for wind turbine predictive maintenance.",
-      "Physical simulation for cognitive radar.",
-      "Creative prototyping."
+      "Double degree in Physics & Mathematics. Scientific software optimization for nuclear and climate. Data analytics for wind turbine predictive maintenance.",
+      "Physical simulation for cognitive radar. Creative prototyping."
     ]
   },
   "cards": [
@@ -38,7 +36,7 @@
       "number": "02",
       "modal_id": "modal-foundations",
       "tag": "Rigor & Compute Toolkit",
-      "period": "Physics · Math · Petascale",
+      "period": "Physics · Mathematics · Petascale",
       "title": "Education & Skills",
       "description": "BSc in Mathematics (8.28, 3rd of Class) & BSc in Physics (8.35, 3rd of Class), MSc Plasma Physics (1st of Class), Skills & Parallel HPC runtime stack, Slurm orchestration, After Effects, and deployment experience across MareNostrum 5 (MN5), Leonardo, and LUMI.",
       "action_text": "Inspect Education & Skills Stack →"

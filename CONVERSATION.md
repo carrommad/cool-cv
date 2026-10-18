@@ -611,7 +611,14 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
 - **Result**:
   - Lifted the base map luminance out of the black void into an illuminated dark slate-navy cartographic style.
   - Country labels ("GERMANY", "FRANCE", "SPAIN", "ITALY", "AUSTRIA", "CZECHIA", etc.) and territorial borders are now clearly visible and legible.
-  - Preserves luminous contrast for the golden Amber Spain highlight, Sea Breeze France highlight, Violet Germany highlight, and glowing waypoint beacons.
+### AW. Academic Degree Terminology Standardization (Mathematics, not Math)
+- **Requirement**: Replace informal abbreviations like `Math` / `Maths` with the full formal academic discipline title `Mathematics`.
+- **Updates Applied**:
+  - **Seville Timeline Card (Modal 01 & Web CV)**: Updated title to `Double Degree: BSc Mathematics & BSc Physics` and tag to `BSc Mathematics (8.28)` in [index.html](file:///c:/Users/cromero/Desktop/cool-cv/index.html#L2320-L2331).
+  - **Leaflet Map Seville Anchor**: Updated hover metadata to `Double Degree (Physics & Mathematics, 3rd) · Plasma Researcher` in `citiesData`.
+  - **Card 02 Meta Line**: Updated period to `Physics · Mathematics · Petascale` in [index.html](file:///c:/Users/cromero/Desktop/cool-cv/index.html#L2024), `content_cards.json`, and `content_cards.js`.
+  - **Print CV (`cv_editorial.html` & `Carlos_Romero_CV.pdf`)**: Updated Section 02 heading tag to `Physics · Mathematics`, ensuring exact synchronization between web and downloadable PDF versions.
+
 
 
 
