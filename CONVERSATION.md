@@ -702,6 +702,11 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
   - [cv_pastel_boxes.html](file:///c:/Users/cromero/Desktop/cool-cv/cv_pastel_boxes.html#L570-L574) and [scripts/generate_pastel_boxes_cv_pdf.py](file:///c:/Users/cromero/Desktop/cool-cv/scripts/generate_pastel_boxes_cv_pdf.py).
 - **Synchronized & Recompiled**: Recompiled [Carlos_Romero_CV.pdf](file:///c:/Users/cromero/Desktop/cool-cv/Carlos_Romero_CV.pdf) and [Carlos_Romero_Cover_Letter.pdf](file:///c:/Users/cromero/Desktop/cool-cv/Carlos_Romero_Cover_Letter.pdf).
 
+### BG. Removal of Non-Functional Button from After Effects Lab Card
+- **Cleanup**: Since After Effects Lab is a standalone motion study video without a public GitHub repository, removed the non-functional bottom button (`● After Effects 2026 Motion Study` / `● After Effects Kinetic Testing`) from [index.html](file:///c:/Users/cromero/Desktop/cool-cv/index.html#L2595-L2605).
+- **Result**: The card now cleanly ends on the video player and caption, avoiding misleading non-interactive button UI elements.
+
+
 
 
 
