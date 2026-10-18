@@ -348,7 +348,7 @@ def generate_pastel_boxes_cv(show_bubbles=ENABLE_AMBIENT_BUBBLES):
     c.setFont("Helvetica", 7.0)
     c.setFillColor(C_TEXT)
     c.drawString(x3 + 16, y3 + box_h - 214, "• Automated image classification, catalog booklet publishing,")
-    c.drawString(x3 + 16, y3 + box_h - 224, "  and modular 2D/3D gallery wall staging application.")
+    c.drawString(x3 + 16, y3 + box_h - 224, "  and modular gallery wall staging application.")
     c.drawString(x3 + 16, y3 + box_h - 234, "• Built to organize complex visual collections into spatial stories.")
     c.drawString(x3 + 16, y3 + box_h - 244, "• Directly serves exhibition design for museums & science centers.")
     c.drawString(x3 + 16, y3 + box_h - 254, "• Stack: JavaScript, Python, spatial layout geometry.")

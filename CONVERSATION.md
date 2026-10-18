@@ -696,6 +696,13 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
   4. `After Effects Lab`
 - **Dossier & PDFs**: Recompiled [Carlos_Romero_CV.pdf](file:///c:/Users/cromero/Desktop/cool-cv/Carlos_Romero_CV.pdf) and [Carlos_Romero_Cover_Letter.pdf](file:///c:/Users/cromero/Desktop/cool-cv/Carlos_Romero_Cover_Letter.pdf).
 
+### BF. Removal of "3D" Reference from Expo-Curator Description
+- **Correction Applied**: As 3D was not implemented in Expo-Curator, removed the `2D/3D` phrasing from project descriptions across:
+  - [index.html](file:///c:/Users/cromero/Desktop/cool-cv/index.html#L2562-L2567): updated to `"...automated sub-classification, booklet design, and gallery wall staging for curators and museum exhibitions."`
+  - [cv_pastel_boxes.html](file:///c:/Users/cromero/Desktop/cool-cv/cv_pastel_boxes.html#L570-L574) and [scripts/generate_pastel_boxes_cv_pdf.py](file:///c:/Users/cromero/Desktop/cool-cv/scripts/generate_pastel_boxes_cv_pdf.py).
+- **Synchronized & Recompiled**: Recompiled [Carlos_Romero_CV.pdf](file:///c:/Users/cromero/Desktop/cool-cv/Carlos_Romero_CV.pdf) and [Carlos_Romero_Cover_Letter.pdf](file:///c:/Users/cromero/Desktop/cool-cv/Carlos_Romero_Cover_Letter.pdf).
+
+
 
 
 
