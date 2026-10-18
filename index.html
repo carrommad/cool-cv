@@ -741,17 +741,17 @@
       -webkit-backface-visibility: hidden;
     }
 
-    /* Independent, relaxed, slow dynamic stretching for each line */
-    .hero-name-line-1 {
+    /* Independent, relaxed, slow dynamic stretching for each line — Awakens only after first scroll down */
+    body.typography-awakened .hero-name-line-1 {
       animation: stretch-line-1 9.4s ease-in-out infinite alternate !important;
     }
 
-    .hero-name-line-2 {
+    body.typography-awakened .hero-name-line-2 {
       animation: stretch-line-2 13.0s ease-in-out infinite alternate !important;
       animation-delay: -4.2s !important;
     }
 
-    .hero-name-line-3 {
+    body.typography-awakened .hero-name-line-3 {
       animation: stretch-line-3 10.8s ease-in-out infinite alternate !important;
       animation-delay: -6.8s !important;
     }
@@ -2102,8 +2102,8 @@
           <span class="hero-name-line hero-name-line-3">Madrid</span>
         </h1>
         <div class="hero-roles-right" aria-label="Professional Roles">
-          <div class="hero-role-item hero-role-1">Computational Physicist</div>
-          <div class="hero-role-item hero-role-2">Scientific Software Engineer</div>
+          <div class="hero-role-item hero-role-1">Scientific Software Engineer</div>
+          <div class="hero-role-item hero-role-2">Computational Physicist</div>
           <div class="hero-role-item hero-role-3">Creative Computing</div>
         </div>
         <div class="hero-bio">
@@ -2785,8 +2785,8 @@
     },
     "discipline": "Computational Physicist · Scientific Software Engineer · Creative Computing",
     "roles": [
-      "Computational Physicist",
       "Scientific Software Engineer",
+      "Computational Physicist",
       "Creative Computing"
     ],
     "bio": [
@@ -3972,14 +3972,72 @@
       updateFade();
     }
 
+    // =========================================================
+    // KINETIC TYPOGRAPHY SCROLL AWAKENING
+    // Letters sit completely at rest on page load.
+    // Awakens only once the user performs their first scroll down.
+    // =========================================================
+    function initTypographyScrollAwakening() {
+      let awakened = false;
+
+      function awaken() {
+        if (awakened) return;
+        awakened = true;
+        document.body.classList.add('typography-awakened');
+        window.removeEventListener('scroll', checkAwaken, { capture: true });
+        document.removeEventListener('scroll', checkAwaken, { capture: true });
+        window.removeEventListener('wheel', checkWheel);
+        window.removeEventListener('touchmove', checkTouch);
+      }
+
+      function checkAwaken() {
+        const y = Math.max(
+          window.scrollY || 0,
+          window.pageYOffset || 0,
+          document.documentElement.scrollTop || 0,
+          document.body.scrollTop || 0
+        );
+        if (y > 4) {
+          awaken();
+        }
+      }
+
+      function checkWheel(e) {
+        if (e.deltaY > 0) {
+          awaken();
+        }
+      }
+
+      function checkTouch() {
+        checkAwaken();
+      }
+
+      const initialY = Math.max(
+        window.scrollY || 0,
+        window.pageYOffset || 0,
+        document.documentElement.scrollTop || 0,
+        document.body.scrollTop || 0
+      );
+      if (initialY > 4) {
+        awaken();
+      } else {
+        window.addEventListener('scroll', checkAwaken, { passive: true, capture: true });
+        document.addEventListener('scroll', checkAwaken, { passive: true, capture: true });
+        window.addEventListener('wheel', checkWheel, { passive: true });
+        window.addEventListener('touchmove', checkTouch, { passive: true });
+      }
+    }
+
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', () => {
         checkInitialModalHash();
         initStatusDockScrollFade();
+        initTypographyScrollAwakening();
       });
     } else {
       checkInitialModalHash();
       initStatusDockScrollFade();
+      initTypographyScrollAwakening();
     }
 
     function checkInitialModalHash() {

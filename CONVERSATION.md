@@ -854,6 +854,16 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
   - **The Solution**: Re-architected `.top-status-dock` to **`position: absolute; top: 24px; right: 32px;`**. Because it is part of the document flow at the top of the canvas, scrolling down naturally carries it up and off the screen within ~30px of scroll—long before `COMPUTATIONAL PHYSICIST` (down at y ~170px) ever reaches the top.
   - **Combined with Micro-Scroll Fade**: Re-engineered scroll listeners on `window`, `document`, and `document.body` with `overflow` normalization (`html { overflow-y: scroll; } body { overflow: visible; }`) to trigger `opacity: 0` on `y > 6px`. It fades out gracefully AND scrolls away, making collision physically impossible.
 
+### BU. Kinetic Typography Stretching Awakens Only After First Scroll Down
+- **Resting Initial State**:
+  - On page load, `CARLOS ROMERO MADRID` sits completely motionless at pure baseline rest (`scaleX: 1`, default letter-spacing).
+- **First Scroll-Down Awakening Trigger**:
+  - Implemented `initTypographyScrollAwakening()` listening to the first downward scroll or mouse wheel motion (`deltaY > 0` or `y > 4px`).
+  - Upon the first downward movement, it adds `.typography-awakened` to `document.body` and disconnects the one-shot listener.
+  - The CSS rules `body.typography-awakened .hero-name-line-1`, `2`, `3` immediately spring to life, activating the relaxed periodic breathing keyframes (`stretch-line-1`, `2`, `3`) that continue indefinitely.
+- **Persistence**:
+  - Once awakened, scrolling back to top keeps the typography alive and breathing smoothly at its relaxed architectural tempo.
+
 
 
 

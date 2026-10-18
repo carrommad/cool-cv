@@ -11,8 +11,8 @@
     },
     "discipline": "Computational Physicist · Scientific Software Engineer · Creative Computing",
     "roles": [
-      "Computational Physicist",
       "Scientific Software Engineer",
+      "Computational Physicist",
       "Creative Computing"
     ],
     "bio": [
