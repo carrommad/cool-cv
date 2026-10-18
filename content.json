@@ -49,7 +49,7 @@
       "period": "Software & Hardware Prototypes",
       "title": "Creative Computing",
       "description": "Tangible data experiences bridging scientific computing with playful interaction: MNusic (real-time cluster telemetry sonification), Pipa-Music-Ball (cat-interactive animal computing & kinetic audio sphere), Expo-Curator (visual corpus analytics & gallery staging engine), and After Effects Lab (procedural motion design).",
-      "action_text": "View Creative Computing Prototypes →"
+      "action_text": "View Creative Prototypes →"
     },
     {
       "id": "card-04",
