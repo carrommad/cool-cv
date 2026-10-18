@@ -9,7 +9,9 @@ from reportlab.pdfgen import canvas
 ENABLE_AMBIENT_BUBBLES = True   # Set to False to completely remove background bubbles
 
 def generate_pastel_boxes_cv(show_bubbles=ENABLE_AMBIENT_BUBBLES):
-    pdf_filename = "/home/cromero/Desktop/cool-cv/Carlos_Romero_CV.pdf"
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    root_dir = os.path.dirname(script_dir)
+    pdf_filename = os.path.join(root_dir, "Carlos_Romero_CV_Pastel.pdf")
     
     page_w, page_h = A4 # 595.27 x 841.89 pt
     margin = 20
@@ -271,17 +273,17 @@ def generate_pastel_boxes_cv(show_bubbles=ENABLE_AMBIENT_BUBBLES):
     
     c.setFillColor(P_MINT_TITLE)
     c.setFont("Helvetica-Bold", 7.0)
-    c.drawString(x2 + 16, y2 + box_h - 200, "Tier-0 Clusters Deployed:")
+    c.drawString(x2 + 16, y2 + box_h - 200, "Artificial Intelligence & Computer Vision:")
     c.setFont("Helvetica", 7.0)
     c.setFillColor(C_TEXT)
-    c.drawString(x2 + 16, y2 + box_h - 210, "MareNostrum 5 (MN5), Leonardo (CINECA), LUMI (CSC).")
+    c.drawString(x2 + 16, y2 + box_h - 210, "PyTorch, OpenCV, MediaPipe (pose/gesture), embeddings.")
     
     c.setFillColor(P_MINT_TITLE)
     c.setFont("Helvetica-Bold", 7.0)
-    c.drawString(x2 + 16, y2 + box_h - 224, "Data Science & Machine Learning:")
+    c.drawString(x2 + 16, y2 + box_h - 224, "Data Science & Accelerated Computing:")
     c.setFont("Helvetica", 7.0)
     c.setFillColor(C_TEXT)
-    c.drawString(x2 + 16, y2 + box_h - 234, "NumPy, Pandas, Scikit-Learn, telemetry classification.")
+    c.drawString(x2 + 16, y2 + box_h - 234, "NumPy, Pandas, Scikit-Learn, CUDA GPU, Slurm clustering.")
     
     # AI & Languages Inset
     draw_subcard(x2 + 10, y2 + box_h - 348, box_w - 20, 92, 5)

@@ -227,7 +227,7 @@ def generate_cv_pdf():
         [
             Paragraph("<b>Data Art & Visualization</b><br/>• Tangible Data Interfaces<br/>• Web Audio API Sonification<br/>• HTML5 Canvas & Generative Art<br/>• Narrative Architecture & Infographics<br/>• Inspired by Domestic Data Streamers", body_style),
             Paragraph("<b>Motion & Visual Media</b><br/>• <b>Adobe After Effects</b> (Motion/AE)<br/>• <b>Still Photography</b> & Framing<br/>• <b>Expo-Curator</b> Exhibition Studio<br/>• Video Rhythm & Kinetic Typography<br/>• Color Grading & Visual Systems", body_style),
-            Paragraph("<b>Physical Computing & HPC</b><br/>• Microcontrollers (ESP32, Arduino)<br/>• 6-DoF Sensors (IMU Accel/Gyro)<br/>• HPC Ecosystem (MN5, LUMI metrics)<br/>• Python, Modern JS & Web Stack<br/>• <b>LLM Pair-Programming</b> (Expert)", body_style)
+            Paragraph("<b>AI, Vision & Physical Computing</b><br/>• <b>Computer Vision & MediaPipe</b><br/>• PyTorch, Embeddings & Latent Space<br/>• Physical Computing (ESP32, 6-DoF IMU)<br/>• CUDA GPU & Slurm Cluster Scaling<br/>• <b>Agentic LLM Pipelines & Web ML</b>", body_style)
         ]
     ]
     skills_table = Table(skills_data, colWidths=[174, 174, 175])

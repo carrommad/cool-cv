@@ -776,6 +776,26 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
   - After: `Carlos Romero Madrid`
 - **Files Modified**: [index.html](file:///c:/Users/cromero/Desktop/cool-cv/index.html#L2251-L2254).
 
+### BP. Elevation of Skills Matrix: Pivoting to AI, Computer Vision & Accelerated Compute
+- **Strategic Need**: The DAV (Data Analytics & Visualization) and Creative Computing roles demand AI, Machine Learning, and Computer Vision rather than legacy supercomputer facility inventories.
+- **Transformations Applied**:
+  1. **Modal 02 (Education & Skills in [index.html](file:///c:/Users/cromero/Desktop/cool-cv/index.html#L2472-L2502))**:
+     - Removed the redundant `Supercomputers Deployed & Operated:` section (`MareNostrum 5`, `Leonardo`, `LUMI`).
+     - Established a dedicated primary stack: **`Artificial Intelligence & Creative Machine Learning`**:
+       - *AI Frameworks & Computer Vision*: `PyTorch`, `Computer Vision (OpenCV)`, `MediaPipe (Pose & Gesture Tracking)`, `Interactive ML (TensorFlow.js / ONNX)`, `Multimodal Generative AI`, `Latent Space & Embeddings`, `Scikit-Learn`, `Agentic LLM Pipelines`.
+     - Reframed HPC capabilities as: **`Scientific Computing & GPU Acceleration`**: `CUDA (GPU Kernels)`, `Python`, `C++`, `Fortran`, `MPI & OpenMP`, `Slurm (Cluster Orchestration)`, `OpenACC`, `Intel oneAPI`, `PETSc`, `Bash`, `After Effects`.
+  2. **Editorial CV Web Layout ([cv_editorial.html](file:///c:/Users/cromero/Desktop/cool-cv/cv_editorial.html#L790-L824))**:
+     - Updated section heading to `AI, Computer Vision & Accelerated Compute`.
+     - Replaced `Supercomputers Deployed` with `Artificial Intelligence & Creative ML` and reframed `Scientific Computing & GPU Acceleration`.
+  3. **Pastel Boxes CV Web Layout ([cv_pastel_boxes.html](file:///c:/Users/cromero/Desktop/cool-cv/cv_pastel_boxes.html#L524-L542))**:
+     - Replaced raw cluster pills (`MN5`, `Leonardo`, `LUMI`) with role-vital AI runtimes: `PyTorch`, `OpenCV / MediaPipe`, `TensorFlow.js`, `CUDA`.
+  4. **Primary CV PDF Generator ([scripts/generate_cv_pdf.py](file:///c:/Users/cromero/Desktop/cool-cv/scripts/generate_cv_pdf.py#L226-L233))**:
+     - Updated the 3rd column of the Technical Matrix to: **`AI, Vision & Physical Computing`** (`Computer Vision & MediaPipe`, `PyTorch, Embeddings & Latent Space`, `Physical Computing (ESP32, 6-DoF IMU)`, `CUDA GPU & Slurm Cluster Scaling`, `Agentic LLM Pipelines & Web ML`).
+     - Re-compiled fresh [Carlos_Romero_CV.pdf](file:///c:/Users/cromero/Desktop/cool-cv/Carlos_Romero_CV.pdf) and synchronized with `pdfs/`.
+  5. **Pastel Boxes PDF Generator ([scripts/generate_pastel_boxes_cv_pdf.py](file:///c:/Users/cromero/Desktop/cool-cv/scripts/generate_pastel_boxes_cv_pdf.py#L272-L285))**:
+     - Swapped `Tier-0 Clusters Deployed` for `Artificial Intelligence & Computer Vision` and refactored hardcoded Linux path to portable cross-platform relative path.
+
+
 
 
 
