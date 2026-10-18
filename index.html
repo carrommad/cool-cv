@@ -2181,7 +2181,7 @@
     <footer class="footer-card">
       <div class="footer-actions-row">
         <div class="footer-actions-left">
-          <a href="mailto:carrommad@gmail.com?subject=Aww%2C%20so%20you%20like%20me%3F&body=I%20also%20like%20you%20%E2%AD%90%20Let%27s%20talk%21" class="btn-hero btn-hero-primary">
+          <a href="mailto:carrommad@gmail.com?subject=The%20feeling%20is%20mutual%20%C2%B7%20Let%27s%20connect&body=Hi%20Carlos%2C%20I%20was%20told%20good%20taste%20is%20rare%2C%20yet%20here%20we%20are.%20Loved%20your%20portfolio%20%E2%80%94%20let%27s%20talk%21" class="btn-hero btn-hero-primary">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
             Email
           </a>
@@ -2772,8 +2772,8 @@
     "cover_letter_pdf_file": "Carlos_Romero_Cover_Letter.pdf",
     "email_btn_text": "Email",
     "email": "carrommad@gmail.com",
-    "email_title": "Aww, so you like me?",
-    "email_content": "I also like you ⭐ Let's talk!",
+    "email_title": "The feeling is mutual · Let's connect",
+    "email_content": "Hi Carlos, I was told good taste is rare, yet here we are. Loved your portfolio — let's talk!",
     "phone": "+34 611 423 133",
     "location": "Barcelona, Spain"
   }
@@ -2875,8 +2875,8 @@
         const emailBtn = document.querySelector('a[href^="mailto:"]');
         if (emailBtn) {
           const email = data.footer.email || 'carrommad@gmail.com';
-          const subject = data.footer.email_title || data.footer.email_subject || 'Aww, so you like me?';
-          const body = data.footer.email_content || data.footer.email_body || "I also like you ⭐ Let's talk!";
+          const subject = data.footer.email_title || data.footer.email_subject || "The feeling is mutual · Let's connect";
+          const body = data.footer.email_content || data.footer.email_body || "Hi Carlos, I was told good taste is rare, yet here we are. Loved your portfolio — let's talk!";
           emailBtn.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
           if (data.footer.email_btn_text) {
             const svg = emailBtn.querySelector('svg');

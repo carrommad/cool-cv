@@ -69,8 +69,8 @@ window.PORTFOLIO_CONTENT = {
     "cover_letter_pdf_file": "Carlos_Romero_Cover_Letter.pdf",
     "email_btn_text": "Email",
     "email": "carrommad@gmail.com",
-    "email_title": "Aww, so you like me?",
-    "email_content": "I also like you ⭐ Let's talk!",
+    "email_title": "The feeling is mutual · Let's connect",
+    "email_content": "Hi Carlos, I was told good taste is rare, yet here we are. Loved your portfolio — let's talk!",
     "phone": "+34 611 423 133",
     "location": "Barcelona, Spain"
   }
