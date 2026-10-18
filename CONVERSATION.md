@@ -735,6 +735,14 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
   - [content.json](file:///c:/Users/cromero/Desktop/cool-cv/content.json#L40-L43)
   - [content_cards.js](file:///c:/Users/cromero/Desktop/cool-cv/content_cards.js#L40-L43)
 
+### BK. Card 01 Action Button Refined to "Explore Career & Journey Map →"
+- **Button Text Refinement**: Updated Card 01 action button to **`Explore Career & Journey Map →`** across:
+  - [index.html](file:///c:/Users/cromero/Desktop/cool-cv/index.html#L2080-L2083) (HTML markup & embedded JSON data island)
+  - [content_cards.json](file:///c:/Users/cromero/Desktop/cool-cv/content_cards.json#L30-L33)
+  - [content.json](file:///c:/Users/cromero/Desktop/cool-cv/content.json#L30-L33)
+  - [content_cards.js](file:///c:/Users/cromero/Desktop/cool-cv/content_cards.js#L30-L33)
+
+
 
 
 
