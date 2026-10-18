@@ -770,6 +770,13 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
   - Every single line in the bio now shares the exact same baseline-to-baseline vertical cadence (`1.55 * 12.8px = 19.84px`), completely eliminating the uneven jump between line 2 and line 3 regardless of soft text wrapping or span divisions.
 - **Files Modified**: [index.html](file:///c:/Users/cromero/Desktop/cool-cv/index.html#L766-L782).
 
+### BO. Footer Copyright: Retained Exclusively Name & Surname
+- **Update**: Simplified the bottom footer copyright line by removing the extraneous ` · Barcelona` city label, retaining strictly the name and surname:
+  - Before: `Carlos Romero Madrid · Barcelona`
+  - After: `Carlos Romero Madrid`
+- **Files Modified**: [index.html](file:///c:/Users/cromero/Desktop/cool-cv/index.html#L2251-L2254).
+
+
 
 
 
