@@ -2730,6 +2730,8 @@
     "cover_letter_pdf_file": "Carlos_Romero_Cover_Letter.pdf",
     "email_btn_text": "Email",
     "email": "carrommad@gmail.com",
+    "email_title": "Aww, so you like me?",
+    "email_content": "I also like you ⭐ Let's talk!",
     "phone": "+34 611 423 133",
     "location": "Barcelona, Spain"
   }
@@ -2828,6 +2830,18 @@
 
       // Footer Actions
       if (data.footer) {
+        const emailBtn = document.querySelector('a[href^="mailto:"]');
+        if (emailBtn) {
+          const email = data.footer.email || 'carrommad@gmail.com';
+          const subject = data.footer.email_title || data.footer.email_subject || 'Aww, so you like me?';
+          const body = data.footer.email_content || data.footer.email_body || "I also like you ⭐ Let's talk!";
+          emailBtn.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+          if (data.footer.email_btn_text) {
+            const svg = emailBtn.querySelector('svg');
+            emailBtn.innerHTML = (svg ? svg.outerHTML + ' ' : '') + data.footer.email_btn_text;
+          }
+        }
+
         if (data.footer.cv_pdf_file) {
           const cvBtn = document.querySelector('a[href$="CV.pdf"]');
           if (cvBtn) {

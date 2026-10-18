@@ -632,6 +632,16 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
   - Updated `applyMainContent()` in JavaScript to automatically split dynamic JSON strings on `·` and preserve the pulsing dot separator without erasing it.
   - Automatically collapses to `CREATIVE INTELLIGENCE & DESIGN ● BARCELONA` on tablet and mobile viewports.
 
+### AY. Dynamic Email Title & Content in content_cards.json
+- **Configuration**:
+  - Added `"email_title"` (`"Aww, so you like me?"`) and `"email_content"` (`"I also like you ⭐ Let's talk!"`) to the `"footer"` object in [content_cards.json](file:///c:/Users/cromero/Desktop/cool-cv/content_cards.json).
+  - Also aliased to `"email_subject"` and `"email_body"` in `applyMainContent()` for maximum flexibility.
+- **Dynamic DOM Binding**:
+  - [index.html](file:///c:/Users/cromero/Desktop/cool-cv/index.html) automatically parses these fields and constructs the `mailto:` URL dynamically:
+    `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+  - Synced across `content_cards.js`, `content.json`, and `#main-content-data`.
+
+
 
 
 
