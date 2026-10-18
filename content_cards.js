@@ -48,7 +48,7 @@ window.PORTFOLIO_CONTENT = {
       "tag": "Physicalization, Sound & Visual Media",
       "period": "Software & Hardware Prototypes",
       "title": "Creative Computing",
-      "description": "Tangible data experiences bridging scientific computing with playful interaction: MNusic (real-time cluster telemetry sonification), Pipa-Music-Ball (cat-interactive 6-DoF kinetic sphere), Expo-Curator (open-source gallery staging engine), and Lens & Motion procedural animation.",
+      "description": "Tangible data experiences bridging scientific computing with playful interaction: MNusic (real-time cluster telemetry sonification), Pipa-Music-Ball (cat-interactive animal computing & kinetic audio sphere), Expo-Curator (visual corpus analytics & gallery staging engine), and Lens & Motion procedural animation.",
       "action_text": "View Creative Computing Prototypes →"
     },
     {

@@ -675,6 +675,14 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
   - **Modal 04 & Standalone Cover Letters**: Cleaned `Expo-Curator` bullet points across [index.html](file:///c:/Users/cromero/Desktop/cool-cv/index.html#L2674-L2678), `cover_letter.html`, `cover_letter_editorial.html`, `cover_letter_quadrants.html`, and `cv_pastel_boxes.html`, standardizing titles to `Expo-Curator Studio — Spatial Staging & Visual Analytics`.
   - **PDF Compilers**: Updated [scripts/generate_cv_pdf.py](file:///c:/Users/cromero/Desktop/cool-cv/scripts/generate_cv_pdf.py) and [scripts/generate_cover_letter_pdf.py](file:///c:/Users/cromero/Desktop/cool-cv/scripts/generate_cover_letter_pdf.py) with portable paths and regenerated [Carlos_Romero_CV.pdf](file:///c:/Users/cromero/Desktop/cool-cv/Carlos_Romero_CV.pdf) and [Carlos_Romero_Cover_Letter.pdf](file:///c:/Users/cromero/Desktop/cool-cv/Carlos_Romero_Cover_Letter.pdf).
 
+### BC. Refinement of Creative Computing Badges Across Modal 03
+- **Badges Updated**:
+  - **Project 01 (MNusic)**: Updated badge from `Sonification & Web Audio` to **`Cluster Sonification`** to emphasize HPC supercomputing connection (MareNostrum 5 & LUMI).
+  - **Project 02 (Pipa-Music-Ball)**: Updated badge from `Physical Computing & Sensors` to **`Animal Computing & Music`**, capturing the interdisciplinary Animal-Computer Interaction (ACI) and microtonal audio synthesis.
+  - **Project 03 (Expo-Curator)**: Updated badge to **`Visual Corpus Analytics`** and expanded description to highlight multi-dimensional corpus analysis and automated clustering, directly connecting to the new analytics dashboard.
+  - **Card 03 Descriptions**: Synchronized summaries across [content_cards.json](file:///c:/Users/cromero/Desktop/cool-cv/content_cards.json), [content.json](file:///c:/Users/cromero/Desktop/cool-cv/content.json), [content_cards.js](file:///c:/Users/cromero/Desktop/cool-cv/content_cards.js), and [index.html](file:///c:/Users/cromero/Desktop/cool-cv/index.html).
+
+
 
 
 
