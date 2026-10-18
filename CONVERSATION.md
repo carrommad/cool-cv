@@ -864,6 +864,43 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
 - **Persistence**:
   - Once awakened, scrolling back to top keeps the typography alive and breathing smoothly at its relaxed architectural tempo.
 
+### BV. Centered Cinema Mode & Lightbox for Creative Computing Cards
+- **Context & Requirement**:
+  - The Creative Computing cards in Modal 03 (`#modal-creative`) previously opened external GitHub URLs directly when clicking the media preview box, duplicating the dedicated "View on GitHub" buttons.
+  - When clicking "Play" on the After Effects Lab video (or clicking any card preview), the media must open in a centered, high-definition Cinema Mode theater overlay.
+- **Cinema Mode Architecture (`#cinema-modal`)**:
+  - **Centered Lightbox Overlay**:
+    - Fixed full-screen backdrop (`rgba(7, 8, 11, 0.94)`) with high-grade optical blur (`backdrop-filter: blur(24px)`), set at `z-index: 20000` above Modal 03 (`z-index: 9999`).
+    - Perfectly centered vertically and horizontally on any viewport via flexbox alignment (`display: flex; align-items: center; justify-content: center;`).
+    - Entrance animation with spring easing (`scale(0.97)` to `scale(1)` with opacity fade).
+  - **Cinema Header**:
+    - Pulsating red live badge: `CINEMA MODE`.
+    - Project context tag (e.g. `Adobe After Effects · Motion Study`, `Cluster Sonification`).
+    - High-contrast editorial project title.
+    - Floating tactile close button with `✕` icon and `[ESC]` shortcut hint.
+  - **Stage & Media Handling**:
+    - **Video Study (`assets/videos/graffiti.mp4`)**:
+      - Responsive 3:2 frame with maximum height constraints (`calc(85vh - 90px)`).
+      - Autoplays smoothly in Cinema Mode with full playback controls.
+      - Seamless timestamp synchronization between inline card preview and Cinema Mode.
+    - **High-Resolution Telemetry & Visual Dashboard Captures**:
+      - For **MNusic**, **Pipa-Music-Ball**, and **Expo-Curator**, clicking the card preview opens the high-resolution capture centered on screen in Cinema Mode with dedicated title, badge, and descriptive caption.
+  - **Cinema Footer**:
+    - Shows the descriptive media caption and exit hint: `"Click outside or press ESC to exit"`.
+- **Card Preview Interactions & Clear Roles**:
+  - **Media Card Preview Box (`.proj-img-wrap`, `.proj-video-wrap`)**:
+    - Dedicated to opening media in Cinema Mode (`openCinemaMedia()` / `openCinemaVideo()`).
+    - Features elegant hover badges (`Cinema View` / `Play in Cinema Mode` with play glyph).
+    - For After Effects Lab, includes an inviting centered play circle overlay.
+    - Listens to native `play` events: if the user clicks Play on the inline video player, playback immediately shifts into the centered Cinema Mode.
+  - **Dedicated Action Buttons (`.btn-proj-link`)**:
+    - Projects 1, 2, 3: Dedicated "View on GitHub" button navigating to source repositories.
+    - Project 4: Dedicated "Play in Cinema Mode" button matching the grid layout across all 4 project cards.
+- **Escape Key & Navigation Hierarchy**:
+  - Pressing `Escape` while Cinema Mode is active closes Cinema Mode first and leaves Modal 03 intact.
+  - Clicking on the dark backdrop outside the cinema dialog smoothly closes the overlay.
+  - Closing Modal 03 automatically pauses and closes Cinema Mode if open.
+
 
 
 

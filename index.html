@@ -1700,36 +1700,12 @@
       margin: 8px 0;
       width: 100%;
     }
-    .proj-preview-single .proj-img-wrap {
+    .proj-preview-single .proj-img-wrap,
+    .proj-preview-single .proj-video-wrap {
       width: 100%;
       aspect-ratio: 16/9.5;
     }
-    .proj-img-wrap {
-      position: relative;
-      border-radius: 10px;
-      overflow: hidden;
-      display: block;
-      border: 1.5px solid var(--bw-border-subtle);
-      background: #000;
-      transition: all 0.25s ease;
-      aspect-ratio: 16/9;
-    }
-    .proj-img-wrap:hover {
-      transform: translateY(-2px);
-      border-color: var(--bw-border);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
-    }
-    .proj-img-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: filter 0.25s ease;
-    }
-    .proj-img-wrap:hover img {
-      filter: none;
-    }
-
+    .proj-img-wrap,
     .proj-video-wrap {
       position: relative;
       border-radius: 10px;
@@ -1738,20 +1714,34 @@
       border: 1.5px solid var(--bw-border-subtle);
       background: #000;
       transition: all 0.25s ease;
-      width: 100%;
+      aspect-ratio: 16/9;
+      cursor: pointer;
+      user-select: none;
     }
+    .proj-img-wrap:hover,
     .proj-video-wrap:hover {
+      transform: translateY(-2px);
       border-color: var(--bw-border);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+    }
+    .proj-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.35s ease, filter 0.25s ease;
+    }
+    .proj-img-wrap:hover img {
+      transform: scale(1.025);
+      filter: none;
     }
     .proj-video-wrap video {
       width: 100%;
-      height: auto;
-      max-height: 480px;
+      height: 100%;
       display: block;
       background: #000;
-      aspect-ratio: 3/2;
-      object-fit: contain;
+      object-fit: cover;
+      pointer-events: none;
     }
     .proj-video-cap {
       font-family: var(--font-mono);
@@ -1777,14 +1767,100 @@
       bottom: 0;
       left: 0;
       right: 0;
-      background: rgba(0, 0, 0, 0.85);
+      background: rgba(0, 0, 0, 0.82);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
       color: #fff;
       font-family: var(--font-mono);
       font-size: 9.5px;
       font-weight: 700;
-      padding: 3px 6px;
+      padding: 4px 8px;
       text-align: center;
+      z-index: 2;
     }
+
+    /* Media Hover Cinema Badges */
+    .cinema-hover-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(14, 16, 22, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      opacity: 0;
+      transform: translateY(-4px);
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+      z-index: 5;
+    }
+    .proj-img-wrap:hover .cinema-hover-badge,
+    .proj-img-wrap:focus-visible .cinema-hover-badge,
+    .proj-video-wrap:hover .cinema-hover-badge,
+    .proj-video-wrap:focus-visible .cinema-hover-badge {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Video Play Overlay */
+    .cinema-play-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.32);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.22s ease;
+      cursor: pointer;
+      z-index: 4;
+    }
+    .proj-video-wrap:hover .cinema-play-overlay {
+      background: rgba(0, 0, 0, 0.48);
+    }
+    .cinema-play-btn-circle {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.95);
+      color: #0b0c10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 0 4px rgba(255, 255, 255, 0.25);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      padding-left: 3px;
+    }
+    .proj-video-wrap:hover .cinema-play-btn-circle {
+      transform: scale(1.12);
+      background: #fff;
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.65), 0 0 0 6px rgba(255, 255, 255, 0.35);
+    }
+    .cinema-play-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      padding: 4px 12px;
+      border-radius: 999px;
+      letter-spacing: 0.06em;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
     .proj-links-row {
       display: flex;
       gap: 8px;
@@ -1804,11 +1880,226 @@
       border-radius: 9999px;
       text-decoration: none;
       transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    button.btn-proj-link {
+      cursor: pointer;
+      line-height: inherit;
     }
     .btn-proj-link:hover {
       border-color: var(--bw-border);
       background: var(--bw-btn-bg);
       color: var(--bw-btn-text);
+    }
+
+    /* =========================================================
+       CINEMA MODE THEATER OVERLAY (Centered Lightbox)
+       ========================================================= */
+    .cinema-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(7, 8, 11, 0.94);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      z-index: 20000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(16px, 3vh, 32px) clamp(16px, 3vw, 40px);
+      opacity: 0;
+      transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cinema-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+    .cinema-dialog-wrapper {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cinema-container {
+      width: 100%;
+      max-width: min(1180px, 94vw);
+      max-height: 94vh;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transform: scale(0.97) translateY(8px);
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cinema-overlay.active .cinema-container {
+      transform: scale(1) translateY(0);
+    }
+
+    /* Cinema Header */
+    .cinema-header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 0 4px;
+    }
+    .cinema-title-area {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .cinema-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: #ff3b30;
+      text-transform: uppercase;
+    }
+    .cinema-pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #ff3b30;
+      box-shadow: 0 0 10px #ff3b30;
+      animation: cinemaPulse 1.8s infinite;
+    }
+    @keyframes cinemaPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.45; transform: scale(0.85); }
+    }
+    .cinema-badge-text {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.55);
+      border-left: 1px solid rgba(255, 255, 255, 0.18);
+      padding-left: 10px;
+    }
+    .cinema-title-text {
+      font-family: var(--font-heading);
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+    .cinema-close-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-size: 13px;
+      font-weight: 500;
+      flex-shrink: 0;
+    }
+    .cinema-close-btn:hover {
+      background: rgba(255, 255, 255, 0.18);
+      border-color: rgba(255, 255, 255, 0.35);
+      transform: scale(1.03);
+    }
+    .cinema-esc-hint {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      padding: 1px 5px;
+      border-radius: 4px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* Cinema Stage */
+    .cinema-stage {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #000;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 25px 70px -10px rgba(0, 0, 0, 0.95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-height: calc(85vh - 90px);
+    }
+    #cinema-video {
+      width: 100%;
+      height: auto;
+      max-height: calc(85vh - 90px);
+      aspect-ratio: 3/2;
+      object-fit: contain;
+      background: #000;
+      display: none;
+    }
+    #cinema-image {
+      width: 100%;
+      height: auto;
+      max-height: calc(85vh - 90px);
+      object-fit: contain;
+      background: #000;
+      display: none;
+    }
+
+    /* Cinema Footer */
+    .cinema-footer {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 0 4px;
+    }
+    .cinema-cap-text {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.65);
+      margin: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .cinema-help-hint {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      color: rgba(255, 255, 255, 0.4);
+      flex-shrink: 0;
+    }
+    .cinema-help-hint kbd {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 3px;
+      padding: 1px 4px;
+      font-size: 9.5px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    @media (max-width: 640px) {
+      .cinema-overlay {
+        padding: 12px 10px;
+      }
+      .cinema-badge-text,
+      .cinema-esc-hint,
+      .cinema-help-hint {
+        display: none;
+      }
+      .cinema-title-text {
+        font-size: 13px;
+      }
     }
     .media-dropzone-notice {
       background: var(--bw-surface-sunken);
@@ -2591,10 +2882,17 @@
               </p>
             </div>
             <div class="proj-preview-single">
-              <a href="https://github.com/carrommad/mnusic" target="_blank" class="proj-img-wrap" title="MNusic — HPC Ambient Synthesizer Dashboard">
+              <div class="proj-img-wrap cinema-trigger" role="button" tabindex="0"
+                onclick="openCinemaMedia('image', 'assets/photos/mnusic_dashboard.png', 'MNusic · Continuous Flow Telemetry Synthesizer', 'Translates MareNostrum 5 and LUMI cluster metrics into responsive ambient soundscapes and particle dynamic waves.', 'Cluster Sonification · Supercomputing Audio Telemetry')"
+                onkeydown="if(event.key==='Enter'||event.key===' ')openCinemaMedia('image', 'assets/photos/mnusic_dashboard.png', 'MNusic · Continuous Flow Telemetry Synthesizer', 'Translates MareNostrum 5 and LUMI cluster metrics into responsive ambient soundscapes and particle dynamic waves.', 'Cluster Sonification · Supercomputing Audio Telemetry')"
+                title="Click to view in Cinema Mode">
                 <img src="assets/photos/mnusic_dashboard.png" alt="MNusic Supercomputing Telemetry Dashboard" loading="lazy">
                 <span class="proj-img-cap">Continuous Flow Telemetry Synthesizer (MN5 &amp; LUMI)</span>
-              </a>
+                <span class="cinema-hover-badge">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                  Cinema View
+                </span>
+              </div>
             </div>
             <div class="proj-links-row">
               <a href="https://github.com/carrommad/mnusic" target="_blank" class="btn-proj-link">
@@ -2614,10 +2912,17 @@
               </p>
             </div>
             <div class="proj-preview-single">
-              <a href="https://github.com/carrommad/pipa-music-ball" target="_blank" class="proj-img-wrap" title="Real-Time 3D Cavalier Telemetry Dashboard">
+              <div class="proj-img-wrap cinema-trigger" role="button" tabindex="0"
+                onclick="openCinemaMedia('image', 'assets/photos/pipa_telemetry_live.png', 'Pipa-Music-Ball · 3D Inertial Telemetry & Oscilloscope', 'Live 3D Cavalier Telemetry & Oscilloscope Dashboard showing real-time gyro acceleration and pitch-shifting sensor phrases.', 'Animal Computing & Music · Live 3D Cavalier Telemetry')"
+                onkeydown="if(event.key==='Enter'||event.key===' ')openCinemaMedia('image', 'assets/photos/pipa_telemetry_live.png', 'Pipa-Music-Ball · 3D Inertial Telemetry & Oscilloscope', 'Live 3D Cavalier Telemetry & Oscilloscope Dashboard showing real-time gyro acceleration and pitch-shifting sensor phrases.', 'Animal Computing & Music · Live 3D Cavalier Telemetry')"
+                title="Click to view in Cinema Mode">
                 <img src="assets/photos/pipa_telemetry_live.png" alt="3D Cavalier Telemetry Dashboard" loading="lazy">
                 <span class="proj-img-cap">Live 3D Cavalier Telemetry &amp; Oscilloscope Dashboard</span>
-              </a>
+                <span class="cinema-hover-badge">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                  Cinema View
+                </span>
+              </div>
             </div>
             <div class="proj-links-row">
               <a href="https://github.com/carrommad/pipa-music-ball" target="_blank" class="btn-proj-link">
@@ -2637,10 +2942,17 @@
               </p>
             </div>
             <div class="proj-preview-single">
-              <a href="https://github.com/carrommad/expo-curator" target="_blank" class="proj-img-wrap" title="Expo-Curator Visual Corpus Analytics &amp; Telemetry">
+              <div class="proj-img-wrap cinema-trigger" role="button" tabindex="0"
+                onclick="openCinemaMedia('image', 'assets/photos/expo_analytics_overview.png', 'Expo-Curator · Visual Corpus Analytics & Spatial Staging', 'Visual Corpus Analytics & Multi-Dimensional Telemetry Dashboard for automated sub-classification, booklet design, and 2D/3D gallery wall staging.', 'Visual Corpus Analytics · Multi-Dimensional Telemetry Dashboard')"
+                onkeydown="if(event.key==='Enter'||event.key===' ')openCinemaMedia('image', 'assets/photos/expo_analytics_overview.png', 'Expo-Curator · Visual Corpus Analytics & Spatial Staging', 'Visual Corpus Analytics & Multi-Dimensional Telemetry Dashboard for automated sub-classification, booklet design, and 2D/3D gallery wall staging.', 'Visual Corpus Analytics · Multi-Dimensional Telemetry Dashboard')"
+                title="Click to view in Cinema Mode">
                 <img src="assets/photos/expo_analytics_overview.png" alt="Expo-Curator Visual Corpus Analytics Dashboard" loading="lazy">
                 <span class="proj-img-cap">Visual Corpus Analytics &amp; Multi-Dimensional Telemetry Dashboard</span>
-              </a>
+                <span class="cinema-hover-badge">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                  Cinema View
+                </span>
+              </div>
             </div>
             <div class="proj-links-row">
               <a href="https://github.com/carrommad/expo-curator" target="_blank" class="btn-proj-link">
@@ -2660,15 +2972,34 @@
               </p>
             </div>
             <div class="proj-preview-single">
-              <div class="proj-video-wrap">
-                <video controls preload="metadata" playsinline poster="assets/photos/graffiti_poster.jpg">
+              <div class="proj-video-wrap cinema-trigger" id="proj-video-wrap-ae" role="button" tabindex="0"
+                onclick="openCinemaVideo()"
+                onkeydown="if(event.key==='Enter'||event.key===' ')openCinemaVideo()"
+                title="Click to play in Cinema Mode">
+                <video id="inline-ae-video" preload="metadata" playsinline poster="assets/photos/graffiti_poster.jpg">
                   <source src="assets/videos/graffiti.mp4" type="video/mp4">
                   Your browser does not support HTML5 video.
                 </video>
+                <div class="cinema-play-overlay">
+                  <div class="cinema-play-btn-circle" aria-label="Play">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
+                  </div>
+                  <span class="cinema-play-label">Play in Cinema Mode</span>
+                </div>
+                <span class="cinema-hover-badge">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                  Cinema View
+                </span>
               </div>
               <div class="proj-video-cap">
                 Graffiti &amp; Architectural Collage — Adobe After Effects Motion Study
               </div>
+            </div>
+            <div class="proj-links-row">
+              <button type="button" class="btn-proj-link" onclick="openCinemaVideo()" title="Open motion study in centered Cinema Mode">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
+                Play in Cinema Mode
+              </button>
             </div>
           </div>
 
@@ -2763,6 +3094,49 @@
             </a>
           </div>
         </article>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       CINEMA MODE LIGHTBOX (Centered Media Theater Overlay)
+       ========================================================= -->
+  <div class="cinema-overlay" id="cinema-modal" onclick="handleCinemaOverlayClick(event)" role="dialog" aria-modal="true" aria-label="Cinema Mode Theater">
+    <div class="cinema-dialog-wrapper">
+      <div class="cinema-container">
+        <!-- Cinema Header Bar -->
+        <div class="cinema-header">
+          <div class="cinema-title-area">
+            <span class="cinema-pill">
+              <span class="cinema-pill-dot"></span>
+              CINEMA MODE
+            </span>
+            <span class="cinema-badge-text" id="cinema-badge-text">Motion Study</span>
+            <h3 class="cinema-title-text" id="cinema-title-text">Media Viewer</h3>
+          </div>
+          <button class="cinema-close-btn" onclick="closeCinemaMode()" title="Close Cinema Mode (Esc)" aria-label="Close Cinema Mode">
+            <span class="cinema-esc-hint">ESC</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Cinema Stage (Centered Video / Image) -->
+        <div class="cinema-stage">
+          <video id="cinema-video" controls playsinline preload="auto">
+            <source src="assets/videos/graffiti.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+          </video>
+          <img id="cinema-image" alt="Cinema View" src="" />
+        </div>
+
+        <!-- Cinema Footer Bar -->
+        <div class="cinema-footer">
+          <p class="cinema-cap-text" id="cinema-cap-text">Graffiti &amp; Architectural Collage — Adobe After Effects Motion Study</p>
+          <span class="cinema-help-hint">Click outside or press <kbd>ESC</kbd> to exit</span>
+        </div>
       </div>
     </div>
   </div>
@@ -3254,6 +3628,9 @@
     function closeSectionModal(modalId) {
       const modal = document.getElementById(modalId);
       if (modal) {
+        if (modalId === 'modal-creative') {
+          closeCinemaMode();
+        }
         modal.classList.remove('active');
         document.body.style.overflow = 'auto';
         const videos = modal.querySelectorAll('video');
@@ -3269,8 +3646,129 @@
       }
     }
 
+    // ---------------------------------------------------------
+    // CINEMA MODE LIGHTBOX (Centered Media Theater)
+    // ---------------------------------------------------------
+    let cinemaActiveType = null;
+
+    function openCinemaMedia(type, src, title, caption, badgeText, poster) {
+      const modal = document.getElementById('cinema-modal');
+      const videoEl = document.getElementById('cinema-video');
+      const imgEl = document.getElementById('cinema-image');
+      const titleEl = document.getElementById('cinema-title-text');
+      const badgeEl = document.getElementById('cinema-badge-text');
+      const capEl = document.getElementById('cinema-cap-text');
+      const inlineVideo = document.getElementById('inline-ae-video');
+
+      if (!modal) return;
+
+      cinemaActiveType = type;
+      if (titleEl) titleEl.textContent = title || '';
+      if (badgeEl) badgeEl.textContent = badgeText || (type === 'video' ? 'Motion Study' : 'Telemetry View');
+      if (capEl) capEl.textContent = caption || '';
+
+      document.body.style.overflow = 'hidden';
+
+      if (type === 'video') {
+        if (imgEl) {
+          imgEl.style.display = 'none';
+          imgEl.src = '';
+        }
+        if (videoEl) {
+          videoEl.style.display = 'block';
+          if (poster) videoEl.poster = poster;
+
+          if (inlineVideo) {
+            videoEl.currentTime = inlineVideo.currentTime || 0;
+            if (!inlineVideo.paused) inlineVideo.pause();
+          }
+
+          modal.classList.add('active');
+          const playPromise = videoEl.play();
+          if (playPromise !== undefined) {
+            playPromise.catch(err => {
+              console.log('Cinema autoplay deferred:', err);
+            });
+          }
+        }
+      } else {
+        if (videoEl) {
+          if (!videoEl.paused) videoEl.pause();
+          videoEl.style.display = 'none';
+        }
+        if (imgEl) {
+          imgEl.style.display = 'block';
+          imgEl.src = src;
+          imgEl.alt = title || 'Cinema Media Preview';
+        }
+        modal.classList.add('active');
+      }
+    }
+
+    function openCinemaVideo() {
+      openCinemaMedia(
+        'video',
+        'assets/videos/graffiti.mp4',
+        'After Effects Lab · Graffiti & Architectural Collage',
+        'Graffiti mural art and architectural light geometry — Adobe After Effects motion study and kinetic overlays',
+        'Adobe After Effects · Motion Study',
+        'assets/photos/graffiti_poster.jpg'
+      );
+    }
+
+    function closeCinemaMode() {
+      const modal = document.getElementById('cinema-modal');
+      const videoEl = document.getElementById('cinema-video');
+      const inlineVideo = document.getElementById('inline-ae-video');
+
+      if (modal) modal.classList.remove('active');
+
+      if (videoEl && cinemaActiveType === 'video') {
+        if (!videoEl.paused) videoEl.pause();
+        if (inlineVideo) {
+          inlineVideo.currentTime = videoEl.currentTime;
+        }
+      }
+
+      cinemaActiveType = null;
+
+      const remainingModals = document.querySelectorAll('.modal-overlay.active');
+      if (remainingModals.length > 0) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = 'auto';
+      }
+    }
+
+    function handleCinemaOverlayClick(e) {
+      if (e.target && (e.target.id === 'cinema-modal' || e.target.classList.contains('cinema-dialog-wrapper'))) {
+        closeCinemaMode();
+      }
+    }
+
+    function initCinemaVideoListeners() {
+      const inlineVideo = document.getElementById('inline-ae-video');
+      if (inlineVideo) {
+        inlineVideo.addEventListener('play', () => {
+          const modal = document.getElementById('cinema-modal');
+          if (!modal || !modal.classList.contains('active')) {
+            inlineVideo.pause();
+            openCinemaVideo();
+          }
+        });
+      }
+    }
+
+    initCinemaVideoListeners();
+
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
+        const cinemaModal = document.getElementById('cinema-modal');
+        if (cinemaModal && cinemaModal.classList.contains('active')) {
+          closeCinemaMode();
+          e.stopPropagation();
+          return;
+        }
         const activeModals = document.querySelectorAll('.modal-overlay.active');
         activeModals.forEach(m => closeSectionModal(m.id));
       }
@@ -4033,11 +4531,13 @@
         checkInitialModalHash();
         initStatusDockScrollFade();
         initTypographyScrollAwakening();
+        initCinemaVideoListeners();
       });
     } else {
       checkInitialModalHash();
       initStatusDockScrollFade();
       initTypographyScrollAwakening();
+      initCinemaVideoListeners();
     }
 
     function checkInitialModalHash() {
