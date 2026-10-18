@@ -16,7 +16,7 @@
       "Creative Computing"
     ],
     "bio": [
-      "Double degree in Physics & Mathematics. Scientific software optimization for nuclear and climate. Data analytics for wind turbine predictive maintenance.",
+      "Nuclear Physics & Advanced Mathematics. Scientific software optimization for nuclear and climate. Data analytics for wind turbine predictive maintenance.",
       "Physical simulation for cognitive radar. Creative prototyping."
     ]
   },
@@ -28,7 +28,7 @@
       "tag": "European Mobility & Research",
       "period": "2013 — Present",
       "title": "Career & Journey",
-      "description": "Cross-European scientific trajectory spanning Seville, Bonn/Cologne (Fraunhofer FHR cognitive radar), Marseille (MSc Plasma & Fusion Physics, 1st of Class), Pamplona (CENER wind plant data pipelines), and BSC Barcelona (HPC Fusion & Performance).",
+      "description": "Trajectory from Seville (BSc Physics & Mathematics, later Plasma research), Bonn (cognitive radar at Fraunhofer FHR), Marseille (MSc Plasma & Fusion Physics), Pamplona (wind plant data pipelines at CENER),  and BSC Barcelona (HPC Fusion & Performance).",
       "action_text": "Explore Interactive Map & Journey →"
     },
     {
@@ -38,7 +38,7 @@
       "tag": "Rigor & Compute Toolkit",
       "period": "Physics · Mathematics · Petascale",
       "title": "Education & Skills",
-      "description": "BSc in Mathematics (8.28, 3rd of Class) & BSc in Physics (8.35, 3rd of Class), MSc Plasma Physics (1st of Class), Skills & Parallel HPC runtime stack, Slurm orchestration, After Effects, and deployment experience across MareNostrum 5 (MN5), Leonardo, and LUMI.",
+      "description": "BSc in Mathematics  & BSc in Physics, MSc Plasma Physics & MSc in Advanced Mathematics, Skills.",
       "action_text": "Inspect Education & Skills Stack →"
     },
     {
@@ -58,7 +58,7 @@
       "tag": "Vision & Statement",
       "period": "Addressed to Fernando Cucchietti",
       "title": "Cover Letter to DAV Group",
-      "description": "Strategic application statement addressed to the Data Analytics & Visualization Group at BSC-CNS: proposing to bridge petascale supercomputing with Domestic Data Streamers design philosophy to democratize science through emotional, tangible experiences.",
+      "description": "Hi DAV team! This is my honest cover letter, probably the least assited AI thing I have done in my spare time apart from painting and playing music. Hope it gives you a real idea about my interest.",
       "action_text": "Read Full Application Letter →"
     }
   ],

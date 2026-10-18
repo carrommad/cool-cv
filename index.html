@@ -1960,10 +1960,8 @@
           <div class="hero-role-item hero-role-3">Creative Computing</div>
         </div>
         <div class="hero-bio">
-          <span class="hero-bio-line">Double degree in Physics & Mathematics. Scientific software optimization for nuclear and climate.</span>
-          <span class="hero-bio-line">Data analytics for wind turbine predictive maintenance.</span>
-          <span class="hero-bio-line">Physical simulation for cognitive radar.</span>
-          <span class="hero-bio-line">Creative prototyping.</span>
+          <span class="hero-bio-line">Nuclear Physics &amp; Advanced Mathematics. Scientific software optimization for nuclear and climate. Data analytics for wind turbine predictive maintenance.</span>
+          <span class="hero-bio-line">Physical simulation for cognitive radar. Creative prototyping.</span>
         </div>
       </div>
 
@@ -1996,7 +1994,7 @@
             </div>
             <h2 class="card-title">Career &amp; Journey</h2>
             <p class="card-desc">
-              Cross-European scientific trajectory spanning Seville, Bonn/Cologne (Fraunhofer FHR cognitive radar), Marseille (MSc Plasma & Fusion Physics, 1st of Class), Pamplona (CENER wind plant data pipelines), and BSC Barcelona (HPC Fusion & Performance).
+              Trajectory from Seville (BSc Physics &amp; Mathematics, later Plasma research), Bonn (cognitive radar at Fraunhofer FHR), Marseille (MSc Plasma &amp; Fusion Physics), Pamplona (wind plant data pipelines at CENER),  and BSC Barcelona (HPC Fusion &amp; Performance).
             </p>
             <div class="card-action-row">
               <span class="action-prompt-btn">Explore Interactive Map &amp; Journey →</span>
@@ -2025,7 +2023,7 @@
             </div>
             <h2 class="card-title">Education &amp; Skills</h2>
             <p class="card-desc">
-              BSc in Mathematics (8.28, 3rd of Class) &amp; BSc in Physics (8.35, 3rd of Class), MSc Plasma Physics (1st of Class), Skills &amp; Parallel HPC runtime stack, Slurm orchestration, After Effects, and deployment experience across MareNostrum 5 (MN5), Leonardo, and LUMI.
+              BSc in Mathematics  &amp; BSc in Physics, MSc Plasma Physics &amp; MSc in Advanced Mathematics, Skills.
             </p>
             <div class="card-action-row">
               <span class="action-prompt-btn">Inspect Education &amp; Skills Stack →</span>
@@ -2085,7 +2083,7 @@
             </div>
             <h2 class="card-title">Cover Letter to DAV Group</h2>
             <p class="card-desc">
-              Strategic application statement addressed to the Data Analytics & Visualization Group at BSC-CNS: proposing to bridge petascale supercomputing with Domestic Data Streamers design philosophy to democratize science through emotional, tangible experiences.
+              Hi DAV team! This is my honest cover letter, probably the least assited AI thing I have done in my spare time apart from painting and playing music. Hope it gives you a real idea about my interest.
             </p>
             <div class="card-action-row">
               <span class="action-prompt-btn">Read Full Application Letter →</span>
@@ -2640,10 +2638,8 @@
       "Creative Computing"
     ],
     "bio": [
-      "Double degree in Physics & Mathematics. Scientific software optimization for nuclear and climate.",
-      "Data analytics for wind turbine predictive maintenance.",
-      "Physical simulation for cognitive radar.",
-      "Creative prototyping."
+      "Nuclear Physics & Advanced Mathematics. Scientific software optimization for nuclear and climate. Data analytics for wind turbine predictive maintenance.",
+      "Physical simulation for cognitive radar. Creative prototyping."
     ]
   },
   "cards": [
@@ -2654,7 +2650,7 @@
       "tag": "European Mobility & Research",
       "period": "2013 — Present",
       "title": "Career & Journey",
-      "description": "Cross-European scientific trajectory spanning Seville, Bonn/Cologne (Fraunhofer FHR cognitive radar), Marseille (MSc Plasma & Fusion Physics, 1st of Class), Pamplona (CENER wind plant data pipelines), and BSC Barcelona (HPC Fusion & Performance).",
+      "description": "Trajectory from Seville (BSc Physics & Mathematics, later Plasma research), Bonn (cognitive radar at Fraunhofer FHR), Marseille (MSc Plasma & Fusion Physics), Pamplona (wind plant data pipelines at CENER),  and BSC Barcelona (HPC Fusion & Performance).",
       "action_text": "Explore Interactive Map & Journey →"
     },
     {
@@ -2664,7 +2660,7 @@
       "tag": "Rigor & Compute Toolkit",
       "period": "Physics · Mathematics · Petascale",
       "title": "Education & Skills",
-      "description": "BSc in Mathematics (8.28, 3rd of Class) & BSc in Physics (8.35, 3rd of Class), MSc Plasma Physics (1st of Class), Skills & Parallel HPC runtime stack, Slurm orchestration, After Effects, and deployment experience across MareNostrum 5 (MN5), Leonardo, and LUMI.",
+      "description": "BSc in Mathematics  & BSc in Physics, MSc Plasma Physics & MSc in Advanced Mathematics, Skills.",
       "action_text": "Inspect Education & Skills Stack →"
     },
     {
@@ -2684,7 +2680,7 @@
       "tag": "Vision & Statement",
       "period": "Addressed to Fernando Cucchietti",
       "title": "Cover Letter to DAV Group",
-      "description": "Strategic application statement addressed to the Data Analytics & Visualization Group at BSC-CNS: proposing to bridge petascale supercomputing with Domestic Data Streamers design philosophy to democratize science through emotional, tangible experiences.",
+      "description": "Hi DAV team! This is my honest cover letter, probably the least assited AI thing I have done in my spare time apart from painting and playing music. Hope it gives you a real idea about my interest.",
       "action_text": "Read Full Application Letter →"
     }
   ],
@@ -2811,23 +2807,22 @@
     }
 
     function initMainPageContent() {
-      // 1. If loaded via script tag (works natively on file:/// without CORS restrictions)
-      if (window.PORTFOLIO_CONTENT) {
-        applyMainContent(window.PORTFOLIO_CONTENT);
-        return;
-      }
-
-      // 2. Try loading from external content_cards.json or content.json (works on web servers & localhost)
-      fetch('content_cards.json')
+      // 1. Try loading from external content_cards.json or content.json (works on web servers & localhost with cache-busting)
+      fetch('content_cards.json?v=' + Date.now())
         .then(res => {
-          if (!res.ok) return fetch('content.json').then(r => r.json());
+          if (!res.ok) return fetch('content.json?v=' + Date.now()).then(r => r.json());
           return res.json();
         })
         .then(data => {
           applyMainContent(data);
         })
         .catch(() => {
-          // 3. Graceful fallback to embedded JSON (works when opened via file://)
+          // 2. Fall back to script tag (content_cards.js) when opened via file:/// (CORS restricted)
+          if (window.PORTFOLIO_CONTENT) {
+            applyMainContent(window.PORTFOLIO_CONTENT);
+            return;
+          }
+          // 3. Graceful fallback to embedded JSON
           const embeddedScript = document.getElementById('main-content-data');
           if (embeddedScript) {
             try {
