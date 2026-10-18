@@ -16,7 +16,7 @@
       "Creative Computing"
     ],
     "bio": [
-      "Nuclear Physics & Advanced Mathematics. Scientific software optimization for nuclear and climate. Data analytics for wind turbine predictive maintenance.",
+      "Nuclear Physics & Advanced Mathematics. Software optimization for nuclear and climate. Data analytics for wind turbine predictive maintenance.",
       "Physical simulation for cognitive radar. Creative prototyping."
     ]
   },
@@ -45,7 +45,7 @@
       "id": "card-03",
       "number": "03",
       "modal_id": "modal-creative",
-      "tag": "Physicalization, Sound & Visual Media",
+      "tag": "Visual Analytics & Creative Computing",
       "period": "Software & Hardware Prototypes",
       "title": "Creative Computing",
       "description": "Tangible data experiences bridging scientific computing with playful interaction: MNusic (real-time cluster telemetry sonification), Pipa-Music-Ball (cat-interactive animal computing & kinetic audio sphere), Expo-Curator (visual corpus analytics & gallery staging engine), and After Effects Lab (procedural motion design).",

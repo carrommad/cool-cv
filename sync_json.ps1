@@ -1,5 +1,6 @@
 # File Watcher: Synchronizes content_cards.json into content_cards.js & content.json
 $baseDir = Split-Path -Parent $MyInvocation.MyCommand.Path
+if (-not $baseDir) { $baseDir = if ($PSScriptRoot) { $PSScriptRoot } else { (Get-Location).Path } }
 $jsonPath = Join-Path $baseDir "content_cards.json"
 $jsPath = Join-Path $baseDir "content_cards.js"
 $contentJsonPath = Join-Path $baseDir "content.json"

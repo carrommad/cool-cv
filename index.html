@@ -2052,7 +2052,7 @@
           <div class="hero-role-item hero-role-3">Creative Computing</div>
         </div>
         <div class="hero-bio">
-          <span class="hero-bio-line">Nuclear Physics &amp; Advanced Mathematics. Scientific software optimization for nuclear and climate. Data analytics for wind turbine predictive maintenance.</span>
+          <span class="hero-bio-line">Nuclear Physics &amp; Advanced Mathematics. Software optimization for nuclear and climate. Data analytics for wind turbine predictive maintenance.</span>
           <span class="hero-bio-line">Physical simulation for cognitive radar. Creative prototyping.</span>
         </div>
       </div>
@@ -2138,7 +2138,7 @@
           </div>
           <div class="card-content-col">
             <div class="card-meta-line">
-              <span class="meta-tag">Physicalization, Sound & Visual Media</span>
+              <span class="meta-tag">Visual Analytics &amp; Creative Computing</span>
               <span class="meta-bullet">/</span>
               <span class="meta-period">Software & Hardware Prototypes</span>
             </div>
@@ -2516,7 +2516,7 @@
     <div class="modal-panel">
       <div class="modal-header">
         <div class="modal-header-titles">
-          <span>03 · Physicalization, Sound &amp; Visual Media</span>
+          <span>03 · Visual Analytics &amp; Creative Computing</span>
           <h2>Creative Computing</h2>
         </div>
         <button class="btn-close-modal" onclick="closeSectionModal('modal-creative')" title="Close (or click outside)">✕</button>
@@ -2734,7 +2734,7 @@
       "Creative Computing"
     ],
     "bio": [
-      "Nuclear Physics & Advanced Mathematics. Scientific software optimization for nuclear and climate. Data analytics for wind turbine predictive maintenance.",
+      "Nuclear Physics & Advanced Mathematics. Software optimization for nuclear and climate. Data analytics for wind turbine predictive maintenance.",
       "Physical simulation for cognitive radar. Creative prototyping."
     ]
   },
@@ -2763,7 +2763,7 @@
       "id": "card-03",
       "number": "03",
       "modal_id": "modal-creative",
-      "tag": "Physicalization, Sound & Visual Media",
+      "tag": "Visual Analytics & Creative Computing",
       "period": "Software & Hardware Prototypes",
       "title": "Creative Computing",
       "description": "Tangible data experiences bridging scientific computing with playful interaction: MNusic (real-time cluster telemetry sonification), Pipa-Music-Ball (cat-interactive animal computing & kinetic audio sphere), Expo-Curator (visual corpus analytics & gallery staging engine), and After Effects Lab (procedural motion design).",
@@ -2794,6 +2794,9 @@
   }
 }
   </script>
+
+  <!-- External Content Provider for Local file:/// & Static Hosting -->
+  <script src="content_cards.js"></script>
 
   <!-- =========================================================
        JAVASCRIPT LOGIC
@@ -2882,6 +2885,21 @@
           if (titleEl && cardData.title) titleEl.textContent = cardData.title;
           if (descEl && cardData.description) descEl.textContent = cardData.description;
           if (btnEl && cardData.action_text) btnEl.textContent = cardData.action_text;
+
+          // Keep modal header in sync if this card opens a modal
+          if (cardData.modal_id) {
+            const modalEl = document.getElementById(cardData.modal_id);
+            if (modalEl) {
+              const modalTagSpan = modalEl.querySelector('.modal-header-titles > span');
+              if (modalTagSpan && cardData.number && cardData.tag) {
+                modalTagSpan.textContent = `${cardData.number} · ${cardData.tag}`;
+              }
+              const modalTitleH2 = modalEl.querySelector('.modal-header-titles > h2');
+              if (modalTitleH2 && cardData.title) {
+                modalTitleH2.textContent = cardData.title;
+              }
+            }
+          }
         });
       }
 
@@ -2928,32 +2946,36 @@
     }
 
     function initMainPageContent() {
-      // 1. Try loading from external content_cards.json or content.json (works on web servers & localhost with cache-busting)
-      fetch('content_cards.json?v=' + Date.now())
-        .then(res => {
-          if (!res.ok) return fetch('content.json?v=' + Date.now()).then(r => r.json());
-          return res.json();
-        })
-        .then(data => {
-          applyMainContent(data);
-        })
-        .catch(() => {
-          // 2. Fall back to script tag (content_cards.js) when opened via file:/// (CORS restricted)
-          if (window.PORTFOLIO_CONTENT) {
-            applyMainContent(window.PORTFOLIO_CONTENT);
-            return;
+      // 1. Immediately apply from content_cards.js if available (fastest paint & 100% reliable on file:///)
+      if (window.PORTFOLIO_CONTENT) {
+        applyMainContent(window.PORTFOLIO_CONTENT);
+      }
+
+      // 2. If running on a web server (http / https), fetch content_cards.json with cache-busting timestamp
+      if (location.protocol !== 'file:') {
+        fetch('content_cards.json?v=' + Date.now())
+          .then(res => {
+            if (!res.ok) return fetch('content.json?v=' + Date.now()).then(r => r.json());
+            return res.json();
+          })
+          .then(data => {
+            applyMainContent(data);
+          })
+          .catch(() => {
+            // Already applied from window.PORTFOLIO_CONTENT or embedded fallback
+          });
+      } else if (!window.PORTFOLIO_CONTENT) {
+        // 3. Fallback to embedded JSON if opened via file:/// and content_cards.js was not loaded
+        const embeddedScript = document.getElementById('main-content-data');
+        if (embeddedScript) {
+          try {
+            const fallbackData = JSON.parse(embeddedScript.textContent);
+            applyMainContent(fallbackData);
+          } catch (err) {
+            // Static HTML DOM remains completely untouched
           }
-          // 3. Graceful fallback to embedded JSON
-          const embeddedScript = document.getElementById('main-content-data');
-          if (embeddedScript) {
-            try {
-              const fallbackData = JSON.parse(embeddedScript.textContent);
-              applyMainContent(fallbackData);
-            } catch (err) {
-              // Static HTML DOM remains completely untouched
-            }
-          }
-        });
+        }
+      }
     }
 
     initMainPageContent();

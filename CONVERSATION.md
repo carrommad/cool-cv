@@ -795,6 +795,26 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
   5. **Pastel Boxes PDF Generator ([scripts/generate_pastel_boxes_cv_pdf.py](file:///c:/Users/cromero/Desktop/cool-cv/scripts/generate_pastel_boxes_cv_pdf.py#L272-L285))**:
      - Swapped `Tier-0 Clusters Deployed` for `Artificial Intelligence & Computer Vision` and refactored hardcoded Linux path to portable cross-platform relative path.
 
+### BQ. Card 03 Tag: Visual Analytics & Creative Computing & Instant Local Reload Sync
+- **Card 03 Top Tag Update**:
+  - Replaced `Physicalization, Sound & Visual Media` with **`Visual Analytics & Creative Computing`** to directly reflect the Visual Corpus Analytics & Expo-Curator engine alongside creative computation.
+  - Synchronized across:
+    - [content_cards.json](file:///c:/Users/cromero/Desktop/cool-cv/content_cards.json)
+    - [content_cards.js](file:///c:/Users/cromero/Desktop/cool-cv/content_cards.js)
+    - [content.json](file:///c:/Users/cromero/Desktop/cool-cv/content.json)
+    - [index.html](file:///c:/Users/cromero/Desktop/cool-cv/index.html) (Card 03 meta-tag, Modal 03 header subtitle, and embedded `#main-content-data` island)
+    - [cv_pastel_boxes.html](file:///c:/Users/cromero/Desktop/cool-cv/cv_pastel_boxes.html)
+- **Hero Bio Synchronization**:
+  - Cleaned line 1 of the bio to: `"Nuclear Physics & Advanced Mathematics. Software optimization for nuclear and climate. Data analytics for wind turbine predictive maintenance."` (removing the redundant "Scientific").
+  - Synchronized across [content_cards.json](file:///c:/Users/cromero/Desktop/cool-cv/content_cards.json), [content_cards.js](file:///c:/Users/cromero/Desktop/cool-cv/content_cards.js), [content.json](file:///c:/Users/cromero/Desktop/cool-cv/content.json), and [index.html](file:///c:/Users/cromero/Desktop/cool-cv/index.html).
+- **Instant Browser Reload Sync (`content_cards.json` -> `index.html`)**:
+  - **The Issue**: When `index.html` was opened directly as a local file (`file:///...`), browser CORS policies blocked `fetch('content_cards.json')`. Because `<script src="content_cards.js"></script>` was not linked in `index.html`, `window.PORTFOLIO_CONTENT` was undefined and the page fell back to stale embedded static data, making browser refreshes look outdated after editing `content_cards.json`.
+  - **The Fix**:
+    1. Added `<script src="content_cards.js"></script>` to [index.html](file:///c:/Users/cromero/Desktop/cool-cv/index.html) so local file visits immediately load `window.PORTFOLIO_CONTENT` without CORS blocks.
+    2. Enhanced `initMainPageContent()` to immediately apply `window.PORTFOLIO_CONTENT` synchronously on paint, avoiding any latency or CORS errors on `file:///`. On web servers, it also performs cache-busted `fetch()`.
+    3. Expanded `applyMainContent(data)` so that changes to card tags and titles automatically propagate into open modal headers.
+    4. Launched the continuous file watcher daemon (`sync_json.ps1` via background task) so any direct edits to `content_cards.json` are automatically mirrored into `content_cards.js` and `content.json` within 150ms.
+
 
 
 
