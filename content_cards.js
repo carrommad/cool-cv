@@ -29,7 +29,7 @@
       "tag": "European Mobility & Research",
       "period": "2013 — Present",
       "title": "Career & Journey",
-      "description": "Trajectory from Seville (BSc Physics & Mathematics, later Plasma research), Bonn (cognitive radar at Fraunhofer FHR), Marseille (MSc Plasma & Fusion Physics), Pamplona (wind plant data pipelines at CENER),  and BSC Barcelona (HPC Fusion & Performance).",
+      "description": "Trajectory from Sevilla (BSc Physics & Mathematics, later plasma research), Bonn (cognitive radar), Marseille (MSc Plasma & Fusion Physics), Pamplona (wind plant data pipelines),  and BSC experience.",
       "action_text": "Explore Career & Journey Map →"
     },
     {
@@ -39,7 +39,7 @@
       "tag": "Rigor & Compute Toolkit",
       "period": "Physics · Mathematics · Petascale",
       "title": "Education & Skills",
-      "description": "BSc in Mathematics  & BSc in Physics, MSc Plasma Physics & MSc in Advanced Mathematics, Skills.",
+      "description": "BSc in Mathematics  & BSc in Physics, MSc Plasma Physics & MSc in Advanced Mathematics, Skills & Languages.",
       "action_text": "Inspect Education & Skills →"
     },
     {
@@ -49,7 +49,7 @@
       "tag": "Visual Analytics & Creative Computing",
       "period": "Software & Hardware Prototypes",
       "title": "Creative Computing",
-      "description": "Tangible data experiences bridging scientific computing with playful interaction: MNusic (real-time cluster telemetry sonification), Pipa-Music-Ball (cat-interactive animal computing & kinetic audio sphere), Expo-Curator (visual corpus analytics & gallery staging engine), and After Effects Lab (procedural motion design).",
+      "description": "Vibe coding for playful interaction: real-time MN5 telemetry sonification, cat-interactive music generation, AI visual curator studio, and creative video production.",
       "action_text": "View Creative Prototypes →"
     },
     {
@@ -57,9 +57,9 @@
       "number": "04",
       "modal_id": "modal-cover-letter",
       "tag": "Vision & Statement",
-      "period": "Addressed to Fernando Cucchietti",
-      "title": "Cover Letter to DAV Group",
-      "description": "Hi DAV team! This is my honest cover letter, probably the least assited AI thing I have done in my spare time apart from painting and playing music. Hope it gives you a real idea about my interest.",
+      "period": "Addressed to DAV Group",
+      "title": "Cover Letter",
+      "description": "Hi DAV team! This is my honest cover letter, probably the least assited AI thing I have done in my spare time apart from painting and playing music. Hope it gives you a real idea about my interests!",
       "action_text": "Read Full Application Letter →"
     }
   ],
