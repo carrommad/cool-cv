@@ -1655,12 +1655,14 @@
       transition: all 0.25s ease;
       gap: 16px;
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+      cursor: pointer;
+      position: relative;
     }
     .project-box:hover {
       border-color: var(--bw-border);
       background: var(--bw-surface-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
     }
     .proj-badge {
       display: inline-block;
@@ -1804,6 +1806,8 @@
       pointer-events: none;
       z-index: 5;
     }
+    .project-box:hover .cinema-hover-badge,
+    .project-box:focus-visible .cinema-hover-badge,
     .proj-img-wrap:hover .cinema-hover-badge,
     .proj-img-wrap:focus-visible .cinema-hover-badge,
     .proj-video-wrap:hover .cinema-hover-badge,
@@ -2873,7 +2877,10 @@
         <div class="creative-2x2-grid">
           
           <!-- Project 1: MNusic -->
-          <div class="project-box">
+          <div class="project-box cinema-card" role="button" tabindex="0"
+            onclick="openCinemaMedia('image', 'assets/photos/mnusic_dashboard.png', 'MNusic · Continuous Flow Telemetry Synthesizer', 'Translates MareNostrum 5 and LUMI cluster metrics into responsive ambient soundscapes and particle dynamic waves.', 'Cluster Sonification · Supercomputing Audio Telemetry')"
+            onkeydown="if(event.key==='Enter'||event.key===' '){openCinemaMedia('image', 'assets/photos/mnusic_dashboard.png', 'MNusic · Continuous Flow Telemetry Synthesizer', 'Translates MareNostrum 5 and LUMI cluster metrics into responsive ambient soundscapes and particle dynamic waves.', 'Cluster Sonification · Supercomputing Audio Telemetry');event.preventDefault();}"
+            title="Click card to view preview in Cinema Mode">
             <div>
               <span class="proj-badge">Cluster Sonification</span>
               <h3 class="proj-name">MNusic</h3>
@@ -2882,9 +2889,7 @@
               </p>
             </div>
             <div class="proj-preview-single">
-              <div class="proj-img-wrap cinema-trigger" role="button" tabindex="0"
-                onclick="openCinemaMedia('image', 'assets/photos/mnusic_dashboard.png', 'MNusic · Continuous Flow Telemetry Synthesizer', 'Translates MareNostrum 5 and LUMI cluster metrics into responsive ambient soundscapes and particle dynamic waves.', 'Cluster Sonification · Supercomputing Audio Telemetry')"
-                onkeydown="if(event.key==='Enter'||event.key===' ')openCinemaMedia('image', 'assets/photos/mnusic_dashboard.png', 'MNusic · Continuous Flow Telemetry Synthesizer', 'Translates MareNostrum 5 and LUMI cluster metrics into responsive ambient soundscapes and particle dynamic waves.', 'Cluster Sonification · Supercomputing Audio Telemetry')"
+              <div class="proj-img-wrap cinema-trigger"
                 title="Click to view in Cinema Mode">
                 <img src="assets/photos/mnusic_dashboard.png" alt="MNusic Supercomputing Telemetry Dashboard" loading="lazy">
                 <span class="proj-img-cap">Continuous Flow Telemetry Synthesizer (MN5 &amp; LUMI)</span>
@@ -2895,7 +2900,7 @@
               </div>
             </div>
             <div class="proj-links-row">
-              <a href="https://github.com/carrommad/mnusic" target="_blank" class="btn-proj-link">
+              <a href="https://github.com/carrommad/mnusic" target="_blank" class="btn-proj-link" onclick="event.stopPropagation()">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                 View on GitHub
               </a>
@@ -2903,7 +2908,10 @@
           </div>
 
           <!-- Project 2: Pipa-Music-Ball -->
-          <div class="project-box">
+          <div class="project-box cinema-card" role="button" tabindex="0"
+            onclick="openCinemaMedia('image', 'assets/photos/pipa_telemetry_live.png', 'Pipa-Music-Ball · 3D Inertial Telemetry & Oscilloscope', 'Live 3D Cavalier Telemetry & Oscilloscope Dashboard showing real-time gyro acceleration and pitch-shifting sensor phrases.', 'Animal Computing & Music · Live 3D Cavalier Telemetry')"
+            onkeydown="if(event.key==='Enter'||event.key===' '){openCinemaMedia('image', 'assets/photos/pipa_telemetry_live.png', 'Pipa-Music-Ball · 3D Inertial Telemetry & Oscilloscope', 'Live 3D Cavalier Telemetry & Oscilloscope Dashboard showing real-time gyro acceleration and pitch-shifting sensor phrases.', 'Animal Computing & Music · Live 3D Cavalier Telemetry');event.preventDefault();}"
+            title="Click card to view preview in Cinema Mode">
             <div>
               <span class="proj-badge">Animal Computing &amp; Music</span>
               <h3 class="proj-name">Pipa-Music-Ball</h3>
@@ -2912,9 +2920,7 @@
               </p>
             </div>
             <div class="proj-preview-single">
-              <div class="proj-img-wrap cinema-trigger" role="button" tabindex="0"
-                onclick="openCinemaMedia('image', 'assets/photos/pipa_telemetry_live.png', 'Pipa-Music-Ball · 3D Inertial Telemetry & Oscilloscope', 'Live 3D Cavalier Telemetry & Oscilloscope Dashboard showing real-time gyro acceleration and pitch-shifting sensor phrases.', 'Animal Computing & Music · Live 3D Cavalier Telemetry')"
-                onkeydown="if(event.key==='Enter'||event.key===' ')openCinemaMedia('image', 'assets/photos/pipa_telemetry_live.png', 'Pipa-Music-Ball · 3D Inertial Telemetry & Oscilloscope', 'Live 3D Cavalier Telemetry & Oscilloscope Dashboard showing real-time gyro acceleration and pitch-shifting sensor phrases.', 'Animal Computing & Music · Live 3D Cavalier Telemetry')"
+              <div class="proj-img-wrap cinema-trigger"
                 title="Click to view in Cinema Mode">
                 <img src="assets/photos/pipa_telemetry_live.png" alt="3D Cavalier Telemetry Dashboard" loading="lazy">
                 <span class="proj-img-cap">Live 3D Cavalier Telemetry &amp; Oscilloscope Dashboard</span>
@@ -2925,7 +2931,7 @@
               </div>
             </div>
             <div class="proj-links-row">
-              <a href="https://github.com/carrommad/pipa-music-ball" target="_blank" class="btn-proj-link">
+              <a href="https://github.com/carrommad/pipa-music-ball" target="_blank" class="btn-proj-link" onclick="event.stopPropagation()">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                 View on GitHub
               </a>
@@ -2933,7 +2939,10 @@
           </div>
 
           <!-- Project 3: Expo-Curator -->
-          <div class="project-box">
+          <div class="project-box cinema-card" role="button" tabindex="0"
+            onclick="openCinemaMedia('image', 'assets/photos/expo_analytics_overview.png', 'Expo-Curator · Visual Corpus Analytics & Spatial Staging', 'Visual Corpus Analytics & Multi-Dimensional Telemetry Dashboard for automated sub-classification, booklet design, and 2D/3D gallery wall staging.', 'Visual Corpus Analytics · Multi-Dimensional Telemetry Dashboard')"
+            onkeydown="if(event.key==='Enter'||event.key===' '){openCinemaMedia('image', 'assets/photos/expo_analytics_overview.png', 'Expo-Curator · Visual Corpus Analytics & Spatial Staging', 'Visual Corpus Analytics & Multi-Dimensional Telemetry Dashboard for automated sub-classification, booklet design, and 2D/3D gallery wall staging.', 'Visual Corpus Analytics · Multi-Dimensional Telemetry Dashboard');event.preventDefault();}"
+            title="Click card to view preview in Cinema Mode">
             <div>
               <span class="proj-badge">Visual Corpus Analytics</span>
               <h3 class="proj-name">Expo-Curator</h3>
@@ -2942,9 +2951,7 @@
               </p>
             </div>
             <div class="proj-preview-single">
-              <div class="proj-img-wrap cinema-trigger" role="button" tabindex="0"
-                onclick="openCinemaMedia('image', 'assets/photos/expo_analytics_overview.png', 'Expo-Curator · Visual Corpus Analytics & Spatial Staging', 'Visual Corpus Analytics & Multi-Dimensional Telemetry Dashboard for automated sub-classification, booklet design, and 2D/3D gallery wall staging.', 'Visual Corpus Analytics · Multi-Dimensional Telemetry Dashboard')"
-                onkeydown="if(event.key==='Enter'||event.key===' ')openCinemaMedia('image', 'assets/photos/expo_analytics_overview.png', 'Expo-Curator · Visual Corpus Analytics & Spatial Staging', 'Visual Corpus Analytics & Multi-Dimensional Telemetry Dashboard for automated sub-classification, booklet design, and 2D/3D gallery wall staging.', 'Visual Corpus Analytics · Multi-Dimensional Telemetry Dashboard')"
+              <div class="proj-img-wrap cinema-trigger"
                 title="Click to view in Cinema Mode">
                 <img src="assets/photos/expo_analytics_overview.png" alt="Expo-Curator Visual Corpus Analytics Dashboard" loading="lazy">
                 <span class="proj-img-cap">Visual Corpus Analytics &amp; Multi-Dimensional Telemetry Dashboard</span>
@@ -2955,7 +2962,7 @@
               </div>
             </div>
             <div class="proj-links-row">
-              <a href="https://github.com/carrommad/expo-curator" target="_blank" class="btn-proj-link">
+              <a href="https://github.com/carrommad/expo-curator" target="_blank" class="btn-proj-link" onclick="event.stopPropagation()">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                 View on GitHub
               </a>
@@ -2963,7 +2970,10 @@
           </div>
 
           <!-- Project 4: After Effects Lab -->
-          <div class="project-box">
+          <div class="project-box cinema-card" role="button" tabindex="0"
+            onclick="openCinemaVideo()"
+            onkeydown="if(event.key==='Enter'||event.key===' '){openCinemaVideo();event.preventDefault();}"
+            title="Click card to view motion study in Cinema Mode">
             <div>
               <span class="proj-badge">Motion Design &amp; Visual Media</span>
               <h3 class="proj-name">After Effects Lab</h3>
@@ -2972,9 +2982,7 @@
               </p>
             </div>
             <div class="proj-preview-single">
-              <div class="proj-video-wrap cinema-trigger" id="proj-video-wrap-ae" role="button" tabindex="0"
-                onclick="openCinemaVideo()"
-                onkeydown="if(event.key==='Enter'||event.key===' ')openCinemaVideo()"
+              <div class="proj-video-wrap cinema-trigger" id="proj-video-wrap-ae"
                 title="Click to play in Cinema Mode">
                 <video id="inline-ae-video" preload="metadata" playsinline poster="assets/photos/graffiti_poster.jpg">
                   <source src="assets/videos/graffiti.mp4" type="video/mp4">
@@ -2996,7 +3004,7 @@
               </div>
             </div>
             <div class="proj-links-row">
-              <button type="button" class="btn-proj-link" onclick="openCinemaVideo()" title="Open motion study in centered Cinema Mode">
+              <button type="button" class="btn-proj-link" onclick="event.stopPropagation(); openCinemaVideo()" title="Open motion study in centered Cinema Mode">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
                 Play in Cinema Mode
               </button>
@@ -3428,8 +3436,8 @@
       'theme-lemon-meringue'
     ];
 
-    let currentThemeMode = 'day';
-    let currentActivePalette = 'crimson-linen';
+    var currentThemeMode = 'day';
+    var currentActivePalette = 'crimson-linen';
 
     function changeColorPalette(paletteId) {
       currentActivePalette = paletteId;
@@ -3487,7 +3495,11 @@
 
       // Modulate audio mood if synthesizer is playing
       if (typeof updateAudioMood === 'function') {
-        updateAudioMood(currentThemeMode, paletteId);
+        try {
+          updateAudioMood(currentThemeMode, paletteId);
+        } catch (e) {
+          // Audio mood update deferred until audio variables are initialized
+        }
       }
     }
 
@@ -3649,7 +3661,7 @@
     // ---------------------------------------------------------
     // CINEMA MODE LIGHTBOX (Centered Media Theater)
     // ---------------------------------------------------------
-    let cinemaActiveType = null;
+    var cinemaActiveType = null;
 
     function openCinemaMedia(type, src, title, caption, badgeText, poster) {
       const modal = document.getElementById('cinema-modal');
@@ -4141,14 +4153,14 @@
     // Night: Wistful, Nostalgic D Minor 9 Nocturne (melancholic, cinematic)
     // Seamless 3.6s organic crossfade between moods with zero pitch-bending
     // ---------------------------------------------------------
-    let audioCtx = null;
-    let isPlayingAudio = false;
-    let sequenceTimer = null;
-    let masterCompressor = null;
-    let masterGain = null;
-    let dayBus = null;
-    let nightBus = null;
-    let activeAudioNodes = [];
+    var audioCtx = null;
+    var isPlayingAudio = false;
+    var sequenceTimer = null;
+    var masterCompressor = null;
+    var masterGain = null;
+    var dayBus = null;
+    var nightBus = null;
+    var activeAudioNodes = [];
 
     // Musical Tunings (Hz)
     // Day: Radiant C Major 9 (C - E - G - B - D - E) - uplifting, sunny, bright
@@ -4160,7 +4172,7 @@
     const NIGHT_BELL_NOTES = [220.00, 261.63, 293.66, 349.23, 392.00, 440.00, 523.25];
 
     function updateAudioMood(mode) {
-      if (!isPlayingAudio || !audioCtx || !dayBus || !nightBus) return;
+      if (typeof isPlayingAudio === 'undefined' || !isPlayingAudio || !audioCtx || !dayBus || !nightBus) return;
       const now = audioCtx.currentTime;
       const FADE_DUR = 3.6; // 3.6s organic cinematic crossfade
 

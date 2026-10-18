@@ -901,11 +901,15 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
   - Clicking on the dark backdrop outside the cinema dialog smoothly closes the overlay.
   - Closing Modal 03 automatically pauses and closes Cinema Mode if open.
 
-### BW. Synchronized Pipa-Music-Ball Telemetry Dashboard Showcase to GitHub
-- **Synchronization**:
-  - Switched repository remote in `c:\Users\cromero\Desktop\pipa-music-ball` to SSH (`git@github.com:carrommad/pipa-music-ball.git`), matching the user's authenticated SSH setup.
-  - Pushed unpushed commits (`fd4d4f9` and `e1f22bd`) to `origin/main`.
-  - The live application screenshot (`gallery/telemetry_dashboard.png`) and hardware prototype showcase (`gallery/sphere_prototype.jpg`) are now fully published and visible on the public GitHub `README.md` ([carrommad/pipa-music-ball](https://github.com/carrommad/pipa-music-ball)).
+### BX. Resolved Cinema Mode Initialization & Full Card Click Interaction
+- **Root Cause & Script Diagnostics**:
+  - Uncovered a `ReferenceError` on page initialization where `isPlayingAudio` (declared later via `let`) was accessed in `updateAudioMood` called by `initSolarThemeSync()` during top-level execution. This halted script execution at line 3604, preventing modal/cinema functions and listeners from operating.
+  - Resolved Temporal Dead Zone (TDZ) issues by switching top-level audio and theme control flags to `var` and adding defensive initialization guards in `updateAudioMood()` and `changeColorPalette()`.
+- **Card Click Scope & UX Polish**:
+  - Expanded Cinema Mode trigger to the entire `.project-box` container across all 4 Creative Computing cards (MNusic, Pipa-Music-Ball, Expo-Curator, and After Effects Lab) with `cursor: pointer;` and responsive hover feedback.
+  - Preserved GitHub button functionality with `event.stopPropagation()` so clicking "View on GitHub" navigates directly to repositories without triggering the media lightbox.
+  - Verified with automated browser CDP tests that clicking cards, titles, and media previews reliably activates the centered Cinema Lightbox with correct assets, high z-index (20,000), and captions.
+
 
 
 
