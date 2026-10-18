@@ -641,6 +641,18 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
     `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
   - Synced across `content_cards.js`, `content.json`, and `#main-content-data`.
 
+### AZ. Crisp High-Definition Expo-Curator Image Update (Visual Corpus Analytics)
+- **Original Source Retrieved**:
+  - Located the pure, uncropped original capture `analytics_overview.png` from `expo/documentation/screenshots/analytics_overview.png`, completely free of the bottom `Large Mode (Detailed View):` artifact on the user's manual clip.
+- **Installed & Mirrored**:
+  - Copied to `assets/photos/expo_analytics_overview.png` (280 KB) and mirrored to `assets/photos/expo_wall_studio.png`.
+- **Project Card Update**:
+  - Updated Modal 03 in [index.html](file:///c:/Users/cromero/Desktop/cool-cv/index.html#L2518-L2531):
+    - Badge: `Visual Corpus Analytics`
+    - Image: `assets/photos/expo_analytics_overview.png`
+    - Caption: `Visual Corpus Analytics & Multi-Dimensional Telemetry Dashboard`
+
+
 
 
 
