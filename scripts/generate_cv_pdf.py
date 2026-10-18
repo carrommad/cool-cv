@@ -186,8 +186,8 @@ def generate_cv_pdf():
             ""
         ],
         [
-            Paragraph("<b>Expo-Curator — Image Curation, Sub-Classification & Exhibition Wall Studio</b>", proj_title_style),
-            Paragraph("EXHIBITION DESIGN • GITHUB", proj_tag_style)
+            Paragraph("<b>Expo-Curator — Visual Corpus Analytics & Exhibition Staging</b>", proj_title_style),
+            Paragraph("CORPUS ANALYTICS • GITHUB", proj_tag_style)
         ],
         [
             Paragraph("• Open-source studio application for image curation, automated sub-classification, booklet design, and exhibition wall staging.<br/>• Streamlines spatial narrative organization and print-ready editorial catalogs for cultural spaces, science centers, and multidisciplinary exhibitions.", body_style),

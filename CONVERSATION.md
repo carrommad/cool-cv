@@ -687,6 +687,16 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
 - **Badge Harmonization**: Set badge to **`Motion Design & Visual Media`** to cleanly complement the `After Effects Lab` title without repetitive phrasing.
 - **Dossier & PDFs**: Recompiled [Carlos_Romero_CV.pdf](file:///c:/Users/cromero/Desktop/cool-cv/Carlos_Romero_CV.pdf) and [Carlos_Romero_Cover_Letter.pdf](file:///c:/Users/cromero/Desktop/cool-cv/Carlos_Romero_Cover_Letter.pdf).
 
+### BE. Project 3 Title Simplified to "Expo-Curator"
+- **Title Update**: Simplified Project 3 header from `Expo-Curator Studio` to just **`Expo-Curator`** across [index.html](file:///c:/Users/cromero/Desktop/cool-cv/index.html#L2560-L2565), [cover_letter_quadrants.html](file:///c:/Users/cromero/Desktop/cool-cv/cover_letter_quadrants.html), [cv_pastel_boxes.html](file:///c:/Users/cromero/Desktop/cool-cv/cv_pastel_boxes.html), and [scripts/generate_cv_pdf.py](file:///c:/Users/cromero/Desktop/cool-cv/scripts/generate_cv_pdf.py).
+- **Resulting Harmonized Title Grid**:
+  1. `MNusic`
+  2. `Pipa-Music-Ball`
+  3. `Expo-Curator`
+  4. `After Effects Lab`
+- **Dossier & PDFs**: Recompiled [Carlos_Romero_CV.pdf](file:///c:/Users/cromero/Desktop/cool-cv/Carlos_Romero_CV.pdf) and [Carlos_Romero_Cover_Letter.pdf](file:///c:/Users/cromero/Desktop/cool-cv/Carlos_Romero_Cover_Letter.pdf).
+
+
 
 
 
