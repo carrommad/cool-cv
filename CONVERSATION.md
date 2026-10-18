@@ -839,6 +839,21 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
 - **Hero Bio Line Split Synchronized**:
   - Synchronized the user's manual 3-line split across [content_cards.json](file:///c:/Users/cromero/Desktop/cool-cv/content_cards.json#L18-L22), [content_cards.js](file:///c:/Users/cromero/Desktop/cool-cv/content_cards.js#L18-L22), [content.json](file:///c:/Users/cromero/Desktop/cool-cv/content.json#L18-L22), and [index.html](file:///c:/Users/cromero/Desktop/cool-cv/index.html#L2045-L2050).
 
+### BT. Upward 2.5cm Spacing Adjustment, Relaxed Typography Tempo & Absolute Dock Architecture
+- **Upward 2.5cm Spacing Calibration**:
+  - Adjusted `.container` top padding from `clamp(140px, 18vh, 185px)` down to **`clamp(70px, 9vh, 90px)`** (~85px, exactly 2.5cm / 95px higher than before).
+  - The hero title `CARLOS ROMERO MADRID` now begins ~45px below the top controls and status dock, preserving healthy breathing room without feeling excessively low.
+- **Relaxed, Meditative Typography Stretching Tempo**:
+  - Slowed the dynamic keyframe animation cycle to a stately, relaxed tempo:
+    - Line 1 (Carlos): `9.4s ease-in-out infinite alternate` (`scaleX: 0.96` to `1.22`, `letter-spacing: -0.03em` to `0.04em`)
+    - Line 2 (Romero): `13.0s ease-in-out infinite alternate`, delay `-4.2s` (`scaleX: 0.94` to `1.26`, `letter-spacing: -0.035em` to `0.05em`)
+    - Line 3 (Madrid): `10.8s ease-in-out infinite alternate`, delay `-6.8s` (`scaleX: 0.95` to `1.24`, `letter-spacing: -0.028em` to `0.042em`)
+  - Each half-cycle now breathes over 5 to 6.5 seconds, eliminating any hurried motion and providing fluid, calm architectural cadence.
+- **Fail-Proof Architecture for Status Dock (Eliminating Text Collision)**:
+  - **The Structural Root Cause**: Pinned viewport elements (`position: fixed`) inevitably collide with scrolling content beneath them when fixed in the same horizontal column as right-aligned hero roles.
+  - **The Solution**: Re-architected `.top-status-dock` to **`position: absolute; top: 24px; right: 32px;`**. Because it is part of the document flow at the top of the canvas, scrolling down naturally carries it up and off the screen within ~30px of scroll—long before `COMPUTATIONAL PHYSICIST` (down at y ~170px) ever reaches the top.
+  - **Combined with Micro-Scroll Fade**: Re-engineered scroll listeners on `window`, `document`, and `document.body` with `overflow` normalization (`html { overflow-y: scroll; } body { overflow: visible; }`) to trigger `opacity: 0` on `y > 6px`. It fades out gracefully AND scrolls away, making collision physically impossible.
+
 
 
 

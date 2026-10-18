@@ -389,12 +389,12 @@
       padding: 0;
     }
 
-    html, body {
+    html {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       min-height: 100vh;
-      overflow-y: auto; /* Vertical scroll explicitly enabled */
+      overflow-y: scroll; /* Dedicated viewport vertical scrollbar */
       overflow-x: hidden;
       background-color: var(--bw-bg);
       color: var(--bw-text);
@@ -402,6 +402,13 @@
     }
 
     body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      min-height: 100vh;
+      overflow: visible;
+      background-color: transparent;
+      color: inherit;
       font-family: var(--font-body);
       font-size: 13.5px;
       line-height: 1.6;
@@ -423,12 +430,12 @@
       opacity: 0.85;
     }
 
-    /* MAIN CONTAINER — Horizontally narrower (720px) with ~5cm (180px) luxurious oxygen / top space */
+    /* MAIN CONTAINER — Horizontally narrower (720px) with balanced 2.5cm-higher breathing room */
     .container {
       max-width: 720px;
       width: 100%;
       margin: 0 auto;
-      padding: clamp(140px, 18vh, 185px) 20px 60px;
+      padding: clamp(70px, 9vh, 90px) 20px 60px;
       display: flex;
       flex-direction: column;
       position: relative;
@@ -448,10 +455,10 @@
       margin-bottom: 22px;
     }
 
-    /* Top Status Dock — Positioned at the most right, symmetrically to hero controls */
+    /* Top Status Dock — Positioned absolutely so it naturally scrolls up with the page & NEVER intersects below */
     .top-status-dock {
-      position: fixed;
-      top: 28px;
+      position: absolute;
+      top: 24px;
       right: 32px;
       height: 32px;
       z-index: 900;
@@ -466,7 +473,7 @@
     .top-status-dock.is-scrolled {
       opacity: 0 !important;
       pointer-events: none !important;
-      transform: translateY(-10px) !important;
+      transform: translateY(-8px) !important;
     }
 
     .status-badge {
@@ -524,7 +531,7 @@
     /* Hero Controls — Positioned at the most left, outside the central container */
     .hero-controls {
       position: fixed;
-      top: 28px;
+      top: 24px;
       left: 32px;
       z-index: 900;
       display: flex;
@@ -734,51 +741,51 @@
       -webkit-backface-visibility: hidden;
     }
 
-    /* Independent, slow, periodic dynamic stretching for each line */
+    /* Independent, relaxed, slow dynamic stretching for each line */
     .hero-name-line-1 {
-      animation: stretch-line-1 5.4s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate !important;
+      animation: stretch-line-1 9.4s ease-in-out infinite alternate !important;
     }
 
     .hero-name-line-2 {
-      animation: stretch-line-2 7.2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate !important;
-      animation-delay: -2.4s !important;
+      animation: stretch-line-2 13.0s ease-in-out infinite alternate !important;
+      animation-delay: -4.2s !important;
     }
 
     .hero-name-line-3 {
-      animation: stretch-line-3 6.0s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate !important;
-      animation-delay: -4.1s !important;
+      animation: stretch-line-3 10.8s ease-in-out infinite alternate !important;
+      animation-delay: -6.8s !important;
     }
 
     @keyframes stretch-line-1 {
       0% {
-        transform: scaleX(0.92);
-        letter-spacing: -0.035em;
+        transform: scaleX(0.96);
+        letter-spacing: -0.03em;
       }
       100% {
-        transform: scaleX(1.36);
-        letter-spacing: 0.07em;
+        transform: scaleX(1.22);
+        letter-spacing: 0.04em;
       }
     }
 
     @keyframes stretch-line-2 {
       0% {
-        transform: scaleX(0.90);
-        letter-spacing: -0.04em;
+        transform: scaleX(0.94);
+        letter-spacing: -0.035em;
       }
       100% {
-        transform: scaleX(1.42);
-        letter-spacing: 0.08em;
+        transform: scaleX(1.26);
+        letter-spacing: 0.05em;
       }
     }
 
     @keyframes stretch-line-3 {
       0% {
-        transform: scaleX(0.92);
-        letter-spacing: -0.03em;
+        transform: scaleX(0.95);
+        letter-spacing: -0.028em;
       }
       100% {
-        transform: scaleX(1.38);
-        letter-spacing: 0.075em;
+        transform: scaleX(1.24);
+        letter-spacing: 0.042em;
       }
     }
 
@@ -3940,12 +3947,12 @@
           document.documentElement.scrollTop || 0,
           document.body.scrollTop || 0
         );
-        // Fast fade-out: disappears smoothly after moving just a few pixels down
-        if (y > 8) {
+        // Fast fade-out: disappears smoothly upon the slightest scroll down
+        if (y > 6) {
           dock.classList.add('is-scrolled');
           dock.style.opacity = '0';
           dock.style.pointerEvents = 'none';
-          dock.style.transform = 'translateY(-10px)';
+          dock.style.transform = 'translateY(-8px)';
         } else {
           dock.classList.remove('is-scrolled');
           dock.style.opacity = '1';
@@ -3956,7 +3963,10 @@
 
       window.addEventListener('scroll', updateFade, { passive: true, capture: true });
       document.addEventListener('scroll', updateFade, { passive: true, capture: true });
-      window.addEventListener('wheel', () => setTimeout(updateFade, 5), { passive: true });
+      if (document.body) {
+        document.body.addEventListener('scroll', updateFade, { passive: true, capture: true });
+      }
+      window.addEventListener('wheel', updateFade, { passive: true });
       window.addEventListener('touchmove', updateFade, { passive: true });
 
       updateFade();
