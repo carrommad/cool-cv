@@ -823,6 +823,22 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
   - [content.json](file:///c:/Users/cromero/Desktop/cool-cv/content.json#L52)
   - [index.html](file:///c:/Users/cromero/Desktop/cool-cv/index.html#L2150) (Static HTML markup & embedded JSON data island)
 
+### BS. Top ~5cm Breathing Space ("Oxygen"), Kinetic Name Stretching & Instant Status Dock Fade-Out
+- **Top Breathing Space ("Oxygen")**:
+  - Increased `.container` top padding on desktop from `26px` to `clamp(140px, 18vh, 185px)` (~4.8 to 5 cm of generous negative space).
+  - Aligned `.hero-controls` and `.top-status-dock` gracefully at `top: 28px`.
+  - Maintained compact `padding-top: 36px` on mobile screens (`max-width: 860px`).
+- **Restoration of Kinetic Dynamic Stretching for Name Rows**:
+  - Restored the independent, fluid CSS keyframe animations for `.hero-name-line-1`, `.hero-name-line-2`, `.hero-name-line-3` (`stretch-line-1`, `stretch-line-2`, `stretch-line-3`).
+  - Animations run continuously from page load with incommensurate periods (5.4s, 7.2s, 6.0s) and out-of-phase delays, dynamically modulating both `transform: scaleX(...)` and `letter-spacing`.
+  - Removed the restrictive JavaScript scroll-wait oscillator that was previously locking letters at `scaleX(1)`.
+- **Fast, Short-Distance Fade-Out for Top Status Badge**:
+  - Removed the `@media (min-width: 861px)` limitation so `.top-status-dock.is-scrolled` applies unconditionally.
+  - Set fast threshold (`y > 8px`) in `initStatusDockScrollFade()` capturing scroll across `window`, `document`, and `touch`/`wheel` events.
+  - Directly applies `opacity: 0 !important; transform: translateY(-10px) !important;` so the status dock cleanly vanishes before any scrolling text can ever intersect it.
+- **Hero Bio Line Split Synchronized**:
+  - Synchronized the user's manual 3-line split across [content_cards.json](file:///c:/Users/cromero/Desktop/cool-cv/content_cards.json#L18-L22), [content_cards.js](file:///c:/Users/cromero/Desktop/cool-cv/content_cards.js#L18-L22), [content.json](file:///c:/Users/cromero/Desktop/cool-cv/content.json#L18-L22), and [index.html](file:///c:/Users/cromero/Desktop/cool-cv/index.html#L2045-L2050).
+
 
 
 

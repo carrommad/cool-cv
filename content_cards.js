@@ -16,7 +16,8 @@
       "Creative Computing"
     ],
     "bio": [
-      "Nuclear Physics & Advanced Mathematics. Software optimization for nuclear and climate. Data analytics for wind turbine predictive maintenance.",
+      "Nuclear Physics & Advanced Mathematics. Software optimization for nuclear",
+      "and climate. Data analytics for wind turbine predictive maintenance.",
       "Physical simulation for cognitive radar. Creative prototyping."
     ]
   },
