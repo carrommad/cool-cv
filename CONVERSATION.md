@@ -948,3 +948,10 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
   - Re-expanded typography (body 8.6pt/12.6pt, headers 11pt, title 21pt) and card padding (6-8pt).
   - Added a dedicated, stylish **Live Portfolio & Telemetry Synthesizer** callout box at the bottom.
   - Recompiled both `Carlos_Romero_CV.pdf` and `Carlos_Romero_Cover_Letter.pdf` as strict, gorgeous, spacious **1-page** executive sheets.
+
+### CC. Silenced Footer Color Palette Switcher
+- **Visual Decluttering**:
+  - Hid the `.footer-palette-row` in `index.html` via `style="display: none;"` and `aria-hidden="true"`.
+  - Kept all HTML structure, option values, and JavaScript palette engines (`changeColorPalette()` with all 11 CSS theme definitions) completely intact so it can be un-silenced at any time in the future by simply removing `display: none;`.
+  - The footer bottom area now transitions seamlessly directly into the single horizontal metadata line (Open-Source Repositories on the left, Author copyright on the right).
+
