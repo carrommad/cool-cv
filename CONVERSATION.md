@@ -677,7 +677,7 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
 
 ### BC. Refinement of Creative Computing Badges Across Modal 03
 - **Badges Updated**:
-  - **Project 01 (MNusic)**: Updated badge from `Sonification & Web Audio` to **`Cluster Sonification`** to emphasize HPC supercomputing connection (MareNostrum 5 & LUMI).
+  - **Project 01 (MNusic)**: Updated badge from `Sonification & Web Audio` to **`Cluster Sonification`** to emphasize HPC supercomputing connection (MareNostrum 5 & LUMI), and simplified title from `MNusic — Sonifying MN5 & LUMI` to just **`MNusic`** to eliminate redundant phrasing.
   - **Project 02 (Pipa-Music-Ball)**: Updated badge from `Physical Computing & Sensors` to **`Animal Computing & Music`**, capturing the interdisciplinary Animal-Computer Interaction (ACI) and microtonal audio synthesis.
   - **Project 03 (Expo-Curator)**: Updated badge to **`Visual Corpus Analytics`** and expanded description to highlight multi-dimensional corpus analysis and automated clustering, directly connecting to the new analytics dashboard.
   - **Card 03 Descriptions**: Synchronized summaries across [content_cards.json](file:///c:/Users/cromero/Desktop/cool-cv/content_cards.json), [content.json](file:///c:/Users/cromero/Desktop/cool-cv/content.json), [content_cards.js](file:///c:/Users/cromero/Desktop/cool-cv/content_cards.js), and [index.html](file:///c:/Users/cromero/Desktop/cool-cv/index.html).
