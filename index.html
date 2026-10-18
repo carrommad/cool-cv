@@ -448,17 +448,21 @@
       margin-bottom: 22px;
     }
 
-    .hero-top-bar {
+    /* Top Status Dock — Positioned at the most right, symmetrically to hero controls */
+    .top-status-dock {
+      position: fixed;
+      top: 24px;
+      right: 32px;
+      height: 32px;
+      z-index: 900;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 12px;
+      justify-content: flex-end;
     }
 
     .status-badge {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
       font-family: var(--font-mono);
       font-size: 10px;
       font-weight: 700;
@@ -467,18 +471,26 @@
       color: var(--bw-text-muted);
       white-space: nowrap;
       min-width: 0;
+      line-height: 1;
+    }
+
+    .status-text-full,
+    .status-text-short {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .status-text-short {
       display: none;
     }
 
-    @media (max-width: 860px) {
+    @media (max-width: 1140px) {
       .status-text-full {
         display: none;
       }
       .status-text-short {
-        display: inline;
+        display: inline-flex;
       }
     }
 
@@ -490,6 +502,9 @@
       box-shadow: 0 0 8px var(--bw-border);
       animation: status-pulse 2s infinite ease-in-out;
       flex-shrink: 0;
+      display: inline-block;
+      vertical-align: middle;
+      margin: 0 1px;
     }
     @keyframes status-pulse {
       0% { opacity: 0.4; transform: scale(0.85); }
@@ -497,11 +512,11 @@
       100% { opacity: 0.4; transform: scale(0.85); }
     }
 
-    /* Hero Controls — Positioned at the most right, outside the central container */
+    /* Hero Controls — Positioned at the most left, outside the central container */
     .hero-controls {
       position: fixed;
       top: 24px;
-      right: 32px;
+      left: 32px;
       z-index: 900;
       display: flex;
       align-items: center;
@@ -511,12 +526,22 @@
     @media (max-width: 860px) {
       .hero-controls {
         position: static;
-        justify-content: flex-end;
+        justify-content: flex-start;
         max-width: 720px;
         width: 100%;
         margin: 14px auto 0;
         padding: 0 20px;
         box-sizing: border-box;
+      }
+      .top-status-dock {
+        position: static;
+        justify-content: flex-end;
+        max-width: 720px;
+        width: 100%;
+        margin: 8px auto 0;
+        padding: 0 20px;
+        box-sizing: border-box;
+        height: auto;
       }
     }
 
@@ -1885,9 +1910,15 @@
     }
 
     @media (max-width: 640px) {
-      .hero-top-bar {
-        flex-wrap: wrap;
-        gap: 10px;
+      .hero-controls {
+        gap: 8px;
+      }
+      .btn-ctrl {
+        padding: 5px 10px;
+        font-size: 10px;
+      }
+      .top-status-dock {
+        justify-content: flex-start;
       }
       .status-badge {
         font-size: 9.5px;
@@ -1918,20 +1949,36 @@
   <!-- Ambient Monochrome Particles Background -->
   <canvas id="ambient-particles-canvas"></canvas>
 
-  <!-- Global Viewport Controls Dock (Top Right Outside Container) -->
+  <!-- Global Viewport Controls Dock (Top Left Outside Container) -->
   <aside class="hero-controls" aria-label="Global Controls">
-    <!-- Vertical Half-Black Half-White Split Theme Switcher (Day / Night) -->
-    <button class="btn-ctrl" onclick="toggleThemeBW()" id="btn-theme-toggle" title="Switch between Day and Night mode (also modulates ambient audio)">
-      <span class="split-disc"></span>
-      <span id="theme-btn-label">Day Mode</span>
-    </button>
-    
     <!-- Ambient Audio Synthesizer -->
     <button class="btn-ctrl" onclick="toggleMNusicAudio()" id="btn-mnusic-audio" title="Toggle real-time generative MNusic ambient synthesizer">
       <span class="audio-icon">♫</span>
       <span id="audio-btn-label">Ambient Audio</span>
     </button>
+
+    <!-- Vertical Half-Black Half-White Split Theme Switcher (Day / Night) -->
+    <button class="btn-ctrl" onclick="toggleThemeBW()" id="btn-theme-toggle" title="Switch between Day and Night mode (also modulates ambient audio)">
+      <span class="split-disc"></span>
+      <span id="theme-btn-label">Day Mode</span>
+    </button>
   </aside>
+
+  <!-- Top Right Status Badge Dock (Symmetrical to Hero Controls) -->
+  <div class="top-status-dock" aria-label="Candidate Status">
+    <div class="status-badge">
+      <span class="status-text-full">
+        <span class="status-part-lead">Interested in Creative Intelligence &amp; Design</span>
+        <span class="status-dot"></span>
+        <span class="status-part-trail">Barcelona, Spain</span>
+      </span>
+      <span class="status-text-short">
+        <span class="status-part-lead">Creative Intelligence &amp; Design</span>
+        <span class="status-dot"></span>
+        <span class="status-part-trail">Barcelona</span>
+      </span>
+    </div>
+  </div>
 
   <div class="container">
     
@@ -1939,14 +1986,6 @@
          HERO HEADER — Prominent, Typographic, Architectural
          ========================================================= -->
     <header class="hero-header">
-      
-      <div class="hero-top-bar">
-        <div class="status-badge">
-          <span class="status-dot"></span>
-          <span class="status-text-full">Interested in Creative Intelligence & Design · Barcelona, Spain</span>
-          <span class="status-text-short">Creative Intelligence & Design · Barcelona</span>
-        </div>
-      </div>
 
       <div class="hero-name-block">
         <h1 class="hero-name" aria-label="Carlos Romero Madrid">
@@ -2710,10 +2749,21 @@
       // Header
       if (data.header) {
         if (data.header.status_badge) {
-          const full = document.querySelector('.status-text-full');
-          const short = document.querySelector('.status-text-short');
-          if (full && data.header.status_badge.full) full.textContent = data.header.status_badge.full;
-          if (short && data.header.status_badge.short) short.textContent = data.header.status_badge.short;
+          const fullRaw = data.header.status_badge.full || '';
+          const shortRaw = data.header.status_badge.short || '';
+          
+          const fullParts = fullRaw.split('·').map(s => s.trim());
+          const shortParts = shortRaw.split('·').map(s => s.trim());
+          
+          const fullLead = document.querySelector('.status-text-full .status-part-lead');
+          const fullTrail = document.querySelector('.status-text-full .status-part-trail');
+          if (fullLead && fullParts[0]) fullLead.textContent = fullParts[0];
+          if (fullTrail && fullParts[1]) fullTrail.textContent = fullParts[1];
+
+          const shortLead = document.querySelector('.status-text-short .status-part-lead');
+          const shortTrail = document.querySelector('.status-text-short .status-part-trail');
+          if (shortLead && shortParts[0]) shortLead.textContent = shortParts[0];
+          if (shortTrail && shortParts[1]) shortTrail.textContent = shortParts[1];
         }
 
         if (data.header.name) {

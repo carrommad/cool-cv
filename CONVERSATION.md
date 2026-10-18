@@ -619,6 +619,20 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
   - **Card 02 Meta Line**: Updated period to `Physics · Mathematics · Petascale` in [index.html](file:///c:/Users/cromero/Desktop/cool-cv/index.html#L2024), `content_cards.json`, and `content_cards.js`.
   - **Print CV (`cv_editorial.html` & `Carlos_Romero_CV.pdf`)**: Updated Section 02 heading tag to `Physics · Mathematics`, ensuring exact synchronization between web and downloadable PDF versions.
 
+### AX. Viewport Header Symmetry: Left Controls & Right Status Dock with Central Pulsing Dot
+- **Controls Relocated to Far Left**:
+  - Moved `.hero-controls` from top right to fixed top left (`left: 32px; top: 24px; z-index: 900`).
+  - Reordered controls with **Ambient Audio** first (`#btn-mnusic-audio`) and **Day / Night Mode** switcher second (`#btn-theme-toggle`).
+- **Status Badge Symmetrically Aligned to Far Right**:
+  - Relocated candidate status pill from inside the inner `.hero-header` into a dedicated viewport dock `.top-status-dock` (`right: 32px; top: 24px; height: 32px; z-index: 900`).
+  - Symmetrically balances the audio/theme buttons across the viewport margins, leaving the 720px central column completely uncluttered.
+- **Pulsing Dot Repositioned Between DESIGN and BARCELONA**:
+  - Moved the animated glowing dot `<span class="status-dot"></span>` from before the text to directly between `DESIGN` and `BARCELONA`:
+    `INTERESTED IN CREATIVE INTELLIGENCE & DESIGN ● BARCELONA, SPAIN`.
+  - Updated `applyMainContent()` in JavaScript to automatically split dynamic JSON strings on `·` and preserve the pulsing dot separator without erasing it.
+  - Automatically collapses to `CREATIVE INTELLIGENCE & DESIGN ● BARCELONA` on tablet and mobile viewports.
+
+
 
 
 
