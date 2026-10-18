@@ -194,7 +194,7 @@ def generate_cv_pdf():
             ""
         ],
         [
-            Paragraph("<b>Lens & Motion — Photography & Adobe After Effects Laboratory</b>", proj_title_style),
+            Paragraph("<b>After Effects Lab — Procedural Motion Design & Kinetic Animation</b>", proj_title_style),
             Paragraph("VISUAL MEDIA & MOTION DESIGN", proj_tag_style)
         ],
         [

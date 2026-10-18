@@ -162,7 +162,7 @@ def generate_cover_letter():
     story.append(Spacer(1, 4))
     
     story.append(Paragraph(
-        "• <b>Visual Media, Photography & Adobe After Effects:</b> Still photographic composition paired with motion graphics, procedural particle animations, and kinetic video in After Effects to turn static research figures into broadcast-ready visual essays.",
+        "• <b>After Effects Lab (Procedural Motion Design):</b> Still photographic composition paired with motion graphics, procedural particle animations, and kinetic video in After Effects to turn static research figures into broadcast-ready visual essays.",
         bullet_style
     ))
     story.append(Spacer(1, 5))

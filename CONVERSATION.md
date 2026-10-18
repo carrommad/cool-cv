@@ -682,6 +682,12 @@ In this session, we transitioned Carlos Romero Madrid's portfolio dashboard into
   - **Project 03 (Expo-Curator)**: Updated badge to **`Visual Corpus Analytics`** and expanded description to highlight multi-dimensional corpus analysis and automated clustering, directly connecting to the new analytics dashboard.
   - **Card 03 Descriptions**: Synchronized summaries across [content_cards.json](file:///c:/Users/cromero/Desktop/cool-cv/content_cards.json), [content.json](file:///c:/Users/cromero/Desktop/cool-cv/content.json), [content_cards.js](file:///c:/Users/cromero/Desktop/cool-cv/content_cards.js), and [index.html](file:///c:/Users/cromero/Desktop/cool-cv/index.html).
 
+### BD. Project 4 Renamed to "After Effects Lab"
+- **Title Update**: Updated Project 4 title from `Lens & Motion — AE Lab` to **`After Effects Lab`** across [index.html](file:///c:/Users/cromero/Desktop/cool-cv/index.html#L2583-L2588), [cover_letter.html](file:///c:/Users/cromero/Desktop/cool-cv/cover_letter.html), [cover_letter_quadrants.html](file:///c:/Users/cromero/Desktop/cool-cv/cover_letter_quadrants.html), [cv_pastel_boxes.html](file:///c:/Users/cromero/Desktop/cool-cv/cv_pastel_boxes.html), and PDF generators.
+- **Badge Harmonization**: Set badge to **`Motion Design & Visual Media`** to cleanly complement the `After Effects Lab` title without repetitive phrasing.
+- **Dossier & PDFs**: Recompiled [Carlos_Romero_CV.pdf](file:///c:/Users/cromero/Desktop/cool-cv/Carlos_Romero_CV.pdf) and [Carlos_Romero_Cover_Letter.pdf](file:///c:/Users/cromero/Desktop/cool-cv/Carlos_Romero_Cover_Letter.pdf).
+
+
 
 
 
