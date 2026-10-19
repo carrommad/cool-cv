@@ -597,10 +597,13 @@
       border-color: var(--bw-btn-border);
     }
 
-    /* Fixed uniform button widths to prevent layout shifts when toggling text */
+    /* Sleek icon-only toggle button to prevent any overlap with card 01 */
     #btn-theme-toggle {
-      min-width: 106px;
+      width: 32px;
+      height: 32px;
+      padding: 0;
       justify-content: center;
+      flex-shrink: 0;
     }
 
     #btn-mnusic-audio {
@@ -2363,9 +2366,8 @@
     </button>
 
     <!-- Vertical Half-Black Half-White Split Theme Switcher (Day / Night) -->
-    <button class="btn-ctrl" onclick="toggleThemeBW()" id="btn-theme-toggle" title="Switch between Day and Night mode (also modulates ambient audio)">
+    <button class="btn-ctrl" onclick="toggleThemeBW()" id="btn-theme-toggle" title="Switch between Day and Night mode (also modulates ambient audio)" aria-label="Toggle Day and Night mode">
       <span class="split-disc"></span>
-      <span id="theme-btn-label">Day Mode</span>
     </button>
   </aside>
 
