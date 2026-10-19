@@ -1,6 +1,6 @@
 # Assets Directory Structure
 
-Welcome to your media workspace! You can drop your personal media and project outputs here. The web application (`index.html`), `cv_pastel_boxes.html`, and `cover_letter_quadrants.html` are configured to look in these folders.
+Welcome to your media workspace! You can drop your personal media and project outputs here. The web application (`index.html`) is configured to look in these folders.
 
 ## Folder Organization
 
