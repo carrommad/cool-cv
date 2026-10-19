@@ -19,8 +19,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
-  <!-- External Content Config (Loads synchronously on file:/// without CORS restrictions) -->
-  <script src="content_cards.js"></script>
+  <!-- External Content Config (Synchronously preloads cover letter data) -->
   <script src="cover_letter.js"></script>
 
   <style>
@@ -2493,9 +2492,9 @@
           </div>
           <div class="card-content-col">
             <div class="card-meta-line">
-              <span class="meta-tag">Visual Analytics &amp; Creative Computing</span>
+              <span class="meta-tag">Creative Computing &amp; Visual Analytics</span>
               <span class="meta-bullet">/</span>
-              <span class="meta-period">Software & Hardware Prototypes</span>
+              <span class="meta-period">Software &amp; Hardware</span>
             </div>
             <h2 class="card-title">Creative Computing</h2>
             <p class="card-desc">
@@ -3204,10 +3203,10 @@
       "id": "card-03",
       "number": "03",
       "modal_id": "modal-creative",
-      "tag": "Visual Analytics & Creative Computing",
-      "period": "Software & Hardware Prototypes",
+      "tag": "Creative Computing & Visual Analytics",
+      "period": "Software & Hardware",
       "title": "Creative Computing",
-      "description": "Tangible data experiences bridging scientific computing with playful interaction: MNusic (real-time cluster telemetry sonification), Pipa-Music-Ball (cat-interactive animal computing & kinetic audio sphere), Expo-Curator (visual corpus analytics & gallery staging engine), and After Effects Lab (procedural motion design).",
+      "description": "Vibe coding for playful interaction: real-time MN5 telemetry sonification, cat-interactive music generation, AI visual curator studio, and creative video production.",
       "action_text": "View Creative Prototypes →"
     },
     {
@@ -3235,9 +3234,6 @@
   }
 }
   </script>
-
-  <!-- External Content Provider for Local file:/// & Static Hosting -->
-  <script src="content_cards.js"></script>
 
   <!-- =========================================================
        JAVASCRIPT LOGIC
@@ -3399,35 +3395,25 @@
     }
 
     function initMainPageContent() {
-      // 1. Immediately apply from content_cards.js if available (fastest paint & 100% reliable on file:///)
-      if (window.PORTFOLIO_CONTENT) {
-        applyMainContent(window.PORTFOLIO_CONTENT);
+      // 1. Immediately apply from embedded fallback JSON (instant first paint on both file:/// and http)
+      const embeddedScript = document.getElementById('main-content-data');
+      if (embeddedScript) {
+        try {
+          const fallbackData = JSON.parse(embeddedScript.textContent);
+          applyMainContent(fallbackData);
+        } catch (err) {
+          // Static HTML DOM remains completely untouched
+        }
       }
 
-      // 2. If running on a web server (http / https), fetch content_cards.json with cache-busting timestamp
+      // 2. When hosted on web (GitHub Pages / server), fetch live content.json with cache-busting
       if (location.protocol !== 'file:') {
-        fetch('content_cards.json?v=' + Date.now())
-          .then(res => {
-            if (!res.ok) return fetch('content.json?v=' + Date.now()).then(r => r.json());
-            return res.json();
-          })
+        fetch('content.json?v=' + Date.now())
+          .then(res => res.ok ? res.json() : null)
           .then(data => {
-            applyMainContent(data);
+            if (data) applyMainContent(data);
           })
-          .catch(() => {
-            // Already applied from window.PORTFOLIO_CONTENT or embedded fallback
-          });
-      } else if (!window.PORTFOLIO_CONTENT) {
-        // 3. Fallback to embedded JSON if opened via file:/// and content_cards.js was not loaded
-        const embeddedScript = document.getElementById('main-content-data');
-        if (embeddedScript) {
-          try {
-            const fallbackData = JSON.parse(embeddedScript.textContent);
-            applyMainContent(fallbackData);
-          } catch (err) {
-            // Static HTML DOM remains completely untouched
-          }
-        }
+          .catch(() => {});
       }
     }
 
