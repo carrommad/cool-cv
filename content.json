@@ -36,7 +36,7 @@
       "id": "card-02",
       "number": "02",
       "modal_id": "modal-foundations",
-      "tag": "Rigor & Compute Toolkit",
+      "tag": "Academic & Technical Stack",
       "period": "Physics · Mathematics",
       "title": "Education & Skills",
       "description": "BSc in Mathematics  & BSc in Physics, MSc Plasma Physics & MSc in Advanced Mathematics, Skills & Languages.",
@@ -46,8 +46,8 @@
       "id": "card-03",
       "number": "03",
       "modal_id": "modal-creative",
-      "tag": "Visual Analytics & Creative Computing",
-      "period": "Software & Hardware Prototypes",
+      "tag": "Creative Computing & Visual Analytics",
+      "period": "Software & Hardware",
       "title": "Creative Computing",
       "description": "Vibe coding for playful interaction: real-time MN5 telemetry sonification, cat-interactive music generation, AI visual curator studio, and creative video production.",
       "action_text": "View Creative Prototypes →"
@@ -57,8 +57,8 @@
       "number": "04",
       "modal_id": "modal-cover-letter",
       "tag": "Vision & Statement",
-      "period": "",
-      "title": "Cover Letter to DAV Group",
+      "period": "Addressed to DAV Group",
+      "title": "Cover Letter",
       "description": "Hi DAV team! This is my honest cover letter, probably the least AI-assisted thing I have done in my spare time apart from painting and playing music. Hope it gives you a real idea about my interests!",
       "action_text": "Read Full Application Letter →"
     }

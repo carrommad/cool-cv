@@ -36,7 +36,7 @@ window.PORTFOLIO_CONTENT = {
       "id": "card-02",
       "number": "02",
       "modal_id": "modal-foundations",
-      "tag": "Rigor & Compute Toolkit",
+      "tag": "Academic & Technical Stack",
       "period": "Physics · Mathematics",
       "title": "Education & Skills",
       "description": "BSc in Mathematics  & BSc in Physics, MSc Plasma Physics & MSc in Advanced Mathematics, Skills & Languages.",
