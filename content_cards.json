@@ -66,7 +66,7 @@
   "footer": {
     "cv_pdf_text": "Download CV PDF",
     "cv_pdf_file": "pdfs/cool-cv.pdf",
-    "cover_letter_pdf_text": "Cover Letter PDF",
+    "cover_letter_pdf_text": "Download Letter PDF",
     "cover_letter_pdf_file": "pdfs/cool-letter.pdf",
     "email_btn_text": "Email",
     "email": "carrommad@gmail.com",
