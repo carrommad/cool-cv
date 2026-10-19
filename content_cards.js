@@ -59,7 +59,7 @@ window.PORTFOLIO_CONTENT = {
       "tag": "Vision & Statement",
       "period": "Addressed to DAV Group",
       "title": "Cover Letter",
-      "description": "Hi DAV team! This is my honest cover letter, probably the least assited AI thing I have done in my spare time apart from painting and playing music. Hope it gives you a real idea about my interests!",
+      "description": "Hi DAV team! This is my honest cover letter, probably the least AI-assisted thing I have done in my spare time apart from painting and playing music. Hope it gives you a real idea about my interests!",
       "action_text": "Read Full Application Letter →"
     }
   ],
