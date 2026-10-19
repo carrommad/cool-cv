@@ -37,7 +37,7 @@ window.COVER_LETTER_DATA = {
     "greeting": "Sincerely and with great enthusiasm,",
     "name": "Carlos Romero Madrid",
     "title": "Computational Physicist · HPC Scientific Software Engineer (BSC)",
-    "contact": "carrommad@gmail.com · +34 611 423 133",
+    "contact": "carrommad@gmail.com · +34 611 423 133 · Barcelona, Spain",
     "web_url": "https://carrommad.github.io/cool-cv"
   }
 };
