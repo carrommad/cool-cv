@@ -23,3 +23,6 @@ scratch/
 .*.folio-lock
 .*.lock
 .folio/
+CONVERSATION.md
+original_cv_reference.md
+TODO.md
