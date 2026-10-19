@@ -19,3 +19,7 @@ venv/
 scratch/
 .system_generated/
 *.log
+~$*.doc*
+.*.folio-lock
+.*.lock
+.folio/

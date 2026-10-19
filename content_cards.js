@@ -1,4 +1,4 @@
-﻿window.PORTFOLIO_CONTENT = {
+window.PORTFOLIO_CONTENT = {
   "header": {
     "status_badge": {
       "full": "Interested in Creative Intelligence & Design · Barcelona, Spain",
@@ -65,13 +65,13 @@
   ],
   "footer": {
     "cv_pdf_text": "Download CV PDF",
-    "cv_pdf_file": "Carlos_Romero_CV.pdf",
+    "cv_pdf_file": "pdfs/cool-cv.pdf",
     "cover_letter_pdf_text": "Cover Letter PDF",
-    "cover_letter_pdf_file": "Carlos_Romero_Cover_Letter.pdf",
+    "cover_letter_pdf_file": "pdfs/cool-letter.pdf",
     "email_btn_text": "Email",
     "email": "carrommad@gmail.com",
     "email_title": "The feeling is mutual · Let's connect",
-    "email_content": "Hi Carlos, I was told good taste is rare, yet here we are. Loved your portfolio — let's talk!",
+    "email_content": "Hi Carlos,\nI was told good taste is rare, yet here we are ✨\nLoved your portfolio, let's talk!",
     "phone": "+34 611 423 133",
     "location": "Barcelona, Spain"
   }
