@@ -1,14 +1,13 @@
 // Auto-synchronized cover letter data for local/offline execution
 window.COVER_LETTER_DATA = {
   "recipient": {
-    "to": "Data Analytics & Visualization group",
-    "group": "Data Analytics and Visualization Group (DAV)",
+    "to": "Data Analytics and Visualization Group (DAV)",
     "institution": "Barcelona Supercomputing Center (BSC-CNS)"
   },
   "subject": "Application to join the Data Analytics and Visualization Group",
   "opening": "Dear Data Analytics & Visualization group,",
   "paragraphs": [
-    "I am a <b>Computational Physicist</b> (Double Degree in Physics & Mathematics, MSc in Plasma Physics) and <b>HPC Scientific Software Engineer</b> in BSC's Performance Team, Daily, I deploy, couple, fix and optimize simulation workloads across different clusters. But I am more than what those roles can tell about me, I want to create, to be able to take the raw material and make it malleable to the public, to tell stories.",
+    "I am a <b>Computational Physicist</b> (Double Degree in Physics & Mathematics, MSc in Plasma Physics) and <b>HPC Scientific Software Engineer</b> in BSC's Performance Team. Daily, I deploy, couple, fix and optimize simulation workloads across different clusters. But I am more than what those roles can tell about me, I want to create, to be able to take the raw material and make it malleable to the public, to tell stories.",
     "When creativity kicks in, I use my free time to do some independent creative computing. The idea is turning technical ideas into tangible realities:"
   ],
   "projects": [
@@ -30,7 +29,7 @@ window.COVER_LETTER_DATA = {
   ],
   "closing_paragraphs": [
     "Treating LLMs and agentic pair-programming as fluid thinking partners allows me to transition without friction between C++/Fortran HPC kernels, microcontroller firmware, browser Web Audio synthesis, and Adobe After Effects procedural visual essays.",
-    "Being grateful to have followed some of your workshops and tracked your work, whether it is scientific storytelling, interactive visualization or creative intelligence, I believe my background and skills put me in sweet intersection where my computational physics grounding, digital twin workflows, and sensory media experiments belong.",
+    "Being grateful to have followed some of your workshops and tracked your work, whether it is scientific storytelling, interactive visualization or creative intelligence, I believe my background and skills put me in a sweet intersection where my computational physics grounding, digital twin workflows, and sensory media experiments belong.",
     "It would be lovely to, at some point, attend your workshops not from the audience but presenting a new idea from the Creative Intelligence Lab or to co-engineer data installations for the public to enjoy."
   ],
 

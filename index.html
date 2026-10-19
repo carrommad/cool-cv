@@ -2441,7 +2441,7 @@
             </div>
             <h2 class="card-title">Career &amp; Journey</h2>
             <p class="card-desc">
-              Trajectory from Seville (BSc Physics &amp; Mathematics, later Plasma research), Bonn (cognitive radar at Fraunhofer FHR), Marseille (MSc Plasma &amp; Fusion Physics), Pamplona (wind plant data pipelines at CENER),  and BSC Barcelona (HPC Fusion &amp; Performance).
+              Trajectory from Seville (BSc Physics &amp; Mathematics, later Plasma research), Bonn (cognitive radar at Fraunhofer FHR), Marseille (MSc Plasma &amp; Fusion Physics), Pamplona (wind plant data pipelines at CENER), and BSC Barcelona (HPC Fusion &amp; Performance).
             </p>
             <div class="card-action-row">
               <span class="action-prompt-btn">Explore Career &amp; Journey Map →</span>
@@ -2470,7 +2470,7 @@
             </div>
             <h2 class="card-title">Education &amp; Skills</h2>
             <p class="card-desc">
-              BSc in Mathematics  &amp; BSc in Physics, MSc Plasma Physics &amp; MSc in Advanced Mathematics, Skills.
+              BSc in Mathematics &amp; BSc in Physics, MSc Plasma Physics &amp; MSc in Advanced Mathematics, Skills &amp; Languages.
             </p>
             <div class="card-action-row">
               <span class="action-prompt-btn">Inspect Education &amp; Skills →</span>
@@ -2525,8 +2525,6 @@
           <div class="card-content-col">
             <div class="card-meta-line">
               <span class="meta-tag">Vision & Statement</span>
-              <span class="meta-bullet">/</span>
-              <span class="meta-period">Addressed to Fernando Cucchietti</span>
             </div>
             <h2 class="card-title">Cover Letter to DAV Group</h2>
             <p class="card-desc">
@@ -3049,8 +3047,7 @@
           </div>
 
           <div class="letter-recipient" id="letter-recipient">
-            <strong>To: Data Analytics & Visualization group</strong><br>
-            Data Analytics and Visualization Group (DAV)<br>
+            <strong>To: Data Analytics and Visualization Group (DAV)</strong><br>
             Barcelona Supercomputing Center (BSC-CNS)
           </div>
 
@@ -3062,7 +3059,7 @@
             <p>Dear Data Analytics & Visualization group,</p>
 
             <p>
-              I am a <strong>Computational Physicist</strong> (Double Degree in Physics & Mathematics, MSc in Plasma Physics) and <strong>HPC Scientific Software Engineer</strong> in BSC's Performance Team, Daily, I deploy, couple, fix and optimize simulation workloads across different clusters. But I am more than what those roles can tell about me, I want to create, to be able to take the raw material and make it malleable to the public, to tell stories.
+              I am a <strong>Computational Physicist</strong> (Double Degree in Physics & Mathematics, MSc in Plasma Physics) and <strong>HPC Scientific Software Engineer</strong> in BSC's Performance Team. Daily, I deploy, couple, fix and optimize simulation workloads across different clusters. But I am more than what those roles can tell about me, I want to create, to be able to take the raw material and make it malleable to the public, to tell stories.
             </p>
 
             <p>
@@ -3086,7 +3083,7 @@
             </p>
 
             <p>
-              Being grateful to have followed some of your workshops and tracked your work, whether it is scientific storytelling, interactive visualization or creative intelligence, I believe my background and skills put me in sweet intersection where my computational physics grounding, digital twin workflows, and sensory media experiments belong.
+              Being grateful to have followed some of your workshops and tracked your work, whether it is scientific storytelling, interactive visualization or creative intelligence, I believe my background and skills put me in a sweet intersection where my computational physics grounding, digital twin workflows, and sensory media experiments belong.
             </p>
 
             <p>
@@ -3200,7 +3197,7 @@
       "tag": "Rigor & Compute Toolkit",
       "period": "Physics · Mathematics · Petascale",
       "title": "Education & Skills",
-      "description": "BSc in Mathematics  & BSc in Physics, MSc Plasma Physics & MSc in Advanced Mathematics, Skills.",
+      "description": "BSc in Mathematics & BSc in Physics, MSc Plasma Physics & MSc in Advanced Mathematics, Skills & Languages.",
       "action_text": "Inspect Education & Skills →"
     },
     {
@@ -3218,7 +3215,7 @@
       "number": "04",
       "modal_id": "modal-cover-letter",
       "tag": "Vision & Statement",
-      "period": "Addressed to Fernando Cucchietti",
+      "period": "",
       "title": "Cover Letter to DAV Group",
       "description": "Hi DAV team! This is my honest cover letter, probably the least AI-assisted thing I have done in my spare time apart from painting and playing music. Hope it gives you a real idea about my interests!",
       "action_text": "Read Full Application Letter →"
@@ -3325,7 +3322,19 @@
 
           if (numEl && cardData.number) numEl.textContent = cardData.number;
           if (tagEl && cardData.tag) tagEl.textContent = cardData.tag;
-          if (periodEl && cardData.period) periodEl.textContent = cardData.period;
+          if (periodEl) {
+            if (cardData.period) {
+              periodEl.textContent = cardData.period;
+              periodEl.style.display = '';
+              const bulletEl = cardEl.querySelector('.meta-bullet');
+              if (bulletEl) bulletEl.style.display = '';
+            } else {
+              periodEl.textContent = '';
+              periodEl.style.display = 'none';
+              const bulletEl = cardEl.querySelector('.meta-bullet');
+              if (bulletEl) bulletEl.style.display = 'none';
+            }
+          }
           if (titleEl && cardData.title) titleEl.textContent = cardData.title;
           if (descEl && cardData.description) descEl.textContent = cardData.description;
           if (btnEl && cardData.action_text) btnEl.textContent = cardData.action_text;
@@ -3432,7 +3441,11 @@
       try {
         const recipEl = document.getElementById('letter-recipient');
         if (recipEl && data.recipient) {
-          recipEl.innerHTML = `<strong>To: ${data.recipient.to || ''}</strong><br>${data.recipient.group || ''}<br>${data.recipient.institution || ''}`;
+          if (data.recipient.group) {
+            recipEl.innerHTML = `<strong>To: ${data.recipient.to || ''}</strong><br>${data.recipient.group}<br>${data.recipient.institution || ''}`;
+          } else {
+            recipEl.innerHTML = `<strong>To: ${data.recipient.to || ''}</strong><br>${data.recipient.institution || ''}`;
+          }
         }
         const subjEl = document.getElementById('letter-subject');
         if (subjEl && data.subject) {

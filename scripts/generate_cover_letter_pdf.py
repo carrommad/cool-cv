@@ -148,7 +148,10 @@ def generate_cover_letter():
     story.append(HRFlowable(width="100%", thickness=1.5, color=C_ACCENT, spaceBefore=2, spaceAfter=8))
     
     # Recipient
-    recip_html = f"<b>To: {recipient.get('to', '')}</b><br/>{recipient.get('group', '')}<br/>{recipient.get('institution', '')}"
+    if recipient.get('group'):
+        recip_html = f"<b>To: {recipient.get('to', '')}</b><br/>{recipient.get('group', '')}<br/>{recipient.get('institution', '')}"
+    else:
+        recip_html = f"<b>To: {recipient.get('to', '')}</b><br/>{recipient.get('institution', '')}"
     story.append(Paragraph(recip_html, to_style))
     story.append(Spacer(1, 7))
     
