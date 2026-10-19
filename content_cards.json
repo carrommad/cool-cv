@@ -37,7 +37,7 @@
       "number": "02",
       "modal_id": "modal-foundations",
       "tag": "Rigor & Compute Toolkit",
-      "period": "Physics · Mathematics · Petascale",
+      "period": "Physics · Mathematics",
       "title": "Education & Skills",
       "description": "BSc in Mathematics  & BSc in Physics, MSc Plasma Physics & MSc in Advanced Mathematics, Skills & Languages.",
       "action_text": "Inspect Education & Skills →"
@@ -46,8 +46,8 @@
       "id": "card-03",
       "number": "03",
       "modal_id": "modal-creative",
-      "tag": "Visual Analytics & Creative Computing",
-      "period": "Software & Hardware Prototypes",
+      "tag": "Creative Computing & Visual Analytics",
+      "period": "Software & Hardware",
       "title": "Creative Computing",
       "description": "Vibe coding for playful interaction: real-time MN5 telemetry sonification, cat-interactive music generation, AI visual curator studio, and creative video production.",
       "action_text": "View Creative Prototypes →"
