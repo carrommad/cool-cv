@@ -100,7 +100,7 @@ def generate_cv_pdf():
     # 1. Header Banner
     header_data = [
         [
-            Paragraph("<b>Carlos Romero Madrid</b><br/><font color='#4f46e5' size=9.2><b>Computational Physicist • HPC Software Engineer • Creative Technologist</b></font>", title_style),
+            Paragraph("<b>Carlos Romero Madrid</b><br/><font color='#4f46e5' size=9.2><b>Scientific Software Engineer • Computational Physicist • Creative Computing</b></font>", title_style),
             Paragraph("<b>carrommad@gmail.com</b> • +34 611 423 133<br/>carlos.romero@bsc.es • Barcelona, Spain<br/><font color='#4f46e5'><b><link href=\"https://carrommad.github.io/cool-cv/\">🌐 carrommad.github.io/cool-cv</link></b></font> • <link href=\"https://linkedin.com/in/carrommad\">linkedin.com/in/carrommad</link>", meta_style)
         ]
     ]

@@ -131,7 +131,7 @@ def generate_cover_letter():
     # Header Table
     header_data = [
         [
-            Paragraph("<b>Carlos Romero Madrid</b><br/><font color='#4f46e5' size=8.8><b>Computational Physicist • HPC Software Engineer • Creative Technologist</b></font>", name_style),
+            Paragraph("<b>Carlos Romero Madrid</b><br/><font color='#4f46e5' size=8.8><b>Scientific Software Engineer • Computational Physicist • Creative Computing</b></font>", name_style),
             Paragraph(f"<b>carrommad@gmail.com</b><br/>+34 611 423 133 • Barcelona<br/><font color='#4f46e5'><b><link href='{invitation.get('url', 'https://carrommad.github.io/cool-cv/')}'>🌐 {invitation.get('url_display', 'carrommad.github.io/cool-cv')}</link></b></font><br/>October 2026", meta_style)
         ]
     ]
