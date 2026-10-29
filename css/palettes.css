@@ -1,0 +1,352 @@
+/**
+ * ==============================================================================
+ * COOL-CV COLOR SUITE: SELECTABLE THEME PALETTES
+ * ==============================================================================
+ * Purpose: High-contrast curated themes toggled via the palette picker.
+ * Palettes included:
+ *   1. Black & Silver (Obsidian & Liquid Chrome)
+ *   2. Touareg (Cobalt Blue & Terracotta Copper)
+ *   3. Cyber Yellow (Bauhaus Yellow & Electric Iris)
+ *   4. Nordic Pine (Deep Evergreen & Lichen Gold)
+ *   5. Mare Nostrum (Mediterranean Cerulean & Coral)
+ *   6. Deep Blue (Midnight Navy & Electric Cyan)
+ *   7. Indigo Honey (Deep Indigo & Golden Nectar)
+ *   8. Lemon Meringue (Warm Charcoal & Luminous Lemon)
+ * ==============================================================================
+ */
+
+    /* =========================================================
+       COLOR PALETTES SUITE (Selectable via Dropdown Menu)
+       ========================================================= */
+
+    /* Palette 1: Black & Silver (Obsidian & Liquid Chrome) */
+    html.theme-black-silver, body.theme-black-silver {
+      --bw-bg: #0b0c0e;
+      --bw-surface: #14161b;
+      --bw-surface-hover: #1e2129;
+      --bw-surface-sunken: #0e1014;
+      
+      --bw-border: #d4d8e2; /* Liquid Sterling Silver */
+      --bw-border-medium: #88909f; /* Brushed Chrome */
+      --bw-border-subtle: #2b303c;
+      
+      --bw-text: #f0f3f8; /* Platinum Silver */
+      --bw-text-muted: #b4bac6; /* Cool Silver Mist */
+      --bw-text-dim: #707888;
+      
+      --bw-btn-bg: #d4d8e2;
+      --bw-btn-text: #0b0c0e;
+      --bw-btn-border: #d4d8e2;
+      --bw-btn-hover-bg: #eef1f7;
+      
+      --bw-pill-bg: #1a1d24;
+      --bw-pill-text: #e2e6ef;
+      --bw-pill-border: #3b4252;
+    }
+
+    /* Palette 2: Touareg & Couple of Complementaries (Cobalt, Desert Sand & Terracotta) */
+    html.theme-touareg, body.theme-touareg {
+      --bw-bg: #0a1420; /* Deep Saharan Night Indigo */
+      --bw-surface: #12243a; /* Touareg Cobalt Blue */
+      --bw-surface-hover: #193352;
+      --bw-surface-sunken: #0c1827;
+      
+      --bw-border: #e07a5f; /* Terracotta Desert Copper */
+      --bw-border-medium: #f4a261; /* Saharan Dune Sand / Golden Ochre */
+      --bw-border-subtle: #1f3b5e;
+      
+      --bw-text: #faf7f2; /* Saharan Dune Linen */
+      --bw-text-muted: #cad7e5; /* Twilight Blue Mist */
+      --bw-text-dim: #7b97b5;
+      
+      --bw-btn-bg: #e07a5f;
+      --bw-btn-text: #0a1420;
+      --bw-btn-border: #f4a261;
+      --bw-btn-hover-bg: #eb8c73;
+      
+      --bw-pill-bg: #162c47;
+      --bw-pill-text: #f4a261;
+      --bw-pill-border: #e07a5f;
+    }
+
+    /* Palette 3: Yellow & A Complementary (Bauhaus Solar Yellow & Electric Iris Violet) */
+    html.theme-cyber-yellow, body.theme-cyber-yellow {
+      --bw-bg: #0c0d10; /* Deep Carbon Obsidian */
+      --bw-surface: #17181f; /* Matte Graphite */
+      --bw-surface-hover: #22232d;
+      --bw-surface-sunken: #111217;
+      
+      --bw-border: #ffe600; /* Solar Bauhaus Yellow */
+      --bw-border-medium: #7c5cff; /* Electric Iris Violet Complementary */
+      --bw-border-subtle: #2f2a48;
+      
+      --bw-text: #ffffff;
+      --bw-text-muted: #d8d8e5;
+      --bw-text-dim: #8b8b9e;
+      
+      --bw-btn-bg: #ffe600;
+      --bw-btn-text: #0c0d10;
+      --bw-btn-border: #ffe600;
+      --bw-btn-hover-bg: #fff04d;
+      
+      --bw-pill-bg: #1f1c34;
+      --bw-pill-text: #ffe600;
+      --bw-pill-border: #7c5cff;
+    }
+
+    /* Palette 4: Nordic Pine & Copper (LUMI Supercomputing / Finnish Spruce) */
+    html.theme-nordic-pine, body.theme-nordic-pine {
+      --bw-bg: #081410; /* Boreal Spruce Forest */
+      --bw-surface: #10241c; /* Dark Alpine Pine */
+      --bw-surface-hover: #183529;
+      --bw-surface-sunken: #0c1a14;
+      
+      --bw-border: #3ddc97; /* Northern Lights Aurora Mint */
+      --bw-border-medium: #e26d46; /* Arctic Sauna Copper */
+      --bw-border-subtle: #1c3d2f;
+      
+      --bw-text: #f1f7f3; /* Birch Snow White */
+      --bw-text-muted: #afc9bd;
+      --bw-text-dim: #688c7c;
+      
+      --bw-btn-bg: #e26d46;
+      --bw-btn-text: #081410;
+      --bw-btn-border: #3ddc97;
+      --bw-btn-hover-bg: #eb7f5a;
+      
+      --bw-pill-bg: #152e24;
+      --bw-pill-text: #3ddc97;
+      --bw-pill-border: #e26d46;
+    }
+
+    /* Palette 5: MareNostrum 5 (Deep Mediterranean Blue & Champagne Gold) */
+    html.theme-marenostrum, body.theme-marenostrum {
+      --bw-bg: #050e1d; /* Supercomputing Deep Ocean */
+      --bw-surface: #0c1b33; /* MareNostrum Cobalt */
+      --bw-surface-hover: #132749;
+      --bw-surface-sunken: #071325;
+      
+      --bw-border: #00f0ff; /* Interconnect Petascale Cyan */
+      --bw-border-medium: #d4af37; /* Torre Girona Chapel Gold */
+      --bw-border-subtle: #16325c;
+      
+      --bw-text: #f2f7fd; /* Starlight Ice White */
+      --bw-text-muted: #b4c9e4;
+      --bw-text-dim: #6986ab;
+      
+      --bw-btn-bg: #d4af37;
+      --bw-btn-text: #050e1d;
+      --bw-btn-border: #00f0ff;
+      --bw-btn-hover-bg: #e5c358;
+      
+      --bw-pill-bg: #102340;
+      --bw-pill-text: #00f0ff;
+      --bw-pill-border: #d4af37;
+    }
+
+    /* Palette 6: Crimson & Raw Linen (Japanese Editorial Warm Paper) */
+    html.theme-crimson-linen, body.theme-crimson-linen {
+      --bw-bg: #f7f4ea; /* Raw Washi Paper Linen */
+      --bw-surface: #ffffff;
+      --bw-surface-hover: #fff4b8; /* Luminous Golden Butter Yellow */
+      --bw-surface-sunken: #eee9dc;
+      
+      --bw-border: #c92a2a; /* Sumi Lacquer Crimson */
+      --bw-border-medium: #1d1c19; /* Sumi Ink Black */
+      --bw-border-subtle: #ddd6c3;
+      
+      --bw-text: #1d1c19;
+      --bw-text-muted: #56534a;
+      --bw-text-dim: #888275;
+      
+      --bw-btn-bg: #c92a2a;
+      --bw-btn-text: #ffffff;
+      --bw-btn-border: #1d1c19;
+      --bw-btn-hover-bg: #de3535;
+      
+      --bw-pill-bg: #ede7d7;
+      --bw-pill-text: #c92a2a;
+      --bw-pill-border: #c92a2a;
+    }
+
+    /* Palette 7: Deep Blue & Glacial Salt (Image 1 Palette) */
+    /* Palette 7: Deep Blue & Glacial Salt (Default Night Mode) */
+    /* Deep Blue #111d33 · Surface #1b2f52 · Accent Yellow #FEB737 · Glacial Salt #B1BBC8 */
+    html.theme-deep-blue, body.theme-deep-blue {
+      --bw-bg: #111d33;
+      --bw-surface: #1b2f52;
+      --bw-surface-hover: #233e6b;
+      --bw-surface-sunken: #0c1626;
+      
+      --bw-border: #FEB737; /* Honey Yellow outer line as card 2 */
+      --bw-border-medium: #FEB737;
+      --bw-border-subtle: #2A4D88; /* Deep Blue */
+      
+      --bw-text: #ffffff;
+      --bw-text-muted: #D9D9D8; /* Concerto */
+      --bw-text-dim: #B1BBC8; /* Glacial Salt */
+      
+      --bw-btn-bg: #FEB737; /* Yellow highlight button */
+      --bw-btn-text: #0c1626; /* Deep obsidian for max contrast */
+      --bw-btn-border: #FEB737;
+      --bw-btn-hover-bg: #ffd276;
+      
+      --bw-pill-bg: #152542;
+      --bw-pill-text: #FEB737;
+      --bw-pill-border: #FEB737;
+    }
+
+    /* In Deep Blue & Glacial: cards at rest have clean subtle dark borders */
+    body.theme-deep-blue .editorial-card {
+      border: 1.5px solid var(--bw-border-subtle) !important;
+      background: #1b2f52 !important;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35) !important;
+    }
+    /* The yellow outer line ONLY appears when HOVERING over the cards */
+    body.theme-deep-blue .editorial-card:hover {
+      border: 2px solid #FEB737 !important;
+      background: #233e6b !important;
+      box-shadow: 0 10px 28px rgba(254, 183, 55, 0.32) !important;
+      transform: translateY(-2px);
+    }
+
+    /* In Deep Blue & Glacial: "Explore" "View..." action prompt boxes are yellow #FEB737 */
+    body.theme-deep-blue .action-prompt-btn {
+      background: #FEB737 !important;
+      color: #0c1626 !important;
+      border: 1.5px solid #FEB737 !important;
+      font-weight: 800 !important;
+      box-shadow: 0 2px 10px rgba(254, 183, 55, 0.30) !important;
+    }
+    body.theme-deep-blue .action-prompt-btn:hover,
+    body.theme-deep-blue .editorial-card:hover .action-prompt-btn {
+      background: #ffd276 !important;
+      color: #0c1626 !important;
+      border-color: #ffd276 !important;
+      box-shadow: 0 4px 18px rgba(254, 183, 55, 0.50) !important;
+      transform: translateY(-2px);
+    }
+
+    body.theme-deep-blue .btn-hero-primary {
+      background: #FEB737 !important;
+      color: #0c1626 !important;
+      border: 1.5px solid #FEB737 !important;
+      font-weight: 800 !important;
+    }
+    body.theme-deep-blue .btn-hero-primary:hover {
+      background: #ffd276 !important;
+      color: #0c1626 !important;
+    }
+
+    /* Palette 8: Indigo, Honey & Periwinkle (Image 2 Palette Dark) */
+    /* Indigo #543786 · Honey #FEB737 · Periwinkle #A7B5FE · Sea Breeze #7BB8C0 · Lemon Meringue #FFEBAD */
+    html.theme-indigo-honey, body.theme-indigo-honey {
+      --bw-bg: #1c112e;
+      --bw-surface: #2d1b4a; /* Indigo Base */
+      --bw-surface-hover: #3d2564;
+      --bw-surface-sunken: #150c23;
+      
+      --bw-border: #FEB737; /* Honey */
+      --bw-border-medium: #A7B5FE; /* Periwinkle */
+      --bw-border-subtle: #543786; /* Indigo */
+      
+      --bw-text: #FFEBAD; /* Lemon Meringue */
+      --bw-text-muted: #A7B5FE; /* Periwinkle */
+      --bw-text-dim: #7BB8C0; /* Sea Breeze */
+      
+      --bw-btn-bg: #FEB737; /* Honey */
+      --bw-btn-text: #1c112e;
+      --bw-btn-border: #FFEBAD; /* Lemon Meringue */
+      --bw-btn-hover-bg: #ffc966;
+      
+      --bw-pill-bg: #271642;
+      --bw-pill-text: #FFEBAD; /* Lemon Meringue */
+      --bw-pill-border: #7BB8C0; /* Sea Breeze */
+    }
+
+    /* Palette 9: Lemon Meringue & Sea Breeze (Image 2 Palette Light) */
+    html.theme-lemon-meringue, body.theme-lemon-meringue {
+      --bw-bg: #FFEBAD; /* Lemon Meringue Canvas */
+      --bw-surface: #fffdf5;
+      --bw-surface-hover: #fcf4dc;
+      --bw-surface-sunken: #f5df9c;
+      
+      --bw-border: #543786; /* Indigo */
+      --bw-border-medium: #7BB8C0; /* Sea Breeze */
+      --bw-border-subtle: #e5cd85;
+      
+      --bw-text: #543786; /* Indigo */
+      --bw-text-muted: #3a2260;
+      --bw-text-dim: #7BB8C0; /* Sea Breeze */
+      
+      --bw-btn-bg: #543786; /* Indigo */
+      --bw-btn-text: #FFEBAD; /* Lemon Meringue */
+      --bw-btn-border: #FEB737; /* Honey */
+      --bw-btn-hover-bg: #6e48b0;
+      
+      --bw-pill-bg: #f8e5b0;
+      --bw-pill-text: #543786;
+      --bw-pill-border: #7BB8C0; /* Sea Breeze */
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      min-height: 100vh;
+      overflow-y: scroll; /* Dedicated viewport vertical scrollbar */
+      overflow-x: hidden;
+      background-color: var(--bw-bg);
+      color: var(--bw-text);
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      min-height: 100vh;
+      overflow: visible;
+      background-color: var(--bw-bg);
+      color: var(--bw-text);
+      font-family: var(--font-body);
+      font-size: 13.5px;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    /* Subtle Ambient Canvas Background */
+    #ambient-particles-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.85;
+    }
+
+    /* MAIN CONTAINER — Horizontally narrower (720px) with balanced 2.5cm-higher breathing room */
+    .container {
+      max-width: 720px;
+      width: 100%;
+      margin: 0 auto;
+      padding: clamp(70px, 9vh, 90px) 20px 60px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      z-index: 1;
+      box-sizing: border-box;
+    }
+

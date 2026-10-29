@@ -1,0 +1,100 @@
+/**
+ * ==============================================================================
+ * COOL-CV DESIGN SYSTEM: CORE TOKENS & TYPOGRAPHY
+ * ==============================================================================
+ * Purpose: Defines foundational CSS custom properties (variables) for the site.
+ * Default theme: Day Mode (Sumi Lacquer Crimson & Raw Washi Linen).
+ * Alternative:  Editorial Day (Monochrome B&W) and Night Mode (Deep Canvas).
+ *
+ * Typography tokens:
+ *   --font-display: 'Syne', sans-serif (used for headers and titles)
+ *   --font-mono:    'JetBrains Mono', monospace (body, badges, and labels)
+ * ==============================================================================
+ */
+
+    /* =========================================================
+       HIGH-CONTRAST BLACK & WHITE EDITORIAL DESIGN SYSTEM
+       Default: Day Mode (Luminous White Canvas)
+       Toggle:  Night Mode (80% Black Canvas #333333)
+       Typography: Syne 800 (Header + Subtitle) · JetBrains Mono (The Rest)
+       ========================================================= */
+    :root {
+      /* Day Mode Palette: Crimson & Raw Linen (Default on page load) */
+      --bw-bg: #f7f4ea; /* Raw Washi Paper Linen */
+      --bw-surface: #ffffff;
+      --bw-surface-hover: #fff4b8; /* Luminous Golden Butter Yellow */
+      --bw-surface-sunken: #eee9dc;
+      
+      --bw-border: #c92a2a; /* Sumi Lacquer Crimson */
+      --bw-border-medium: #1d1c19; /* Sumi Ink Black */
+      --bw-border-subtle: #ddd6c3;
+      
+      --bw-text: #1d1c19;
+      --bw-text-muted: #56534a;
+      --bw-text-dim: #888275;
+      
+      --bw-btn-bg: #c92a2a;
+      --bw-btn-text: #ffffff;
+      --bw-btn-border: #1d1c19;
+      --bw-btn-hover-bg: #de3535;
+      
+      --bw-pill-bg: #ede7d7;
+      --bw-pill-text: #c92a2a;
+      --bw-pill-border: #c92a2a;
+
+      /* Typography Family Design Tokens: Syne 800 + JetBrains Mono */
+      --font-display: 'Syne', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --font-body: 'JetBrains Mono', monospace;
+    }
+
+    /* Editorial Day Palette (Classic High-Contrast B&W) */
+    html.theme-editorial-day, body.theme-editorial-day {
+      --bw-bg: #ffffff;
+      --bw-surface: #ffffff;
+      --bw-surface-hover: #f5f5f5;
+      --bw-surface-sunken: #f8f8f8;
+      
+      --bw-border: #000000;
+      --bw-border-medium: #b0b0b0;
+      --bw-border-subtle: #e4e4e7;
+      
+      --bw-text: #000000;
+      --bw-text-muted: #52525b;
+      --bw-text-dim: #888888;
+      
+      --bw-btn-bg: #000000;
+      --bw-btn-text: #ffffff;
+      --bw-btn-border: #000000;
+      --bw-btn-hover-bg: #27272a;
+      
+      --bw-pill-bg: #f4f4f5;
+      --bw-pill-text: #000000;
+      --bw-pill-border: #d4d4d8;
+    }
+
+    /* Night Mode Palette (80% Black Canvas #333333 instead of 100% #000000) */
+    html.theme-night, body.theme-night {
+      --bw-bg: #333333; /* 80% black */
+      --bw-surface: #262626;
+      --bw-surface-hover: #363636;
+      --bw-surface-sunken: #1c1c1c;
+      
+      --bw-border: #ffffff;
+      --bw-border-medium: #666666;
+      --bw-border-subtle: #444444;
+      
+      --bw-text: #ffffff;
+      --bw-text-muted: #d4d4d8;
+      --bw-text-dim: #a1a1aa;
+      
+      --bw-btn-bg: #ffffff;
+      --bw-btn-text: #000000;
+      --bw-btn-border: #ffffff;
+      --bw-btn-hover-bg: #e4e4e7;
+      
+      --bw-pill-bg: #202020;
+      --bw-pill-text: #ffffff;
+      --bw-pill-border: #444444;
+    }
+
