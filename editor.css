@@ -1,0 +1,378 @@
+/* =========================================================
+   Interactive In-Place Web Editor Stylesheet (Admin Only)
+   ========================================================= */
+
+:root {
+  --edit-primary: #c92a2a;
+  --edit-primary-dark: #a82323;
+  --edit-bg: #1d1c19;
+  --edit-card: #272622;
+  --edit-border: #44413a;
+  --edit-text: #f7f4ea;
+  --edit-text-muted: #bbb5a7;
+  --edit-highlight: rgba(201, 42, 42, 0.28);
+  --edit-highlight-border: #c92a2a;
+}
+
+/* Hover & Selected element highlight when Editor Mode is active */
+body.cv-editor-active [data-cv-editable="true"]:hover {
+  outline: 2px dashed var(--edit-highlight-border) !important;
+  outline-offset: 2px !important;
+  cursor: text !important;
+}
+
+body.cv-editor-active .cv-selected-element {
+  outline: 3px solid var(--edit-primary) !important;
+  outline-offset: 3px !important;
+  box-shadow: 0 0 0 4px rgba(201, 42, 42, 0.25) !important;
+}
+
+/* Floating HUD / Control Bar */
+#cv-editor-dock {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--edit-bg);
+  border: 2px solid var(--edit-border);
+  padding: 8px 14px;
+  border-radius: 9999px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--edit-text);
+  backdrop-filter: blur(12px);
+  transition: all 0.2s ease;
+}
+
+#cv-editor-dock .cv-dock-badge {
+  background: var(--edit-primary);
+  color: #fff;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 0.05em;
+}
+
+#cv-editor-dock button {
+  background: var(--edit-card);
+  color: var(--edit-text);
+  border: 1px solid var(--edit-border);
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-size: 11px;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.15s ease;
+}
+
+#cv-editor-dock button:hover:not(:disabled) {
+  background: var(--edit-primary);
+  color: #fff;
+  border-color: var(--edit-primary);
+}
+
+#cv-editor-dock button.cv-btn-save {
+  background: #15803d;
+  border-color: #16a34a;
+  color: #fff;
+}
+#cv-editor-dock button.cv-btn-save:hover {
+  background: #16a34a;
+}
+
+#cv-editor-dock button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+#cv-editor-dock button.cv-btn-danger:hover {
+  background: #dc2626;
+  border-color: #dc2626;
+}
+
+/* Floating Contextual Bubble Toolbar */
+#cv-bubble-toolbar {
+  position: absolute;
+  z-index: 999997;
+  display: none;
+  background: var(--edit-bg);
+  border: 1px solid var(--edit-border);
+  border-radius: 8px;
+  padding: 4px 6px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.45);
+  font-family: 'JetBrains Mono', monospace;
+  gap: 4px;
+  align-items: center;
+  backdrop-filter: blur(8px);
+}
+
+#cv-bubble-toolbar.visible {
+  display: flex;
+}
+
+#cv-bubble-toolbar button {
+  background: transparent;
+  color: var(--edit-text);
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#cv-bubble-toolbar button:hover {
+  background: var(--edit-card);
+  border-color: var(--edit-border);
+  color: #fff;
+}
+
+#cv-bubble-toolbar .cv-toolbar-sep {
+  width: 1px;
+  height: 16px;
+  background: var(--edit-border);
+  margin: 0 2px;
+}
+
+/* Floating Inspector / Property Editor Drawer */
+#cv-inspector-panel {
+  position: fixed;
+  top: 70px;
+  right: 24px;
+  width: 320px;
+  max-height: calc(100vh - 160px);
+  overflow-y: auto;
+  z-index: 999998;
+  background: var(--edit-bg);
+  border: 2px solid var(--edit-border);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--edit-text);
+  display: none;
+  backdrop-filter: blur(14px);
+}
+
+#cv-inspector-panel.visible {
+  display: block;
+  animation: cvFadeSlideIn 0.2s ease-out;
+}
+
+@keyframes cvFadeSlideIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#cv-inspector-panel h4 {
+  margin: 0 0 12px 0;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--edit-border);
+  padding-bottom: 8px;
+}
+
+#cv-inspector-panel .cv-close-inspector {
+  background: transparent;
+  border: none;
+  color: var(--edit-text-muted);
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0 4px;
+}
+#cv-inspector-panel .cv-close-inspector:hover {
+  color: #fff;
+}
+
+.cv-inspector-section {
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed var(--edit-border);
+}
+
+.cv-inspector-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.cv-inspector-section h5 {
+  margin: 0 0 8px 0;
+  font-size: 11px;
+  color: var(--edit-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.cv-control-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  gap: 8px;
+}
+
+.cv-control-row label {
+  color: var(--edit-text-muted);
+  font-size: 11px;
+  flex: 1;
+}
+
+.cv-control-row input[type="text"],
+.cv-control-row input[type="number"],
+.cv-control-row select {
+  background: var(--edit-card);
+  border: 1px solid var(--edit-border);
+  color: #fff;
+  border-radius: 4px;
+  padding: 4px 6px;
+  font-size: 11px;
+  font-family: inherit;
+  width: 130px;
+}
+
+.cv-control-row input[type="color"] {
+  background: transparent;
+  border: 1px solid var(--edit-border);
+  width: 38px;
+  height: 24px;
+  padding: 1px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.cv-control-row input[type="range"] {
+  width: 100px;
+  accent-color: var(--edit-primary);
+}
+
+.cv-element-tag {
+  background: rgba(201, 42, 42, 0.2);
+  color: var(--edit-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+/* Presets & Swatches */
+.cv-presets-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 6px 0 10px 0;
+}
+
+.cv-preset-btn {
+  background: var(--edit-card);
+  border: 1px solid var(--edit-border);
+  color: var(--edit-text);
+  font-size: 10px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.cv-preset-btn:hover {
+  background: var(--edit-primary);
+  color: #fff;
+  border-color: var(--edit-primary);
+}
+
+.cv-swatches-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 8px 0 12px 0;
+}
+
+.cv-swatch-btn {
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  border: 1px solid #555;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.1s ease, border-color 0.1s ease;
+}
+
+.cv-swatch-btn:hover {
+  transform: scale(1.15);
+  border-color: #fff;
+}
+
+/* Key Unlock Modal */
+#cv-unlock-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000000;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#cv-unlock-modal .cv-modal-box {
+  background: var(--edit-bg);
+  border: 2px solid var(--edit-primary);
+  border-radius: 12px;
+  padding: 24px;
+  width: 360px;
+  color: var(--edit-text);
+  font-family: 'JetBrains Mono', monospace;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+}
+
+#cv-unlock-modal h3 {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  color: #fff;
+}
+
+#cv-unlock-modal p {
+  font-size: 12px;
+  color: var(--edit-text-muted);
+  line-height: 1.5;
+  margin: 0 0 16px 0;
+}
+
+#cv-unlock-modal input[type="password"] {
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--edit-card);
+  border: 1px solid var(--edit-border);
+  color: #fff;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 13px;
+  font-family: inherit;
+  margin-bottom: 14px;
+}
+
+#cv-unlock-modal .cv-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
