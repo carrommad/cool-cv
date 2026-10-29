@@ -1250,8 +1250,32 @@
       } else {
         showUnlockModal();
       }
+      return;
     }
-  });
+
+    // Close Inspector & deselect element on Escape WITHOUT closing the section modal
+    if (e.key === 'Escape') {
+      const inspector = document.getElementById('cv-inspector-panel');
+      const bubble = document.getElementById('cv-bubble-toolbar');
+      const isInspectorOpen = inspector && inspector.classList.contains('visible');
+      const isBubbleOpen = bubble && bubble.classList.contains('visible');
+
+      if (isInspectorOpen || isBubbleOpen || activeElement) {
+        // Stop the key event from reaching the modal close handler
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+
+        if (inspector) inspector.classList.remove('visible');
+        if (bubble) bubble.classList.remove('visible');
+        if (activeElement) {
+          activeElement.classList.remove('cv-selected-element');
+          activeElement.blur();
+          activeElement = null;
+        }
+      }
+    }
+  }, true); // Capture phase ensures editor intercepts before page modal handler
 
   document.addEventListener('DOMContentLoaded', async () => {
     applyStoredModifications();
