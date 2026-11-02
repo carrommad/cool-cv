@@ -1,43 +1,45 @@
 // Auto-synchronized cover letter data for local/offline execution
 window.COVER_LETTER_DATA = {
   "recipient": {
-    "to": "Data Analytics and Visualization Group (DAV)",
-    "institution": "Barcelona Supercomputing Center (BSC-CNS)"
+    "to": "Fellow Creators, Engineers & Teams",
+    "institution": "Open to Collaborative Opportunities & Technical Leadership"
   },
-  "subject": "Application to join the Data Analytics and Visualization Group",
-  "opening": "Dear Data Analytics & Visualization group,",
+  "subject": "Vision & Philosophy: Computational Rigor Meets Creative Expression",
+  "opening": "Hi there! ✨",
   "paragraphs": [
-    "I am a <b>Computational Physicist</b> (Double Degree in Physics & Mathematics, MSc in Plasma Physics) and <b>HPC Scientific Software Engineer</b> in BSC's Performance Team. Daily, I deploy, couple, fix and optimize simulation workloads across different clusters. But I am more than what those roles can tell about me, I want to create, to be able to take the raw material and make it malleable to the public, to tell stories.",
-    "When creativity kicks in, I use my free time to do some independent creative computing. The idea is turning technical ideas into tangible realities:"
+    "I am a <b>Computational Physicist</b> (Double Degree in Physics & Mathematics, MSc in Plasma Physics) and <b>HPC Scientific Software Engineer</b> at the Barcelona Supercomputing Center (BSC). My career has bridged mathematical formalism with real-world, high-stakes computational problems across supercomputing, energy, and aerospace engineering.",
+    "Across diverse roles and European institutions, I have developed a unified methodology for tackling complex physical systems:"
   ],
-  "projects": [
+  "methods": [
     {
-      "name": "Music engine for MN5",
-      "tag": "MNusic",
-      "summary": "A real-time music engine transforming live cluster telemetry into generative harmonic soundscapes and reactive particle fields. Much inspired by Brian Eno's works, I wondered how visitors could hear the pulse of computational science."
+      "name": "Non-Convex Multi-Dimensional Optimization",
+      "tag": "Cognitive Radar · Fraunhofer FHR",
+      "summary": "Navigating non-convex, multimodal parameter spaces using heuristic search and simulated annealing. Designed non-planar radar antenna geometry in MATLAB to optimize radiation patterns and beam directivity under tight geometric constraints."
     },
     {
-      "name": "Cat orchestra",
-      "tag": "Pipa-Music-Ball",
-      "summary": "While away from home, I always wondered what my cat Pipa was doing. I had this thought of using a microcontroller to capture movement data of a toy she liked, then mapping feline motion vectors to microtonal audio scales, proving that sensor physicalization can be tactile and playful."
+      "name": "Industrial Data Science & Sensor Anomaly Detection",
+      "tag": "Renewable Energy · CENER",
+      "summary": "Building end-to-end Python pipelines to analyze high-frequency SCADA time-series telemetry from offshore wind farms. Engineered predictive classification models with Scikit-Learn and Pandas to anticipate mechanical degradation and optimize turbine maintenance."
     },
     {
-      "name": "Preparing an exhibition",
-      "tag": "Expo-Curator",
-      "summary": "I was contacted to do a photo exhibition for the first time and this drove me crazy. Creating beautiful compositions out of thousands of photos becomes a difficult art. I created this open-source gallery staging platform automating artwork classification, catalog layout, and exhibition wall geometry for scientific dissemination spaces that helps you focus on what matters, the photos!"
+      "name": "Particle Tracking & Symplectic Integration",
+      "tag": "HPC Plasma Physics · Seville & BSC",
+      "summary": "Developing high-order symplectic particle integrators to trace charged particle trajectories and loss cones through turbulent magnetic fields. Translating kinetic and magnetohydrodynamic (MHD) equations into scalable parallel diagnostics."
     }
   ],
   "closing_paragraphs": [
-    "Treating LLMs and agentic pair-programming as fluid thinking partners allows me to transition without friction between C++/Fortran HPC kernels, microcontroller firmware, browser Web Audio synthesis, and Adobe After Effects procedural visual essays.",
-    "Being grateful to have followed some of your workshops and tracked your work, whether it is scientific storytelling, interactive visualization or creative intelligence, I believe my background and skills put me in a sweet intersection where my computational physics grounding, digital twin workflows, and sensory media experiments belong.",
-    "It would be lovely to, at some point, attend your workshops not from the audience but presenting a new idea from the Creative Intelligence Lab or to co-engineer data installations for the public to enjoy."
+    "Treating agentic workflows and LLMs as fluid thinking partners enables seamless transitions between C++/Fortran HPC kernels, microcontroller firmware, and interactive web tools.",
+    "Whether profiling parallel efficiency on Tier-0 supercomputers (MN5, LUMI), modeling complex physical dynamics, or designing interactive tools, my goal remains constant: pairing mathematical rigor with clear, compelling delivery.",
+    "I am always keen to collaborate with teams pushing the boundaries of simulation, data science, and scientific computing."
   ],
 
   "signoff": {
-    "greeting": "Sincerely and with great enthusiasm,",
+    "greeting": "Looking forward to connecting,",
     "name": "Carlos Romero Madrid",
-    "title": "Computational Physicist · HPC Scientific Software Engineer (BSC)",
+    "title": "Computational Physicist · HPC Scientific Software Engineer",
     "contact": "carrommad@gmail.com · +34 611 423 133 · Barcelona, Spain",
     "web_url": "https://carrommad.github.io/cool-cv"
   }
 };
+
+

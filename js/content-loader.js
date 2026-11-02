@@ -212,24 +212,25 @@
           if (Array.isArray(data.paragraphs)) {
             data.paragraphs.forEach(p => html += `<p>${p}</p>`);
           }
-          if (Array.isArray(data.projects) && data.projects.length) {
+          const itemsList = Array.isArray(data.methods) ? data.methods : (Array.isArray(data.pillars) ? data.pillars : (Array.isArray(data.projects) ? data.projects : []));
+          if (itemsList.length) {
             html += '<ul class="letter-pillars-list">';
             const repoMap = {
               'MNusic': 'https://github.com/carrommad/mnusic',
               'Pipa-Music-Ball': 'https://github.com/carrommad/pipa-music-ball',
               'Expo-Curator': 'https://github.com/carrommad/expo-curator'
             };
-            data.projects.forEach(proj => {
+            itemsList.forEach(item => {
               let tagStr = '';
-              if (proj.tag) {
-                const url = proj.url || repoMap[proj.tag];
+              if (item.tag) {
+                const url = item.url || repoMap[item.tag];
                 if (url) {
-                  tagStr = ` (<a href="${url}" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;">${proj.tag}</a>)`;
+                  tagStr = ` (<a href="${url}" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;">${item.tag}</a>)`;
                 } else {
-                  tagStr = ` (${proj.tag})`;
+                  tagStr = ` (${item.tag})`;
                 }
               }
-              html += `<li><strong>${proj.name || ''}${tagStr} —</strong> ${proj.summary || ''}</li>`;
+              html += `<li><strong>${item.name || ''}${tagStr} —</strong> ${item.summary || ''}</li>`;
             });
             html += '</ul>';
           }
