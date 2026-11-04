@@ -384,3 +384,14 @@
       }
 
       function scheduleNextPing() {
+        if (!isPlayingAudio) return;
+        playTelemetryPing();
+        const isDayMode = (currentThemeMode === 'day');
+        const nextDelay = isDayMode ? (Math.random() * 1600 + 1800) : (Math.random() * 2200 + 2600);
+        sequenceTimer = setTimeout(scheduleNextPing, nextDelay);
+      }
+
+      // Initial bloom: pad opens, then shiny bells begin
+      sequenceTimer = setTimeout(scheduleNextPing, 1400);
+    }
+
